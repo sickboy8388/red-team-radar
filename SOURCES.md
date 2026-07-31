@@ -22,7 +22,7 @@ Tool repos & releases (check `<repo>/releases`):
 - NetExec — https://github.com/Pennyw0rth/NetExec
 - Certipy — https://github.com/ly4k/Certipy
 - Nuclei — https://github.com/projectdiscovery/nuclei
-- Havoc / Sliver / Mythic C2 — https://github.com/HavocFramework/Havoc · https://github.com/BishopFox/sliver · https://github.com/its-a-feature/Mythic
+- Havoc / Sliver / Mythic C2 — https://github.com/HavocFramework/Havoc [archived 2026-02-20, no releases — repo is read-only, keep in list for history but stop expecting releases] · https://github.com/BishopFox/sliver · https://github.com/its-a-feature/Mythic
 - impacket — https://github.com/fortra/impacket
 
 ## CVE / advisory watch — swept every run
