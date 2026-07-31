@@ -37,7 +37,7 @@ _(empty — first run will populate this)_
 - 2026-07-31 — https://www.outflank.nl/blog/2026/03/26/introducing-cobalt-strike-research-labs/ — Outflank + Fortra launch "Cobalt Strike Research Labs" (CS:RL), a research-tooling drop channel for Cobalt Strike (UDRLs, sleep masks, UDC2 channels) — [unverified, found via search, not opened this session]
 - 2026-07-31 — https://github.com/D7EAD/mkPIVM — mkPIVM: generates polymorphic, position-independent VMs from x86/x64 shellcode for EDR evasion (421 stars, active) — [1 group so far, surfaced via GitHub discovery search, repo not opened]
 - 2026-07-31 — https://github.com/JM00NJ/Phantom-Evasion-Loader — Phantom-Evasion-Loader: pure x64 ASM injection loader aimed at modern EDR/XDR (109 stars) — [1 group so far, surfaced via GitHub discovery search, repo not opened]
-- 2026-07-31 — https://github.com/advisories/GHSA-xr9x-r78c-5hrm — (see study_shelf) also note GHSA listing flagged other high/critical advisories same window (Fluentd "Logging Operator" config-injection RCE, an SSRF/file-write/cred-leak chain in a project referred to as "Flyto2 Core") — exact GHSA IDs/URLs not yet pinned down — [unverified, needs a follow-up open of github.com/advisories to grab direct links]
+- 2026-07-31 — https://labs.watchtowr.com/more-evidence-that-words-dont-mean-what-we-thought-they-meant-ivanti-sentry-pre-auth-os-command-injection-cve-2026-10520/ — (see queue line above) WebSearch corroboration this week: CVE-2026-10520 confirmed across 6+ independent groups (watchTowr, FortiGuard, CrowdSec, Horizon3, eSentire, CERT-EU) and added to CISA KEV (actively exploited). Still [unverified] — the primary blog remains 403 under the egress block, so no URL was opened; promote once a real open is possible.
 
 ---
 
@@ -45,6 +45,8 @@ _(empty — first run will populate this)_
 
 <!-- 0–2 per day, newest first. A single strong artifact qualifies (no trend bar). -->
 
+- 2026-07-31 — https://github.com/advisories/GHSA-mjqf-28ph-426h — CVE-2026-54680 (critical): kube-logging/logging-operator writes CRD-supplied strings into fluent.conf unescaped; a newline in a Flow value injects arbitrary Fluentd directives (e.g. `@type exec`) → RCE in the aggregator pod. Kubernetes/cloud axis. Pinned + opened this session (resolves the daily-run placeholder); patched build 20260608145523.
+- 2026-07-31 — https://github.com/advisories/GHSA-pgwh-4jj4-qm8v — CVE-2026-67428 (high): flyto2-core (PyPI) — several HTTP-family modules fetch client-controlled URLs without the SSRF guard their siblings apply → SSRF to internal/cloud-metadata endpoints. Web/API axis. Pinned + opened this session (resolves the daily-run placeholder).
 - 2026-07-31 — https://github.com/projectdiscovery/nuclei/releases/tag/v3.11.0 — Nuclei now refuses to run unsigned JavaScript-protocol templates (breaking change, released 2026-07-06); if you maintain custom offensive nuclei templates using the `javascript:` protocol, they now need signing or they silently stop loading.
 - 2026-07-31 — https://github.com/advisories/GHSA-xr9x-r78c-5hrm — CVE-2026-66066: Rails Active Storage arbitrary file read + RCE during variant processing, published 2026-07-30. Widely-deployed framework; check for it on any Rails target using Active Storage variants.
 
@@ -69,3 +71,15 @@ _(empty — first run will populate this)_
   evidence. If this scoping is intentional going forward, the routine's primary-sweep
   lane needs rethinking (mirror blogs via GitHub Pages repos where available, or
   accept a permanently GHSA+GitHub-only radar).
+- 2026-W31 (agent, weekly) Egress block PERSISTS into the second session: `example.com`,
+  `labs.watchtowr.com`, and NVD all still 403 at the CONNECT tunnel; WebFetch 403s the same
+  non-GitHub hosts. WebFetch on `github.com` and WebSearch (server-side) both work. Coverage
+  reads 21/21 (every swept source appears opened-or-degraded) but that HIDES that 12/21 —
+  all 10 blogs + NVD + CISA KEV — were `degraded`, not opened, two runs running. NOT an
+  anchoring/thematic problem (0 evidence and 0 trends is a network artifact, not curator
+  bias), so no exploration redirect is warranted — the fix is infrastructural. Redirect for
+  next week: lean the primary lane on GitHub-native equivalents (GHSA, `*/security/advisories`,
+  CVEProject/cvelistV5, GitHub-Pages blog mirrors) and use WebSearch strictly for queue
+  corroboration counts, never as evidence. Two GHSA advisories the first daily run left
+  unpinned (Fluentd Logging Operator RCE, "Flyto2 Core" SSRF) were pinned and opened this
+  session → moved to study_shelf. See reports/weekly/2026-W31.md for proposed amendments.
