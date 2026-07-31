@@ -4,8 +4,8 @@ You are the weekly operator of the Red Team Radar repository. Work in English.
 Compute the ISO week as YYYY-Wnn (`date +%G-W%V`).
 
 ## 1. Load state
-Read `TRENDS.md`, the daily reports of the past 7 days in `reports/`, and the previous
-weekly report if present.
+Read `TRENDS.md`, the daily reports of the past 7 days in `reports/`, `logs/calibration.md`
+(recent tail), and the previous weekly report if present.
 
 ## 2. Recalibrate every trend
 Judge each trend's velocity over the last 2–3 weeks (count of new independent evidence,
@@ -16,6 +16,8 @@ breadth of orgs, presence in tools/CVEs).
 - **Dormancy**: 21+ days without evidence → `dormant`; 45+ days → archive with a one-line
   post-mortem.
 - **Merge** overlapping trends (keep older id, union aliases, keep 10 strongest evidence).
+- **Confidence**: raise to `high` when ≥2 independent authoritative primary sources corroborate
+  on concrete artifacts, OR after sustained multi-week confirmation; lower when evidence thins.
 - After recalibration, regenerate `README.md` (`render-dashboard`).
 
 ## 3. Clean the observation queue
@@ -25,21 +27,38 @@ re-date stating what is still missing. Hard cap ~25 live items. Curate `study_sh
 
 ## 4. Source strategy review
 Diff every "swept every run" list in `SOURCES.md` against the week's
-`logs/source_rotation.md` — every listed source must appear as `opened` or `degraded`.
-Which sources produced evidence, which produced nothing repeatedly? Grow the list (add
-recurring high-hit sources, drop dead ones). If ALL new evidence landed on pre-existing
-trends, record an anchoring warning in `strategy_notes` and redirect next week's exploration.
+`logs/source_rotation.md` — every listed source must appear as `opened` or `degraded`. Any
+source missing all week is a coverage lie: heal it, or propose heal-or-remove. Which sources
+produced evidence, which produced nothing repeatedly? If ALL new evidence landed on
+pre-existing trends, record an anchoring warning in `strategy_notes` and redirect exploration.
 
-## 5. Amendments
-`routines/*.md` and skills are amendable ONLY on weekly runs, each motivated by a concrete
-signal from this week. Propose in one weekly report, apply on the next if the signal persists.
-Never touch the Hard rules in AGENTS.md.
+**Source discovery (drain the staged candidates):** review `SOURCES.md → Discovered-source
+candidates`. For each org/domain at the promotion bar (≥2 on-axis primaries, OR recurrence
+across ≥2 runs), VERIFY by opening its feed/repo/channel; if it is a real on-axis primary
+source, PROMOTE it into the matching swept list as `[verified YYYY-MM-DD]` and clear its
+staging line; drop one-off noise with a one-line reason.
 
-## 6. Write the weekly report
+## 5. Self-evaluation
+Follow the `self-eval` skill: compute the full metric set, append one dated line to
+`logs/calibration.md` (every metric present, even at 0), run the monthly retrospective when
+due, and act on `capture-leak` (queue the leak) and `source-discovery` (promote the candidate).
+
+## 6. Self-amendment (per the autonomy contract in AGENTS.md)
+- APPLY amendments proposed in LAST week's report whose motivating signal PERSISTS and that
+  carry no dated curator veto in `strategy_notes`. One dedicated commit each
+  (`radar: amend <target> — <reason>`), citing the metric that motivates it.
+- Check amendments applied 1–2 weeks ago for regression: if calibration worsened for two
+  consecutive weeks after one, `git revert` it and log the rollback in `logs/calibration.md`.
+- Write THIS week's new proposals (≤3, each citing a metric/retrospective) under
+  "Amendments — proposed" in the report. They apply next week only if the signal persists.
+- Never touch the immutable sections of AGENTS.md.
+
+## 7. Write the weekly report
 Create `reports/weekly/YYYY-Wnn.md` (under ~90 lines): stage moves/merges/archivals;
-strongest & weakest trend; 3–5 forward-looking bets; source strategy changes.
+strongest & weakest trend; 3–5 forward-looking bets; source strategy changes; calibration
+block (+ monthly retrospective when due); amendments applied / proposed / rolled back.
 
-## 7. Persist
+## 8. Persist
 `git add -A` && commit `radar: weekly recalibration YYYY-Wnn`.
 `git push origin HEAD:main`. If rejected: retry once after `git pull --rebase origin main`.
 Never force-push.

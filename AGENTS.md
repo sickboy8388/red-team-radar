@@ -59,7 +59,9 @@ Do not limit yourself to these axes if you find something clearly more important
 | `reports/YYYY-MM-DD.md` | Daily reports | write once, never edit old ones |
 | `reports/weekly/YYYY-Wnn.md` | Weekly reports | write once |
 | `logs/source_rotation.md` | Append-only daily coverage log | append-only |
-| `routines/*.md` | LIVE operating instructions | weekly amendments only |
+| `logs/calibration.md` | Append-only weekly self-evaluation log | append-only; weekly runs only |
+| `routines/*.md` | LIVE operating instructions | weekly amendments only, per the autonomy contract |
+| `.claude/skills/` | Project skills (ledger-update, render-dashboard, self-eval) | improvable — see policy below |
 
 ## Tooling
 
@@ -68,6 +70,39 @@ Do not limit yourself to these axes if you find something clearly more important
   to cut noise; never print or commit the key. Fall back to built-in tools if it fails.
 - Advisories: NVD (`https://services.nvd.nist.gov/rest/json/cves/2.0`), GHSA, vendor PSIRT
   feeds, repo release feeds (`<repo>/releases.atom`).
+
+## Self-amendment (autonomy contract)
+
+The radar runs unattended: in normal operation no human edits prompts, skills, or scope. The
+fixed platform prompt of each scheduled session is a fixed loader and must never change:
+
+> You are the daily [weekly] operator of this repository. Read AGENTS.md, then read
+> routines/daily.md [routines/weekly.md] and execute it exactly. If either file is missing or
+> unreadable, write a report describing the problem, commit only the report, and stop.
+
+Because `routines/*.md` hold the live operating instructions, they are amendable:
+
+- Only WEEKLY runs amend `routines/*.md`, skills, or scope axes. Daily runs execute, never amend.
+- Every amendment must cite the calibration metric or retrospective that motivates it.
+- **Cooling period**: an amendment is PROPOSED in one weekly report and APPLIED on the next
+  weekly run only if the motivating signal persists. Silence is consent; the curator may veto
+  with a dated entry in `strategy_notes`.
+- One dedicated commit per applied amendment: `radar: amend <target> — <reason>`.
+- **Auto-rollback**: if calibration metrics worsen for two consecutive weeks after an
+  amendment, `git revert` it and log the rollback in `logs/calibration.md`.
+- Scope axes evolve the same way: a dated "radar-adopted" entry in `strategy_notes` may
+  supersede an older axis. Curator entries are never deleted or edited.
+
+**Immutable (curator-only, never self-amended):** the Hard rules, the Scope priority, this
+Self-amendment section, the existence of the weekly self-evaluation step, and append-only history.
+
+## Skill maintenance policy
+
+Skills in `.claude/skills/` may be improved when a procedure proves wrong, clunky, or
+incomplete — but never to relax the Hard rules (skills make them more precise, not weaker).
+Keep SKILL.md frontmatter valid (`name`, `description`). One dedicated commit per skill change
+(`radar: refine skill <n>`). Create a new skill only after the same procedure has been
+improvised twice without one.
 
 ## Git conventions
 
