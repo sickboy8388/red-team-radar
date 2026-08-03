@@ -3,21 +3,22 @@
 ![trends](https://img.shields.io/badge/trends-0-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-6-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--07--31-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--03-2f9e44?style=flat-square)
 
 Autonomous tracker of the offensive-security frontier — AD/identity, C2 & evasion, web/API/cloud,
 exploitable CVEs, and red-team TTPs — curated for a red team operator. Derived from
 [TRENDS.md](TRENDS.md); regenerated on every scan.
 
-## Since last scan (2026-07-31 — weekly recalibration 2026-W31)
+## Since last scan (2026-08-03 — weekly recalibration 2026-W32)
 
-- **Week 1, first weekly run.** No trends seeded yet (0 items cleared the ≥3-source bar) —
-  see the network note below. Recalibration was a no-op on trends; queue and study_shelf curated.
-- **Network note (persists 2 sessions):** outbound access is restricted to `github.com` by org
-  egress policy — the 10 primary security blogs, NVD, and CISA KEV all 403. GitHub (tool
-  releases, GHSA, code search) and server-side WebSearch work; WebSearch is used for queue
-  corroboration only, never as evidence.
-- Pinned two GHSA advisories the first daily run left unresolved:
+- **No new capture this week.** Zero daily reports ran between 2026-08-01 and 2026-08-03 (a
+  scheduling/execution gap, not a network or curator issue), so the ledger, queue, and
+  study_shelf are unchanged from 2026-W31. Recalibration was a no-op on trends.
+- **Network note (persists 3 sessions):** the 10 primary security blogs, NVD, CISA KEV, and now
+  even `github.com`'s own web UI (scoped to this repo this session) all 403 for this weekly run;
+  `raw.githubusercontent.com` / `api.github.com` still answer. WebSearch remains queue-only,
+  never evidence.
+- Pinned two GHSA advisories the first daily run left unresolved (still the latest ledger state):
   [Logging Operator Fluentd-injection RCE (CVE-2026-54680)](https://github.com/advisories/GHSA-mjqf-28ph-426h)
   and [flyto2-core SSRF (CVE-2026-67428)](https://github.com/advisories/GHSA-pgwh-4jj4-qm8v).
 - [Rails Active Storage RCE (CVE-2026-66066)](https://github.com/advisories/GHSA-xr9x-r78c-5hrm) — arbitrary file read + RCE in variant processing, published 2026-07-30.
@@ -59,4 +60,4 @@ This is a **radar**: it points to published research, tools, and advisories and 
 significance. It tracks artifacts — it is not a runbook and stores no operational payloads.
 
 ---
-[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-07-31.md) · [Latest weekly](reports/weekly/2026-W31.md) · [Weekly reports](reports/weekly/)
+[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-07-31.md) · [Latest weekly](reports/weekly/2026-W32.md) · [Weekly reports](reports/weekly/)
