@@ -1,6 +1,6 @@
 # Red Team Radar
 
-![trends](https://img.shields.io/badge/trends-0-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-1-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-6-6c757d?style=flat-square)
 ![updated](https://img.shields.io/badge/updated-2026--08--03-2f9e44?style=flat-square)
@@ -26,8 +26,11 @@ exploitable CVEs, and red-team TTPs — curated for a red team operator. Derived
 
 ## Trends
 
-_(empty — first run found no item clearing the ≥3-independent-source bar; see
-[`TRENDS.md`](TRENDS.md#strategy_notes) for why.)_
+seed 1 · emerging 0 · accelerating 0 · mainstreaming 0 · dormant 0
+
+| Trend | Stage | Latest signal |
+|---|---|---|
+| [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](TRENDS.md#ad-certighost-001--certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | seed | [2026-07-31](https://github.com/nafiez/Metasploit-CVE-2026-54121-Certighost) |
 
 ## Tools & releases
 
@@ -44,6 +47,12 @@ _(empty — first run found no item clearing the ≥3-independent-source bar; se
 
 ## Worth studying
 
+- [CVE-2026-54725 — Vault Secrets Webhook SSRF → cluster token theft](https://github.com/advisories/GHSA-r2v3-8gwf-7ghm) — unsanitized `vault-addr` annotation triggers an outbound HTTP call during K8s admission review; `vault-serviceaccount` mode escalates to ServiceAccount JWT theft.
+- [CVE-2026-53713 — Envoy Gateway auth bypass via Lua path traversal](https://github.com/advisories/GHSA-wcrf-9vrr-854f) — `//`-prefixed paths bypass the critical-path check, letting EnvoyExtensionPolicy Lua read secrets/SA tokens/TLS certs from the gateway controller pod.
+- [CVE-2026-10520 — Ivanti Sentry pre-auth OS command injection](https://github.com/advisories/GHSA-v2vc-rgvq-3pwf) — CVSS 10.0, on CISA KEV, 6+ groups tracking active exploitation.
+- [ADscan — Linux-native AD attack-chain CLI](https://github.com/ADScanPro/adscan) — 104 techniques (Kerberoasting, ESC1-16, DCSync, BloodHound-compatible output) in one Dockerized tool, no Windows infra needed.
+- [CVE-2026-52887 — NocoBase unauthenticated SQLi → RCE](https://github.com/advisories/GHSA-p849-8hwh-84j9) — CVSS 10.0; unauth SQL injection in the in-app-message notification plugin escalates to RCE via `COPY ... TO PROGRAM` on the default superuser Postgres role. Public PoC in the advisory. Patched in 2.0.61.
+- [SliverC2-Evasion-Suite](https://github.com/Squ1shification/SliverC2-Evasion-Suite) — four-part defense-evasion kit for Sliver C2: Crystal Palace loader, sleep masking, in-memory PE execution, PPID-spoofed remote process injection.
 - [CVE-2026-54680 — Logging Operator Fluentd-injection RCE](https://github.com/advisories/GHSA-mjqf-28ph-426h) — unescaped CRD strings injected into `fluent.conf`; a newline plants `@type exec` → RCE in the aggregator pod. Kubernetes/cloud.
 - [CVE-2026-67428 — flyto2-core SSRF](https://github.com/advisories/GHSA-pgwh-4jj4-qm8v) — HTTP modules fetch client-controlled URLs without the SSRF guard their siblings apply → internal/cloud-metadata reach.
 - [Nuclei v3.11.0 — mandatory JS-template signing](https://github.com/projectdiscovery/nuclei/releases/tag/v3.11.0) — if you maintain custom nuclei templates on the `javascript:` protocol, they now need a signature or they stop loading.
