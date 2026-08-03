@@ -23,7 +23,22 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - YYYY-MM-DD — https://... — one line of context
 -->
 
-_(empty — first run will populate this)_
+### id: ad-certighost-001 — CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)
+- stage: seed
+- confidence: medium
+- last_evidence: 2026-08-01
+- aliases: [CertiGhost, CVE-2026-54121, ADCS chase spoofing, cdc/rmd cert-request spoofing]
+- notes: AD CS's enrollment "chase" fallback resolves an attacker-supplied `cdc`/`rmd` target
+  over unauthenticated LDAP/SMB without verifying it is a real DC, letting a low-privileged
+  domain user obtain a DC-impersonating certificate → PKINIT → DCSync. Patched by Microsoft's
+  July 2026 update (chase target must now resolve to a genuine DC computer object). Distinct
+  from classic ESC1–16 template-misconfiguration abuse — a CA-side trust bug, not a template bug.
+- evidence:
+  - 2026-07-14 — https://github.com/advisories/GHSA-64qv-2ffq-h4w6 — Official advisory: AD CS improper authorization (CWE-285), CVSS 8.8 (AV:N/AC:L/PR:L/S:U/C:H/I:H/A:H), patched by the MS July 2026 update.
+  - 2026-07-24 — https://gist.github.com/H0j3n/a5ef2609b5f2944ac2390a191a534c26 — h0j3n & aniqfakhrul's technical writeup coining "CertiGhost": unvalidated cdc/rmd chase → rogue LDAP/SMB → forged DC identity → cert issuance → PKINIT/DCSync.
+  - 2026-07-23 — https://github.com/aniqfakhrul/CVE-2026-54121 — Original researchers' PoC, 295 stars — most-adopted PoC in the family.
+  - 2026-07-28 — https://github.com/mwnickerson/certighost-bof — Independent Mythic/Apollo Beacon Object File automating the cert-enrollment step of the chain (explicitly lab-scoped).
+  - 2026-07-31 — https://github.com/nafiez/Metasploit-CVE-2026-54121-Certighost — Independent Metasploit auxiliary module weaponizing the same chase-fallback DC-impersonation chain.
 
 ---
 
@@ -43,8 +58,8 @@ _(empty — first run will populate this)_
 
 <!-- 0–2 per day, newest first. A single strong artifact qualifies (no trend bar). -->
 
-- 2026-08-02 — https://github.com/advisories/GHSA-v2vc-rgvq-3pwf — CVE-2026-10520 (critical, CVSS 10.0): Ivanti Sentry pre-auth OS command injection, fixed in R10.5.2/R10.6.2/R10.7.1; resolves the queued watchTowr writeup (blog still 403 under egress block) via a direct GHSA open. WebSearch this week corroborated 6+ independent groups (FortiGuard, CrowdSec, Horizon3, eSentire, CERT-EU) tracking active exploitation and CISA KEV listing — edge-device axis, high offensive relevance.
-- 2026-08-02 — https://github.com/ADScanPro/adscan — ADscan: Linux-native CLI consolidating 104 AD attack-chain techniques (Kerberoasting, AS-REP roasting, password spraying, automated ADCS ESC1-16 detection/exploitation, DCSync, BloodHound-compatible attack-path output) into one Dockerized tool, no Windows infra required (506 stars, 56 forks, active). AD/identity axis.
+- 2026-08-01 — https://github.com/advisories/GHSA-p849-8hwh-84j9 — CVE-2026-52887 (critical, CVSS 10.0): NocoBase `plugin-notification-in-app-message` ≤2.0.60 — unauthenticated SQL injection in `/api/myInAppChannels:list` via the `filter[latestMsgReceiveTimestamp][$lt]` parameter, escalating to RCE through `COPY ... TO PROGRAM` on the default superuser Postgres role. Public PoC in the advisory. Patched in 2.0.61.
+- 2026-08-01 — https://github.com/Squ1shification/SliverC2-Evasion-Suite — new on-axis C2/evasion tool: four-part defense-evasion kit for Sliver C2 (Crystal Palace loader, sleep masking, in-memory PE execution, PPID-spoofed remote process injection), 81 stars, actively updated.
 - 2026-07-31 — https://github.com/advisories/GHSA-mjqf-28ph-426h — CVE-2026-54680 (critical): kube-logging/logging-operator writes CRD-supplied strings into fluent.conf unescaped; a newline in a Flow value injects arbitrary Fluentd directives (e.g. `@type exec`) → RCE in the aggregator pod. Kubernetes/cloud axis. Pinned + opened this session (resolves the daily-run placeholder); patched build 20260608145523.
 - 2026-07-31 — https://github.com/advisories/GHSA-pgwh-4jj4-qm8v — CVE-2026-67428 (high): flyto2-core (PyPI) — several HTTP-family modules fetch client-controlled URLs without the SSRF guard their siblings apply → SSRF to internal/cloud-metadata endpoints. Web/API axis. Pinned + opened this session (resolves the daily-run placeholder).
 - 2026-07-31 — https://github.com/projectdiscovery/nuclei/releases/tag/v3.11.0 — Nuclei now refuses to run unsigned JavaScript-protocol templates (breaking change, released 2026-07-06); if you maintain custom offensive nuclei templates using the `javascript:` protocol, they now need signing or they silently stop loading.

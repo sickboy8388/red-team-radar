@@ -1,6 +1,6 @@
 # Red Team Radar
 
-![trends](https://img.shields.io/badge/trends-0-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-1-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-4-6c757d?style=flat-square)
 ![updated](https://img.shields.io/badge/updated-2026--08--02-2f9e44?style=flat-square)
@@ -43,8 +43,6 @@ egress block; see [`TRENDS.md`](TRENDS.md#strategy_notes) for why.)_
 - [ADscan](https://github.com/ADScanPro/adscan) — Dockerized CLI consolidating 104 AD attack-chain techniques (Kerberoasting, ADCS ESC1-16, DCSync, BloodHound-compatible output) into one tool, no Windows infra needed.
 - [CVE-2026-54680 — Logging Operator Fluentd-injection RCE](https://github.com/advisories/GHSA-mjqf-28ph-426h) — unescaped CRD strings injected into `fluent.conf`; a newline plants `@type exec` → RCE in the aggregator pod. Kubernetes/cloud.
 - [CVE-2026-67428 — flyto2-core SSRF](https://github.com/advisories/GHSA-pgwh-4jj4-qm8v) — HTTP modules fetch client-controlled URLs without the SSRF guard their siblings apply → internal/cloud-metadata reach.
-- [Nuclei v3.11.0 — mandatory JS-template signing](https://github.com/projectdiscovery/nuclei/releases/tag/v3.11.0) — if you maintain custom nuclei templates on the `javascript:` protocol, they now need a signature or they stop loading.
-- [CVE-2026-66066 — Rails Active Storage RCE](https://github.com/advisories/GHSA-xr9x-r78c-5hrm) — arbitrary file read + RCE via variant processing on any Rails app using Active Storage variants.
 
 ## How it works
 
