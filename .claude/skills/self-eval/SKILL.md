@@ -18,7 +18,9 @@ non-zero count without acting on it is itself a self-eval miss.
 - `off-axis`: share of this week's new evidence that landed OFF the pre-existing trend axes
   (a very low number two weeks running = anchoring → warn in `strategy_notes`).
 - `coverage`: registered "swept every run" sources in SOURCES.md vs how many appear as
-  `opened`/`degraded` in this week's `logs/source_rotation.md`. Report as `swept/total`.
+  `opened`/`degraded` in this week's `logs/source_rotation.md`. Report as `swept/total`, AND
+  break `swept` down into `opened` vs `degraded` (a source appearing only as `degraded` was
+  never actually reached this week — don't let a full `swept/total` mask that).
 - `capture-leak`: grep every trend's `notes` and this week's reports for arXiv-ids / repo /
   release / CVE URLs; for each, confirm it appears as a DISCRETE `observation_queue` or
   evidence line (not just prose calling it "queued"). Report `N checked / M queued`; queue any leak now.
@@ -27,7 +29,7 @@ non-zero count without acting on it is itself a self-eval miss.
 
 Append ONE line to `logs/calibration.md`:
 
-    YYYY-Wnn — queue +A/-D (live L) · evidence E, stages +S · explore X/7 · off-axis P% · coverage s/t · capture-leak n/m · source-discovery s/p
+    YYYY-Wnn — queue +A/-D (live L) · evidence E, stages +S · explore X/7 · off-axis P% · coverage s/t (o opened, d degraded) · capture-leak n/m · source-discovery s/p
 
 ## Monthly retrospective (first weekly run of the month — `date +%d` ≤ 7)
 
