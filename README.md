@@ -2,27 +2,20 @@
 
 ![trends](https://img.shields.io/badge/trends-1-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-6-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--03-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-7-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--04-2f9e44?style=flat-square)
 
 Autonomous tracker of the offensive-security frontier — AD/identity, C2 & evasion, web/API/cloud,
 exploitable CVEs, and red-team TTPs — curated for a red team operator. Derived from
 [TRENDS.md](TRENDS.md); regenerated on every scan.
 
-## Since last scan (2026-08-03 — weekly recalibration 2026-W32)
+## Since last scan (2026-08-04)
 
-- **No new capture this week.** Zero daily reports ran between 2026-08-01 and 2026-08-03 (a
-  scheduling/execution gap, not a network or curator issue), so the ledger, queue, and
-  study_shelf are unchanged from 2026-W31. Recalibration was a no-op on trends.
-- **Network note (persists 3 sessions):** the 10 primary security blogs, NVD, CISA KEV, and now
-  even `github.com`'s own web UI (scoped to this repo this session) all 403 for this weekly run;
-  `raw.githubusercontent.com` / `api.github.com` still answer. WebSearch remains queue-only,
-  never evidence.
-- Pinned two GHSA advisories the first daily run left unresolved (still the latest ledger state):
-  [Logging Operator Fluentd-injection RCE (CVE-2026-54680)](https://github.com/advisories/GHSA-mjqf-28ph-426h)
-  and [flyto2-core SSRF (CVE-2026-67428)](https://github.com/advisories/GHSA-pgwh-4jj4-qm8v).
-- [Rails Active Storage RCE (CVE-2026-66066)](https://github.com/advisories/GHSA-xr9x-r78c-5hrm) — arbitrary file read + RCE in variant processing, published 2026-07-30.
-- [Nuclei v3.11.0](https://github.com/projectdiscovery/nuclei/releases/tag/v3.11.0) — unsigned JavaScript-protocol templates are now refused at load time.
+- [Pterodactyl Wings config-template token theft (CVE-2026-52855, CVSS 9.9)](https://github.com/advisories/GHSA-pfvc-3p5h-x7h6) — a low-privileged server owner/subuser can craft egg-template placeholders to exfiltrate the node daemon token and Docker registry credentials. Fixed 1.12.3.
+- [Apostrophe CMS prototype pollution → authz bypass (CVE-2026-53609, CVSS 9.1)](https://github.com/advisories/GHSA-6h5j-32cf-4253) — an authenticated editor pollutes `Object.prototype` via a crafted PATCH request, flipping the API authorization check open process-wide. PoC in the advisory.
+- Sequelize Oracle-dialect SQLi (CVE-2026-69240, CVSS 9.8, [GHSA-v8fg-2rw7-q452](https://github.com/advisories/GHSA-v8fg-2rw7-q452)) triaged but not shelved (narrower attack surface) — carried to the next session.
+- **Network note (persists 6 sessions):** the primary security blogs, NVD, and CISA KEV all still 403 at the proxy; `github.com` (releases, advisories, code/repo search) remains fully reachable and continues to carry daily capture via the GHSA-first fallback.
+- No new trend today; CertiGhost (`ad-certighost-001`) unchanged.
 
 ## Trends
 
@@ -47,6 +40,8 @@ seed 1 · emerging 0 · accelerating 0 · mainstreaming 0 · dormant 0
 
 ## Worth studying
 
+- [CVE-2026-52855 — Pterodactyl Wings config-template token theft](https://github.com/advisories/GHSA-pfvc-3p5h-x7h6) — egg configuration-file templating exposes the full daemon config; a crafted `{{config.<path>}}` placeholder exfiltrates the node daemon token and Docker registry credentials. Fixed 1.12.3.
+- [CVE-2026-53609 — Apostrophe CMS prototype pollution → authz bypass](https://github.com/advisories/GHSA-6h5j-32cf-4253) — `apos.util.set()` doesn't reject `__proto__`/`constructor`/`prototype`; an editor's crafted PATCH request pollutes `Object.prototype` and permanently opens unauthenticated REST access. PoC in the advisory. Fixed 4.31.0.
 - [CVE-2026-54725 — Vault Secrets Webhook SSRF → cluster token theft](https://github.com/advisories/GHSA-r2v3-8gwf-7ghm) — unsanitized `vault-addr` annotation triggers an outbound HTTP call during K8s admission review; `vault-serviceaccount` mode escalates to ServiceAccount JWT theft.
 - [CVE-2026-53713 — Envoy Gateway auth bypass via Lua path traversal](https://github.com/advisories/GHSA-wcrf-9vrr-854f) — `//`-prefixed paths bypass the critical-path check, letting EnvoyExtensionPolicy Lua read secrets/SA tokens/TLS certs from the gateway controller pod.
 - [CVE-2026-10520 — Ivanti Sentry pre-auth OS command injection](https://github.com/advisories/GHSA-v2vc-rgvq-3pwf) — CVSS 10.0, on CISA KEV, 6+ groups tracking active exploitation.
@@ -69,4 +64,4 @@ This is a **radar**: it points to published research, tools, and advisories and 
 significance. It tracks artifacts — it is not a runbook and stores no operational payloads.
 
 ---
-[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-07-31.md) · [Latest weekly](reports/weekly/2026-W32.md) · [Weekly reports](reports/weekly/)
+[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-08-04.md) · [Latest weekly](reports/weekly/2026-W32.md) · [Weekly reports](reports/weekly/)

@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-08-03
+Last updated: 2026-08-04
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -53,6 +53,7 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 - 2026-07-31 — https://github.com/JM00NJ/Phantom-Evasion-Loader — Phantom-Evasion-Loader: x64 ASM/SROP injection loader for Linux aimed at modern EDR/XDR + kernel monitors, claims 0/65 on VirusTotal (109 stars) — [verified, opened 2026-08-01/02, 1 group so far — EDR evasion axis]
 - 2026-08-01 — https://github.com/entropykit/entropia — entropia: a compiled language purpose-built for Windows position-independent x86-64 shellcode and Beacon Object Files (176 stars, active) — [1 group so far, opened 2026-08-01]
 - 2026-08-01 — https://github.com/WKL-Sec/OpenBOF — OpenBOF: new community-maintained BOF collection for red-team ops/research, launched 2026-07-26, growing fast (24 stars in days) — [1 group so far, opened 2026-08-01]
+- 2026-08-04 — https://github.com/zhaoxuya520/reverse-skill — "reverse-skill": AI-agent skill-routing framework for reverse engineering / authorized pentest / CTF workflows (Claude Code, Cursor, Cline, etc.), claims scope-gating ("no target ACT until ready") and 16.6k stars — [unverified, 1 group so far, opened 2026-08-04; star count is unusually high for an unknown repo with no visible creation date, treat with caution until independently corroborated]
 
 ---
 
@@ -60,6 +61,8 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 
 <!-- 0–2 per day, newest first. A single strong artifact qualifies (no trend bar). -->
 
+- 2026-08-04 — https://github.com/advisories/GHSA-pfvc-3p5h-x7h6 — CVE-2026-52855 (critical, CVSS 9.9): Pterodactyl Wings <1.12.3 renders egg configuration-file templates against the daemon's full config without restriction, so a low-privileged server owner/subuser can craft `{{config.<path>}}` placeholders to exfiltrate the node daemon token, Docker registry credentials and token IDs from their own server files — full node compromise. Fixed 1.12.3; admins must rotate daemon tokens post-patch (old tokens stay valid until reset). Widely-deployed game-server hosting panel.
+- 2026-08-04 — https://github.com/advisories/GHSA-6h5j-32cf-4253 — CVE-2026-53609 (critical, CVSS 9.1): Apostrophe CMS ≤4.30.0 `apos.util.set()` doesn't reject `__proto__`/`constructor`/`prototype` path segments, so an authenticated editor can pollute `Object.prototype` via a crafted `$pullAll` PATCH request, permanently flipping `publicApiCheck()` to allow unauthenticated access to piece-type REST endpoints for the life of the process. PoC in the advisory. Fixed 4.31.0. Web/API axis, prototype-pollution → authz-bypass pattern.
 - 2026-08-03 — https://github.com/advisories/GHSA-r2v3-8gwf-7ghm — CVE-2026-54725 (critical, CVSS 9.6): bank-vaults/vault-secrets-webhook ≤1.22.2 processes an unsanitized `vault.security.banzaicloud.io/vault-addr` pod annotation and makes a synchronous outbound HTTP call during Kubernetes admission review — SSRF, plus the `vault-serviceaccount` mode lets an attacker with ConfigMap/Secret-create rights exfiltrate ServiceAccount JWTs for cluster-wide token theft. Patched in 1.23.1. Kubernetes/cloud axis.
 - 2026-08-03 — https://github.com/advisories/GHSA-wcrf-9vrr-854f — CVE-2026-53713 (critical, CVSS 9.1): envoyproxy/gateway's `EnvoyExtensionPolicy` Lua path check (`to_absolute_normalized_path`/`is_critical_path`) fails to collapse redundant `//` separators, so a POSIX-equivalent `//etc/passwd`-style path bypasses the traversal guard — lets Lua code submitted via EnvoyExtensionPolicy read credentials, K8s service-account tokens, TLS certs and env vars out of the gateway controller pod. Fixed in 1.8.1 / 1.7.4. Cloud/API-gateway axis.
 - 2026-08-02 — https://github.com/advisories/GHSA-v2vc-rgvq-3pwf — CVE-2026-10520 (critical, CVSS 10.0): Ivanti Sentry pre-auth OS command injection, fixed in R10.5.2/R10.6.2/R10.7.1; resolves the queued watchTowr writeup (blog still 403 under egress block) via a direct GHSA open. WebSearch this week corroborated 6+ independent groups (FortiGuard, CrowdSec, Horizon3, eSentire, CERT-EU) tracking active exploitation and CISA KEV listing — edge-device axis, high offensive relevance.
@@ -159,3 +162,19 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   3600s) — first time that lane itself degraded rather than the proxy; logged in source_rotation.
   Two new CVEs (Vault Secrets Webhook SSRF→token-theft, Envoy Gateway Lua path-traversal→secret
   disclosure) resolved via direct GHSA opens → study_shelf. No new trend; CertiGhost unchanged.
+- 2026-08-04 (agent, daily) Egress block PERSISTS a sixth consecutive session: directly re-tested
+  6 of the 10 primary blogs (SpecterOps, watchTowr, Assetnote, MDSec, PortSwigger) plus NVD and
+  CISA KEV — all still 403 at the proxy; `old.reddit.com` now fails outright (fetch refused, not
+  even a 403) rather than returning a policy error. `github.com` (releases.atom, GHSA, repo
+  search) fully reachable, no rate-limit this time (unlike 2026-08-03's 429). GHSA-first fallback
+  again carried the day: two new critical advisories (Pterodactyl Wings config-templating token
+  theft CVE-2026-52855, Apostrophe CMS prototype-pollution→authz-bypass CVE-2026-53609) opened
+  directly and shelved. A third (Sequelize Oracle-dialect SQLi, CVE-2026-69240, GHSA-v8fg-2rw7-q452,
+  CVSS 9.8) was triaged but not shelved today under the 0–2/day cap — narrower attack surface
+  (Oracle dialect + specific function-prefixed input only) made it the weaker of the three; worth
+  a look next session if still fresh. Discovery-topic rotation ("adcs esc", "kubernetes attack")
+  completed this time (no 429) but both lanes were thin — nothing cleared the bar for
+  queueing except one off-axis exploration-slot find (`reverse-skill`, an AI-agent security
+  skill-router claiming 16.6k stars) queued unverified with a star-inflation caution flag rather
+  than taken at face value. No new trend; CertiGhost (`ad-certighost-001`) unchanged, no new
+  evidence surfaced for it today.
