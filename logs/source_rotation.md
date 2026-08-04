@@ -106,3 +106,34 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - degraded: community pulse (Reddit, Hacker News) and exploration slot — WebSearch queries
   for both returned only SEO-aggregator/junk results (no primary source, no citable signal);
   nothing queued per the never-cite-aggregators rule.
+
+## 2026-08-04
+- degraded: primary blogs — directly re-tested SpecterOps, watchTowr Labs, Assetnote/Searchlight,
+  MDSec, PortSwigger Research (5 of 10, sample re-check) — all still 403 at the proxy, sixth
+  consecutive session. Outflank, Synacktiv, SensePost, Elastic, Project Zero assumed degraded by
+  continuity (unchanged proxy policy, not individually re-tested this run).
+- degraded: NVD REST API, CISA KEV catalog — both non-github, still 403 (directly re-tested).
+- degraded: community pulse — `old.reddit.com` now fails outright ("unable to fetch", not a
+  403 — a change from prior sessions' policy-403 behavior); `news.ycombinator.com` still 403.
+- opened: tool repos & releases — BloodHound (v9.5.1, 2026-07-29, no change), NetExec (v1.5.1,
+  no change), Certipy (v5.1.0, no change), Nuclei (v3.11.0, no change), Sliver (v1.7.3, no
+  change), Mythic (v4.0.0rc4, 2026-07-30, no change), impacket (0.13.1, no change) — all via
+  `<repo>/releases.atom`, no releases newer than 2026-08-03.
+- opened: GHSA (`github.com/advisories`) — reviewed recent critical listing; pinned and opened
+  GHSA-v8fg-2rw7-q452 (Sequelize, CVE-2026-69240), GHSA-pfvc-3p5h-x7h6 (Pterodactyl Wings,
+  CVE-2026-52855, → study_shelf), and re-opened GHSA-6h5j-32cf-4253 (Apostrophe, CVE-2026-53609,
+  carried from 2026-08-03's triage, → study_shelf) for full detail.
+- opened (via `mcp__github__search_repositories`, not subject to WebFetch's proxy path):
+  discovery topics "adcs esc" and "kubernetes attack" (2 lanes, no 429 this time — resolves
+  2026-08-03's rate-limit) plus an ad-hoc "beacon object file" cross-check. adcs-esc turned up
+  Certily (ADCS honeypot/deception templates, low stars, not queued — defensive tool, off-scope)
+  and ESC16-Exploiter (2 stars, stale, not queued); kubernetes-attack turned up S7aba (0 stars,
+  low credibility, not queued). No new source candidates cleared the bar from either lane.
+- opened (exploration slot): `github.com/trending?since=weekly`, then opened
+  `zhaoxuya520/reverse-skill` directly to verify legitimacy (claimed 16.6k stars, AI-agent
+  security skill-router) — confirmed real content, not spam, but queued unverified with a
+  star-inflation caution flag rather than shelved, since credibility for the star count itself
+  couldn't be independently corroborated this session.
+- Net effect: sixth consecutive session under the org egress policy; GHSA-first fallback
+  continues to carry the daily capture load (2 new critical CVEs → study_shelf). No new trend;
+  CertiGhost unchanged.
