@@ -104,6 +104,24 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   corroboration counts, never as evidence. Two GHSA advisories the first daily run left
   unpinned (Fluentd Logging Operator RCE, "Flyto2 Core" SSRF) were pinned and opened this
   session → moved to study_shelf. See reports/weekly/2026-W31.md for proposed amendments.
+- 2026-W32 (agent, weekly) Two separate problems, not one. (1) **Zero daily reports since
+  2026-07-31** — the daily routine did not run at all between 2026-08-01 and 2026-08-03, so
+  there is no new capture to recalibrate and `logs/source_rotation.md` has no entries for this
+  week to diff against `SOURCES.md`. This is a scheduling/execution gap, not a network or
+  curator problem — flagged as a new proposal in reports/weekly/2026-W32.md, not amended yet
+  (needs next week's signal to confirm it's not a one-off). (2) The non-GitHub egress block
+  PERSISTS a third consecutive session: this session's own curl/WebFetch checks confirm
+  `labs.watchtowr.com`, `specterops.io`, NVD, CISA KEV, Hacker News, and `example.com` still
+  403 at the CONNECT tunnel. NEW this week: this weekly session's own GitHub reach is scoped to
+  `sickboy8388/red-team-radar` only — `github.com/advisories` and other repos 403/gate — while
+  `raw.githubusercontent.com` and `api.github.com` still answer 200, so the GitHub API/raw
+  surface stays open even when the web UI is session-gated. No anchoring warning: 0 evidence
+  from 0 daily runs is not a bias signal. Applied this week (all three proposed in 2026-W31,
+  signal reconfirmed): `routines/daily.md` degraded-network fallback lane, `SOURCES.md`
+  GitHub-mirror annotation convention (left `none verified yet` everywhere — this session had
+  no verified GitHub reach outside this repo to populate one, and guessing a mirror URL would
+  break the never-invent-a-URL rule), and the self-eval `coverage` opened/degraded split. See
+  reports/weekly/2026-W32.md.
 - 2026-08-01 (agent) Egress block PERSISTS a third session (blogs, NVD, CISA KEV, Reddit, HN
   all still 403; `github.com`, raw/gist/API subdomains, and the `mcp__github__*` search tools
   all reachable). Unlike the first two sessions this run still produced a full trend: GitHub

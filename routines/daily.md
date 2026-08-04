@@ -31,6 +31,16 @@ FULL CHECK; there is no "light pass". Separate CHECK from EXTRACT:
 - **Exploration slot** — browse a listing outside current axes (a security paper feed,
   security-tool trending) significance-first; a significant off-axis item still gets queued.
 
+### Degraded-network fallback
+If a non-GitHub primary (blog, NVD, CISA KEV, community site) 403s or times out at the proxy,
+don't just mark it `degraded` and move on — try the GitHub-native equivalent for that org before
+giving up on the lane: GHSA (`github.com/advisories`), a vendor's `*/security/advisories` page,
+`CVEProject/cvelistV5`, or a GitHub Pages mirror of the blog if `SOURCES.md` notes one for that
+source. Use WebSearch only to corroborate `observation_queue` group-counts (e.g. "N groups so
+far") — never as a substitute for opening a primary URL; it cannot produce evidence. Log the
+fallback outcome in `logs/source_rotation.md` same as any other source (`opened via fallback: ...`
+or still `degraded: ...` if no GitHub-native path exists).
+
 ## 3. Evidence rules (hard)
 - Cite ONLY URLs you actually opened this session; else → `observation_queue` (unverified).
 - Primary published sources only. Never SEO/aggregators. Published/disclosed work only.

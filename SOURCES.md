@@ -5,17 +5,20 @@ entries `[verified YYYY-MM-DD]`. This is a SEED list — replace/extend with you
 
 ## Primary feeds — swept every run (citable evidence)
 
-Research / vendor security blogs (open the blog index, read new posts):
-- SpecterOps blog — https://specterops.io/blog/
-- Google Project Zero — https://googleprojectzero.blogspot.com/
-- watchTowr Labs — https://labs.watchtowr.com/
-- Assetnote / Searchlight research — https://slcyber.io/assetnote-security-research-center/
-- Outflank blog — https://www.outflank.nl/blog/
-- MDSec blog — https://www.mdsec.co.uk/blog/
-- Synacktiv publications — https://www.synacktiv.com/en/publications
-- PortSwigger Research — https://portswigger.net/research
-- Orange Cyberdefense / SensePost — https://sensepost.com/blog/
-- Elastic Security Labs — https://www.elastic.co/security-labs
+Research / vendor security blogs (open the blog index, read new posts). `mirror:` is a
+GitHub-native fallback for degraded-network sessions (see routines/daily.md) — only fill one
+in after verifying it by opening it this session; never guess/invent a mirror URL, leave
+`mirror: none verified yet` until then:
+- SpecterOps blog — https://specterops.io/blog/ (mirror: none verified yet)
+- Google Project Zero — https://googleprojectzero.blogspot.com/ (mirror: none verified yet)
+- watchTowr Labs — https://labs.watchtowr.com/ (mirror: none verified yet)
+- Assetnote / Searchlight research — https://slcyber.io/assetnote-security-research-center/ (mirror: none verified yet)
+- Outflank blog — https://www.outflank.nl/blog/ (mirror: none verified yet)
+- MDSec blog — https://www.mdsec.co.uk/blog/ (mirror: none verified yet)
+- Synacktiv publications — https://www.synacktiv.com/en/publications (mirror: none verified yet)
+- PortSwigger Research — https://portswigger.net/research (mirror: none verified yet)
+- Orange Cyberdefense / SensePost — https://sensepost.com/blog/ (mirror: none verified yet)
+- Elastic Security Labs — https://www.elastic.co/security-labs (mirror: none verified yet)
 
 Tool repos & releases (check `<repo>/releases`):
 - BloodHound — https://github.com/SpecterOps/BloodHound

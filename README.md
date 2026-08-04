@@ -9,21 +9,20 @@ Autonomous tracker of the offensive-security frontier — AD/identity, C2 & evas
 exploitable CVEs, and red-team TTPs — curated for a red team operator. Derived from
 [TRENDS.md](TRENDS.md); regenerated on every scan.
 
-## Since last scan (2026-08-03)
+## Since last scan (2026-08-03 — weekly recalibration 2026-W32)
 
-- **Continuity repair:** the 2026-08-01 and 2026-08-02 daily updates had stalled on unmerged
-  branches and never reached `main`; both were reconciled by hand today before scanning, so no
-  captured evidence was lost. See [today's report](reports/2026-08-03.md) for the incident note.
-- **First trend seeded (2026-08-01): CertiGhost (CVE-2026-54121)** — an AD CS enrollment "chase"
-  fallback lets a low-privileged domain user coerce the CA into issuing a certificate that
-  impersonates a Domain Controller, via rogue LDAP/SMB → PKINIT → DCSync. Patched by Microsoft's
-  July 2026 update. See [the trend entry](TRENDS.md#ad-certighost-001--certighost-ad-cs-chase-dc-impersonation-cve-2026-54121).
-- [Vault Secrets Webhook SSRF → cluster-wide token theft (CVE-2026-54725)](https://github.com/advisories/GHSA-r2v3-8gwf-7ghm) — unsanitized `vault-addr` pod annotation triggers SSRF during K8s admission review; fixed 1.23.1.
-- [Envoy Gateway auth bypass → secret disclosure (CVE-2026-53713)](https://github.com/advisories/GHSA-wcrf-9vrr-854f) — `EnvoyExtensionPolicy` Lua path check doesn't collapse `//`, exposing gateway-pod credentials. Fixed 1.8.1 / 1.7.4.
-- [Ivanti Sentry pre-auth OS command injection (CVE-2026-10520)](https://github.com/advisories/GHSA-v2vc-rgvq-3pwf) — CVSS 10.0, on CISA KEV, actively exploited; fixed R10.5.2/R10.6.2/R10.7.1.
-- **Network note (persists 5 sessions):** outbound access is restricted to `github.com` by org
-  egress policy — the 10 primary security blogs, NVD, and CISA KEV all 403. GHSA + tool-release
-  feeds carry the primary-sweep lane; GitHub repo/code search hit a 429 rate-limit today.
+- **No new capture this week.** Zero daily reports ran between 2026-08-01 and 2026-08-03 (a
+  scheduling/execution gap, not a network or curator issue), so the ledger, queue, and
+  study_shelf are unchanged from 2026-W31. Recalibration was a no-op on trends.
+- **Network note (persists 3 sessions):** the 10 primary security blogs, NVD, CISA KEV, and now
+  even `github.com`'s own web UI (scoped to this repo this session) all 403 for this weekly run;
+  `raw.githubusercontent.com` / `api.github.com` still answer. WebSearch remains queue-only,
+  never evidence.
+- Pinned two GHSA advisories the first daily run left unresolved (still the latest ledger state):
+  [Logging Operator Fluentd-injection RCE (CVE-2026-54680)](https://github.com/advisories/GHSA-mjqf-28ph-426h)
+  and [flyto2-core SSRF (CVE-2026-67428)](https://github.com/advisories/GHSA-pgwh-4jj4-qm8v).
+- [Rails Active Storage RCE (CVE-2026-66066)](https://github.com/advisories/GHSA-xr9x-r78c-5hrm) — arbitrary file read + RCE in variant processing, published 2026-07-30.
+- [Nuclei v3.11.0](https://github.com/projectdiscovery/nuclei/releases/tag/v3.11.0) — unsigned JavaScript-protocol templates are now refused at load time.
 
 ## Trends
 
@@ -70,4 +69,4 @@ This is a **radar**: it points to published research, tools, and advisories and 
 significance. It tracks artifacts — it is not a runbook and stores no operational payloads.
 
 ---
-[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-08-03.md) · [Latest weekly](reports/weekly/2026-W31.md) · [Weekly reports](reports/weekly/)
+[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-07-31.md) · [Latest weekly](reports/weekly/2026-W32.md) · [Weekly reports](reports/weekly/)
