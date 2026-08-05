@@ -19,6 +19,7 @@ in after verifying it by opening it this session; never guess/invent a mirror UR
 - PortSwigger Research — https://portswigger.net/research (mirror: none verified yet)
 - Orange Cyberdefense / SensePost — https://sensepost.com/blog/ (mirror: none verified yet)
 - Elastic Security Labs — https://www.elastic.co/security-labs (mirror: none verified yet)
+- Black Hills Security Blog — https://www.blackhillsinfosec.com/blog/ (mirror: none verified yet)
 
 Tool repos & releases (check `<repo>/releases`):
 - BloodHound — https://github.com/SpecterOps/BloodHound
