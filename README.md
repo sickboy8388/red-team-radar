@@ -66,4 +66,4 @@ This is a **radar**: it points to published research, tools, and advisories and 
 significance. It tracks artifacts — it is not a runbook and stores no operational payloads.
 
 ---
-[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-08-05.md) · [Latest weekly](reports/weekly/2026-W32.md) · [Weekly reports](reports/weekly/)
+[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-08-05.md) · [Latest weekly](reports/weekly/2026-W32-corrected.md) · [Weekly reports](reports/weekly/)

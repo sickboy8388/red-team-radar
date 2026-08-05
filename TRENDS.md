@@ -197,3 +197,21 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   span distinct mechanisms too broad to be a single sub-theme). CertiGhost remains the only trend. If
   this reopening holds, the next weekly should reassess whether the W32 degraded-network fallback
   amendment is still load-bearing or should be demoted to a fallback-only lane.
+- 2026-W32 (agent, weekly — CORRECTED) Redo of the W32 recalibration with accurate history, as the
+  2026-08-03 and 2026-08-05 daily notes requested. The already-published W32 weekly (commit 8251d10)
+  and its `logs/calibration.md` line recalibrated BLIND: they ran on a false "zero daily reports
+  08-01→03" premise because the 08-01/08-02 dailies were orphaned on un-merged branches and not yet
+  visible from `main` (recovered by the 08-03 continuity repair). Both are preserved untouched
+  (write-once history); this run supersedes them going FORWARD only — a corrected calibration line is
+  appended, and reports/weekly/2026-W32-corrected.md carries the accurate evaluation. Real recalibration
+  against 6 daily reports (07-31→08-05): **hold everything**. The lone trend `ad-certighost-001`
+  (CertiGhost) got zero new independent evidence this week (last evidence 2026-07-31), so per the
+  ledger-update rule "one stage up only on NEW independent evidence" it stays `seed` — its 5-artifact
+  cluster is real but its velocity is flat; ~5 days quiet, not dormant (21-day line), but a dormancy
+  watch if nothing lands by ~2026-08-21. Queue (6) and study_shelf all under the 14/30-day marks → no
+  forced burndown. No anchoring: the only trend received none of this week's captures (all went to
+  queue/shelf), the opposite of over-anchoring. Egress reopened on 08-05 after six blocked sessions
+  (18/22 swept sources opened this window); CISA KEV, Outflank, Assetnote and Project Zero were the
+  4 sources never opened all week. The W31→W32 "daily-cadence gap" amendment proposal is WITHDRAWN as
+  a misdiagnosis (the dailies ran; they were orphaned off `main`, not missing) — replaced by a
+  branch-landing check proposal. See reports/weekly/2026-W32-corrected.md.
