@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-08-04
+Last updated: 2026-08-05
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -47,7 +47,6 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
-- 2026-07-31 — https://specterops.io/blog/2026/03/24/attack-paths-dont-stop-at-identity-providers/ — SpecterOps/BloodHound Enterprise extends attack-path graphing to Okta/Entra/GitHub identity, beyond on-prem AD — [unverified, found via search, not opened this session]
 - 2026-07-31 — https://www.outflank.nl/blog/2026/03/26/introducing-cobalt-strike-research-labs/ — Outflank + Fortra launch "Cobalt Strike Research Labs" (CS:RL), a research-tooling drop channel for Cobalt Strike (UDRLs, sleep masks, UDC2 channels) — [unverified, found via search, not opened this session]
 - 2026-07-31 — https://github.com/D7EAD/mkPIVM — mkPIVM: generates polymorphic, position-independent VMs from x86/x64 shellcode for EDR evasion, ships an accompanying research paper (421 stars, active) — [verified, opened 2026-08-01/02, 1 group so far — EDR evasion axis, self-labeled PoC/research-stage, Windows-only]
 - 2026-07-31 — https://github.com/JM00NJ/Phantom-Evasion-Loader — Phantom-Evasion-Loader: x64 ASM/SROP injection loader for Linux aimed at modern EDR/XDR + kernel monitors, claims 0/65 on VirusTotal (109 stars) — [verified, opened 2026-08-01/02, 1 group so far — EDR evasion axis]
@@ -61,6 +60,8 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 
 <!-- 0–2 per day, newest first. A single strong artifact qualifies (no trend bar). -->
 
+- 2026-08-05 — https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/ — ConfigManBearPig 2.0 (SpecterOps): Python rewrite of the SCCM/Microsoft Configuration Manager attack-collection tool covering 30+ techniques across recon, credential theft, coercion, elevation, takeover and execution (9 complete TAKEOVER paths with complementary collectors). Most enumeration needs only low-privileged domain-user context; adds Linux support, proxy/alt-auth OPSEC and performance gains. AD/identity axis — SCCM remains an under-tracked lateral-movement/priv-esc surface. Pointer only, not a runbook.
+- 2026-08-05 — https://sensepost.com/blog/2026/process-parameter-poisoning/ — Process Parameter Poisoning "P3" (SensePost, published 2026-07-06): novel code-injection technique that smuggles a payload through legitimate process-startup fields (command line, environment block, shell info) and uses `CreateProcessW` + thread-context manipulation instead of the usual `WriteProcessMemory`/`VirtualAllocEx` API pattern, reducing the injection footprint against four major EDRs. C2/evasion axis — a fresh primary-source injection primitive, captured now that the blog lane reopened. Pointer only.
 - 2026-08-04 — https://github.com/advisories/GHSA-pfvc-3p5h-x7h6 — CVE-2026-52855 (critical, CVSS 9.9): Pterodactyl Wings <1.12.3 renders egg configuration-file templates against the daemon's full config without restriction, so a low-privileged server owner/subuser can craft `{{config.<path>}}` placeholders to exfiltrate the node daemon token, Docker registry credentials and token IDs from their own server files — full node compromise. Fixed 1.12.3; admins must rotate daemon tokens post-patch (old tokens stay valid until reset). Widely-deployed game-server hosting panel.
 - 2026-08-04 — https://github.com/advisories/GHSA-6h5j-32cf-4253 — CVE-2026-53609 (critical, CVSS 9.1): Apostrophe CMS ≤4.30.0 `apos.util.set()` doesn't reject `__proto__`/`constructor`/`prototype` path segments, so an authenticated editor can pollute `Object.prototype` via a crafted `$pullAll` PATCH request, permanently flipping `publicApiCheck()` to allow unauthenticated access to piece-type REST endpoints for the life of the process. PoC in the advisory. Fixed 4.31.0. Web/API axis, prototype-pollution → authz-bypass pattern.
 - 2026-08-03 — https://github.com/advisories/GHSA-r2v3-8gwf-7ghm — CVE-2026-54725 (critical, CVSS 9.6): bank-vaults/vault-secrets-webhook ≤1.22.2 processes an unsanitized `vault.security.banzaicloud.io/vault-addr` pod annotation and makes a synchronous outbound HTTP call during Kubernetes admission review — SSRF, plus the `vault-serviceaccount` mode lets an attacker with ConfigMap/Secret-create rights exfiltrate ServiceAccount JWTs for cluster-wide token theft. Patched in 1.23.1. Kubernetes/cloud axis.
@@ -178,3 +179,21 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   skill-router claiming 16.6k stars) queued unverified with a star-inflation caution flag rather
   than taken at face value. No new trend; CertiGhost (`ad-certighost-001`) unchanged, no new
   evidence surfaced for it today.
+- 2026-08-05 (agent, daily) **Egress block LIFTED after six consecutive blocked sessions.** Directly
+  opened (HTTP 200) this run: SpecterOps, watchTowr, PortSwigger, Synacktiv, SensePost, Elastic
+  Security Labs, Black Hills, MDSec, and NVD (`services.nvd.nist.gov`) — the first real primary-blog
+  sweep since 2026-07-31. Still 403 at the proxy: Outflank, Assetnote/slcyber, CISA KEV (and
+  old.reddit.com still refuses). GitHub tool `releases.atom` 403s plain curl (UA block) and the
+  `mcp__github__get_latest_release` tool is session-scoped to this repo, but `mcp__github__search_*`
+  reaches all of GitHub and WebFetch opens github.com pages — so release-tracking now leans on WebFetch
+  + primary announcements rather than curl. Captured this session from primary blogs: ConfigManBearPig
+  2.0 (SCCM, SpecterOps) and Process Parameter Poisoning (EDR-evading injection, SensePost) →
+  study_shelf; Mythic 4.0.0 public beta (SpecterOps, 2026-08-04) → Tools & releases. Resolved the
+  2026-07-31 queued SpecterOps "attack-paths-to-identity-providers" item: SpecterOps primary swept and
+  the direction confirmed real, but it is a single-vendor (BloodHound Enterprise) product line, not a
+  ≥3-org trend → closed, not promoted. **Key calibration point:** "no new trend" is now a genuine
+  finding, not a network artifact — ~8 primary orgs swept and there is no ≥3-independent-org cluster on
+  one fresh sub-theme (SCCM = SpecterOps-only; RBCD Part 2 = Synacktiv-only; the EDR-evasion signals
+  span distinct mechanisms too broad to be a single sub-theme). CertiGhost remains the only trend. If
+  this reopening holds, the next weekly should reassess whether the W32 degraded-network fallback
+  amendment is still load-bearing or should be demoted to a fallback-only lane.

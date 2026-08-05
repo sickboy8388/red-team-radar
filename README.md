@@ -2,20 +2,20 @@
 
 ![trends](https://img.shields.io/badge/trends-1-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-7-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--04-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-6-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--05-2f9e44?style=flat-square)
 
 Autonomous tracker of the offensive-security frontier — AD/identity, C2 & evasion, web/API/cloud,
 exploitable CVEs, and red-team TTPs — curated for a red team operator. Derived from
 [TRENDS.md](TRENDS.md); regenerated on every scan.
 
-## Since last scan (2026-08-04)
+## Since last scan (2026-08-05)
 
-- [Pterodactyl Wings config-template token theft (CVE-2026-52855, CVSS 9.9)](https://github.com/advisories/GHSA-pfvc-3p5h-x7h6) — a low-privileged server owner/subuser can craft egg-template placeholders to exfiltrate the node daemon token and Docker registry credentials. Fixed 1.12.3.
-- [Apostrophe CMS prototype pollution → authz bypass (CVE-2026-53609, CVSS 9.1)](https://github.com/advisories/GHSA-6h5j-32cf-4253) — an authenticated editor pollutes `Object.prototype` via a crafted PATCH request, flipping the API authorization check open process-wide. PoC in the advisory.
-- Sequelize Oracle-dialect SQLi (CVE-2026-69240, CVSS 9.8, [GHSA-v8fg-2rw7-q452](https://github.com/advisories/GHSA-v8fg-2rw7-q452)) triaged but not shelved (narrower attack surface) — carried to the next session.
-- **Network note (persists 6 sessions):** the primary security blogs, NVD, and CISA KEV all still 403 at the proxy; `github.com` (releases, advisories, code/repo search) remains fully reachable and continues to carry daily capture via the GHSA-first fallback.
-- No new trend today; CertiGhost (`ad-certighost-001`) unchanged.
+- **Network reopened:** after six blocked sessions, the primary security blogs and NVD are reachable again (SpecterOps, watchTowr, PortSwigger, Synacktiv, SensePost, Elastic, Black Hills, MDSec, NVD all 200) — first real primary-blog sweep since 2026-07-31. Outflank, Assetnote and CISA KEV still 403.
+- [ConfigManBearPig 2.0 (SpecterOps)](https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/) — Python rewrite of the SCCM/Configuration Manager attack toolkit, 30+ techniques (9 complete takeover paths), most needing only a low-privileged domain user; now Linux-native with proxy/alt-auth OPSEC.
+- [Process Parameter Poisoning (SensePost)](https://sensepost.com/blog/2026/process-parameter-poisoning/) — novel injection primitive smuggling payloads through legit process-startup fields via `CreateProcessW` + thread-context manipulation, dodging four major EDRs without the usual `WriteProcessMemory`/`VirtualAllocEx` pattern.
+- [Mythic 4.0.0 public beta (SpecterOps)](https://specterops.io/blog/2026/08/04/mythic-4-public-beta/) — C2 framework major beta on the `Mythic-v4.0.0` branch: operation chat with AI, scoped API tokens, resumable file transfers, in-browser file editing.
+- No new trend; CertiGhost (`ad-certighost-001`) unchanged. With ~8 primary orgs swept, "no trend" is now a genuine finding rather than a network artifact — no ≥3-org cluster on a single fresh sub-theme this session.
 
 ## Trends
 
@@ -29,8 +29,8 @@ seed 1 · emerging 0 · accelerating 0 · mainstreaming 0 · dormant 0
 
 | Tool | Latest release | Date |
 |---|---|---|
+| [Mythic](https://github.com/its-a-feature/Mythic) | [v4.0.0 public beta](https://specterops.io/blog/2026/08/04/mythic-4-public-beta/) | 2026-08-04 |
 | [BloodHound](https://github.com/SpecterOps/BloodHound) | [v9.5.1](https://github.com/SpecterOps/BloodHound/releases/tag/v9.5.1) | 2026-07-29 |
-| [Mythic](https://github.com/its-a-feature/Mythic) | [v4.0.0rc4](https://github.com/its-a-feature/Mythic/releases/tag/v4.0.0rc4) | 2026-07-30 |
 | [Nuclei](https://github.com/projectdiscovery/nuclei) | [v3.11.0](https://github.com/projectdiscovery/nuclei/releases/tag/v3.11.0) | 2026-07-06 |
 | [Certipy](https://github.com/ly4k/Certipy) | [5.1.0](https://github.com/ly4k/Certipy/releases/tag/5.1.0) | 2026-06-23 |
 | [impacket](https://github.com/fortra/impacket) | [0.13.1](https://github.com/fortra/impacket/releases/tag/impacket_0_13_1) | 2026-05-19 |
@@ -40,6 +40,8 @@ seed 1 · emerging 0 · accelerating 0 · mainstreaming 0 · dormant 0
 
 ## Worth studying
 
+- [ConfigManBearPig 2.0 — SCCM attack toolkit](https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/) — Python rewrite covering 30+ Configuration Manager attack techniques (recon → takeover → execution), mostly from a low-privileged domain user; Linux-native with proxy/alt-auth OPSEC. SCCM stays an under-tracked lateral-movement surface.
+- [Process Parameter Poisoning "P3" — EDR-evading injection](https://sensepost.com/blog/2026/process-parameter-poisoning/) — smuggles payloads through legit process-startup fields via `CreateProcessW` + thread-context manipulation, avoiding the `WriteProcessMemory`/`VirtualAllocEx` pattern four major EDRs watch for.
 - [CVE-2026-52855 — Pterodactyl Wings config-template token theft](https://github.com/advisories/GHSA-pfvc-3p5h-x7h6) — egg configuration-file templating exposes the full daemon config; a crafted `{{config.<path>}}` placeholder exfiltrates the node daemon token and Docker registry credentials. Fixed 1.12.3.
 - [CVE-2026-53609 — Apostrophe CMS prototype pollution → authz bypass](https://github.com/advisories/GHSA-6h5j-32cf-4253) — `apos.util.set()` doesn't reject `__proto__`/`constructor`/`prototype`; an editor's crafted PATCH request pollutes `Object.prototype` and permanently opens unauthenticated REST access. PoC in the advisory. Fixed 4.31.0.
 - [CVE-2026-54725 — Vault Secrets Webhook SSRF → cluster token theft](https://github.com/advisories/GHSA-r2v3-8gwf-7ghm) — unsanitized `vault-addr` annotation triggers an outbound HTTP call during K8s admission review; `vault-serviceaccount` mode escalates to ServiceAccount JWT theft.
@@ -64,4 +66,4 @@ This is a **radar**: it points to published research, tools, and advisories and 
 significance. It tracks artifacts — it is not a runbook and stores no operational payloads.
 
 ---
-[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-08-04.md) · [Latest weekly](reports/weekly/2026-W32.md) · [Weekly reports](reports/weekly/)
+[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-08-05.md) · [Latest weekly](reports/weekly/2026-W32.md) · [Weekly reports](reports/weekly/)
