@@ -3,18 +3,18 @@
 ![trends](https://img.shields.io/badge/trends-1-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-7-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--04-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--05-2f9e44?style=flat-square)
 
 Autonomous tracker of the offensive-security frontier — AD/identity, C2 & evasion, web/API/cloud,
 exploitable CVEs, and red-team TTPs — curated for a red team operator. Derived from
 [TRENDS.md](TRENDS.md); regenerated on every scan.
 
-## Since last scan (2026-08-04)
+## Since last scan (2026-08-05)
 
-- [Pterodactyl Wings config-template token theft (CVE-2026-52855, CVSS 9.9)](https://github.com/advisories/GHSA-pfvc-3p5h-x7h6) — a low-privileged server owner/subuser can craft egg-template placeholders to exfiltrate the node daemon token and Docker registry credentials. Fixed 1.12.3.
-- [Apostrophe CMS prototype pollution → authz bypass (CVE-2026-53609, CVSS 9.1)](https://github.com/advisories/GHSA-6h5j-32cf-4253) — an authenticated editor pollutes `Object.prototype` via a crafted PATCH request, flipping the API authorization check open process-wide. PoC in the advisory.
-- Sequelize Oracle-dialect SQLi (CVE-2026-69240, CVSS 9.8, [GHSA-v8fg-2rw7-q452](https://github.com/advisories/GHSA-v8fg-2rw7-q452)) triaged but not shelved (narrower attack surface) — carried to the next session.
-- **Network note (persists 6 sessions):** the primary security blogs, NVD, and CISA KEV all still 403 at the proxy; `github.com` (releases, advisories, code/repo search) remains fully reachable and continues to carry daily capture via the GHSA-first fallback.
+- [Flowise ≤3.1.2 — coordinated 10-CVE disclosure (all fixed 3.1.3)](https://github.com/advisories/GHSA-4j8x-x6v7-w9rq) — a widely-deployed low-code LLM/AI-agent app builder. Multiple critical RCE paths incl. CSVAgent Pyodide WASM-sandbox escape (CVE-2026-69264, CVSS 9.9, unauthenticated when no API key is set), a homoglyph validator bypass (CVE-2026-70470), `pandas.read_pickle` deserialization (CVE-2026-69256), and a vm2 escape via a `moment` CVE-2022-24785 bypass (CVE-2026-69253); plus unauthenticated OAuth2 token theft (CVE-2026-70478). PoCs in the advisories.
+- [Sequelize Oracle-dialect SQL injection (CVE-2026-69240, CVSS 9.8)](https://github.com/advisories/GHSA-v8fg-2rw7-q452) — `escape()` skips quoting for strings beginning `TO_TIMESTAMP`/`TO_DATE`; unauthenticated SQL injection via user params. Oracle dialect only. Carried from 08-04 and shelved on a direct open.
+- **Access note (persists 7 sessions):** primary blogs, NVD, and CISA KEV still 403 at the proxy. NEW this run — the GitHub MCP tools are scoped to this repo only, so the tool-release/discovery lanes were closed; the **GHSA advisory surface via WebFetch stayed open and carried the whole capture**.
+- Watch theme forming: **AI-agent / LLM app-builder framework attack surface** (Flowise mass-RCE + queued `reverse-skill`) — noted for the next weekly, not yet a seed.
 - No new trend today; CertiGhost (`ad-certighost-001`) unchanged.
 
 ## Trends
@@ -40,6 +40,8 @@ seed 1 · emerging 0 · accelerating 0 · mainstreaming 0 · dormant 0
 
 ## Worth studying
 
+- [Flowise ≤3.1.2 — 10-CVE mass disclosure (RCE + OAuth token theft)](https://github.com/advisories/GHSA-4j8x-x6v7-w9rq) — coordinated batch fixed in 3.1.3: several CSVAgent/Pyodide sandbox-escape RCEs (CVE-2026-69264 CVSS 9.9, some unauthenticated on public chatflows), a homoglyph validator bypass, `pandas.read_pickle` deserialization, a vm2 escape, a SQLite Record-Manager path-override → root shell exec, and unauthenticated OAuth2 access-token theft (CVE-2026-70478). Widely-deployed LLM/AI-agent app builder; PoCs in the advisories.
+- [CVE-2026-69240 — Sequelize Oracle-dialect SQL injection](https://github.com/advisories/GHSA-v8fg-2rw7-q452) — `escape()` skips quote-escaping for strings starting `TO_TIMESTAMP`/`TO_DATE`, enabling unauthenticated SQLi via user params (CVSS 9.8, PoC in advisory). Oracle dialect only. Fixed 6.37.4.
 - [CVE-2026-52855 — Pterodactyl Wings config-template token theft](https://github.com/advisories/GHSA-pfvc-3p5h-x7h6) — egg configuration-file templating exposes the full daemon config; a crafted `{{config.<path>}}` placeholder exfiltrates the node daemon token and Docker registry credentials. Fixed 1.12.3.
 - [CVE-2026-53609 — Apostrophe CMS prototype pollution → authz bypass](https://github.com/advisories/GHSA-6h5j-32cf-4253) — `apos.util.set()` doesn't reject `__proto__`/`constructor`/`prototype`; an editor's crafted PATCH request pollutes `Object.prototype` and permanently opens unauthenticated REST access. PoC in the advisory. Fixed 4.31.0.
 - [CVE-2026-54725 — Vault Secrets Webhook SSRF → cluster token theft](https://github.com/advisories/GHSA-r2v3-8gwf-7ghm) — unsanitized `vault-addr` annotation triggers an outbound HTTP call during K8s admission review; `vault-serviceaccount` mode escalates to ServiceAccount JWT theft.
@@ -64,4 +66,4 @@ This is a **radar**: it points to published research, tools, and advisories and 
 significance. It tracks artifacts — it is not a runbook and stores no operational payloads.
 
 ---
-[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-08-04.md) · [Latest weekly](reports/weekly/2026-W32.md) · [Weekly reports](reports/weekly/)
+[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-08-05.md) · [Latest weekly](reports/weekly/2026-W32.md) · [Weekly reports](reports/weekly/)

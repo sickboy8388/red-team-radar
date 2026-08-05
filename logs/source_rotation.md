@@ -137,3 +137,22 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - Net effect: sixth consecutive session under the org egress policy; GHSA-first fallback
   continues to carry the daily capture load (2 new critical CVEs → study_shelf). No new trend;
   CertiGhost unchanged.
+
+## 2026-08-05 (daily)
+- egress: seventh consecutive session under the org egress block. Direct-tested NVD, SpecterOps,
+  CISA KEV (curl `000`/timeout) and `github.com` web UI (403 to curl) — all blocked at the proxy.
+  WebFetch on `github.com` still works (GHSA index + advisory pages fetched fine).
+- NEW constraint: `mcp__github__*` tools hard-scoped to `sickboy8388/red-team-radar` only. All
+  external-repo `list_releases` calls (BloodHound, NetExec, Certipy, nuclei, Sliver, Mythic,
+  impacket) returned "Access denied … not configured for this session".
+- degraded (out of scope this session, not circumvented): Tool-release lane (all 7 tracked repos);
+  GitHub tool-discovery lane (search_repositories denied / forbidden by session scope rules);
+  community pulse (r/redteamsec, HN — non-GitHub egress blocked).
+- opened (via WebFetch): GHSA critical index (`github.com/advisories?query=type:reviewed severity:critical`).
+  Opened 7 Flowise advisories — GHSA-qgvm-j2hm-6m38 (CVE-2026-70478), GHSA-4j8x-x6v7-w9rq (-69264),
+  GHSA-x3hf-7cj6-3r4m (-69259), GHSA-52fh-8v99-63c2 (-70470), GHSA-x6vm-w76m-8j7g (-69256),
+  GHSA-vmv7-4m6c-3cg5 (-69255), GHSA-wg86-r78f-74mp (-69253) — coordinated 10-CVE Flowise ≤3.1.2
+  disclosure → study_shelf. Opened GHSA-v8fg-2rw7-q452 (Sequelize CVE-2026-69240) → study_shelf.
+- Net effect: seventh consecutive egress-blocked session, now with GitHub MCP scoped to this repo;
+  GHSA-via-WebFetch carried the entire daily capture (Flowise mass-RCE + Sequelize SQLi → study_shelf).
+  No new trend; CertiGhost unchanged.

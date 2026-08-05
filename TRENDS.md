@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-08-04
+Last updated: 2026-08-05
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -61,6 +61,8 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 
 <!-- 0–2 per day, newest first. A single strong artifact qualifies (no trend bar). -->
 
+- 2026-08-05 — https://github.com/advisories/GHSA-4j8x-x6v7-w9rq — Flowise ≤3.1.2 coordinated 10-CVE disclosure (all fixed 3.1.3, published 2026-08-04). Multiple critical RCE paths: CSVAgent injects Python interpolated from a base64 data-URI and escapes Pyodide's WASM sandbox via the JS bridge to run OS commands as the Flowise process (CVE-2026-69264, CVSS 9.9; trigger is unauthenticated when no API key is set), with sibling variants adding a Unicode-homoglyph validator bypass usable unauthenticated on public chatflows (CVE-2026-70470, 9.5), `pandas.read_pickle` deserialization (CVE-2026-69256), and plain base64 interpolation (CVE-2026-69255); a vm2 sandbox escape chains a `moment` CVE-2022-24785 bypass off broken URL validation in the AgentAsTool node (CVE-2026-69253); and the SQLite Record-Manager node overrides the DB file path so a crafted DB is sourced as shell config when Puppeteer launches Chromium as root (CVE-2026-69259, 9.4). Separately, an unauthenticated OAuth2 token-refresh endpoint returns decrypted access tokens for connected Google/Microsoft accounts given a credential ID (CVE-2026-70478, 9.2). Widely-deployed low-code LLM/AI-agent app builder; PoCs in the advisories. Web/API + emerging AI-agent-framework attack-surface axis.
+- 2026-08-05 — https://github.com/advisories/GHSA-v8fg-2rw7-q452 — CVE-2026-69240 (critical, CVSS 9.8): Sequelize <6.37.4 Oracle-dialect SQL injection — `escape()` skips quote-escaping for strings that begin `TO_TIMESTAMP`/`TO_DATE`, so an unauthenticated attacker injects arbitrary SQL through user-supplied params (CWE-89, PoC in the advisory). Oracle-dialect only; carried from 2026-08-04's triage and shelved now on a direct open. Web/API axis.
 - 2026-08-04 — https://github.com/advisories/GHSA-pfvc-3p5h-x7h6 — CVE-2026-52855 (critical, CVSS 9.9): Pterodactyl Wings <1.12.3 renders egg configuration-file templates against the daemon's full config without restriction, so a low-privileged server owner/subuser can craft `{{config.<path>}}` placeholders to exfiltrate the node daemon token, Docker registry credentials and token IDs from their own server files — full node compromise. Fixed 1.12.3; admins must rotate daemon tokens post-patch (old tokens stay valid until reset). Widely-deployed game-server hosting panel.
 - 2026-08-04 — https://github.com/advisories/GHSA-6h5j-32cf-4253 — CVE-2026-53609 (critical, CVSS 9.1): Apostrophe CMS ≤4.30.0 `apos.util.set()` doesn't reject `__proto__`/`constructor`/`prototype` path segments, so an authenticated editor can pollute `Object.prototype` via a crafted `$pullAll` PATCH request, permanently flipping `publicApiCheck()` to allow unauthenticated access to piece-type REST endpoints for the life of the process. PoC in the advisory. Fixed 4.31.0. Web/API axis, prototype-pollution → authz-bypass pattern.
 - 2026-08-03 — https://github.com/advisories/GHSA-r2v3-8gwf-7ghm — CVE-2026-54725 (critical, CVSS 9.6): bank-vaults/vault-secrets-webhook ≤1.22.2 processes an unsanitized `vault.security.banzaicloud.io/vault-addr` pod annotation and makes a synchronous outbound HTTP call during Kubernetes admission review — SSRF, plus the `vault-serviceaccount` mode lets an attacker with ConfigMap/Secret-create rights exfiltrate ServiceAccount JWTs for cluster-wide token theft. Patched in 1.23.1. Kubernetes/cloud axis.
@@ -178,3 +180,17 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   skill-router claiming 16.6k stars) queued unverified with a star-inflation caution flag rather
   than taken at face value. No new trend; CertiGhost (`ad-certighost-001`) unchanged, no new
   evidence surfaced for it today.
+- 2026-08-05 (agent, daily) Egress block PERSISTS a seventh consecutive session (NVD, SpecterOps, CISA
+  KEV all curl `000`/time out; `github.com` web UI 403 to curl but reachable via WebFetch). NEW
+  constraint this session: the `mcp__github__*` tools are hard-scoped to `sickboy8388/red-team-radar`
+  only — every external repo (`list_releases` on BloodHound/NetExec/Certipy/Sliver/Mythic/impacket/
+  nuclei) returns "Access denied … not configured for this session", and the session rules forbid
+  using search/list tools to reach outside that scope. So the tool-release and GitHub tool-discovery
+  lanes are CLOSED this run (logged degraded, not circumvented). The **GHSA advisory surface via
+  WebFetch stayed open and carried the whole capture** — the `github.com/advisories` index and
+  individual GHSA pages fetch fine, confirming WebFetch's github path is unaffected by the MCP repo
+  scoping. Top find: a coordinated 10-CVE Flowise ≤3.1.2 disclosure (multiple unauth RCE + OAuth token
+  theft) → study_shelf; Sequelize Oracle SQLi carried from 08-04 also shelved. No new trend. Watch
+  theme forming: **AI-agent / LLM app-builder framework attack surface** — two independent signals now
+  (`reverse-skill` queued 08-04, Flowise mass-RCE today); not yet ≥3 independent groups on one
+  sub-theme, so it stays a note, not a seed — flag for the next weekly to assess as a candidate axis.
