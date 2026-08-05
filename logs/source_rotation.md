@@ -137,3 +137,29 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - Net effect: sixth consecutive session under the org egress policy; GHSA-first fallback
   continues to carry the daily capture load (2 new critical CVEs → study_shelf). No new trend;
   CertiGhost unchanged.
+
+## 2026-08-05 (daily)
+- opened: primary blogs — **egress reopened** after six blocked sessions. HTTP 200 on SpecterOps,
+  watchTowr, PortSwigger, Synacktiv, SensePost, Elastic Security Labs, Black Hills, MDSec
+  (`/knowledge-centre/insights/`). Swept indexes; opened artifacts: SpecterOps ConfigManBearPig 2.0
+  (2026-08-03), SpecterOps Mythic 4.0.0 public beta (2026-08-04), SensePost Process Parameter
+  Poisoning (2026-07-06). New-but-not-captured seen: SpecterOps Clustered Points of Failure
+  (2026-07-29, WSFC creds), NTLM Relaying Egress (2026-07-15); Synacktiv Cross-Forest RBCD Part 2
+  (2026-07-02); MDSec Dell BIOS XOR CVE-2026-40639 (2026-07-10); watchTowr ColdFusion APSB26-68
+  (2026-07-02).
+- opened: NVD recent — `services.nvd.nist.gov` 200 (also reopened). Critical CVEs 2026-08-01→05
+  triaged (Adobe Campaign Classic SQLi→RCE CVE-2026-48330 CVSS 10.0, OpenEMR RCE CVE-2026-39932,
+  GL.iNet GL-MT3000 cmd-injection CVE-2026-18602/18614, MaxSite CMS chain); none shelved under the
+  0–2/day cap.
+- degraded: Outflank (403), Assetnote/slcyber (403), CISA KEV (403), old.reddit.com (refused) — still
+  blocked at the proxy.
+- opened: tool releases — watched-repo `releases.atom` 403s plain curl (UA block) and
+  `mcp__github__get_latest_release` is session-scoped to this repo; used the SpecterOps primary
+  announcement for the Mythic 4.0.0 public-beta capture instead. `mcp__github__search_*` (cross-repo)
+  used for discovery.
+- opened (discovery, `mcp__github__search_repositories`): rotated "edr evasion / process injection"
+  (0 fresh hits) and "kerberos relay / active directory" (only adscan, already shelved, updated
+  2026-08-05) plus "shellcode loader edr bypass created:>2026-07-15" (0). Discovery lane thin; nothing
+  new queued.
+- Net effect: primary lane restored; captured 2 technique writeups → study_shelf and 1 C2 release.
+  Resolved 1 observation_queue item. No new trend — now a genuine finding, not a network artifact.
