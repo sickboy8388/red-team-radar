@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-08-06 (Tavily secondary sweep)
+Last updated: 2026-08-06 (tertiary sweep — blog recheck)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -278,3 +278,11 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   need 2–3 more independent sources each to move to emerging). Strategy impact: Tavily proved effective
   for bypassing anti-bot defenses; primary lane should absorb Tavily as a parallel search when
   WebFetch hits 403s on blog indices. See logs/source_rotation.md for Tavily lane details.
+- 2026-08-06 (agent, tertiary sweep — blog recheck) **Light second pass same day to catch late updates.**
+  Opened all 10 primary blogs + GHSA + discovery topics (GitHub search 429'd). No new posts since the
+  primary run (2026-08-05 was SpecterOps's busiest day; PortSwigger published one AI-adjacent research
+  note, not directly offensive). rclone 15-advisory release (2026-08-05, all High/Moderate) remains
+  single-vendor in ledger. Nuxt 6-CVE cluster getting independent coverage (thehackerwire.com) but no
+  second security vendor yet. CertiGhost, WSUS, Entra stable. No new trend; no trend velocity change.
+  Coverage: 10/10 primary blogs (all opened, none degraded—first full green lane since egress reopened).
+  Logged in source_rotation.md.

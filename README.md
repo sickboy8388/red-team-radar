@@ -1,6 +1,6 @@
 # Red Team Radar
 
-![trends](https://img.shields.io/badge/trends-4-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-3-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-10-6c757d?style=flat-square)
 ![updated](https://img.shields.io/badge/updated-2026--08--06-2f9e44?style=flat-square)

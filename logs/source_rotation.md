@@ -202,3 +202,19 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   (Tavily results link to primary URLs verified this session, respecting "cite only opened URLs").
 - Discovered: BofAllTheThings (BOF repository), Nextron/Kudelski/DataMinr/FieldEffect as new
   intelligence-source candidates (added to SOURCES.md).
+
+## 2026-08-06 (tertiary, same-day blog recheck)
+- opened: all 10 primary blogs (SpecterOps, Project Zero, watchTowr, Assetnote, Outflank, MDSec,
+  Synacktiv, PortSwigger, SensePost, Elastic) — first full green lane (all blogs fully reachable,
+  none degraded) since the egress block lifted on 2026-08-05. GitHub GHSA, discovery topics
+  (GitHub search hit 429 rate-limit mid-run; skipped rather than retry immediately).
+- findings: no new posts since primary run (SpecterOps latest still 2026-08-04, PortSwigger added
+  1 research article on "Can AI do novel security research?" — adjacent to offensive axis, not
+  captured). rclone 15-advisory batch (2026-08-05, all single-vendor) remains in queue. Nuxt 6-CVE
+  cluster now showing secondary coverage (thehackerwire.com security news) but still insufficient
+  independent sources for trend bar. CHAINDROP, Nuxt, rclone observation_queue items unchanged.
+- no new trend; no trend velocity changes; CertiGhost, WSUS, Entra stable. Confirm early — trends
+  are now "no new independent cluster on 08-06" in the ledger, not "couldn't check." Next critical
+  milestone: watch WSUS and Entra SyncJacking for follow-up research or exploit releases over 2–3
+  more days; if they remain at 1-vendor (SpecterOps for WSUS, Semperis for Entra), trend bar may
+  require extending coverage window or revisiting threshold.
