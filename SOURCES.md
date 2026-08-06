@@ -49,4 +49,10 @@ Tool repos & releases (check `<repo>/releases`):
 
 ## Discovered-source candidates
 <!-- auto-staged tally: domain — times seen — last artifact+date — first-seen date -->
-_(empty)_
+
+- Nextron Systems (`nextron-systems.com`, 1x Certighost SIGMA detection 2026-08-06)
+- Kudelski Security Research Center (`kudelskisecurity.com`, 1x Certighost mitigation 2026-08-06)
+- DataMinr (`dataminr.com`, 1x Certighost PoC analysis 2026-08-06)
+- FieldEffect (`fieldeffect.com`, 1x Certighost DC impersonation 2026-08-06)
+- SOC Prime (`socprime.com`, 1x Certighost detection stack 2026-08-06)
+- Hive Security (`hivesecurity.gitlab.io`, 1x BloodHound CE AD attack paths 2026-08-06)

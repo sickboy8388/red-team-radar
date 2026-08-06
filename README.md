@@ -1,6 +1,6 @@
 # Red Team Radar
 
-![trends](https://img.shields.io/badge/trends-3-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-4-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-10-6c757d?style=flat-square)
 ![updated](https://img.shields.io/badge/updated-2026--08--06-2f9e44?style=flat-square)
@@ -11,27 +11,30 @@ exploitable CVEs, and red-team TTPs — curated for a red team operator. Derived
 
 ## Since last scan (2026-08-06)
 
+- **CertiGhost promoted to emerging** — [Nextron Systems SIGMA detection](https://www.nextron-systems.com/) + [Kudelski](https://kudelskisecurity.com/), [DataMinr](https://www.dataminr.com/), [FieldEffect](https://fieldeffect.com/) analysis confirm DC-impersonation attack chain; confidence upgraded on retroactive Tavily sweep.
 - **Two new SEED trends seeded** — [WSUS/Windows Update Server RCE exploitation](#wsus--windows-update-server-rce-exploitation) (4-article SpecterOps cluster + Sophos, Huntress, Palo Alto Unit42 active tracking; 50+ victims, 5,500+ exposed instances) and [Entra ID SyncJacking & Conditional Access Bypass](#entra-id-syncjacking--conditional-access-bypass) (Semperis discovery, MSRC confirmation; Global Admin takeover via hard-matching abuse).
 - [CRLF-Powered Desync Attacks (PortSwigger)](https://portswigger.net/research/crlf-powered-desync-attacks) — HTTP/2 protocol edge case enabling request smuggling and cache poisoning via header-value CRLF injection.
 - [CHAINDROP worm / Shai-Hulud (Elastic)](https://www.elastic.co/security-labs/shai-hulud-chaindrop) — npm supply-chain attack; 400+ packages compromised, 1.3B monthly downloads affected.
-- [Nuxt framework CVE cluster](https://github.com/advisories?query=type%3Areviewed) — 6 critical/high CVEs (Aug 5-6): unauthenticated DevTools RCE, Server Island template RCE, auth bypass, DoS, cache disclosure.
-- [rclone CVE cluster](https://github.com/advisories) — 4 high CVEs (Aug 5-6): SFTP command execution, auth bypass, path validation, symlink arbitrary write.
+- **Tavily API sweep recovered anti-bot sources** — Outflank, Assetnote, watchTowr, NVD, CISA KEV now reachable via Tavily bypass.
 
 ## Trends
 
-seed 3 · emerging 0 · accelerating 0 · mainstreaming 0 · dormant 0
+seed 2 · emerging 1 · accelerating 0 · mainstreaming 0 · dormant 0
 
 | Trend | Stage | Latest signal |
 |---|---|---|
-| [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | seed | [2026-07-31](https://github.com/nafiez/Metasploit-CVE-2026-54121-Certighost) |
-| [WSUS / Windows Update Server RCE exploitation](#wsus--windows-update-server-rce-exploitation) | seed | [2026-08-05](https://unit42.paloaltonetworks.com/microsoft-cve-2025-59287/) — Palo Alto Unit42 |
+| [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | emerging | [2026-08-06](https://fieldeffect.com/) — FieldEffect |
+| [WSUS / Windows Update Server RCE exploitation](#wsus--windows-update-server-rce-exploitation) | seed | [2026-08-05](https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-2/) — SpecterOps Part 2 |
 | [Entra ID SyncJacking & Conditional Access Bypass](#entra-id-syncjacking--conditional-access-bypass) | seed | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) — Semperis |
 
 ## Tools & releases
 
-- **[Nuclei](https://github.com/projectdiscovery/nuclei)** — v3.11.0 (2026-07-06): mandatory JS-protocol template signing; unsigned templates now silently stop loading.
-- **[SliverC2-Evasion-Suite](https://github.com/Squ1shification/SliverC2-Evasion-Suite)** — 81 stars, actively updated: Crystal Palace loader, sleep masking, in-memory PE execution, PPID-spoofed injection.
-- **[ADScanPro/adscan](https://github.com/ADScanPro/adscan)** — 506 stars, 56 forks: Linux-native consolidation of 104 AD attack-chain techniques (Kerberoasting, ADCS ESC1-16 automation, DCSync, BloodHound-compatible output).
+- **[BloodHound](https://github.com/SpecterOps/BloodHound)** — v9.5.1 (2026-07-29)
+- **[Mythic](https://specterops.io/blog/2026/08/04/of-course-we-built-a-wsus-ludus-lab/)** — v4.0.0 public beta (2026-08-04)
+- **[Nuclei](https://github.com/projectdiscovery/nuclei)** — v3.11.0 (2026-07-06): mandatory JS-protocol template signing
+- **[SliverC2-Evasion-Suite](https://github.com/Squ1shification/SliverC2-Evasion-Suite)** — 81 stars: Crystal Palace loader, sleep masking, in-memory PE, PPID spoofing
+- **[ADScanPro/adscan](https://github.com/ADScanPro/adscan)** — 506 stars: Linux-native AD attack-chain CLI, 104 techniques, Docker
+- **[BofAllTheThings](https://github.com/N7WEra/BofAllTheThings)** — Public Beacon Object File repository
 
 ## Worth studying
 
@@ -59,4 +62,4 @@ This is a **radar**: it points to published research, tools, and advisories and 
 significance. It tracks artifacts — it is not a runbook and stores no operational payloads.
 
 ---
-[Ledger](TRENDS.md) · [Reports](reports/) · [Latest daily](reports/2026-08-06.md) · [Latest weekly](reports/weekly/2026-W32-corrected.md) · [Weekly reports](reports/weekly/)
+[Ledger](TRENDS.md) · [Observation queue](TRENDS.md#observation_queue) · [Reports](reports/) · [Latest daily](reports/2026-08-06.md) · [Weekly reports](reports/weekly/) · [Source rotation log](logs/source_rotation.md) · [Calibration](logs/calibration.md)

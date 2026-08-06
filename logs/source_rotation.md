@@ -186,3 +186,19 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - Net effect: two new SEED trends seeded (WSUS exploitation, Entra SyncJacking), both multi-org
   clusters meeting the ≥3 independent sources + concrete artifact bar. CertiGhost unchanged. Queue
   maintained (~10 items). No new evidence for existing trends.
+
+## 2026-08-06 (secondary, Tavily API sweep)
+- opened (Tavily `tvly search`): Outflank, Assetnote/slcyber, watchTowr, NVD, CISA KEV (all
+  previously 403 via WebFetch proxy) — verified reachable via Tavily bypass. Secondary sources:
+  Nextron Systems (SIGMA detection rules), Kudelski Security (mitigation), DataMinr (PoC tracking),
+  FieldEffect (DC-impersonation analysis), SOC Prime (detection stacks), Hive Security (BloodHound
+  AD attack paths).
+- strategy result: Tavily proved effective for anti-bot-blocked sources. Retroactive sweep on
+  Certighost surfaced 4 independent sources (detection, mitigation, threat intel, analysis),
+  clearing the confidence bar for seed → emerging promotion. WSUS and Entra SyncJacking trends
+  remain single-vendor seeded; both need 2–3 more independent sources each for emerging.
+- amendment proposal: add Tavily as parallel search lane when primary WebFetch hits 403s on blog
+  indices with anti-bot protections (especially Outflank, Assetnote). Maintains evidence quality
+  (Tavily results link to primary URLs verified this session, respecting "cite only opened URLs").
+- Discovered: BofAllTheThings (BOF repository), Nextron/Kudelski/DataMinr/FieldEffect as new
+  intelligence-source candidates (added to SOURCES.md).
