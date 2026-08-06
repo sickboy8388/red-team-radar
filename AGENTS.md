@@ -44,6 +44,11 @@ Do not limit yourself to these axes if you find something clearly more important
   YouTube, forums, named blogs) are an INTAKE LANE ONLY — they may create unverified
   `observation_queue` items (promotable only after confirmation on a primary artifact) and
   feed the community-pulse note, but NEVER become trend evidence. Never name individuals.
+- **Access blocker ≠ quiet field.** If, after healing attempts, a run cannot open a single
+  primary source (tooling missing/misconfigured, a domain systematically blocked), that is a
+  blocker to log in `TRENDS.md#blockers` — not "no new trends today." If it persists across
+  2+ consecutive runs, escalate to the curator (see Operator notifications below). Never
+  conflate "found nothing" with "couldn't check."
 - Never guess dates or invent URLs. Undated pages: "(undated, accessed YYYY-MM-DD)".
 - **Trend bar:** ≥3 independent sources (different orgs/authors) + ≥1 concrete artifact
   (repo, release, CVE, paper, advisory). A single strong tool/paper is not a trend → `study_shelf`.
@@ -53,7 +58,7 @@ Do not limit yourself to these axes if you find something clearly more important
 
 | Path | Contents | Edit policy |
 |---|---|---|
-| `TRENDS.md` | Trend ledger + `observation_queue`, `strategy_notes`, `study_shelf` | follow `ledger-update` skill |
+| `TRENDS.md` | Trend ledger + `observation_queue`, `strategy_notes`, `study_shelf`, `blockers` | follow `ledger-update` skill |
 | `SOURCES.md` | Agent-owned source registry | maintained by the radar itself |
 | `README.md` | THE output surface — regenerate via `render-dashboard`; never edit by hand | fully derived |
 | `reports/YYYY-MM-DD.md` | Daily reports | write once, never edit old ones |
@@ -62,12 +67,31 @@ Do not limit yourself to these axes if you find something clearly more important
 | `logs/calibration.md` | Append-only weekly self-evaluation log | append-only; weekly runs only |
 | `routines/*.md` | LIVE operating instructions | weekly amendments only, per the autonomy contract |
 | `.claude/skills/` | Project skills (ledger-update, render-dashboard, self-eval) | improvable — see policy below |
+| `.env.example` | Template for LOCAL terminal testing only — no effect on the scheduled routine | edit freely, never commit a real key |
 
 ## Tooling
 
 - Web search: use the built-in web tools (search + fetch). If you have a Tavily key in
   `TAVILY_API_KEY`, prefer `tvly` (`pip install -q tavily-cli`) with `--include-domains`
-  to cut noise; never print or commit the key. Fall back to built-in tools if it fails.
+  to cut noise. `tvly search`/`tvly extract` also work WITHOUT a key, under a fair-use cap —
+  try them before declaring a blocker even if no key is configured yet. Fall back to
+  built-in tools if Tavily fails outright.
+- **How `TAVILY_API_KEY` actually reaches this routine (non-obvious — verified against
+  Claude Code's Cloud Environments docs, 2026-08-06):** Cloud Environments clone the repo
+  fresh on every session. A `.env` file, even if committed, is never read automatically by
+  the platform, and if it's gitignored it never lands in the clone at all. The ONLY way this
+  routine sees the key is setting it in the **"Environment variables"** field of the
+  Environment's edit dialog on claude.ai/code (`.env` format, one `KEY=value` line per line)
+  — the same place the network allowlist is configured. **Cloud Environments have no
+  dedicated secrets store**: that value stays plaintext, readable by anyone who uses the
+  Environment. For a personal Environment the practical risk is low, but treat it
+  accordingly, not as a vault.
+- `.env` / `.env.example` in this repo are for LOCAL terminal testing only (`.env` is
+  gitignored — see `.gitignore` — never commit a real key). They have no effect on the
+  scheduled routine.
+- If `tvly` isn't installed in the Environment, add `pip install -q tavily-cli` as the
+  Environment's **setup script** (installs once, stays cached) rather than reinstalling it
+  every run inside `routines/daily.md`.
 - Advisories: NVD (`https://services.nvd.nist.gov/rest/json/cves/2.0`), GHSA, vendor PSIRT
   feeds, repo release feeds (`<repo>/releases.atom`).
 
@@ -110,6 +134,11 @@ improvised twice without one.
 - Any commit that changes `TRENDS.md` must regenerate `README.md` in the SAME commit.
 - Push to main: `git push origin HEAD:main`. If rejected, retry once after
   `git pull --rebase origin main`. Never force-push, never rewrite published history.
+- **Operator notifications**: stay silent on healthy/routine runs (a notification every run
+  is noise). Send a push notification only for something the curator must see before the
+  next run: a failed `main` push / stranded state, a broken hard rule, a degradation
+  self-flagged "heal owed" for ≥3 consecutive runs, or a tooling/access blocker preventing
+  verification for 2+ consecutive runs (see Hard rules → Access blocker ≠ quiet field).
 
 ## Efficiency
 

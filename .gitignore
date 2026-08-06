@@ -1,3 +1,22 @@
+# Secrets — never commit a real .env, only .env.example
 .env
-*.log
+.env.*
+!.env.example
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+
+# Python (tavily-cli and friends)
 __pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (in case it's ever needed)
+node_modules/
+
+# Local scratch/log files not meant for the repo
+*.local.log
+.tmp/

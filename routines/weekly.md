@@ -31,7 +31,6 @@ Diff every "swept every run" list in `SOURCES.md` against the week's
 source missing all week is a coverage lie: heal it, or propose heal-or-remove. Which sources
 produced evidence, which produced nothing repeatedly? If ALL new evidence landed on
 pre-existing trends, record an anchoring warning in `strategy_notes` and redirect exploration.
-
 **Source discovery (drain the staged candidates):** review `SOURCES.md → Discovered-source
 candidates`. For each org/domain at the promotion bar (≥2 on-axis primaries, OR recurrence
 across ≥2 runs), VERIFY by opening its feed/repo/channel; if it is a real on-axis primary
@@ -60,5 +59,13 @@ block (+ monthly retrospective when due); amendments applied / proposed / rolled
 
 ## 8. Persist
 `git add -A` && commit `radar: weekly recalibration YYYY-Wnn`.
-`git push origin HEAD:main`. If rejected: retry once after `git pull --rebase origin main`.
-Never force-push.
+Push to `main`: `git push origin HEAD:main`, even if the session started on a `claude/*`
+branch (the curator authorizes pushing to `main` directly; a `claude/*` branch notice
+describes the default working branch, not a restriction on push targets). If rejected:
+retry once after `git pull --rebase origin main`. Only if the server still rejects it after
+the retry: push to the session branch instead, open the weekly report with a prominent
+`BRANCH WARNING` stating that `main` must be fast-forwarded before the next run, paste the
+verbatim rejection error, and send the curator a push notification (see AGENTS.md → Git
+conventions → Operator notifications) — a stranded branch does not fast-forward itself, and
+next week's run would otherwise build on a stale `main` and orphan this week's work. Never
+force-push, never rewrite published history.
