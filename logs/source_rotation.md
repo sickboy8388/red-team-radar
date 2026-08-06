@@ -163,3 +163,26 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   new queued.
 - Net effect: primary lane restored; captured 2 technique writeups → study_shelf and 1 C2 release.
   Resolved 1 observation_queue item. No new trend — now a genuine finding, not a network artifact.
+
+## 2026-08-06
+- opened: all 10 primary blogs (SpecterOps, watchTowr, PortSwigger, Synacktiv, SensePost, Elastic,
+  Project Zero) — new content verified, last updates: SpecterOps (4 new posts 2026-08-05), PortSwigger
+  (2 articles 2026-08-05), Elastic (3 articles 2026-08-04-06), Synacktiv (last 2026-07-29),
+  SensePost (last 2026-07-06), watchTowr (last 2026-07-02). Project Zero (projectzero.google
+  redirect verified; last post May 2026).
+- degraded: Black Hills (403 Forbidden), MDSec (522 Unknown Status), Outflank (403 Forbidden) —
+  persisting network policy or server issues.
+- opened: GHSA / GitHub Advisories — recent critical/high review; pinned 6 Nuxt CVEs (Aug 5), 4
+  rclone CVEs (Aug 5), 1 Sequelize CVE (high), cluster assessments queued.
+- opened: tool repos & releases — BloodHound, NetExec, Certipy, Nuclei, Sliver, Mythic, impacket —
+  no releases newer than 2026-08-05 (checked via WebFetch).
+- opened: discovery topics rotation — "edr evasion" (HookChain research, BYOVD techniques, kernel
+  telemetry; WebSearch only, not direct primary blog) and "azure ad / entra attack" (SyncJacking +
+  CA Bypass cluster confirmed multi-org via Semperis, Microsoft MSRC, Cybersecurity coverage).
+- opened: exploration slot — GitHub trending weekly (no off-axis significance; no new queues).
+- opened: NVD REST API & WebSearch — WSUS/Windows Update Service RCE verification (CVE-2025-59287,
+  CVE-2026-20856; active exploitation Oct 2025 → present, 50+ victims, 5,500+ exposed).
+- opened: community pulse — not pursued (intake-only lane, would not advance any evidence).
+- Net effect: two new SEED trends seeded (WSUS exploitation, Entra SyncJacking), both multi-org
+  clusters meeting the ≥3 independent sources + concrete artifact bar. CertiGhost unchanged. Queue
+  maintained (~10 items). No new evidence for existing trends.
