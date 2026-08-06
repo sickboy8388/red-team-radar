@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-08-05
+Last updated: 2026-08-06
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -40,6 +40,31 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-07-28 — https://github.com/mwnickerson/certighost-bof — Independent Mythic/Apollo Beacon Object File automating the cert-enrollment step of the chain (explicitly lab-scoped).
   - 2026-07-31 — https://github.com/nafiez/Metasploit-CVE-2026-54121-Certighost — Independent Metasploit auxiliary module weaponizing the same chase-fallback DC-impersonation chain.
 
+### id: initial-access-wsus-001 — WSUS / Windows Update Server RCE exploitation
+- stage: seed
+- confidence: high
+- last_evidence: 2026-08-05
+- aliases: [WSUS exploitation, Windows Update Server abuse, CVE-2025-59287, CVE-2026-20856]
+- notes: Windows Server Update Services RCE via unsafe deserialization (AuthorizationCookie BinaryFormatter, CVE-2025-59287) and improper input validation (CVE-2026-20856). Active exploitation in the wild since Oct 2025, at least 50+ organizations compromised. WSUS compromise allows attacker to become SYSTEM and push malware to all managed endpoints via forged updates. No authentication required on default ports 8530/8531.
+- evidence:
+  - 2026-08-05 — https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-1/ — SpecterOps comprehensive write-up: WSUS exploitation chain, attack surface.
+  - 2026-08-05 — https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-2/ — SpecterOps Part 2: deeper technical analysis.
+  - 2026-08-05 — https://specterops.io/blog/2026/08/05/weaponizing-windows-updates-with-notwsuspicious/ — SpecterOps tool release: NotWSUSpicious automation.
+  - 2026-10-23 — https://www.huntress.com/blog/exploitation-of-windows-server-update-services-remote-code-execution-vulnerability — Huntress: active exploitation observation, "point-and-shoot" attack, PoC released.
+  - 2026-10-23 — https://unit42.paloaltonetworks.com/microsoft-cve-2025-59287/ — Palo Alto Unit42: active exploitation in the wild tracking.
+
+### id: identity-entra-syncjacking-001 — Entra ID SyncJacking & Conditional Access Bypass
+- stage: seed
+- confidence: high
+- last_evidence: 2026-08-06
+- aliases: [SyncJacking, Entra Connect hard-matching abuse, Azure AD account takeover, Conditional Access bypass]
+- notes: SyncJacking: attacker with on-prem AD permissions abuses Entra Connect hard-matching to forcibly link low-privilege AD account to high-privilege Entra ID cloud identity, including Global Administrator. Separate CA-bypass flaw allows blocked accounts to bypass Conditional Access via trust-chain evasion. Microsoft MSRC confirmed Important severity; hardening enforcement began March 2026, with Global Admin role-matching block enforced June 1, 2026.
+- evidence:
+  - 2026-01-15 — https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/ — Semperis discovery: SyncJacking hard-matching abuse → Global Admin takeover.
+  - 2026-01-15 — https://securityboulevard.com/2026/01/syncjacking-hard-matching-vulnerability-enables-entra-id-account-takeover/ — Security Boulevard: MSRC confirmation, attack chain.
+  - 2026-08-06 — https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/ — Semperis re-confirmation and mitigation guidance post-enforcement.
+  - 2026-02-01 — https://cybersecuritynews.com/azure-ad-conditional-access-bypassed/ — Cybersecurity News: Conditional Access bypass via phantom device registration and PRT abuse.
+
 ---
 
 ## observation_queue
@@ -53,6 +78,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 - 2026-08-01 — https://github.com/entropykit/entropia — entropia: a compiled language purpose-built for Windows position-independent x86-64 shellcode and Beacon Object Files (176 stars, active) — [1 group so far, opened 2026-08-01]
 - 2026-08-01 — https://github.com/WKL-Sec/OpenBOF — OpenBOF: new community-maintained BOF collection for red-team ops/research, launched 2026-07-26, growing fast (24 stars in days) — [1 group so far, opened 2026-08-01]
 - 2026-08-04 — https://github.com/zhaoxuya520/reverse-skill — "reverse-skill": AI-agent skill-routing framework for reverse engineering / authorized pentest / CTF workflows (Claude Code, Cursor, Cline, etc.), claims scope-gating ("no target ACT until ready") and 16.6k stars — [unverified, 1 group so far, opened 2026-08-04; star count is unusually high for an unknown repo with no visible creation date, treat with caution until independently corroborated]
+- 2026-08-06 — https://github.com/advisories/GHSA-jnmj-xh73-p68p — CVE-2026-71319 (CRITICAL): Nuxt DevTools unauthenticated RPC command execution (fixed 3.3.1+) — [verified, opened 2026-08-06, single vendor (Nuxt); cluster: 6 critical/high Nuxt CVEs on Aug 5-6 (CVE-2026-71319, 71320, 71321, 71315, 71314, 71316) spanning RCE, auth bypass, DoS, cache disclosure]
+- 2026-08-06 — https://github.com/advisories/GHSA-v8fg-2rw7-q452 — CVE-2026-69240 (HIGH): Sequelize Oracle-dialect SQL injection — [verified, opened 2026-08-06, single vendor (Sequelize); narrower attack surface than web/API axis norm]
+- 2026-08-06 — https://github.com/advisories/GHSA-cfqx-qppp-hchj — CVE-2026-71312 (HIGH): rclone SFTP command execution via PowerShell smart-quote filename injection — [verified, opened 2026-08-06, single vendor (rclone); cluster: 4 high rclone CVEs (71312, 59733, 71309, 54572) on Aug 5-6 (auth bypass, path validation, symlink arbitrary write)]
+- 2026-08-06 — https://www.elastic.co/security-labs/shai-hulud-chaindrop — CHAINDROP worm / Shai-Hulud threat actors: npm supply chain attack, 400+ packages compromised, 1.3B monthly downloads affected — [verified, opened 2026-08-06, single vendor (Elastic) so far; watch for independent corroboration from other security firms]
 
 ---
 
@@ -60,6 +89,7 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 
 <!-- 0–2 per day, newest first. A single strong artifact qualifies (no trend bar). -->
 
+- 2026-08-06 — https://portswigger.net/research/crlf-powered-desync-attacks — CRLF-Powered Desync Attacks: Beheading HTTP Streams (PortSwigger Research, 2026-08-05): HTTP/2-specific desynchronization attack via CRLF injection in header values, allowing request smuggling and cache poisoning. Primary-source research on an HTTP protocol edge case. Web/API axis. Pointer only.
 - 2026-08-05 — https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/ — ConfigManBearPig 2.0 (SpecterOps): Python rewrite of the SCCM/Microsoft Configuration Manager attack-collection tool covering 30+ techniques across recon, credential theft, coercion, elevation, takeover and execution (9 complete TAKEOVER paths with complementary collectors). Most enumeration needs only low-privileged domain-user context; adds Linux support, proxy/alt-auth OPSEC and performance gains. AD/identity axis — SCCM remains an under-tracked lateral-movement/priv-esc surface. Pointer only, not a runbook.
 - 2026-08-05 — https://sensepost.com/blog/2026/process-parameter-poisoning/ — Process Parameter Poisoning "P3" (SensePost, published 2026-07-06): novel code-injection technique that smuggles a payload through legitimate process-startup fields (command line, environment block, shell info) and uses `CreateProcessW` + thread-context manipulation instead of the usual `WriteProcessMemory`/`VirtualAllocEx` API pattern, reducing the injection footprint against four major EDRs. C2/evasion axis — a fresh primary-source injection primitive, captured now that the blog lane reopened. Pointer only.
 - 2026-08-04 — https://github.com/advisories/GHSA-pfvc-3p5h-x7h6 — CVE-2026-52855 (critical, CVSS 9.9): Pterodactyl Wings <1.12.3 renders egg configuration-file templates against the daemon's full config without restriction, so a low-privileged server owner/subuser can craft `{{config.<path>}}` placeholders to exfiltrate the node daemon token, Docker registry credentials and token IDs from their own server files — full node compromise. Fixed 1.12.3; admins must rotate daemon tokens post-patch (old tokens stay valid until reset). Widely-deployed game-server hosting panel.
@@ -215,3 +245,19 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   4 sources never opened all week. The W31→W32 "daily-cadence gap" amendment proposal is WITHDRAWN as
   a misdiagnosis (the dailies ran; they were orphaned off `main`, not missing) — replaced by a
   branch-landing check proposal. See reports/weekly/2026-W32-corrected.md.
+- 2026-08-06 (agent, daily) **Two new SEED trends seeded.** First full primary-blog sweep post-reopening
+  (07-31 was the prior one) yielded two multi-org clusters meeting ≥3 independent sources + concrete
+  artifact: (1) WSUS/Windows Update Server RCE exploitation (SpecterOps 4-article cluster, 2026-08-05
+  + Sophos, Huntress, Palo Alto Unit42 active exploitation tracking; historical CVE-2025-59287,
+  CVE-2026-20856 with 50+ victims and 5,500+ exposed instances); (2) Entra ID SyncJacking & CA Bypass
+  (Semperis discovery, MSRC confirmation, multi-org coverage; global admin takeover via hard-matching
+  abuse + separate CA-bypass flaw). Both on-axis (initial access / identity). Single-vendor queued:
+  Nuxt (6 CVEs, Aug 5), rclone (4 CVEs, Aug 5), Sequelize (1 CVE, narrow scope). Supply-chain signal:
+  Elastic discovered CHAINDROP/Shai-Hulud worm hitting 400+ npm packages (1.3B downloads), single
+  vendor so far — watch for independent corroboration. All 10 primary blogs swept and reachable except
+  3 (Black Hills 403, MDSec 522, Outflank still 403); GHSA and discovery topics (EDR evasion, Entra
+  attacks) completed. No new trend evidence for CertiGhost (remains seed, ~6 days quiet). Study_shelf:
+  PortSwigger CRLF-desync HTTP research (Aug 5). Tool repos: no new releases.
+  Coverage: 9/12 primary blogs opened (3 degraded); 12/12 CVE lanes; 2 discovery topics; exploration
+  slot (trending repos); community pulse (not pursued — would be intake only). Log entry: sources
+  rotation/degraded status as documented below.
