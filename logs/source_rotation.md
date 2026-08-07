@@ -218,3 +218,17 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   milestone: watch WSUS and Entra SyncJacking for follow-up research or exploit releases over 2–3
   more days; if they remain at 1-vendor (SpecterOps for WSUS, Semperis for Entra), trend bar may
   require extending coverage window or revisiting threshold.
+
+## 2026-08-07 (primary sweep, full lane)
+- opened: all 10 primary blogs (SpecterOps, Project Zero, watchTowr, Assetnote, Outflank, MDSec, 
+  Synacktiv, PortSwigger, SensePost, Elastic) — all reachable, none degraded. GitHub GHSA, NVD 
+  recent, discovery topics (GitHub search for new repos on edr/shellcode, no new repos created 
+  Aug 6-7). Tool releases swept (BloodHound, NetExec, Certipy, impacket — all pre-2025, no new 
+  releases). Black Hills 403 (fallback to GHSA equivalent).
+- findings: 8 new CVEs/advisories (CRITICAL CVSS 9.3-9.8 range: FrontMCP RCE, VuFind authz 
+  bypass, open62541, lib60870-C, plus HIGH Craft CMS auth RCE chain, PDF.js JS execution, 
+  PHP_CodeSniffer command injection). All single-vendor at this hour; no new on-axis tool 
+  discoveries; no trend-bar triggers. WSUS, Entra, CertiGhost remain stable (no new follow-up 
+  research observed Aug 7). Nuxt 6-CVE cluster (8/5-6) still awaiting 2nd independent security 
+  vendor source (news aggregators do not count). 
+- no trend velocity changes; observation_queue expanded +8 items, approaches target cap (~25).
