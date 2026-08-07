@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-08-06 (tertiary sweep — blog recheck)
+Last updated: 2026-08-07 (primary scan)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -86,6 +86,13 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 - 2026-08-06 — https://github.com/advisories/GHSA-v8fg-2rw7-q452 — CVE-2026-69240 (HIGH): Sequelize Oracle-dialect SQL injection — [verified, opened 2026-08-06, single vendor (Sequelize); narrower attack surface than web/API axis norm]
 - 2026-08-06 — https://github.com/advisories/GHSA-cfqx-qppp-hchj — CVE-2026-71312 (HIGH): rclone SFTP command execution via PowerShell smart-quote filename injection — [verified, opened 2026-08-06, single vendor (rclone); cluster: 4 high rclone CVEs (71312, 59733, 71309, 54572) on Aug 5-6 (auth bypass, path validation, symlink arbitrary write)]
 - 2026-08-06 — https://www.elastic.co/security-labs/shai-hulud-chaindrop — CHAINDROP worm / Shai-Hulud threat actors: npm supply chain attack, 400+ packages compromised, 1.3B monthly downloads affected — [verified, opened 2026-08-06, single vendor (Elastic) so far; watch for independent corroboration from other security firms]
+- 2026-08-07 — https://services.nvd.nist.gov/rest/json/cves/2.0 — CVE-2026-67531 (CRITICAL, CVSS 9.3): FrontMCP sandbox escape / RCE via exposed Zod schema instances in codecall:execute tool, unauthenticated on unconfigured servers — [verified, opened 2026-08-07, NVD single-vendor; PoC available]
+- 2026-08-07 — https://services.nvd.nist.gov/rest/json/cves/2.0 — CVE-2026-52466 (CRITICAL, CVSS 9.8): VuFind access control bypass where app denies access but still executes requested function — [verified, opened 2026-08-07, NVD single-vendor; automatable]
+- 2026-08-07 — https://services.nvd.nist.gov/rest/json/cves/2.0 — CVE-2026-67870 (CRITICAL, CVSS 9.8): open62541 incomplete validation in AddReferences, null pointer + auth bypass, non-local targets — [verified, opened 2026-08-07, NVD single-vendor; PoC available]
+- 2026-08-07 — https://services.nvd.nist.gov/rest/json/cves/2.0 — CVE-2026-67873 (CRITICAL, CVSS 9.8): lib60870-C heap buffer overflow in FileSegment_encode(), lacks residual frame capacity check — [verified, opened 2026-08-07, NVD single-vendor; PoC automatable]
+- 2026-08-07 — https://github.com/advisories — Craft CMS GHSA-f5wm-88jv-g5hx (HIGH): authenticated RCE via Twig sandbox escape — [verified, opened 2026-08-07, GHSA; multiple RCE/auth-bypass Craft advisories on Aug 6-7]
+- 2026-08-07 — https://github.com/advisories — PDF.js GHSA-hq66-cqwq-w95j (HIGH): arbitrary JavaScript execution upon opening malicious PDF, widely-deployed rendering library — [verified, opened 2026-08-07, GHSA; bundled by ngx-extended-pdf-viewer, affects webapps]
+- 2026-08-07 — https://github.com/advisories — PHP_CodeSniffer GHSA-hmqg-cxww-wqhq (HIGH): command injection via gitblame report filenames — [verified, opened 2026-08-07, GHSA single-vendor; developer-tool attack surface]
 
 ---
 

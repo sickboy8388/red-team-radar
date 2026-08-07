@@ -1,65 +1,73 @@
 # Red Team Radar
 
-![trends](https://img.shields.io/badge/trends-3-3266ad?style=flat-square)
+Persistent state for an autonomous tracker of the offensive-security frontier — tools, releases, techniques, research and advisories curated for a red team operator. A RADAR points to published artifacts and tracks their evolution.
+
+![trends](https://img.shields.io/badge/trends-4-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-10-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--06-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-17-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--07-2f9e44?style=flat-square)
 
-Autonomous tracker of the offensive-security frontier — AD/identity, C2 & evasion, web/API/cloud,
-exploitable CVEs, and red-team TTPs — curated for a red team operator. Derived from
-[TRENDS.md](TRENDS.md); regenerated on every scan.
+---
 
-## Since last scan (2026-08-06)
+## Since last scan (2026-08-07)
 
-- **CertiGhost promoted to emerging** — [Nextron Systems SIGMA detection](https://www.nextron-systems.com/) + [Kudelski](https://kudelskisecurity.com/), [DataMinr](https://www.dataminr.com/), [FieldEffect](https://fieldeffect.com/) analysis confirm DC-impersonation attack chain; confidence upgraded on retroactive Tavily sweep.
-- **Two new SEED trends seeded** — [WSUS/Windows Update Server RCE exploitation](#wsus--windows-update-server-rce-exploitation) (4-article SpecterOps cluster + Sophos, Huntress, Palo Alto Unit42 active tracking; 50+ victims, 5,500+ exposed instances) and [Entra ID SyncJacking & Conditional Access Bypass](#entra-id-syncjacking--conditional-access-bypass) (Semperis discovery, MSRC confirmation; Global Admin takeover via hard-matching abuse).
-- [CRLF-Powered Desync Attacks (PortSwigger)](https://portswigger.net/research/crlf-powered-desync-attacks) — HTTP/2 protocol edge case enabling request smuggling and cache poisoning via header-value CRLF injection.
-- [CHAINDROP worm / Shai-Hulud (Elastic)](https://www.elastic.co/security-labs/shai-hulud-chaindrop) — npm supply-chain attack; 400+ packages compromised, 1.3B monthly downloads affected.
-- **Tavily API sweep recovered anti-bot sources** — Outflank, Assetnote, watchTowr, NVD, CISA KEV now reachable via Tavily bypass.
+- [**8 new CVEs / advisories added**](TRENDS.md#observation_queue): FrontMCP sandbox escape (CVSS 9.3 RCE), VuFind authz bypass (9.8), open62541 auth bypass (9.8), lib60870-C heap overflow (9.8), Craft CMS authenticated RCE chain, PDF.js arbitrary JS execution, PHP_CodeSniffer command injection. All single-vendor at publication; watch for follow-up coverage.
+- **Primary blog lane fully operational**: all 10 research blogs (SpecterOps, Project Zero, watchTowr, Assetnote, Outflank, MDSec, Synacktiv, PortSwigger, SensePost, Elastic) reachable and current; no new posts since Aug 6.
+- **CertiGhost, WSUS, Entra SyncJacking remain stable**: no new follow-up research observed today. Nuxt 6-CVE cluster (Aug 5-6) awaiting 2nd independent security-firm corroboration.
+- **No new tool releases** from tracked repos (BloodHound, NetExec, Certipy, impacket all pre-2025).
+- **No new offensive tools** discovered Aug 6-7 via GitHub/package-registry searches.
 
-## Trends
+---
 
-seed 2 · emerging 1 · accelerating 0 · mainstreaming 0 · dormant 0
+## Active trends
 
-| Trend | Stage | Latest signal |
-|---|---|---|
-| [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | emerging | [2026-08-06](https://fieldeffect.com/) — FieldEffect |
-| [WSUS / Windows Update Server RCE exploitation](#wsus--windows-update-server-rce-exploitation) | seed | [2026-08-05](https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-2/) — SpecterOps Part 2 |
-| [Entra ID SyncJacking & Conditional Access Bypass](#entra-id-syncjacking--conditional-access-bypass) | seed | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) — Semperis |
+**emerging 2 · seed 2**
 
-## Tools & releases
+| Trend | Stage | Latest Signal |
+|-------|-------|---------------|
+| [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001--certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | emerging | [Aug 6 — FieldEffect DC cert analysis](https://fieldeffect.com/) |
+| [WSUS / Windows Update Server RCE exploitation](TRENDS.md#id-initial-access-wsus-001--wsus--windows-update-server-rce-exploitation) | seed | [Aug 5 — SpecterOps NotWSUSpicious tool release](https://specterops.io/blog/2026/08/05/weaponizing-windows-updates-with-notwsuspicious/) |
+| [Entra ID SyncJacking & Conditional Access Bypass](TRENDS.md#id-identity-entra-syncjacking-001--entra-id-syncjacking--conditional-access-bypass) | seed | [Aug 6 — Semperis re-confirmation + mitigation](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) |
 
-- **[BloodHound](https://github.com/SpecterOps/BloodHound)** — v9.5.1 (2026-07-29)
-- **[Mythic](https://specterops.io/blog/2026/08/04/of-course-we-built-a-wsus-ludus-lab/)** — v4.0.0 public beta (2026-08-04)
-- **[Nuclei](https://github.com/projectdiscovery/nuclei)** — v3.11.0 (2026-07-06): mandatory JS-protocol template signing
-- **[SliverC2-Evasion-Suite](https://github.com/Squ1shification/SliverC2-Evasion-Suite)** — 81 stars: Crystal Palace loader, sleep masking, in-memory PE, PPID spoofing
-- **[ADScanPro/adscan](https://github.com/ADScanPro/adscan)** — 506 stars: Linux-native AD attack-chain CLI, 104 techniques, Docker
-- **[BofAllTheThings](https://github.com/N7WEra/BofAllTheThings)** — Public Beacon Object File repository
+---
 
 ## Worth studying
 
-- [CRLF-Powered Desync Attacks: Beheading HTTP Streams](https://portswigger.net/research/crlf-powered-desync-attacks) — PortSwigger Research (2026-08-05): HTTP/2 protocol edge case enabling request smuggling and cache poisoning via header-value injection.
-- [ConfigManBearPig 2.0 — SCCM attack toolkit](https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/) — Python rewrite covering 30+ Configuration Manager attack techniques (recon → takeover → execution), mostly from a low-privileged domain user; Linux-native with proxy/alt-auth OPSEC. SCCM stays an under-tracked lateral-movement surface.
-- [Process Parameter Poisoning "P3" — EDR-evading injection](https://sensepost.com/blog/2026/process-parameter-poisoning/) — smuggles payloads through legit process-startup fields via `CreateProcessW` + thread-context manipulation, avoiding the `WriteProcessMemory`/`VirtualAllocEx` pattern four major EDRs watch for.
-- [CVE-2026-52855 — Pterodactyl Wings config-template token theft](https://github.com/advisories/GHSA-pfvc-3p5h-x7h6) — egg configuration-file templating exposes the full daemon config; a crafted `{{config.<path>}}` placeholder exfiltrates the node daemon token and Docker registry credentials. Fixed 1.12.3.
-- [CVE-2026-53609 — Apostrophe CMS prototype pollution → authz bypass](https://github.com/advisories/GHSA-6h5j-32cf-4253) — `apos.util.set()` doesn't reject `__proto__`/`constructor`/`prototype`; an editor's crafted PATCH request pollutes `Object.prototype` and permanently opens unauthenticated REST access. PoC in the advisory. Fixed 4.31.0.
-- [CVE-2026-54725 — Vault Secrets Webhook SSRF → cluster token theft](https://github.com/advisories/GHSA-r2v3-8gwf-7ghm) — unsanitized `vault-addr` annotation triggers an outbound HTTP call during K8s admission review; `vault-serviceaccount` mode escalates to ServiceAccount JWT theft.
-- [CVE-2026-53713 — Envoy Gateway auth bypass via Lua path traversal](https://github.com/advisories/GHSA-wcrf-9vrr-854f) — `//`-prefixed paths bypass the critical-path check, letting EnvoyExtensionPolicy Lua read secrets/SA tokens/TLS certs from the gateway controller pod.
-- [CVE-2026-10520 — Ivanti Sentry pre-auth OS command injection](https://github.com/advisories/GHSA-v2vc-rgvq-3pwf) — CVSS 10.0, on CISA KEV, 6+ groups tracking active exploitation.
-- [CVE-2026-52887 — NocoBase unauthenticated SQLi → RCE](https://github.com/advisories/GHSA-p849-8hwh-84j9) — CVSS 10.0; unauth SQL injection in the in-app-message notification plugin escalates to RCE via `COPY ... TO PROGRAM` on the default superuser Postgres role. Public PoC in the advisory. Patched in 2.0.61.
-- [CVE-2026-54680 — Logging Operator Fluentd-injection RCE](https://github.com/advisories/GHSA-mjqf-28ph-426h) — unescaped CRD strings injected into `fluent.conf`; a newline plants `@type exec` → RCE in the aggregator pod. Kubernetes/cloud.
-- [CVE-2026-67428 — flyto2-core SSRF](https://github.com/advisories/GHSA-pgwh-4jj4-qm8v) — HTTP modules fetch client-controlled URLs without the SSRF guard their siblings apply → internal/cloud-metadata reach.
-- [CVE-2026-66066 — Rails Active Storage RCE](https://github.com/advisories/GHSA-xr9x-r78c-5hrm) — arbitrary file read + RCE via variant processing on any Rails app using Active Storage variants.
+- [**CRLF-Powered Desync Attacks: Beheading HTTP Streams**](https://portswigger.net/research/crlf-powered-desync-attacks) (PortSwigger Research, Aug 5) — HTTP/2 CRLF injection desynchronization for request smuggling and cache poisoning. Fresh protocol-edge research. Web/API axis.
+- [**ConfigManBearPig 2.0**](https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/) (SpecterOps, Aug 3) — Python SCCM/Microsoft Configuration Manager attack tool, 30+ techniques, 9 domain-takeover paths, Linux support. SCCM remains under-tracked lateral-movement/priv-esc surface.
+- [**Process Parameter Poisoning "P3"**](https://sensepost.com/blog/2026/process-parameter-poisoning/) (SensePost, Jul 6) — Novel process-startup field injection (command line, env block) with `CreateProcessW` thread-context manipulation, bypasses 4 major EDRs. C2/evasion axis. Fresh injection primitive.
+- [**CVE-2026-52855 (Pterodactyl Wings)**](https://github.com/advisories/GHSA-pfvc-3p5h-x7h6) — Template rendering on daemon config, full node compromise via config exfiltration. Widely-deployed game-server hosting.
+- [**CVE-2026-53609 (Apostrophe CMS)**](https://github.com/advisories/GHSA-6h5j-32cf-4253) — Object.prototype pollution → authentication bypass. Web/API axis, common pattern.
 
-## How it works
-
-A scheduled Claude Code routine runs a fixed prompt: *read `AGENTS.md`, then `routines/daily.md`,
-and execute it.* The agent sweeps the sources in [`SOURCES.md`](SOURCES.md), routes new published
-artifacts into the [trend ledger](TRENDS.md), writes a dated report under [`reports/`](reports/),
-regenerates this page, and pushes to `main`. A weekly routine recalibrates trends and prunes.
-
-This is a **radar**: it points to published research, tools, and advisories and summarizes their
-significance. It tracks artifacts — it is not a runbook and stores no operational payloads.
+[See full study shelf →](TRENDS.md#study_shelf)
 
 ---
-[Ledger](TRENDS.md) · [Observation queue](TRENDS.md#observation_queue) · [Reports](reports/) · [Latest daily](reports/2026-08-06.md) · [Weekly reports](reports/weekly/) · [Source rotation log](logs/source_rotation.md) · [Calibration](logs/calibration.md)
+
+## Tools & releases
+
+No new releases observed on tracked repos (BloodHound, NetExec, Certipy, impacket, Nuclei, Havoc/Sliver/Mythic). Last releases:
+- **Nuclei v3.11.0** (Jul 6, 2026) — Unsigned JavaScript-protocol templates now refuse to load (breaking change).
+- **Impacket 0.13.1** (May 19, 2025)
+
+---
+
+## Watchlist & queue
+
+[17 below-bar items in observation_queue](TRENDS.md#observation_queue) — awaiting 2nd independent source or concrete evidence. Highlights:
+- **Nuxt 6-CVE cluster** (Aug 5-6: RCE, auth bypass, DoS, cache disclosure) — single vendor, awaiting security-firm corroboration.
+- **rclone 4-CVE batch** (Aug 5-6: command execution, auth bypass, path validation, symlink arbitrary write) — single vendor.
+- **CHAINDROP npm supply chain** (400+ packages compromised, 1.3B downloads) — Elastic report only, watching for independent tracking.
+- **EDR evasion tools** (mkPIVM, Phantom-Evasion-Loader, entropia, OpenBOF) — active development, single-source reports.
+
+---
+
+## Resources
+
+- **Ledger**: [TRENDS.md](TRENDS.md) — single source of truth (trends, evidence, observation_queue, study_shelf)
+- **Sources**: [SOURCES.md](SOURCES.md) — registry of primary feeds and discovery topics
+- **Recent**: [Today's report](reports/2026-08-07.md) | [Daily reports](reports/) | [Weekly reports](reports/weekly/)
+- **Logs**: [Source rotation](logs/source_rotation.md) | [Calibration](logs/calibration.md)
+
+---
+
+*Red Team Radar tracks and points to published offensive-security artifacts. It is a tracker, not a runbook — links only, no operational payloads.*
