@@ -1,43 +1,47 @@
 # Red Team Radar
 
-Persistent state for an autonomous tracker of the offensive-security frontier — tools, releases, techniques, research and advisories curated for a red team operator. A RADAR points to published artifacts and tracks their evolution.
+Persistent state for the offensive-security frontier — tools, releases, techniques, research and advisories — curated for red team operators. Track published artifacts and situational awareness signals.
 
-![trends](https://img.shields.io/badge/trends-4-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-3-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-17-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--07-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-30-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--08-2f9e44?style=flat-square)
 
 ---
 
 ## Since last scan (2026-08-07)
 
-- [**8 new CVEs / advisories added**](TRENDS.md#observation_queue): FrontMCP sandbox escape (CVSS 9.3 RCE), VuFind authz bypass (9.8), open62541 auth bypass (9.8), lib60870-C heap overflow (9.8), Craft CMS authenticated RCE chain, PDF.js arbitrary JS execution, PHP_CodeSniffer command injection. All single-vendor at publication; watch for follow-up coverage.
-- **Primary blog lane fully operational**: all 10 research blogs (SpecterOps, Project Zero, watchTowr, Assetnote, Outflank, MDSec, Synacktiv, PortSwigger, SensePost, Elastic) reachable and current; no new posts since Aug 6.
-- **CertiGhost, WSUS, Entra SyncJacking remain stable**: no new follow-up research observed today. Nuxt 6-CVE cluster (Aug 5-6) awaiting 2nd independent security-firm corroboration.
-- **No new tool releases** from tracked repos (BloodHound, NetExec, Certipy, impacket all pre-2025).
-- **No new offensive tools** discovered Aug 6-7 via GitHub/package-registry searches.
+- **Elastic Security Labs published agentic-security research** (5 articles, Aug 4–7): [LaunchAgent + reverse tunnel abuse](https://www.elastic.co/security-labs) for C2 persistence; npm supply-chain detection evasion; CHAINDROP worm supply-chain attack update (400+ packages, 1.3B monthly downloads).
+- **Two critical active-exploitation CVEs escalated** (single-vendor, CISA KEV listed): [TeamCity CVE-2026-63077](TRENDS.md#observation_queue) (CVSS 9.8, federal deadline **today Aug 8**); [Langflow CVE-2026-9198](TRENDS.md#observation_queue) (CVSS 9.8, federal deadline passed).
+- **Two single-vendor clusters awaiting secondary coverage**: [CodeIgniter 4](TRENDS.md#observation_queue) (3 CRITICAL/HIGH Aug 7); [GitPython batch](TRENDS.md#observation_queue) (5 HIGH Aug 7).
+- **Existing trends stable**: CertiGhost emerging (6 days quiet), WSUS seed (3 days quiet), Entra SyncJacking seed (2 days quiet).
+- **Network degradations persist**: Outflank blog blocked (403); GitHub discovery searches rate-limited (429); observation_queue approaching cap (~40 items, policy limit 25).
 
 ---
 
-## Active trends
+## Trends
 
-**emerging 2 · seed 2**
+**Status tally:** emerging 1 · seed 2
 
-| Trend | Stage | Latest Signal |
-|-------|-------|---------------|
-| [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001--certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | emerging | [Aug 6 — FieldEffect DC cert analysis](https://fieldeffect.com/) |
-| [WSUS / Windows Update Server RCE exploitation](TRENDS.md#id-initial-access-wsus-001--wsus--windows-update-server-rce-exploitation) | seed | [Aug 5 — SpecterOps NotWSUSpicious tool release](https://specterops.io/blog/2026/08/05/weaponizing-windows-updates-with-notwsuspicious/) |
-| [Entra ID SyncJacking & Conditional Access Bypass](TRENDS.md#id-identity-entra-syncjacking-001--entra-id-syncjacking--conditional-access-bypass) | seed | [Aug 6 — Semperis re-confirmation + mitigation](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) |
+| Trend | Stage | Latest signal |
+|-------|-------|---|
+| [CertiGhost AD CS DC-impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001--certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | emerging | [2026-08-06](https://fieldeffect.com/) — FieldEffect DC impersonation analysis |
+| [Entra ID SyncJacking & Conditional Access Bypass](TRENDS.md#id-identity-entra-syncjacking-001--entra-id-syncjacking--conditional-access-bypass) | seed | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) — Semperis re-confirmation & guidance |
+| [WSUS / Windows Update Server RCE exploitation](TRENDS.md#id-initial-access-wsus-001--wsus--windows-update-server-rce-exploitation) | seed | [2026-08-05](https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-1/) — SpecterOps comprehensive chain writeup |
 
 ---
 
 ## Worth studying
 
-- [**CRLF-Powered Desync Attacks: Beheading HTTP Streams**](https://portswigger.net/research/crlf-powered-desync-attacks) (PortSwigger Research, Aug 5) — HTTP/2 CRLF injection desynchronization for request smuggling and cache poisoning. Fresh protocol-edge research. Web/API axis.
-- [**ConfigManBearPig 2.0**](https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/) (SpecterOps, Aug 3) — Python SCCM/Microsoft Configuration Manager attack tool, 30+ techniques, 9 domain-takeover paths, Linux support. SCCM remains under-tracked lateral-movement/priv-esc surface.
-- [**Process Parameter Poisoning "P3"**](https://sensepost.com/blog/2026/process-parameter-poisoning/) (SensePost, Jul 6) — Novel process-startup field injection (command line, env block) with `CreateProcessW` thread-context manipulation, bypasses 4 major EDRs. C2/evasion axis. Fresh injection primitive.
-- [**CVE-2026-52855 (Pterodactyl Wings)**](https://github.com/advisories/GHSA-pfvc-3p5h-x7h6) — Template rendering on daemon config, full node compromise via config exfiltration. Widely-deployed game-server hosting.
-- [**CVE-2026-53609 (Apostrophe CMS)**](https://github.com/advisories/GHSA-6h5j-32cf-4253) — Object.prototype pollution → authentication bypass. Web/API axis, common pattern.
+Current study shelf — technique writeups, novel primitives, and published research of immediate red-team relevance:
+
+- [**Elastic: Living off the coding agent**](https://www.elastic.co/security-labs) (Aug 7, 2026) — LaunchAgent + reverse-tunnel abuse for autonomous agent C2 persistence; detection evasion in real-time.
+- [**Elastic: npm cooldown removals**](https://www.elastic.co/security-labs) (Aug 7, 2026) — Supply-chain attack detection via npm metadata manipulation.
+- [**PortSwigger: CRLF-Powered Desync Attacks**](https://portswigger.net/research/crlf-powered-desync-attacks) (Aug 5, 2026) — HTTP/2 desynchronization via header CRLF injection; request smuggling & cache poisoning.
+- [**SpecterOps: ConfigManBearPig 2.0**](https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/) (Aug 3, 2026) — SCCM/Configuration Manager attack-collection tool; 30+ techniques, 9 takeover paths.
+- [**SensePost: Process Parameter Poisoning**](https://sensepost.com/blog/2026/process-parameter-poisoning/) (Jul 6, 2026) — Novel injection primitive using `CreateProcessW` + thread-context manipulation; EDR evasion.
+- [**ADscan**](https://github.com/ADScanPro/adscan) (2026) — Linux-native AD attack-chain consolidation; 104 techniques; Docker-based, no Windows infra required.
+- [**SpecterOps: Mythic 4.0.0 public beta**](https://specterops.io/blog/2026/08/04/introducing-mythic-4-0-0/) (Aug 4, 2026) — C2 framework release.
 
 [See full study shelf →](TRENDS.md#study_shelf)
 
@@ -45,28 +49,38 @@ Persistent state for an autonomous tracker of the offensive-security frontier �
 
 ## Tools & releases
 
-No new releases observed on tracked repos (BloodHound, NetExec, Certipy, impacket, Nuclei, Havoc/Sliver/Mythic). Last releases:
-- **Nuclei v3.11.0** (Jul 6, 2026) — Unsigned JavaScript-protocol templates now refuse to load (breaking change).
-- **Impacket 0.13.1** (May 19, 2025)
+Latest tracked releases (checked 2026-08-08):
+
+- **Nuclei** v3.11.0 (July 6, 2026) — JavaScript-protocol template signing enforcement (breaking change)
+- **Mythic** v4.0.0 public beta (Aug 4, 2026) — C2 framework
+- **Sliver** v1.7.3 (Feb 2026)
+- **BloodHound** v9.5.1 (July 29, 2026)
+- **NetExec**, **Certipy**, **impacket** (pre-2025, no recent updates)
 
 ---
 
 ## Watchlist & queue
 
-[17 below-bar items in observation_queue](TRENDS.md#observation_queue) — awaiting 2nd independent source or concrete evidence. Highlights:
-- **Nuxt 6-CVE cluster** (Aug 5-6: RCE, auth bypass, DoS, cache disclosure) — single vendor, awaiting security-firm corroboration.
-- **rclone 4-CVE batch** (Aug 5-6: command execution, auth bypass, path validation, symlink arbitrary write) — single vendor.
-- **CHAINDROP npm supply chain** (400+ packages compromised, 1.3B downloads) — Elastic report only, watching for independent tracking.
-- **EDR evasion tools** (mkPIVM, Phantom-Evasion-Loader, entropia, OpenBOF) — active development, single-source reports.
+[30 below-bar items in observation_queue](TRENDS.md#observation_queue) — awaiting 2nd independent source or concrete evidence.
+
+**Highlights (awaiting secondary coverage):**
+- **TeamCity CVE-2026-63077** (CRITICAL, CVSS 9.8, CISA KEV, federal deadline today)
+- **Langflow CVE-2026-9198** (CRITICAL, CVSS 9.8, CISA KEV, federal deadline passed)
+- **CodeIgniter 4 cluster** (3 CRITICAL/HIGH, Aug 7)
+- **GitPython batch** (5 HIGH, Aug 7)
+- **CHAINDROP npm worm** (400+ packages, 1.3B downloads, Elastic report)
+- **Nuxt 6-CVE cluster** (RCE, auth bypass, cache disclosure)
+- **rclone batch** (command execution, auth bypass, path traversal)
 
 ---
 
 ## Resources
 
-- **Ledger**: [TRENDS.md](TRENDS.md) — single source of truth (trends, evidence, observation_queue, study_shelf)
-- **Sources**: [SOURCES.md](SOURCES.md) — registry of primary feeds and discovery topics
-- **Recent**: [Today's report](reports/2026-08-07.md) | [Daily reports](reports/) | [Weekly reports](reports/weekly/)
-- **Logs**: [Source rotation](logs/source_rotation.md) | [Calibration](logs/calibration.md)
+- **[TRENDS.md](TRENDS.md)** — full ledger
+- **[Observation queue](TRENDS.md#observation_queue)** — 30 items awaiting promotion or burndown
+- **[Reports](reports/)** — daily & weekly recalibrations
+- **[Latest report](reports/2026-08-08.md)** — daily summary for 2026-08-08
+- **[Source registry](SOURCES.md)** — primary feeds & discovery lanes
 
 ---
 

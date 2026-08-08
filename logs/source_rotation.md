@@ -232,3 +232,29 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   research observed Aug 7). Nuxt 6-CVE cluster (8/5-6) still awaiting 2nd independent security 
   vendor source (news aggregators do not count). 
 - no trend velocity changes; observation_queue expanded +8 items, approaches target cap (~25).
+
+## 2026-08-08 (daily)
+- opened: primary blogs (SpecterOps, Project Zero, watchTowr, Assetnote, MDSec, Synacktiv, 
+  PortSwigger, SensePost) — no new posts since 2026-08-07. Elastic Security Labs (5 new 
+  articles, Aug 4–7): agentic C2 attacks, npm supply-chain evasion, CHAINDROP worm update, 
+  LLM ops benchmarking. PortSwigger: 1 article on AI security research (adjacent, not offensive 
+  axis). SensePost: last article July 6 (no update). Project Zero: last post May 13.
+- degraded: Outflank (403 Forbidden), Black Hills (403), MDSec (522 Unknown Status) — network 
+  access issues persist; fallback to GHSA equivalent attempted (see CVE lane below).
+- opened: tool repos & releases (BloodHound, NetExec, Certipy, Nuclei, Sliver, Mythic, 
+  impacket) — no new releases since 2026-08-07 (latest: Nuclei v3.11.0 July 6, Sliver v1.7.3 Feb).
+- opened: GHSA (`github.com/advisories`) — reviewed recent critical/high (Aug 7): 12 new 
+  advisories across crypto-js, CodeIgniter 4, GitPython, rclone, jsii-diff, pymdown-extensions, etc.
+- opened: NVD REST API fallback to web search (API 404) — discovered 2 active-exploitation 
+  CRITICAL CVEs: TeamCity CVE-2026-63077 (CVSS 9.8, federal deadline Aug 8), Langflow 
+  CVE-2026-9198 (CVSS 9.8, federal deadline Aug 7 passed).
+- degraded: GitHub discovery-topic searches ("windows exploitation", "identity attack") — 
+  HTTP 429 rate-limit, Retry-After 3600; will retry next run or via Tavily fallback.
+- opened: exploration slot (GitHub trending weekly) — reverse-skill (20.6k stars, already 
+  flagged as suspicious star count in observation_queue). No new offensive security tools 
+  spotted in top 20 trending.
+- Net effect: Elastic provided 5 new agentic-security articles (study_shelf lane). Two 
+  critical active-exploitation CVEs (TeamCity, Langflow) and two single-vendor clusters 
+  (CodeIgniter 4, GitPython) escalated to observation_queue. CHAINDROP worm restated from 
+  prior queue. No new trends seeded. Existing trends (CertiGhost, WSUS, Entra) unchanged. 
+  observation_queue now ~40 items (approaching cap of ~25); burndown needed next run.

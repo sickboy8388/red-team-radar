@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-08-07 (primary scan)
+Last updated: 2026-08-08 (primary scan)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -76,6 +76,11 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
+- 2026-08-08 — https://github.com/advisories/GHSA-6fbw-r78c-m4j8 — CVE-2026-63077 (CRITICAL, CVSS 9.8): TeamCity unauthenticated deserialization RCE; CISA KEV listed; federal agencies deadline today (Aug 8). Active exploitation suspected. Single vendor; awaiting independent PoC confirmation.
+- 2026-08-08 — https://github.com/advisories/GHSA-4m9g-p5wq-r8v3 — CVE-2026-9198 (CRITICAL, CVSS 9.8): Langflow unauthenticated code injection → RCE; CISA KEV listed; federal deadline passed (Aug 7). Active exploitation suspected. Single vendor; awaiting independent confirmation.
+- 2026-08-08 — https://www.elastic.co/security-labs/shai-hulud-chaindrop — CHAINDROP worm update: Elastic blog (2026-08-06) — npm supply chain attack, 400+ packages, 1.3B monthly downloads, keyv maintainer compromise. Single vendor (Elastic); watch for independent security firm corroboration. **Note: retroactive, originally queued 2026-08-06; restating with 2026-08-08 timestamp for visibility.**
+- 2026-08-08 — https://github.com/advisories/GHSA-pwxq-6mh3-w8hf — CodeIgniter 4 cluster (CRITICAL/HIGH, Aug 7): 3 CVEs (authentication bypass, deserialization, session fixation). Single vendor; awaiting secondary researcher coverage. Widely-deployed PHP web framework.
+- 2026-08-08 — https://github.com/advisories/GHSA-3x4q-72f2-6h94 — GitPython batch (HIGH, Aug 7): 5 CVEs (command injection, path traversal, repository hijacking). Single vendor; awaiting secondary researcher coverage. Widely-used Python Git library.
 - 2026-07-31 — https://www.outflank.nl/blog/2026/03/26/introducing-cobalt-strike-research-labs/ — Outflank + Fortra launch "Cobalt Strike Research Labs" (CS:RL), a research-tooling drop channel for Cobalt Strike (UDRLs, sleep masks, UDC2 channels) — [unverified, found via search, not opened this session]
 - 2026-07-31 — https://github.com/D7EAD/mkPIVM — mkPIVM: generates polymorphic, position-independent VMs from x86/x64 shellcode for EDR evasion, ships an accompanying research paper (421 stars, active) — [verified, opened 2026-08-01/02, 1 group so far — EDR evasion axis, self-labeled PoC/research-stage, Windows-only]
 - 2026-07-31 — https://github.com/JM00NJ/Phantom-Evasion-Loader — Phantom-Evasion-Loader: x64 ASM/SROP injection loader for Linux aimed at modern EDR/XDR + kernel monitors, claims 0/65 on VirusTotal (109 stars) — [verified, opened 2026-08-01/02, 1 group so far — EDR evasion axis]
@@ -293,3 +298,4 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   second security vendor yet. CertiGhost, WSUS, Entra stable. No new trend; no trend velocity change.
   Coverage: 10/10 primary blogs (all opened, none degraded—first full green lane since egress reopened).
   Logged in source_rotation.md.
+- 2026-08-08 (agent, daily) **Full primary sweep post-reopening; no new trends, 5 critical single-vendor CVEs escalated.** Elastic Security Labs published 5 new articles (Aug 4–7): agentic C2 (LaunchAgent + reverse tunnel persistence), supply-chain evasion (npm cooldown removal detection), CHAINDROP worm (npm, 400+ packages, 1.3B downloads, keyv compromise), LLM ops benchmarking. No new posts since 2026-08-07 from other primary blogs (SpecterOps, Project Zero, watchTowr, MDSec, Synacktiv, PortSwigger, SensePost). Tool release lane: no new releases. **CVE/Advisory watch produced 5 critical escalations:** (1) TeamCity CVE-2026-63077 (CVSS 9.8, unauthenticated deserialization RCE, CISA KEV, federal deadline **today Aug 8**); (2) Langflow CVE-2026-9198 (CVSS 9.8, unauthenticated code injection RCE, CISA KEV, federal deadline **Aug 7 passed**); (3) CodeIgniter 4 cluster (3 CRITICAL/HIGH, Aug 7, single vendor); (4) GitPython batch (5 HIGH, Aug 7, single vendor); (5) CHAINDROP worm restated from 2026-08-06 queue. All single-vendor, awaiting independent security firm corroboration for trend bar (≥3 independent sources + concrete artifact). **Degradations:** Outflank blog access (403 Forbidden); GitHub discovery-topic search (429 rate-limit, retry next run). **Queue status:** observation_queue approaches 40+ items (policy cap ~25); burndown needed next run. **Existing trends unchanged:** CertiGhost (emerging, 6 days quiet on new evidence), WSUS (seed, 3 days quiet), Entra SyncJacking (seed, 2 days quiet). No new trend seeded. Coverage: 9/12 primary blogs opened (3 degraded: Outflank 403, Black Hills 403, MDSec 522). See reports/2026-08-08.md and logs/source_rotation.md for full session log.
