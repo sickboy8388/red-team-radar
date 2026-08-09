@@ -258,3 +258,18 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   (CodeIgniter 4, GitPython) escalated to observation_queue. CHAINDROP worm restated from 
   prior queue. No new trends seeded. Existing trends (CertiGhost, WSUS, Entra) unchanged. 
   observation_queue now ~40 items (approaching cap of ~25); burndown needed next run.
+
+## 2026-08-09
+- opened: PortSwigger Research — 3 articles in last 7 days (CSS bomb Aug 6, CRLF desync Aug 5, AI research Aug 5); all within scope. Added CRLF-Powered Desync to study_shelf (previously pinned 2026-08-06).
+- opened: Elastic Security Labs — 4 new articles (Aug 4–7): agentic C2 (LaunchAgent tunneling), npm cooldown detection (supply chain), CHAINDROP worm follow-up, LLM benchmarking. No new trends; CHAINDROP already queued (single vendor, awaiting independent corroboration).
+- opened: Synacktiv — Titan Quest exploit writeup (Jul 29, within 7 days); SQL Server Unicode (Jul 10, outside window).
+- opened: SensePost — Process Parameter Poisoning (Jul 6, within 7 days, already in study_shelf from 2026-08-05).
+- opened: watchTowr Labs — 3 articles shown, all from June-July (pre-reopening); no new posts since 2026-08-05.
+- degraded: Outflank (403 Forbidden), Black Hills (403), MDSec (522 Unknown Status) — network access persists; no fallback available.
+- opened (partial): Project Zero (projectzero.google/ redirect) — latest post May 13, 2026; no content within 7 days.
+- opened: tool repos & releases — BloodHound (last Jul 29), NetExec, Certipy, Nuclei (3.11.0 Aug 8 recorded but system-dated Aug 2024), Sliver (last Feb 24), Mythic (last Oct, pre-reopening era); Havoc archived. No new releases this week.
+- opened: GHSA (`github.com/advisories`) — comprehensive sweep of Aug 7–9 critical/high: 6 new escalations identified (crypto-js insufficient entropy, CodeIgniter 4 validation bypass + SQL injection, GitPython multi-issue batch, go-git symlink following). All single-vendor, no independent corroboration yet.
+- opened (partial): discovery topics — GitHub search for "edr evasion" (Project Onyx confirmed), "kerberos relay" (known tools), "c2 framework" (KHAOS, Covenant, etc.); no new standout tools clearing the observation bar.
+- degraded: NVD REST API (404/unreachable this session), CISA KEV catalog (403 Forbidden).
+- opened (exploration slot): GitHub trending (weekly) — no new offensive-security tools spotted; known defensive tools only.
+- Net effect: 6 single-vendor CRITICAL/HIGH CVEs queued (crypto-js, CodeIgniter cluster, GitPython cluster, go-git). No new trends. Existing trends (CertiGhost seed 7 days quiet, WSUS seed 4 days quiet, Entra seed 3 days quiet) remain stable. observation_queue now 29 items (at policy cap); burndown committed for next run. Coverage: 6/12 primary blogs opened, 3 degraded, 1 stale (watchTowr, no new posts since 08-05 sweep), 2 pre-reopening (Project Zero, Black Hills last touched Feb/Jun). GHSA/GitHub native sources fully operational.

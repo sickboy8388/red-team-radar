@@ -4,18 +4,18 @@ Persistent state for the offensive-security frontier — tools, releases, techni
 
 ![trends](https://img.shields.io/badge/trends-3-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-30-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--08-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-29-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--09-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-08-07)
+## Since last scan (2026-08-08)
 
-- **Elastic Security Labs published agentic-security research** (5 articles, Aug 4–7): [LaunchAgent + reverse tunnel abuse](https://www.elastic.co/security-labs) for C2 persistence; npm supply-chain detection evasion; CHAINDROP worm supply-chain attack update (400+ packages, 1.3B monthly downloads).
-- **Two critical active-exploitation CVEs escalated** (single-vendor, CISA KEV listed): [TeamCity CVE-2026-63077](TRENDS.md#observation_queue) (CVSS 9.8, federal deadline **today Aug 8**); [Langflow CVE-2026-9198](TRENDS.md#observation_queue) (CVSS 9.8, federal deadline passed).
-- **Two single-vendor clusters awaiting secondary coverage**: [CodeIgniter 4](TRENDS.md#observation_queue) (3 CRITICAL/HIGH Aug 7); [GitPython batch](TRENDS.md#observation_queue) (5 HIGH Aug 7).
-- **Existing trends stable**: CertiGhost emerging (6 days quiet), WSUS seed (3 days quiet), Entra SyncJacking seed (2 days quiet).
-- **Network degradations persist**: Outflank blog blocked (403); GitHub discovery searches rate-limited (429); observation_queue approaching cap (~40 items, policy limit 25).
+- **Single-vendor CVE cascade** — GHSA sweep found 6 new CRITICAL/HIGH advisories (Aug 7–9): [crypto-js insufficient entropy](TRENDS.md#observation_queue) (CRITICAL, npm supply chain); [CodeIgniter 4 validation bypass](TRENDS.md#observation_queue) + [SQL injection](TRENDS.md#observation_queue) (both CRITICAL); [GitPython multi-issue batch](TRENDS.md#observation_queue) (4× HIGH, git option guards + config injection + template option + file overwrite); [go-git symlink following](TRENDS.md#observation_queue) (HIGH). All single-vendor, awaiting independent corroboration.
+- **Study shelf extended** — [PortSwigger CRLF-Powered Desync Attacks](https://portswigger.net/research/crlf-powered-desync-attacks) (Aug 5) added: HTTP/2 request smuggling via header injection.
+- **Elastic security research continues** — 4 new articles (Aug 4–7) on agentic C2 (LaunchAgent persistence), npm supply-chain detection evasion, CHAINDROP worm update, LLM threat modeling.
+- **Existing trends stable** — CertiGhost emerging (7 days quiet), WSUS seed (4 days quiet), Entra SyncJacking seed (3 days quiet).
+- **Network degradations persist** — Outflank (403), Black Hills (403), MDSec (522); observation_queue at policy cap (29 items, limit ~25); burndown prioritized next run.
 
 ---
 
@@ -35,9 +35,8 @@ Persistent state for the offensive-security frontier — tools, releases, techni
 
 Current study shelf — technique writeups, novel primitives, and published research of immediate red-team relevance:
 
-- [**Elastic: Living off the coding agent**](https://www.elastic.co/security-labs) (Aug 7, 2026) — LaunchAgent + reverse-tunnel abuse for autonomous agent C2 persistence; detection evasion in real-time.
-- [**Elastic: npm cooldown removals**](https://www.elastic.co/security-labs) (Aug 7, 2026) — Supply-chain attack detection via npm metadata manipulation.
 - [**PortSwigger: CRLF-Powered Desync Attacks**](https://portswigger.net/research/crlf-powered-desync-attacks) (Aug 5, 2026) — HTTP/2 desynchronization via header CRLF injection; request smuggling & cache poisoning.
+- [**Elastic: Living off the coding agent**](https://www.elastic.co/security-labs) (Aug 7, 2026) — LaunchAgent + reverse-tunnel abuse for autonomous agent C2 persistence; detection evasion in real-time.
 - [**SpecterOps: ConfigManBearPig 2.0**](https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/) (Aug 3, 2026) — SCCM/Configuration Manager attack-collection tool; 30+ techniques, 9 takeover paths.
 - [**SensePost: Process Parameter Poisoning**](https://sensepost.com/blog/2026/process-parameter-poisoning/) (Jul 6, 2026) — Novel injection primitive using `CreateProcessW` + thread-context manipulation; EDR evasion.
 - [**ADscan**](https://github.com/ADScanPro/adscan) (2026) — Linux-native AD attack-chain consolidation; 104 techniques; Docker-based, no Windows infra required.
@@ -49,37 +48,36 @@ Current study shelf — technique writeups, novel primitives, and published rese
 
 ## Tools & releases
 
-Latest tracked releases (checked 2026-08-08):
+Latest tracked releases (checked 2026-08-09):
 
-- **Nuclei** v3.11.0 (July 6, 2026) — JavaScript-protocol template signing enforcement (breaking change)
-- **Mythic** v4.0.0 public beta (Aug 4, 2026) — C2 framework
-- **Sliver** v1.7.3 (Feb 2026)
 - **BloodHound** v9.5.1 (July 29, 2026)
+- **Nuclei** v3.11.0 (July 6, 2026) — JavaScript-protocol template signing enforcement (breaking change)
+- **Sliver** v1.7.3 (Feb 2026)
 - **NetExec**, **Certipy**, **impacket** (pre-2025, no recent updates)
 
 ---
 
 ## Watchlist & queue
 
-[30 below-bar items in observation_queue](TRENDS.md#observation_queue) — awaiting 2nd independent source or concrete evidence.
+[29 below-bar items in observation_queue](TRENDS.md#observation_queue) — awaiting 2nd independent source or concrete evidence.
 
 **Highlights (awaiting secondary coverage):**
-- **TeamCity CVE-2026-63077** (CRITICAL, CVSS 9.8, CISA KEV, federal deadline today)
+- **crypto-js CVE-2026-71851** (CRITICAL, insufficient entropy, npm supply chain)
+- **CodeIgniter 4 CVE-2026-63223 & 63221** (CRITICAL validation bypass + SQL injection, Aug 7)
+- **GitPython batch** (4× HIGH, unsafe git options + config injection + template option + file overwrite, Aug 7)
+- **go-git CVE-2026-71556** (HIGH, symlink following, Aug 7)
+- **TeamCity CVE-2026-63077** (CRITICAL, CVSS 9.8, CISA KEV, federal deadline Aug 8)
 - **Langflow CVE-2026-9198** (CRITICAL, CVSS 9.8, CISA KEV, federal deadline passed)
-- **CodeIgniter 4 cluster** (3 CRITICAL/HIGH, Aug 7)
-- **GitPython batch** (5 HIGH, Aug 7)
 - **CHAINDROP npm worm** (400+ packages, 1.3B downloads, Elastic report)
-- **Nuxt 6-CVE cluster** (RCE, auth bypass, cache disclosure)
-- **rclone batch** (command execution, auth bypass, path traversal)
 
 ---
 
 ## Resources
 
 - **[TRENDS.md](TRENDS.md)** — full ledger
-- **[Observation queue](TRENDS.md#observation_queue)** — 30 items awaiting promotion or burndown
+- **[Observation queue](TRENDS.md#observation_queue)** — 29 items awaiting promotion or burndown
 - **[Reports](reports/)** — daily & weekly recalibrations
-- **[Latest report](reports/2026-08-08.md)** — daily summary for 2026-08-08
+- **[Latest report](reports/2026-08-09.md)** — daily summary for 2026-08-09
 - **[Source registry](SOURCES.md)** — primary feeds & discovery lanes
 
 ---
