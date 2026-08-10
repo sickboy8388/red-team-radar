@@ -4,18 +4,18 @@ Persistent state for the offensive-security frontier — tools, releases, techni
 
 ![trends](https://img.shields.io/badge/trends-3-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-30-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--08-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-22-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--10-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-08-07)
+## Since last scan (2026-08-08)
 
-- **Elastic Security Labs published agentic-security research** (5 articles, Aug 4–7): [LaunchAgent + reverse tunnel abuse](https://www.elastic.co/security-labs) for C2 persistence; npm supply-chain detection evasion; CHAINDROP worm supply-chain attack update (400+ packages, 1.3B monthly downloads).
-- **Two critical active-exploitation CVEs escalated** (single-vendor, CISA KEV listed): [TeamCity CVE-2026-63077](TRENDS.md#observation_queue) (CVSS 9.8, federal deadline **today Aug 8**); [Langflow CVE-2026-9198](TRENDS.md#observation_queue) (CVSS 9.8, federal deadline passed).
-- **Two single-vendor clusters awaiting secondary coverage**: [CodeIgniter 4](TRENDS.md#observation_queue) (3 CRITICAL/HIGH Aug 7); [GitPython batch](TRENDS.md#observation_queue) (5 HIGH Aug 7).
-- **Existing trends stable**: CertiGhost emerging (6 days quiet), WSUS seed (3 days quiet), Entra SyncJacking seed (2 days quiet).
-- **Network degradations persist**: Outflank blog blocked (403); GitHub discovery searches rate-limited (429); observation_queue approaching cap (~40 items, policy limit 25).
+- [**CHAINDROP worm hits 400+ npm packages**](https://www.elastic.co/security-labs/shai-hulud-chaindrop) — Shai-Hulud threat actors compromised npm maintainer; 1.3B monthly downloads affected. Supply-chain attack → initial access.
+- [**TeamCity CVE-2026-63077**](https://github.com/advisories/GHSA-6fbw-r78c-m4j8) — Unauthenticated deserialization RCE (CVSS 9.8). CISA KEV listed; federal deadline Aug 10. Active exploitation suspected.
+- [**Langflow CVE-2026-9198**](https://github.com/advisories/GHSA-4m9g-p5wq-r8v3) — Unauthenticated code injection RCE (CVSS 9.8). CISA KEV listed; federal deadline Aug 7 (passed). Active exploitation suspected.
+- **Egress block lifted:** primary blogs reopened 08-05 after 6 blocked sessions; 18/22 sources opened this week (coverage restored). Tavily secondary sweep promoted 4 new intelligence sources (Nextron, Kudelski, DataMinr, FieldEffect).
+- **Trends stable**: CertiGhost emerging (dormancy watch 2026-08-21); WSUS & Entra SyncJacking seed (young, <3 days old evidence). Queue ~40 items, cap ~25; burndown due 2026-08-14.
 
 ---
 
@@ -61,14 +61,14 @@ Latest tracked releases (checked 2026-08-08):
 
 ## Watchlist & queue
 
-[30 below-bar items in observation_queue](TRENDS.md#observation_queue) — awaiting 2nd independent source or concrete evidence.
+[22 below-bar items in observation_queue](TRENDS.md#observation_queue) — awaiting 2nd independent source or concrete evidence.
 
 **Highlights (awaiting secondary coverage):**
-- **TeamCity CVE-2026-63077** (CRITICAL, CVSS 9.8, CISA KEV, federal deadline today)
-- **Langflow CVE-2026-9198** (CRITICAL, CVSS 9.8, CISA KEV, federal deadline passed)
+- **TeamCity CVE-2026-63077** (CRITICAL, CVSS 9.8, CISA KEV, federal deadline Aug 10)
+- **Langflow CVE-2026-9198** (CRITICAL, CVSS 9.8, CISA KEV, federal deadline Aug 7 passed)
 - **CodeIgniter 4 cluster** (3 CRITICAL/HIGH, Aug 7)
 - **GitPython batch** (5 HIGH, Aug 7)
-- **CHAINDROP npm worm** (400+ packages, 1.3B downloads, Elastic report)
+- **CHAINDROP npm worm** (400+ packages, 1.3B downloads, Elastic single-vendor)
 - **Nuxt 6-CVE cluster** (RCE, auth bypass, cache disclosure)
 - **rclone batch** (command execution, auth bypass, path traversal)
 
@@ -77,9 +77,10 @@ Latest tracked releases (checked 2026-08-08):
 ## Resources
 
 - **[TRENDS.md](TRENDS.md)** — full ledger
-- **[Observation queue](TRENDS.md#observation_queue)** — 30 items awaiting promotion or burndown
+- **[Observation queue](TRENDS.md#observation_queue)** — 22 items awaiting promotion or burndown
 - **[Reports](reports/)** — daily & weekly recalibrations
 - **[Latest report](reports/2026-08-08.md)** — daily summary for 2026-08-08
+- **[Latest weekly](reports/weekly/2026-W33.md)** — weekly recalibration for 2026-W33
 - **[Source registry](SOURCES.md)** — primary feeds & discovery lanes
 
 ---

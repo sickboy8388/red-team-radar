@@ -20,6 +20,10 @@ in after verifying it by opening it this session; never guess/invent a mirror UR
 - Orange Cyberdefense / SensePost — https://sensepost.com/blog/ (mirror: none verified yet)
 - Elastic Security Labs — https://www.elastic.co/security-labs (mirror: none verified yet)
 - Black Hills Security Blog — https://www.blackhillsinfosec.com/blog/ (mirror: none verified yet)
+- Nextron Systems (SIGMA detection rules) — https://www.nextron-systems.com/ [verified 2026-08-06]
+- Kudelski Security Research Center (mitigation/architecture) — https://kudelskisecurity.com/ [verified 2026-08-06]
+- DataMinr (threat intelligence / PoC tracking) — https://dataminr.com/ [verified 2026-08-06]
+- FieldEffect (offensive-defense analysis) — https://fieldeffect.com/ [verified 2026-08-06]
 
 Tool repos & releases (check `<repo>/releases`):
 - BloodHound — https://github.com/SpecterOps/BloodHound
@@ -49,10 +53,7 @@ Tool repos & releases (check `<repo>/releases`):
 
 ## Discovered-source candidates
 <!-- auto-staged tally: domain — times seen — last artifact+date — first-seen date -->
+<!-- Promotion threshold: ≥2 on-axis primaries, or recurrence across ≥2 runs. Drop if no reappearance by cutoff. -->
 
-- Nextron Systems (`nextron-systems.com`, 1x Certighost SIGMA detection 2026-08-06)
-- Kudelski Security Research Center (`kudelskisecurity.com`, 1x Certighost mitigation 2026-08-06)
-- DataMinr (`dataminr.com`, 1x Certighost PoC analysis 2026-08-06)
-- FieldEffect (`fieldeffect.com`, 1x Certighost DC impersonation 2026-08-06)
-- SOC Prime (`socprime.com`, 1x Certighost detection stack 2026-08-06)
-- Hive Security (`hivesecurity.gitlab.io`, 1x BloodHound CE AD attack paths 2026-08-06)
+- SOC Prime (`socprime.com`, 1x Certighost detection stack 2026-08-06) — re-queue; threshold 2026-08-20 for promotion or drop
+- Hive Security (`hivesecurity.gitlab.io`, 1x BloodHound CE AD attack paths 2026-08-06) — re-queue; threshold 2026-08-20 for promotion or drop

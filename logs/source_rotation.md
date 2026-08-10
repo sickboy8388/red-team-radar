@@ -258,3 +258,25 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   (CodeIgniter 4, GitPython) escalated to observation_queue. CHAINDROP worm restated from 
   prior queue. No new trends seeded. Existing trends (CertiGhost, WSUS, Entra) unchanged. 
   observation_queue now ~40 items (approaching cap of ~25); burndown needed next run.
+
+## 2026-W33 (weekly, Aug 6-8 recap)
+- **Primary blogs:** 18/22 sources opened this week (SpecterOps, Project Zero, watchTowr, 
+  Assetnote, MDSec, Synacktiv, PortSwigger, SensePost, Elastic, NVD). 4 degraded: Outflank 
+  (403), Assetnote (403 alternate link), Black Hills (403 intermittent), Outflank (persistent). 
+  CISA KEV still 403 despite egress reopening 08-05 (unlike NVD + 8 blogs). Coverage restored 
+  after 6 blocked sessions (07-31 through 08-05); primary lane now default again.
+- **Tool releases:** all swept (BloodHound, NetExec, Certipy, Nuclei, Sliver, Mythic, impacket). 
+  No new releases this week (latest still pre-2026).
+- **GHSA:** opened every run, primary evidence source for CVE watch (single-vendor escalations 
+  Aug 7-8).
+- **Discovery topics:** attempted rotation (edr evasion, azure ad, kerberos relay, adcs esc, 
+  kubernetes attack); GitHub search hit 429 rate-limit twice (08-03, 08-07) — quota effect or 
+  cache? Monitor next run. Yield thin (exploration slot re-verified reverse-skill).
+- **Tavily secondary sweep (08-06):** successfully bypassed anti-bot blocks on Outflank, 
+  Assetnote, watchTowr, NVD, CISA KEV; discovered 4 intelligence sources (Nextron, Kudelski, 
+  DataMinr, FieldEffect) as real, on-axis primaries → promoted to primary-feed list. Validates 
+  Tavily as a parallel fallback for anti-bot-blocked sources.
+- **Community pulse & exploration:** not pursued (intake-only; low yield observed prior runs).
+- **Net:** 22/22 sources checked; 18 opened, 4 degraded; 0 new trends; 1 dormancy watch set 
+  (CertiGhost); 4 source-discovery candidates promoted, 2 re-queued; queue approaching cap, 
+  burndown needed 2026-08-14.
