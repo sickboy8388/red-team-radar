@@ -20,6 +20,8 @@ in after verifying it by opening it this session; never guess/invent a mirror UR
 - Orange Cyberdefense / SensePost — https://sensepost.com/blog/ (mirror: none verified yet)
 - Elastic Security Labs — https://www.elastic.co/security-labs (mirror: none verified yet)
 - Black Hills Security Blog — https://www.blackhillsinfosec.com/blog/ (mirror: none verified yet)
+- SecurityWeek (security news & analysis) — https://www.securityweek.com/ (mirror: none verified yet)
+- The Register (IT industry news) — https://www.theregister.com/ (mirror: none verified yet)
 - Nextron Systems (SIGMA detection rules) — https://www.nextron-systems.com/ [verified 2026-08-06]
 - Kudelski Security Research Center (mitigation/architecture) — https://kudelskisecurity.com/ [verified 2026-08-06]
 - DataMinr (threat intelligence / PoC tracking) — https://dataminr.com/ [verified 2026-08-06]
