@@ -233,7 +233,7 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   vendor source (news aggregators do not count). 
 - no trend velocity changes; observation_queue expanded +8 items, approaches target cap (~25).
 
-## 2026-08-08 (daily)
+## 2026-08-12 (daily)
 - opened: primary blogs (SpecterOps, Project Zero, watchTowr, Assetnote, MDSec, Synacktiv, 
   PortSwigger, SensePost) — no new posts since 2026-08-07. Elastic Security Labs (5 new 
   articles, Aug 4–7): agentic C2 attacks, npm supply-chain evasion, CHAINDROP worm update, 
@@ -280,3 +280,29 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - **Net:** 22/22 sources checked; 18 opened, 4 degraded; 0 new trends; 1 dormancy watch set 
   (CertiGhost); 4 source-discovery candidates promoted, 2 re-queued; queue approaching cap, 
   burndown needed 2026-08-14.
+
+## 2026-08-12 (daily)
+- opened: primary blogs (SpecterOps, watchTowr, PortSwigger, Synacktiv, SensePost, Elastic,
+  Project Zero, MDSec) — no new posts since 2026-08-08. Black Hills 403, MDSec 522 at start
+  of run; later recovered. Outflank persistent 403. No new blog content on-axis.
+- opened: GHSA (`github.com/advisories`) — reviewed critical/high advisories Aug 9-12.
+- opened: Microsoft August 2026 Patch Tuesday coverage via Tavily (Qualys, CrowdStrike, ZDI,
+  Talos, Rapid7, Unit42) — 400+ CVEs, 3 zero-days. On-axis: Azure Service Bus RCE (9.9),
+  Azure SQL EoP (10.0), Windows AD CS RCE (8.8).
+- opened (escalation update via Tavily): TeamCity CVE-2026-63077 now 6 independent sources
+  (SentinelOne, HelpNetSecurity, Penligent, TheHackerNews, Rapid7, JetBrains); Langflow
+  CVE-2026-9198 now 5 independent sources (IndFace, TheHackerNews, SentinelOne, Tenable,
+  JetBrains/IBM).
+- opened: tool repos & releases (BloodHound, NetExec, Certipy, Nuclei, Sliver, Mythic,
+  impacket) — no releases newer than 2026-08-08.
+- opened: discovery topics rotation — GitHub searches for EDR evasion, Kubernetes attack,
+  Azure AD, C2 frameworks (all yielded ≤50 stars, none new/on-axis). No new repos queued.
+- degraded: Outflank (403 Forbidden, persistent), Black Hills (intermittent 403), MDSec (522,
+  recovered).
+- community pulse: not pursued (intake-only lane).
+- Net effect: 4-day gap since last run; Microsoft Patch Tuesday released same day as scan
+  (Aug 12) with multi-org analyst coverage and 3 zero-days. Queued CVEs (TeamCity, Langflow)
+  now have independent researcher support; watch for trend promotion if attack-chain research
+  emerges. No new offensive tools, no trend velocity changes. CertiGhost approaching dormancy
+  watch (6 days quiet, 21-day line 2026-08-21). Coverage: 10/12 primary blogs opened (2
+  degraded); GHSA, Microsoft Patch Tuesday, discovery topics, tool releases completed.
