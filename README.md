@@ -4,18 +4,18 @@ Persistent state for the offensive-security frontier — tools, releases, techni
 
 ![trends](https://img.shields.io/badge/trends-4-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-23-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--12-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-26-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--13-2f9e44?style=flat-square)
 
 ---
 
 ## Since last scan (2026-08-12)
 
-- [**Microsoft August 2026 Patch Tuesday released**](https://blog.qualys.com/) — 400+ CVEs, 3 zero-days (1 actively exploited). On-axis critical: Azure Service Bus RCE (CVSS 9.9), Azure SQL EoP (CVSS 10.0), Windows AD CS RCE (CVSS 8.8). Multi-org analyst coverage: Qualys, CrowdStrike, ZDI, Talos, Rapid7, Unit42.
-- [**TeamCity CVE-2026-63077 escalated to 6 independent sources**](https://www.sentinelone.com/) — SentinelOne, HelpNetSecurity, Penligent, TheHackerNews, Rapid7, JetBrains official advisory. Unauthenticated deserialization RCE now corroborated across multiple security vendors; watch for attack-chain research.
-- [**Langflow CVE-2026-9198 escalated to 5 independent sources**](https://www.indusface.com/) — IndFace, TheHackerNews, SentinelOne, Tenable, JetBrains/IBM. Unauthenticated code injection RCE with active exploitation confirmed; watch for post-compromise analysis.
-- **No new trends, no new tools discovered**: CertiGhost, WSUS, Entra SyncJacking remain stable. GitHub discovery sweep (Aug 9-12) yielded no new on-axis repos above threshold.
-- **Approaching dormancy checkpoint**: CertiGhost now 6 days quiet; dormancy watch deadline 2026-08-21 if no new independent evidence arrives.
+- [**Windows zero-day in active North Korean nation-state campaigns**](https://www.securityweek.com/) — Concurrent with Patch Tuesday (Aug 12); enables full system compromise and ForestTiger backdoor deployment. CVE ID pending; awaiting security vendor corroboration.
+- [**Cisco Secure Firewall zero-day (CVE-2026-20349)**](https://www.securityweek.com/) — Unauthenticated remote DoS on ASA/FTD devices; active wild exploitation observed. Critical for remote defense infrastructure.
+- [**LiteLLM supply-chain compromise**](https://www.securityweek.com/) — 2,500+ organizations impacted via Trivy hack; information-stealing malware distributed. Awaiting primary PSIRT/threat intelligence vendor confirmation.
+- **BloodHound RC activity**: v9.6.0-rc3 (2026-08-12), rc2/rc1 (2026-08-10) — three new releases tracking development velocity toward stable v9.6.
+- **No new trends seeded**: CertiGhost (emerging, 8 days quiet), WSUS (seed, 8 days quiet), Entra SyncJacking (seed, 7 days quiet), Nightmare Eclipse (emerging, historical) remain unchanged. Dormancy watch for CertiGhost: 2026-08-21.
 
 ---
 
@@ -50,29 +50,34 @@ Current study shelf — technique writeups, novel primitives, and published rese
 
 ## Tools & releases
 
-Latest tracked releases (checked 2026-08-12; no updates since 2026-08-08):
+Latest tracked releases (checked 2026-08-13):
 
-- **Nuclei** v3.11.0 (July 6, 2026) — JavaScript-protocol template signing enforcement (breaking change)
+- **BloodHound** v9.6.0-rc3 (Aug 12, 2026) — Three RC releases tracking development toward stable v9.6; new API endpoints, accessibility improvements, webhook integration
 - **Mythic** v4.0.0 public beta (Aug 4, 2026) — C2 framework
+- **Nuclei** v3.11.0 (July 6, 2026) — JavaScript-protocol template signing enforcement (breaking change)
 - **Sliver** v1.7.3 (Feb 2026)
-- **BloodHound** v9.5.1 (July 29, 2026)
-- **NetExec**, **Certipy**, **impacket** (pre-2025, no recent updates)
+- **NetExec**, **Certipy**, **impacket** (pre-2026, no recent updates)
 
 ---
 
 ## Watchlist & queue
 
-[23 below-bar items in observation_queue](TRENDS.md#observation_queue) — awaiting 2nd independent source, trend-bar evidence, or burndown by age.
+[26 below-bar items in observation_queue](TRENDS.md#observation_queue) — awaiting 2nd independent source, trend-bar evidence, or burndown by age.
 
-**Updated today (now with multi-org coverage):**
-- **TeamCity CVE-2026-63077** (now 6 independent sources; watch for attack-chain research)
-- **Langflow CVE-2026-9198** (now 5 independent sources; watch for post-compromise analysis)
+**Escalated today (nation-state & infrastructure attacks):**
+- **Windows zero-day in North Korean campaigns** (CVE ID pending; enables ForestTiger backdoor deployment)
+- **Cisco Secure Firewall CVE-2026-20349** (unauthenticated RCE; active wild exploitation; critical for remote defense)
+- **LiteLLM supply-chain compromise** (2,500+ organizations; Trivy hack → information-stealing malware)
 
-**Highlights (awaiting secondary coverage):**
-- **Microsoft August 2026 Patch Tuesday** (400+ CVEs, 3 zero-days; multi-org analysis available)
+**Multi-vendor coverage ongoing:**
+- **Microsoft August 2026 Patch Tuesday** (400+ CVEs, 3 zero-days; Qualys, CrowdStrike, ZDI, Talos, Rapid7 analysis)
+- **TeamCity CVE-2026-63077** (6 independent sources; watch for attack-chain research)
+- **Langflow CVE-2026-9198** (5 independent sources; watch for post-compromise analysis)
+
+**Single-vendor awaiting secondary coverage:**
 - **CodeIgniter 4 cluster** (3 CRITICAL/HIGH, Aug 7)
 - **GitPython batch** (5 HIGH, Aug 7)
-- **CHAINDROP npm worm** (400+ packages, 1.3B downloads, Elastic single-vendor)
+- **CHAINDROP npm worm** (400+ packages, 1.3B downloads)
 - **Nuxt 6-CVE cluster** (RCE, auth bypass, cache disclosure)
 - **rclone batch** (command execution, auth bypass, path traversal)
 
@@ -81,9 +86,9 @@ Latest tracked releases (checked 2026-08-12; no updates since 2026-08-08):
 ## Resources
 
 - **[TRENDS.md](TRENDS.md)** — full ledger
-- **[Observation queue](TRENDS.md#observation_queue)** — 23 items awaiting promotion or burndown
+- **[Observation queue](TRENDS.md#observation_queue)** — 26 items awaiting promotion or burndown
 - **[Reports](reports/)** — daily & weekly recalibrations
-- **[Latest report](reports/2026-08-12.md)** — daily summary for 2026-08-12
+- **[Latest report](reports/2026-08-13.md)** — daily summary for 2026-08-13
 - **[Latest weekly](reports/weekly/2026-W33.md)** — weekly recalibration for 2026-W33
 - **[Source registry](SOURCES.md)** — primary feeds & discovery lanes
 

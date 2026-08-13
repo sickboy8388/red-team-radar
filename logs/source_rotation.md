@@ -306,3 +306,13 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   emerges. No new offensive tools, no trend velocity changes. CertiGhost approaching dormancy
   watch (6 days quiet, 21-day line 2026-08-21). Coverage: 10/12 primary blogs opened (2
   degraded); GHSA, Microsoft Patch Tuesday, discovery topics, tool releases completed.
+
+## 2026-08-13 (daily)
+- opened: SpecterOps blog — 1 new post (2026-08-12, "Blacklight" AI agents). watchTowr, Elastic, PortSwigger, Synacktiv, SensePost, Project Zero — no new posts since 2026-08-12.
+- opened: SecurityWeek — multiple off-axis/secondary news aggregator items (Windows zero-day in North Korea attacks, Cisco Firewall CVE, LiteLLM supply-chain compromise, SharePoint active exploitation).
+- opened: GitHub tool repos (BloodHound, NetExec, Nuclei, impacket, Certipy, Sliver) — BloodHound 3 new RC releases (v9.6.0-rc3 2026-08-12, rc2/rc1 2026-08-10); others unchanged.
+- opened: GitHub Security Advisories (GHSA) — 12 HIGH-severity advisories Aug 12+ (Ansible, SIPSorcery, Stata, SeaweedFS, SSH.NET, Winter CMS × 3, .NET, others) — all single-vendor, no CRITICAL cluster.
+- degraded: Project Zero (301 redirect, page fetched successfully but no posts since May 2026).
+- degraded: NVD API endpoint — returned historical CVEs (1988–2000) rather than current data; endpoint may need update or alternative access method.
+- not pursued: Community pulse (intake-only lane).
+- Net: 9/12 primary blogs opened (Outflank 403, Black Hills/MDSec not prioritized); GHSA, SecurityWeek, tool repos completed. No new trends. 3 queue escalations (Windows zero-day, Cisco firewall zero-day, LiteLLM supply-chain). CertiGhost +1 day quiet (8 days, dormancy watch 2026-08-21).
