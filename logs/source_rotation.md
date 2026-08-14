@@ -316,3 +316,22 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - degraded: NVD API endpoint — returned historical CVEs (1988–2000) rather than current data; endpoint may need update or alternative access method.
 - not pursued: Community pulse (intake-only lane).
 - Net: 9/12 primary blogs opened (Outflank 403, Black Hills/MDSec not prioritized); GHSA, SecurityWeek, tool repos completed. No new trends. 3 queue escalations (Windows zero-day, Cisco firewall zero-day, LiteLLM supply-chain). CertiGhost +1 day quiet (8 days, dormancy watch 2026-08-21).
+
+## 2026-08-14 (daily)
+- opened: SpecterOps, Elastic, watchTowr, PortSwigger, Synacktiv, SensePost, Nextron
+  (all primary blogs reached; no new posts except SpecterOps Aug 13 × 2). Project Zero 301
+  redirect confirmed (now at projectzero.google/, last post May 13 2026). MDSec last post
+  Jul 10. Black Hills 403 (recurring, fallback to GHSA equivalent).
+- opened: GHSA (Aug 13–14 advisories) — 7 HIGH, 7 MODERATE, 0 CRITICAL. All single-vendor.
+- opened: tool repos (BloodHound, NetExec, Certipy, Nuclei, Sliver, impacket) — BloodHound
+  v9.6.0-rc4 released Aug 13 (XSS fix, CVE-2026-67213 mitigation). No other releases since
+  2026-08-13.
+- degraded: GitHub repo search (429 rate-limit on go/rust new-repo discovery, skipped).
+- opened: exploration slot (checked SpecterOps posts in detail) — 2 on-axis research
+  articles on browser-based persistence/session compromise → study_shelf.
+- not pursued: community pulse (intake-only lane, low yield).
+- Net: 2 study-shelf items (SpecterOps browser research), 0 new trends, 0 observation_queue
+  escalations, 0 burndowns. Existing trends stable (CertiGhost, WSUS, Entra unchanged;
+  dormancy watch 2026-08-21 for CertiGhost approaching). Coverage: 10/12 primary blogs
+  opened (Black Hills 403, Project Zero dormant); GHSA, tool releases, discovery topics
+  completed or rate-limited as documented.
