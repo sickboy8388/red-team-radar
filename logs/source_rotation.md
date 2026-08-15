@@ -335,3 +335,29 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   dormancy watch 2026-08-21 for CertiGhost approaching). Coverage: 10/12 primary blogs
   opened (Black Hills 403, Project Zero dormant); GHSA, tool releases, discovery topics
   completed or rate-limited as documented.
+
+## 2026-08-15 (daily)
+- opened: watchTowr Labs — 1 new post (Aug 14, "You're Back In The Room" — Citrix NetScaler
+  pre-auth RCE CVE-2026-8452). MDSec recent post (Aug 2026 undated, "ARM64 stack internals
+  and obfuscation on Apple Silicon"). SpecterOps, Elastic, PortSwigger, Synacktiv, SensePost,
+  Nextron — no new posts since 2026-08-14. Project Zero confirmed dormant (301 redirect to
+  projectzero.google/, last post May 13). Assetnote, Outflank — 403 (recurring).
+- opened: GitHub Security Advisories (GHSA) — 13 HIGH-severity advisories published Aug 14
+  (no CRITICAL). Includes: Token Optimizer MCP OS command injection, mchange-commons-java
+  deserialization, Lima QEMU priv esc, OpenAM auth bypass, Grav DoS, Budibase SSRF,
+  Authorizer account takeover, Trigger.dev prototype pollution, nltk arbitrary file read,
+  atomic-agents-stack path traversal, Argo Workflows bypass, Pimcore SQL injection, Ansible
+  FreeBSD jail escape. All single-vendor, no multi-org cluster.
+- opened: Tool repos (BloodHound, NetExec, Certipy, Nuclei, Sliver, impacket) — BloodHound
+  v9.6.0-rc5 released Aug 14 (Go 1.26.6 chore bump). No other new releases.
+- opened: Discovery topic searches (kerberos relay, process injection, c2/BOF) via GitHub API
+  — no new high-star (>50) repos created/updated Aug 14-15.
+- not pursued: Community pulse (intake-only lane, no new signals).
+- not pursued: Exploration slot (bandwidth tight, no off-axis discovery needed).
+- degraded: Outflank (403 Forbidden, persistent), Black Hills (403 Forbidden, recurring).
+- Net: 1 new watchTowr post (Citrix NetScaler CVE, single vendor → queue), 1 MDSec research
+  article (EDR evasion, single vendor → queue), 1 tool release (BloodHound rc5, continued
+  development cycle), 13 high-severity single-vendor CVEs (no trend bar clear), 0 new trends,
+  0 new tools. Existing trends stable; CertiGhost dormancy watch 2026-08-21 (6 days). Queue
+  remains at cap ~25 items. Coverage: 9/12 primary blogs opened (Outflank/Black Hills/Project
+  Zero degraded); GHSA, tool releases, discovery topics completed via WebFetch/GitHub API.
