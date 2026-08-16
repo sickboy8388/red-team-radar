@@ -5,16 +5,17 @@ Persistent tracker of the offensive-security frontier — tools, releases, techn
 ![trends](https://img.shields.io/badge/trends-4-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-26-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--15-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--16-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-08-14)
+## Since last scan (2026-08-16)
 
-- [**watchTowr: You're Back In The Room**](https://labs.watchtowr.com/youre-back-in-the-room-citrix-netscaler-pre-auth-rce-cve-2026-8452/) (Aug 14) — Citrix NetScaler pre-authentication RCE technical writeup. Edge device initial-access surface. Single vendor; queued for secondary corroboration.
-- [**MDSec: ARM64 Stack Internals and Obfuscation on Apple Silicon**](https://www.mdsec.co.uk/2026/08/arm64-stack-internals-and-obfuscation-on-apple-silicon/) (Aug 2026) — EDR detection bypass research on Apple Silicon. Offensive tradecraft; single vendor.
-- [**BloodHound v9.6.0-rc5**](https://github.com/SpecterOps/BloodHound/releases) (Aug 14) — Go 1.26.6 dependency upgrade. Continued development velocity (rc4/rc3/rc2/rc1 in prior days).
-- **No new trends**: Existing trends stable (CertiGhost, WSUS, Entra, Nightmare Eclipse all quiet). Dormancy watch for CertiGhost: 2026-08-21 (6 days).
+- **No new trends seeded.** Existing 4 trends stable (CertiGhost, WSUS, Entra SyncJacking, Nightmare Eclipse all quiet).
+- [**Microsoft August 2026 Patch Tuesday**](https://www.tenable.com/blog/microsofts-august-2026-patch-tuesday-addresses-398-cves-cve-2026-68820) — 400 CVEs, 3 zero-days (1 actively exploited). Multi-vendor analyses from Tenable, CrowdStrike, Rapid7, ZDI, Qualys. Framework-level patching; no novel red-team-specific attack-chain research yet.
+- **14 HIGH-severity single-vendor GHSA advisories** (Aug 12-14) — All awaiting independent researcher corroboration. No CRITICAL advisories this period.
+- [**Citrix NetScaler CVE-2026-8452**](https://labs.watchtowr.com/youre-back-in-the-room-citrix-netscaler-pre-auth-rce-cve-2026-8452/) (watchTowr, Aug 14) — Pre-authentication RCE on edge devices. Single vendor; queued for secondary corroboration.
+- **Dormancy watch for CertiGhost:** 2026-08-21 (5 days remaining). Automatic promotion to dormant if no new independent evidence surfaces.
 
 ---
 
@@ -80,7 +81,7 @@ Latest tracked releases (checked 2026-08-15):
 - **[Observation queue](TRENDS.md#observation_queue)** — 26 items awaiting promotion or age-based burndown
 - **[Strategy notes](TRENDS.md#strategy_notes)** — coverage decisions & calibration history
 - **[Reports](reports/)** — daily & weekly recalibrations
-- **[Latest daily](reports/2026-08-15.md)** — 2026-08-15
+- **[Latest daily](reports/2026-08-16.md)** — 2026-08-16
 - **[Latest weekly](reports/weekly/2026-W33.md)** — 2026-W33
 - **[Source registry](SOURCES.md)** — primary feeds & discovery topics
 

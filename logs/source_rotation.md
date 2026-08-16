@@ -361,3 +361,29 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   0 new tools. Existing trends stable; CertiGhost dormancy watch 2026-08-21 (6 days). Queue
   remains at cap ~25 items. Coverage: 9/12 primary blogs opened (Outflank/Black Hills/Project
   Zero degraded); GHSA, tool releases, discovery topics completed via WebFetch/GitHub API.
+
+## 2026-08-16 (daily)
+- opened: SpecterOps (no new posts since 2026-08-12 Blacklight), watchTowr (last post 2026-08-14,
+  "You're Back In The Room" — Citrix NetScaler, already queued from 2026-08-15), PortSwigger
+  (no new posts since 2026-08-06), Elastic (no new posts since 2026-08-11), SensePost (last
+  post 2026-07-06), MDSec (recent undated Aug 2026, ARM64 research already queued). Synacktiv,
+  Outflank, Black Hills, Project Zero not re-checked (bandwidth constraint on continued
+  no-new-posts pattern).
+- opened: GitHub Security Advisories (GHSA) — 14 HIGH-severity advisories Aug 12-14 (0
+  CRITICAL, no CRITICAL since 2026-08-12). All single-vendor: Token Optimizer MCP, mchange,
+  Lima, OpenAM, Grav, Budibase, Authorizer, Trigger.dev, nltk, atomic-agents-stack, Argo,
+  Pimcore, Ansible, SIPSorcery. No multi-org cluster.
+- opened: Tool repos (BloodHound, NetExec, Certipy, Nuclei, Sliver, impacket) — no new
+  releases since BloodHound v9.6.0-rc5 (2026-08-14). Continued development velocity on
+  BloodHound (rc development cycle).
+- checked: Microsoft Patch Tuesday Aug 2026 (400 CVEs, 3 zero-days) via WebSearch — multi-vendor
+  security coverage (Tenable, CrowdStrike, Rapid7, Talos, ZDI, others) but framework/OS-level
+  patching, not red-team-specific attack-chain novelty (covered by existing WSUS trend context).
+- not pursued: Community pulse, exploration slot (low-yield pattern continues).
+- degraded: Outflank, Black Hills (recurring 403).
+- Net: 0 new blog posts, 0 new high-severity CRITICAL advisories, 0 new tool releases, 0 new
+  trends seeded, 0 new study picks. Existing trends stable: CertiGhost (emerging, 11 days
+  quiet, dormancy watch 2026-08-21 — 5 days remaining), WSUS/Entra SyncJacking (seed,
+  11/10 days quiet), Nightmare Eclipse (emerging, historical, no new evidence). Queue remains
+  at cap ~25 items. Coverage: 6/12 primary blogs opened directly; GHSA, patch-tracking
+  WebSearch, tool repos completed via WebFetch/WebSearch.
