@@ -2,34 +2,36 @@
 
 Persistent tracker of the offensive-security frontier — tools, releases, techniques, research and advisories — curated for red team operators.
 
-![trends](https://img.shields.io/badge/trends-4-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-6-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-26-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--15-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-27-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--17-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-08-14)
+## Since last scan (2026-08-15)
 
-- [**watchTowr: You're Back In The Room**](https://labs.watchtowr.com/youre-back-in-the-room-citrix-netscaler-pre-auth-rce-cve-2026-8452/) (Aug 14) — Citrix NetScaler pre-authentication RCE technical writeup. Edge device initial-access surface. Single vendor; queued for secondary corroboration.
-- [**MDSec: ARM64 Stack Internals and Obfuscation on Apple Silicon**](https://www.mdsec.co.uk/2026/08/arm64-stack-internals-and-obfuscation-on-apple-silicon/) (Aug 2026) — EDR detection bypass research on Apple Silicon. Offensive tradecraft; single vendor.
-- [**BloodHound v9.6.0-rc5**](https://github.com/SpecterOps/BloodHound/releases) (Aug 14) — Go 1.26.6 dependency upgrade. Continued development velocity (rc4/rc3/rc2/rc1 in prior days).
-- **No new trends**: Existing trends stable (CertiGhost, WSUS, Entra, Nightmare Eclipse all quiet). Dormancy watch for CertiGhost: 2026-08-21 (6 days).
+- [**SonicWall SMA1000 SSRF + RCE chain — CVE-2026-15409/15410**](https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the) (CVSS 10.0, seeded today) — Unauthenticated SSRF + post-auth code injection on Workplace interface; active exploitation in the wild; multi-vendor tracking (Tenable, Rapid7, Beazley, BleepingComputer). Affects models 6210, 7210, 8200v.
+- [**Oracle PeopleSoft deserialization RCE — CVE-2026-35273**](https://www.rapid7.com/blog/post/etr-active-exploitation-of-oracle-peoplesoft-zero-day-cve-2026-35273/) (CVSS 9.8, seeded today) — Unsafe deserialization at `/PSEMHUB/hub` endpoint; zero-day exploitation by UNC6240 (ShinyHunters) targeting higher education; versions 8.61–8.62; multi-vendor tracking.
+- **CertiGhost dormancy watch**: 12 days quiet since last evidence (2026-08-06). Automatic promotion to dormant on 2026-08-21 if no new independent evidence (4 days remaining).
+- **No new research posts** from SpecterOps, Elastic, PortSwigger, Synacktiv, SensePost since 2026-08-15 (primary blogs swept via Tavily bypass for anti-bot sources).
 
 ---
 
 ## Trends
 
-**Status tally:** emerging 2 · seed 2 · accelerating 0
+**Status tally:** emerging 2 · seed 4 · accelerating 0
 
 | Trend | Stage | Latest signal |
 |-------|-------|---|
-| [CertiGhost AD CS DC-impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001--certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | emerging | [2026-08-06](https://kudelskisecurity.com/) — Kudelski Security mitigation guidance |
-| [Nightmare Eclipse Windows zero-day research](TRENDS.md#id-evasion-nightmare-eclipse-001--nightmare-eclipse-windows-defenderblockerbitlocker-zero-day-research-campaign) | emerging | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) — 9 PoC exploits; historical campaign (Jul 31) |
-| [WSUS / Windows Update Server RCE exploitation](TRENDS.md#id-initial-access-wsus-001--wsus--windows-update-server-rce-exploitation) | seed | [2026-08-05](https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-1/) — SpecterOps comprehensive writeup |
-| [Entra ID SyncJacking & Conditional Access Bypass](TRENDS.md#id-identity-entra-syncjacking-001--entra-id-syncjacking--conditional-access-bypass) | seed | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) — Semperis guidance |
+| [CertiGhost AD CS DC-impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001--certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | emerging | [2026-08-06](https://www.dataminr.com/) — DataMinr PoC tracking; dormancy watch 2026-08-21 |
+| [Nightmare Eclipse Windows zero-day research](TRENDS.md#id-evasion-nightmare-eclipse-001--nightmare-eclipse-windows-defenderblockerbitlocker-zero-day-research-campaign) | emerging | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) — 9 PoC exploits (Apr–Jul 2026) |
+| [SonicWall SMA1000 SSRF + RCE (CVE-2026-15409/15410)](TRENDS.md#id-initial-access-sonicwall-sma-001--sonicwall-sma1000-ssrf--rce-exploitation-cve-2026-15409-15410) | seed | [2026-08-17](https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the) — Tenable; CVSS 10.0; active exploitation |
+| [Oracle PeopleSoft deserialization RCE (CVE-2026-35273)](TRENDS.md#id-initial-access-oracle-peoplesoft-001--oracle-peoplesoft-unsafe-deserialization-rce-cve-2026-35273) | seed | [2026-08-17](https://www.rapid7.com/blog/post/etr-active-exploitation-of-oracle-peoplesoft-zero-day-cve-2026-35273/) — Rapid7; CVSS 9.8; UNC6240 |
+| [WSUS / Windows Update Server RCE exploitation](TRENDS.md#id-initial-access-wsus-001--wsus--windows-update-server-rce-exploitation) | seed | [2026-08-05](https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-1/) — SpecterOps; 50+ victims |
+| [Entra ID SyncJacking & Conditional Access Bypass](TRENDS.md#id-identity-entra-syncjacking-001--entra-id-syncjacking--conditional-access-bypass) | seed | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) — Semperis & MSRC confirmation |
 
-**Dormancy watch:** CertiGhost (emerging) → automatic promotion to dormant on 2026-08-21 if no new evidence (6 days remaining).
+**Dormancy watch:** CertiGhost (emerging) → automatic promotion to dormant on 2026-08-21 if no new evidence (4 days remaining).
 
 ---
 
@@ -60,29 +62,31 @@ Latest tracked releases (checked 2026-08-15):
 
 ## Observation queue
 
-[26 below-bar items](TRENDS.md#observation_queue) — awaiting 2nd independent source or burndown by age (checked 2026-08-15).
+[27 below-bar items](TRENDS.md#observation_queue) — awaiting 2nd independent source or burndown by age (checked 2026-08-17).
 
 **Multi-vendor escalations:**
-- **Microsoft August 2026 Patch Tuesday** (400+ CVEs, 3 zero-days; multi-org analyst coverage)
+- **Microsoft August 2026 Patch Tuesday** (400+ CVEs, 3 zero-days; multi-org analyst coverage; on-axis: Azure Service Bus RCE, Azure SQL EoP, Windows AD CS RCE)
 - **TeamCity CVE-2026-63077** (6 independent sources; CISA KEV; watch for attack-chain research)
 - **Langflow CVE-2026-9198** (5 independent sources; CISA KEV; watch for post-compromise analysis)
 
 **Single-vendor signals (awaiting corroboration):**
-- **Citrix NetScaler CVE-2026-8452** (watchTowr Aug 14; pre-auth RCE)
-- **ARM64 Stack Obfuscation Research** (MDSec Aug 2026; EDR evasion on Apple Silicon)
-- **GHSA Advisory Stream** (13 HIGH-severity CVEs, Aug 14; all single-vendor)
+- **Citrix NetScaler CVE-2026-8452** (watchTowr Aug 14; pre-auth SAML RCE; queued for secondary)
+- **ARM64 Stack Obfuscation Research** (MDSec Aug 15; EDR evasion on Apple Silicon)
+- **Cisco Firewall CVE-2026-20349** (unauthenticated RCE; awaiting PoC/secondary analysis)
+- **GHSA Advisory Stream** (13+ HIGH-severity CVEs, Aug 14–15; all single-vendor)
 
 ---
 
 ## Resources
 
 - **[TRENDS.md](TRENDS.md)** — full ledger with evidence & stage history
-- **[Observation queue](TRENDS.md#observation_queue)** — 26 items awaiting promotion or age-based burndown
+- **[Observation queue](TRENDS.md#observation_queue)** — 27 items awaiting promotion or age-based burndown
 - **[Strategy notes](TRENDS.md#strategy_notes)** — coverage decisions & calibration history
 - **[Reports](reports/)** — daily & weekly recalibrations
-- **[Latest daily](reports/2026-08-15.md)** — 2026-08-15
+- **[Latest daily](reports/2026-08-17.md)** — 2026-08-17
 - **[Latest weekly](reports/weekly/2026-W33.md)** — 2026-W33
 - **[Source registry](SOURCES.md)** — primary feeds & discovery topics
+- **[Source rotation log](logs/source_rotation.md)** — session-by-session coverage tracking
 
 ---
 

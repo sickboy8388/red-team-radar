@@ -361,3 +361,28 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   0 new tools. Existing trends stable; CertiGhost dormancy watch 2026-08-21 (6 days). Queue
   remains at cap ~25 items. Coverage: 9/12 primary blogs opened (Outflank/Black Hills/Project
   Zero degraded); GHSA, tool releases, discovery topics completed via WebFetch/GitHub API.
+
+## 2026-08-17 (daily)
+- opened: primary blogs (SpecterOps, watchTowr, Elastic, PortSwigger, Synacktiv, SensePost,
+  Nextron, MDSec) — no new posts since 2026-08-15 (last scan). Project Zero confirmed dormant
+  (301 redirect). Black Hills 403 (recurring). Outflank 403 (recurring). Assetnote 403.
+- opened: GHSA (`github.com/advisories`) — reviewed critical/high advisories Aug 15-17;
+  no new CRITICAL-severity advisories found. HIGH-severity batch (Aug 14): Token Optimizer,
+  mchange-commons-java, Lima QEMU, OpenAM, Grav, Budibase, Authorizer, Trigger.dev, nltk,
+  atomic-agents-stack, Argo Workflows, Pimcore, Ansible all single-vendor (no escalations).
+- opened: Tavily (`tvly search`/`extract`) — comprehensive sweep for critical CVEs/research
+  bypassing anti-bot blocks. **NEW CRITICAL FINDINGS:** CVE-2026-15409/15410 (SonicWall
+  SMA1000 SSRF + RCE, CVSS 10.0, exploited, multi-vendor coverage) seeded as
+  `initial-access-sonicwall-sma-001`. CVE-2026-35273 (Oracle PeopleSoft auth bypass RCE,
+  CVSS 9.8, exploited by UNC6240, multi-vendor coverage) seeded as
+  `initial-access-oracle-peoplesoft-001`.
+- opened: tool repos & releases (BloodHound, NetExec, Certipy, Nuclei, Sliver, impacket) —
+  no new releases since 2026-08-15.
+- opened: discovery topics (GitHub API search) — EDR evasion, C2, AD attacks, Kubernetes;
+  no new high-star repos created Aug 15-17.
+- not pursued: community pulse, exploration slot.
+- degraded: Outflank (403), Black Hills (403), Project Zero (dormant).
+- Net: 2 new SEED trends seeded (SonicWall, Oracle), 0 blog posts, 0 single-vendor CVE
+  escalations. CertiGhost dormancy watch 2026-08-21 (4 days). Coverage: 9/12 primary blogs
+  opened (degraded: Outflank/Black Hills/Project Zero); GHSA, Tavily, NVD, tool repos,
+  discovery topics completed. Egress open, no blockers.
