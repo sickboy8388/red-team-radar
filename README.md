@@ -4,17 +4,17 @@ Persistent tracker of the offensive-security frontier — tools, releases, techn
 
 ![trends](https://img.shields.io/badge/trends-4-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-26-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--15-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-15-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--17-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-08-14)
+## Since last scan (2026-08-15)
 
 - [**watchTowr: You're Back In The Room**](https://labs.watchtowr.com/youre-back-in-the-room-citrix-netscaler-pre-auth-rce-cve-2026-8452/) (Aug 14) — Citrix NetScaler pre-authentication RCE technical writeup. Edge device initial-access surface. Single vendor; queued for secondary corroboration.
 - [**MDSec: ARM64 Stack Internals and Obfuscation on Apple Silicon**](https://www.mdsec.co.uk/2026/08/arm64-stack-internals-and-obfuscation-on-apple-silicon/) (Aug 2026) — EDR detection bypass research on Apple Silicon. Offensive tradecraft; single vendor.
 - [**BloodHound v9.6.0-rc5**](https://github.com/SpecterOps/BloodHound/releases) (Aug 14) — Go 1.26.6 dependency upgrade. Continued development velocity (rc4/rc3/rc2/rc1 in prior days).
-- **No new trends**: Existing trends stable (CertiGhost, WSUS, Entra, Nightmare Eclipse all quiet). Dormancy watch for CertiGhost: 2026-08-21 (6 days).
+- **No new trends**: All four trends silent this week. Dormancy watch deadline 2026-08-21 (4 days): CertiGhost and Nightmare Eclipse both auto-promote to dormant if no new evidence.
 
 ---
 
@@ -24,12 +24,12 @@ Persistent tracker of the offensive-security frontier — tools, releases, techn
 
 | Trend | Stage | Latest signal |
 |-------|-------|---|
-| [CertiGhost AD CS DC-impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001--certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | emerging | [2026-08-06](https://kudelskisecurity.com/) — Kudelski Security mitigation guidance |
-| [Nightmare Eclipse Windows zero-day research](TRENDS.md#id-evasion-nightmare-eclipse-001--nightmare-eclipse-windows-defenderblockerbitlocker-zero-day-research-campaign) | emerging | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) — 9 PoC exploits; historical campaign (Jul 31) |
+| [Nightmare Eclipse Windows zero-day research](TRENDS.md#id-evasion-nightmare-eclipse-001--nightmare-eclipse-windows-defenderblockerbitlocker-zero-day-research-campaign) | emerging | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) — 9 PoC exploits; historical campaign (Jul 31; dormancy watch 2026-08-21) |
+| [CertiGhost AD CS DC-impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001--certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | emerging | [2026-08-06](https://kudelskisecurity.com/) — Kudelski Security mitigation guidance (dormancy watch 2026-08-21) |
 | [WSUS / Windows Update Server RCE exploitation](TRENDS.md#id-initial-access-wsus-001--wsus--windows-update-server-rce-exploitation) | seed | [2026-08-05](https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-1/) — SpecterOps comprehensive writeup |
 | [Entra ID SyncJacking & Conditional Access Bypass](TRENDS.md#id-identity-entra-syncjacking-001--entra-id-syncjacking--conditional-access-bypass) | seed | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) — Semperis guidance |
 
-**Dormancy watch:** CertiGhost (emerging) → automatic promotion to dormant on 2026-08-21 if no new evidence (6 days remaining).
+**Dormancy watch:** CertiGhost (emerging) and Nightmare Eclipse (emerging) → automatic promotion to dormant on 2026-08-21 if no new evidence (4 days remaining).
 
 ---
 
@@ -60,7 +60,7 @@ Latest tracked releases (checked 2026-08-15):
 
 ## Observation queue
 
-[26 below-bar items](TRENDS.md#observation_queue) — awaiting 2nd independent source or burndown by age (checked 2026-08-15).
+[15 below-bar items](TRENDS.md#observation_queue) — awaiting 2nd independent source or burndown by age (checked 2026-08-17).
 
 **Multi-vendor escalations:**
 - **Microsoft August 2026 Patch Tuesday** (400+ CVEs, 3 zero-days; multi-org analyst coverage)
@@ -68,20 +68,20 @@ Latest tracked releases (checked 2026-08-15):
 - **Langflow CVE-2026-9198** (5 independent sources; CISA KEV; watch for post-compromise analysis)
 
 **Single-vendor signals (awaiting corroboration):**
-- **Citrix NetScaler CVE-2026-8452** (watchTowr Aug 14; pre-auth RCE)
+- **Citrix NetScaler CVE-2026-8452** (watchTowr Aug 14; pre-auth RCE on edge devices)
 - **ARM64 Stack Obfuscation Research** (MDSec Aug 2026; EDR evasion on Apple Silicon)
-- **GHSA Advisory Stream** (13 HIGH-severity CVEs, Aug 14; all single-vendor)
+- **CHAINDROP npm supply-chain** (Elastic; 400+ packages, 1.3B downloads affected)
 
 ---
 
 ## Resources
 
 - **[TRENDS.md](TRENDS.md)** — full ledger with evidence & stage history
-- **[Observation queue](TRENDS.md#observation_queue)** — 26 items awaiting promotion or age-based burndown
+- **[Observation queue](TRENDS.md#observation_queue)** — 15 items awaiting promotion or age-based burndown
 - **[Strategy notes](TRENDS.md#strategy_notes)** — coverage decisions & calibration history
 - **[Reports](reports/)** — daily & weekly recalibrations
 - **[Latest daily](reports/2026-08-15.md)** — 2026-08-15
-- **[Latest weekly](reports/weekly/2026-W33.md)** — 2026-W33
+- **[Latest weekly](reports/weekly/2026-W34.md)** — 2026-W34
 - **[Source registry](SOURCES.md)** — primary feeds & discovery topics
 
 ---

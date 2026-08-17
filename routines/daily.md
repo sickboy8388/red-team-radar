@@ -31,14 +31,25 @@ FULL CHECK; there is no "light pass". Separate CHECK from EXTRACT:
 - **Exploration slot** — browse a listing outside current axes (a security paper feed,
   security-tool trending) significance-first; a significant off-axis item still gets queued.
 
+### Primary scan (default mode)
+Primary blogs and NVD are default-first: they are now reliably reachable post-egress-reopening
+(as of 2026-08-05). Check them every run. GitHub lanes (GHSA, repo search) remain secondary but
+full-strength fallback.
+
 ### Degraded-network fallback
 If a non-GitHub primary (blog, NVD, CISA KEV, community site) 403s or times out at the proxy,
-don't just mark it `degraded` and move on — try the GitHub-native equivalent for that org before
-giving up on the lane: GHSA (`github.com/advisories`), a vendor's `*/security/advisories` page,
-`CVEProject/cvelistV5`, or a GitHub Pages mirror of the blog if `SOURCES.md` notes one for that
-source. Use WebSearch only to corroborate `observation_queue` group-counts (e.g. "N groups so
-far") — never as a substitute for opening a primary URL; it cannot produce evidence. Log the
-fallback outcome in `logs/source_rotation.md` same as any other source (`opened via fallback: ...`
+don't just mark it `degraded` and move on — try these fallback strategies before giving up:
+
+1. **GitHub-native equivalent:** GHSA (`github.com/advisories`), a vendor's `*/security/advisories` page,
+   `CVEProject/cvelistV5`, or a GitHub Pages mirror of the blog if `SOURCES.md` notes one.
+2. **Tavily API (if available):** When WebFetch 403s on blog indices (especially Outflank, Assetnote,
+   watchTowr), try `tvly search --include-domains <domain>` to bypass anti-bot blocks. Use Tavily
+   only for *discovery* (find URLs to open); *cite* the primary URL opened in the same session.
+   Log success: `opened via Tavily: ...` or failure: `degraded: 403 at proxy, no Tavily bypass`.
+
+Use WebSearch only to corroborate `observation_queue` group-counts (e.g. "N groups so far") — 
+never as a substitute for opening a primary URL; it cannot produce evidence. Log the fallback 
+outcome in `logs/source_rotation.md` same as any other source (`opened via fallback: ...` 
 or still `degraded: ...` if no GitHub-native path exists).
 
 ## 3. Evidence rules (hard)

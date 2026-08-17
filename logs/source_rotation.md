@@ -361,3 +361,12 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   0 new tools. Existing trends stable; CertiGhost dormancy watch 2026-08-21 (6 days). Queue
   remains at cap ~25 items. Coverage: 9/12 primary blogs opened (Outflank/Black Hills/Project
   Zero degraded); GHSA, tool releases, discovery topics completed via WebFetch/GitHub API.
+
+## 2026-W34 (weekly, Aug 12-17 recap)
+- **Primary blogs:** 18/22 sources opened this week (SpecterOps, watchTowr, PortSwigger, Synacktiv, SensePost, Elastic, Project Zero, GHSA, NVD). 4 degraded: Outflank (403), Black Hills (recurring 403), Project Zero (dormant—last post May 13), MDSec (intermittent 522). No access blockers (egress remains open post-08-05). GitHub discovery search hit 429 rate-limit 2+ times (monitor quota next week).
+- **Tool releases:** BloodHound continuous RC cycle (v9.6.0-rc5 Aug 14, rc4 Aug 13, rc3 Aug 12). No new releases from NetExec, Certipy, Nuclei, Sliver, impacket.
+- **CVE/Advisory watch:** Microsoft Patch Tuesday (400+ CVEs, 3 zero-days), TeamCity (6 sources), Langflow (5 sources), CHAINDROP supply-chain, CodeIgniter/GitPython/Nuxt/rclone clusters, PDF.js, Windows zero-day, Cisco Firewall, LiteLLM. All routed to observation_queue (none cleared trend bar). Queue burndown: dropped 11 aged/low-relevance items; final live ~15 items.
+- **Discovery topics:** Rotated (kerberos relay, process injection, c2/BOF, EDR evasion, Azure AD, Kubernetes). GitHub search rate-limited; no new high-star repos identified. No new tool discoveries.
+- **Community pulse & exploration:** not pursued (intake-only; low yield).
+- **Trends:** all 4 trends silent (zero new independent evidence this week). Dormancy watches for CertiGhost and Nightmare Eclipse both fire 2026-08-21 (4 days).
+- **Coverage:** 22/22 swept sources checked; 18 opened, 4 degraded; CISA KEV still 403 (structural network policy). Logged per daily runs (2026-08-12, 2026-08-13, 2026-08-14, 2026-08-15; no runs 2026-08-16, 2026-08-09-11).
