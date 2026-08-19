@@ -386,3 +386,35 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   escalations. CertiGhost dormancy watch 2026-08-21 (4 days). Coverage: 9/12 primary blogs
   opened (degraded: Outflank/Black Hills/Project Zero); GHSA, Tavily, NVD, tool repos,
   discovery topics completed. Egress open, no blockers.
+
+## 2026-08-19 (daily)
+- opened: primary blogs via WebFetch (SpecterOps, watchTowr, Elastic, PortSwigger) — all 200 OK,
+  no new posts since 2026-08-14 (4-day old). SpecterOps last Aug 13, watchTowr Aug 14, Elastic
+  Aug 11, PortSwigger Aug 6. Synacktiv, SensePost, MDSec, Project Zero held no new posts
+  (dormant or pre-Aug). Confirmed no new on-axis content published 2026-08-18 or 2026-08-19.
+- opened: GHSA via WebFetch (`github.com/advisories`) — scanned critical/high advisories
+  Aug 17-19. **2 new CRITICAL published 2026-08-18:** (1) CVE-2026-62988 (Froxlor credential
+  + 2FA secret disclosure via API endpoints), (2) CVE-2026-54133 (jmespath.php CompilerRuntime
+  code injection, CVSS 9.8, affects <2.9.1). Both single-vendor, no secondary researcher
+  coverage yet; queued pending independent analysis.
+- opened: NVD REST API endpoint (`services.nvd.nist.gov/rest/json/cves/2.0`) — returned
+  historical CVE data (1988-1992 era), not current 2026 data; endpoint may require parameter
+  update or alternative access method. Did not yield actionable current CVE intelligence.
+- opened: tool repos & releases via WebFetch (BloodHound releases page) — **BloodHound CE
+  v9.6.0 stable released 2026-08-18** at 14:56 UTC (first stable after rc1-rc6 development
+  cycle Aug 10-17, post-XSS fix CVE-2026-67213). No releases from NetExec, Certipy, Nuclei,
+  Sliver, impacket since 2026-08-15.
+- opened: discovery topics via mcp__github__search_repositories — "edr evasion created:>2026-08-16
+  stars:>50", "c2 framework created:>2026-08-16 stars:>50", "active directory attack created:
+  >2026-08-16 stars:>50" — all returned 0 results (no new repos matching threshold created
+  Aug 17-19).
+- not pursued: community pulse (intake-only lane, low yield), exploration slot (bandwidth
+  constraints).
+- degraded: NVD API (historical data, not current; fallback to GHSA for CVE watch).
+- Net: 0 new trends seeded, 0 blog posts, 2 single-vendor CRITICAL CVEs queued (Froxlor,
+  jmespath.php), 1 stable tool release (BloodHound v9.6.0), 0 new discovery tools. CertiGhost
+  dormancy watch 2026-08-21 (1 day), approaches 21-day quiet line 2026-08-27. Coverage: 4/10
+  primary blogs swept and confirmed post-Aug activity (SpecterOps, watchTowr, Elastic,
+  PortSwigger); others dormant or pre-Aug. GHSA, tool repos, GitHub discovery search completed.
+  No access blockers (egress open). Observation_queue 2 items richer; burndown eligible (oldest
+  entries 2026-07-31, 19 days old).

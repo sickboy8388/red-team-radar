@@ -5,16 +5,16 @@ Persistent tracker of the offensive-security frontier — tools, releases, techn
 ![trends](https://img.shields.io/badge/trends-6-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-27-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--17-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--19-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-08-15)
+## Since last scan (2026-08-17)
 
-- [**SonicWall SMA1000 SSRF + RCE chain — CVE-2026-15409/15410**](https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the) (CVSS 10.0, seeded today) — Unauthenticated SSRF + post-auth code injection on Workplace interface; active exploitation in the wild; multi-vendor tracking (Tenable, Rapid7, Beazley, BleepingComputer). Affects models 6210, 7210, 8200v.
-- [**Oracle PeopleSoft deserialization RCE — CVE-2026-35273**](https://www.rapid7.com/blog/post/etr-active-exploitation-of-oracle-peoplesoft-zero-day-cve-2026-35273/) (CVSS 9.8, seeded today) — Unsafe deserialization at `/PSEMHUB/hub` endpoint; zero-day exploitation by UNC6240 (ShinyHunters) targeting higher education; versions 8.61–8.62; multi-vendor tracking.
-- **CertiGhost dormancy watch**: 12 days quiet since last evidence (2026-08-06). Automatic promotion to dormant on 2026-08-21 if no new independent evidence (4 days remaining).
-- **No new research posts** from SpecterOps, Elastic, PortSwigger, Synacktiv, SensePost since 2026-08-15 (primary blogs swept via Tavily bypass for anti-bot sources).
+- [**BloodHound CE v9.6.0 released**](https://github.com/SpecterOps/BloodHound/releases) (2026-08-18) — First stable release after 6-release RC cycle (Aug 10–17); includes XSS fix (CVE-2026-67213) and dependency hardening.
+- [**CVE-2026-62988 (Froxlor)**](https://github.com/advisories) — Credential + 2FA secret disclosure via API endpoints; single vendor; watchlist queued (2026-08-18).
+- [**CVE-2026-54133 (jmespath.php)**](https://github.com/advisories) — CompilerRuntime code injection (CVSS 9.8), RCE impact, affects <2.9.1; single vendor; watchlist queued (2026-08-18).
+- **CertiGhost dormancy watch**: 13 days quiet since last evidence (2026-08-06); watch 2026-08-21 (tomorrow); automatic promotion to dormant on 2026-08-27 if no new independent evidence.
 
 ---
 
@@ -31,7 +31,7 @@ Persistent tracker of the offensive-security frontier — tools, releases, techn
 | [WSUS / Windows Update Server RCE exploitation](TRENDS.md#id-initial-access-wsus-001--wsus--windows-update-server-rce-exploitation) | seed | [2026-08-05](https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-1/) — SpecterOps; 50+ victims |
 | [Entra ID SyncJacking & Conditional Access Bypass](TRENDS.md#id-identity-entra-syncjacking-001--entra-id-syncjacking--conditional-access-bypass) | seed | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) — Semperis & MSRC confirmation |
 
-**Dormancy watch:** CertiGhost (emerging) → automatic promotion to dormant on 2026-08-21 if no new evidence (4 days remaining).
+**Dormancy watch:** CertiGhost (emerging) → watch 2026-08-21 (tomorrow); automatic promotion to dormant on 2026-08-27 if no new evidence (13 days quiet since 2026-08-06).
 
 ---
 
