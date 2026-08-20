@@ -4,17 +4,17 @@ Persistent tracker of the offensive-security frontier — tools, releases, techn
 
 ![trends](https://img.shields.io/badge/trends-6-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-27-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--19-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-28-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--20-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-08-17)
+## Since last scan (2026-08-19)
 
-- [**BloodHound CE v9.6.0 released**](https://github.com/SpecterOps/BloodHound/releases) (2026-08-18) — First stable release after 6-release RC cycle (Aug 10–17); includes XSS fix (CVE-2026-67213) and dependency hardening.
-- [**CVE-2026-62988 (Froxlor)**](https://github.com/advisories) — Credential + 2FA secret disclosure via API endpoints; single vendor; watchlist queued (2026-08-18).
-- [**CVE-2026-54133 (jmespath.php)**](https://github.com/advisories) — CompilerRuntime code injection (CVSS 9.8), RCE impact, affects <2.9.1; single vendor; watchlist queued (2026-08-18).
-- **CertiGhost dormancy watch**: 13 days quiet since last evidence (2026-08-06); watch 2026-08-21 (tomorrow); automatic promotion to dormant on 2026-08-27 if no new independent evidence.
+- [**SpecterOps AWSHound**](https://specterops.io/blog/2026/08/19/awshound-an-opensource-aws-opengraph-collector/) (Aug 19) — AWS OpenGraph collector for BloodHound; enables attack-path analysis for AWS infrastructure. Cloud/identity axis; single vendor.
+- [**13 HIGH-severity CVEs published**](https://github.com/advisories) (GHSA, Aug 19) — GeoServer SSTI, Document Merge SSTI→RCE, MCP command injection; all single-vendor, no critical this run.
+- [**BloodHound CE v9.6.0 stable**](https://github.com/SpecterOps/BloodHound/releases) (2026-08-18) — First stable after RC cycle; XSS fix + dependency hardening.
+- **CertiGhost dormancy watch begins today** — Last evidence 2026-08-06 (14 days quiet); dormancy line 2026-08-27 (21-day threshold).
 
 ---
 
@@ -62,7 +62,7 @@ Latest tracked releases (checked 2026-08-15):
 
 ## Observation queue
 
-[27 below-bar items](TRENDS.md#observation_queue) — awaiting 2nd independent source or burndown by age (checked 2026-08-17).
+[28 below-bar items](TRENDS.md#observation_queue) — awaiting 2nd independent source or burndown by age (checked 2026-08-20).
 
 **Multi-vendor escalations:**
 - **Microsoft August 2026 Patch Tuesday** (400+ CVEs, 3 zero-days; multi-org analyst coverage; on-axis: Azure Service Bus RCE, Azure SQL EoP, Windows AD CS RCE)
@@ -80,10 +80,10 @@ Latest tracked releases (checked 2026-08-15):
 ## Resources
 
 - **[TRENDS.md](TRENDS.md)** — full ledger with evidence & stage history
-- **[Observation queue](TRENDS.md#observation_queue)** — 27 items awaiting promotion or age-based burndown
+- **[Observation queue](TRENDS.md#observation_queue)** — 28 items awaiting promotion or age-based burndown
 - **[Strategy notes](TRENDS.md#strategy_notes)** — coverage decisions & calibration history
 - **[Reports](reports/)** — daily & weekly recalibrations
-- **[Latest daily](reports/2026-08-17.md)** — 2026-08-17
+- **[Latest daily](reports/2026-08-20.md)** — 2026-08-20
 - **[Latest weekly](reports/weekly/2026-W33.md)** — 2026-W33
 - **[Source registry](SOURCES.md)** — primary feeds & discovery topics
 - **[Source rotation log](logs/source_rotation.md)** — session-by-session coverage tracking

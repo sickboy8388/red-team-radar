@@ -418,3 +418,34 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   PortSwigger); others dormant or pre-Aug. GHSA, tool repos, GitHub discovery search completed.
   No access blockers (egress open). Observation_queue 2 items richer; burndown eligible (oldest
   entries 2026-07-31, 19 days old).
+
+## 2026-08-20 (daily)
+- opened: primary blogs via WebFetch (SpecterOps, watchTowr, Elastic, PortSwigger) — all reachable,
+  **1 new post found:** SpecterOps (2026-08-19) "AWSHound: An OpenSource AWS OpenGraph Collector"
+  (AWS attack-path analysis, OpenHound ecosystem). Synacktiv, SensePost, MDSec, Project Zero held
+  no new posts (dormant or pre-Aug). Confirmed no new on-axis content published 2026-08-18 or
+  2026-08-20 from other primary blogs.
+- opened: GHSA via WebFetch (`github.com/advisories`) — scanned critical/high advisories Aug 17-20.
+  **13 HIGH-severity published 2026-08-19:** GeoServer SSTI (CVE-2024-45747), GeoLens auth flaws,
+  XWiki privilege escalation, MCP PHP SDK SSE buffer, Document Merge Service SSTI→RCE (CVE-2026-53964),
+  Contentful MCP Server MCP-controlled argument redirection, Copier trust-prefix bypass,
+  claude-faf-mcp/faf-mcp/grok-faf-mcp arbitrary file read (MCP-related), plus logto-tunnel,
+  Grav, Snipe-IT, others. All single-vendor; no secondary researcher coverage yet. No CRITICAL
+  published 2026-08-19/20.
+- opened: NVD REST API endpoint (`services.nvd.nist.gov/rest/json/cves/2.0`) — returned historical
+  CVE data (1988-1992), not current 2026 data; endpoint appears degraded. Fallback to GHSA for
+  CVE watch continues (verified lane since 2026-08-19).
+- opened: tool repos & releases via WebFetch (BloodHound, NetExec, Sliver) — no new releases since
+  2026-08-18. BloodHound v9.6.0 (2026-08-18) remains latest stable; NetExec v1.5.1 (Feb 2024);
+  Sliver v1.7.3 (Feb 2026).
+- opened: discovery topics via mcp__github__search_repositories — "edr evasion created:>2026-08-16
+  stars:>50", "c2 framework created:>2026-08-16 stars:>50", "active directory attack created:
+  >2026-08-16 stars:>50" — all returned 0 results (no new repos matching threshold created
+  Aug 17-20).
+- not pursued: community pulse (intake-only lane, low yield), exploration slot.
+- Net: 0 new trends seeded, 1 new blog post (SpecterOps AWSHound, single vendor → not queued),
+  13 single-vendor HIGH CVEs (below trend bar), 0 new tool releases. CertiGhost dormancy watch
+  TODAY (2026-08-21); no evidence, will approach 21-day dormancy line 2026-08-27. SonicWall/Oracle
+  trends stable (seeded 3 days ago, still fresh). Coverage: 4/10 primary blogs swept and confirmed
+  (SpecterOps active, others dormant); GHSA, tool repos, discovery topics completed. NVD API
+  degraded; GHSA fallback verified. No access blockers.
