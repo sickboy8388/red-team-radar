@@ -4,17 +4,17 @@ Persistent tracker of the offensive-security frontier — tools, releases, techn
 
 ![trends](https://img.shields.io/badge/trends-6-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-28-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--20-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-25-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--21-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-08-19)
+## Since last scan (2026-08-20)
 
-- [**SpecterOps AWSHound**](https://specterops.io/blog/2026/08/19/awshound-an-opensource-aws-opengraph-collector/) (Aug 19) — AWS OpenGraph collector for BloodHound; enables attack-path analysis for AWS infrastructure. Cloud/identity axis; single vendor.
-- [**13 HIGH-severity CVEs published**](https://github.com/advisories) (GHSA, Aug 19) — GeoServer SSTI, Document Merge SSTI→RCE, MCP command injection; all single-vendor, no critical this run.
-- [**BloodHound CE v9.6.0 stable**](https://github.com/SpecterOps/BloodHound/releases) (2026-08-18) — First stable after RC cycle; XSS fix + dependency hardening.
-- **CertiGhost dormancy watch begins today** — Last evidence 2026-08-06 (14 days quiet); dormancy line 2026-08-27 (21-day threshold).
+- **No new trends seeded.** Primary sweep (SpecterOps, watchTowr, Elastic, PortSwigger) found no new posts since Aug 14-19; all dormant or pre-Aug on secondary blogs.
+- **Dormancy watch status:** CertiGhost now active (21-day quiet line: 2026-08-27); zero new independent evidence since 2026-08-06.
+- **Observation queue burndown:** Removed 3 oldest unverified items from 2026-07-31 (21 days stale, no secondary corroboration).
+- **CVE/Advisory:** GHSA published 4 HIGH-severity advisories (Aug 20-21), all single-vendor, no CRITICAL; NVD API degraded (fallback to GHSA verified).
 
 ---
 
@@ -24,14 +24,14 @@ Persistent tracker of the offensive-security frontier — tools, releases, techn
 
 | Trend | Stage | Latest signal |
 |-------|-------|---|
-| [CertiGhost AD CS DC-impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001--certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | emerging | [2026-08-06](https://www.dataminr.com/) — DataMinr PoC tracking; dormancy watch 2026-08-21 |
+| [CertiGhost AD CS DC-impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001--certighost-ad-cs-chase-dc-impersonation-cve-2026-54121) | emerging | [2026-08-06](https://www.dataminr.com/) — 14 days quiet; dormancy watch active (line 2026-08-27) |
 | [Nightmare Eclipse Windows zero-day research](TRENDS.md#id-evasion-nightmare-eclipse-001--nightmare-eclipse-windows-defenderblockerbitlocker-zero-day-research-campaign) | emerging | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) — 9 PoC exploits (Apr–Jul 2026) |
 | [SonicWall SMA1000 SSRF + RCE (CVE-2026-15409/15410)](TRENDS.md#id-initial-access-sonicwall-sma-001--sonicwall-sma1000-ssrf--rce-exploitation-cve-2026-15409-15410) | seed | [2026-08-17](https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the) — Tenable; CVSS 10.0; active exploitation |
 | [Oracle PeopleSoft deserialization RCE (CVE-2026-35273)](TRENDS.md#id-initial-access-oracle-peoplesoft-001--oracle-peoplesoft-unsafe-deserialization-rce-cve-2026-35273) | seed | [2026-08-17](https://www.rapid7.com/blog/post/etr-active-exploitation-of-oracle-peoplesoft-zero-day-cve-2026-35273/) — Rapid7; CVSS 9.8; UNC6240 |
 | [WSUS / Windows Update Server RCE exploitation](TRENDS.md#id-initial-access-wsus-001--wsus--windows-update-server-rce-exploitation) | seed | [2026-08-05](https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-1/) — SpecterOps; 50+ victims |
 | [Entra ID SyncJacking & Conditional Access Bypass](TRENDS.md#id-identity-entra-syncjacking-001--entra-id-syncjacking--conditional-access-bypass) | seed | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) — Semperis & MSRC confirmation |
 
-**Dormancy watch:** CertiGhost (emerging) → watch 2026-08-21 (tomorrow); automatic promotion to dormant on 2026-08-27 if no new evidence (13 days quiet since 2026-08-06).
+**Dormancy watch:** CertiGhost (emerging) → active as of 2026-08-21; automatic promotion to dormant on 2026-08-27 if no new evidence surfaces (21-day quiet threshold).
 
 ---
 
@@ -51,18 +51,18 @@ Technique writeups, novel primitives, and published research of immediate red-te
 
 ## Tools & releases
 
-Latest tracked releases (checked 2026-08-15):
+Latest tracked releases (checked 2026-08-21):
 
-- **BloodHound** v9.6.0-rc5 (Aug 14) — Go 1.26.6 dependency upgrade
-- **BloodHound** v9.6.0-rc4 (Aug 13) — XSS vulnerability fixes (CVE-2026-67213)
+- **BloodHound** v9.6.0 (Aug 18) — Stable release; XSS fix (CVE-2026-67213) + dependency hardening
 - **Sliver** v1.7.3 (Feb 2026)
-- **Nuclei**, **NetExec**, **Certipy**, **impacket** (no recent updates)
+- **Nuclei** v3.11.0 (Jul 31) — Unsigned JavaScript templates now refused (breaking change)
+- **NetExec**, **Certipy**, **impacket** (no recent updates)
 
 ---
 
 ## Observation queue
 
-[28 below-bar items](TRENDS.md#observation_queue) — awaiting 2nd independent source or burndown by age (checked 2026-08-20).
+[25 below-bar items](TRENDS.md#observation_queue) — awaiting 2nd independent source or burndown by age (checked 2026-08-21, 3 stale items removed).
 
 **Multi-vendor escalations:**
 - **Microsoft August 2026 Patch Tuesday** (400+ CVEs, 3 zero-days; multi-org analyst coverage; on-axis: Azure Service Bus RCE, Azure SQL EoP, Windows AD CS RCE)
@@ -83,7 +83,7 @@ Latest tracked releases (checked 2026-08-15):
 - **[Observation queue](TRENDS.md#observation_queue)** — 28 items awaiting promotion or age-based burndown
 - **[Strategy notes](TRENDS.md#strategy_notes)** — coverage decisions & calibration history
 - **[Reports](reports/)** — daily & weekly recalibrations
-- **[Latest daily](reports/2026-08-20.md)** — 2026-08-20
+- **[Latest daily](reports/2026-08-21.md)** — 2026-08-21
 - **[Latest weekly](reports/weekly/2026-W33.md)** — 2026-W33
 - **[Source registry](SOURCES.md)** — primary feeds & discovery topics
 - **[Source rotation log](logs/source_rotation.md)** — session-by-session coverage tracking

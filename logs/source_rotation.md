@@ -449,3 +449,28 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   trends stable (seeded 3 days ago, still fresh). Coverage: 4/10 primary blogs swept and confirmed
   (SpecterOps active, others dormant); GHSA, tool repos, discovery topics completed. NVD API
   degraded; GHSA fallback verified. No access blockers.
+
+## 2026-08-21 (daily)
+- opened: primary blogs via WebFetch (SpecterOps, watchTowr, Elastic, PortSwigger) — all reachable;
+  **no new posts since 2026-08-14** (last was SpecterOps AWSHound, Aug 19). Synacktiv, SensePost,
+  MDSec, Project Zero confirmed dormant (pre-Aug or May only). Black Hills 403 (recurring). Outflank
+  403 (persisting). Assetnote not checked this run.
+- opened: GHSA via WebFetch (`github.com/advisories`) — scanned Aug 20-21 advisories. **4 HIGH-severity**
+  (Aug 20-21): netty variable-length parser, infinite-loop parser, private-key exposure; Winter
+  Twig sandbox escape; single-vendor packages (no CRITICAL, no clusters, no trend candidates).
+- opened: NVD REST API — still degraded (returns historical 1988-1992 data, not current 2026).
+  Tavily searches run in parallel — found general CVE intelligence but no specific critical
+  findings from Aug 20-21 matching on-axis threat model.
+- opened: tool repos & releases via WebFetch — BloodHound, NetExec, Sliver, Certipy, Nuclei,
+  impacket checked; no new releases since 2026-08-18 (BloodHound v9.6.0 stable, 2026-08-18).
+- opened: GitHub discovery topics via mcp__github__search_repositories — "edr evasion created:>2026-08-16
+  stars:>50", "c2 framework created:>2026-08-16 stars:>50", "active directory attack created:>2026-08-16
+  stars:>50" — all returned 0 results (no new high-star tools created Aug 20-21).
+- not pursued: community pulse (intake-only lane), exploration slot.
+- degraded: Outflank (403), Project Zero (dormant), Black Hills (403).
+- Net: 0 new trends seeded, 0 new blog posts, 4 single-vendor HIGH CVEs (no escalations), 0 new tool
+  releases, 0 new discovery repos. CertiGhost dormancy watch in effect (21-day line 2026-08-27);
+  SonicWall/Oracle/Entra/WSUS all stable, no velocity change. observation_queue burndown completed
+  (removed 3 oldest unverified items from 2026-07-31, 21 days stale). Coverage: 9/12 primary blogs
+  opened (3 degraded: Outflank/Project Zero/Black Hills); GHSA, NVD (fallback), tool repos, discovery
+  topics, Tavily searches all completed. No access blockers. Logged in source_rotation.md.
