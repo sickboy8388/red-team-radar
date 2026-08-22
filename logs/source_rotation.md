@@ -449,3 +449,18 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   trends stable (seeded 3 days ago, still fresh). Coverage: 4/10 primary blogs swept and confirmed
   (SpecterOps active, others dormant); GHSA, tool repos, discovery topics completed. NVD API
   degraded; GHSA fallback verified. No access blockers.
+
+## 2026-08-22
+- opened: all 13 primary blogs (SpecterOps, Project Zero, watchTowr, Assetnote, Outflank, MDSec,
+  Synacktiv, PortSwigger, SensePost, Elastic, Black Hills, SecurityWeek, The Register) — no new
+  posts since 2026-08-20 (latest: SpecterOps AWSHound Aug 20; watchTowr Citrix CVE-2026-8452 Aug 20).
+- opened: GHSA (`github.com/advisories`) — no new critical advisories published 2026-08-20+ (GHSA
+  query `severity:critical published:>2026-08-20` returned no matches).
+- opened: tool repos & releases — BloodHound (v9.6.0 unchanged, 2026-08-18); NetExec, Sliver,
+  Nuclei, Certipy, impacket (all unchanged since 2026-08-18). No new releases.
+- opened: discovery topics "edr evasion", "c2 framework" (2 lanes rotated) via GitHub search
+  `created:>2026-08-20 stars:>50` — no results.
+- degraded: none. All sources reachable; no network blockers (egress open).
+- Quiet day: no new trends, no evidence escalations. CertiGhost dormancy watch countdown:
+  21-day line 2026-08-27 (5 days remaining). observation_queue at cap ~25 items; oldest entries
+  (2026-07-31, 22 days) eligible for burndown.

@@ -5,16 +5,16 @@ Persistent tracker of the offensive-security frontier — tools, releases, techn
 ![trends](https://img.shields.io/badge/trends-6-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-28-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--08--20-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--08--22-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-08-19)
+## Since last scan (2026-08-20)
 
-- [**SpecterOps AWSHound**](https://specterops.io/blog/2026/08/19/awshound-an-opensource-aws-opengraph-collector/) (Aug 19) — AWS OpenGraph collector for BloodHound; enables attack-path analysis for AWS infrastructure. Cloud/identity axis; single vendor.
-- [**13 HIGH-severity CVEs published**](https://github.com/advisories) (GHSA, Aug 19) — GeoServer SSTI, Document Merge SSTI→RCE, MCP command injection; all single-vendor, no critical this run.
-- [**BloodHound CE v9.6.0 stable**](https://github.com/SpecterOps/BloodHound/releases) (2026-08-18) — First stable after RC cycle; XSS fix + dependency hardening.
-- **CertiGhost dormancy watch begins today** — Last evidence 2026-08-06 (14 days quiet); dormancy line 2026-08-27 (21-day threshold).
+- **Quiet period confirmed:** 2-day gap with comprehensive 13-blog scan shows no new posts or trends since Aug 20 (SpecterOps AWSHound remains latest major article).
+- **CertiGhost dormancy watch countdown:** 16 days quiet; 21-day dormancy line approaches 2026-08-27 (5 days remaining). No new evidence this run.
+- **Egress block lifted:** All 13 primary security blogs now fully accessible (blogs, NVD, advisories); no network degradations.
+- **Observation queue at capacity (~28 items):** Oldest entries (2026-07-31, 22 days old) eligible for burndown on next run; no forced action initiated.
 
 ---
 
@@ -31,7 +31,7 @@ Persistent tracker of the offensive-security frontier — tools, releases, techn
 | [WSUS / Windows Update Server RCE exploitation](TRENDS.md#id-initial-access-wsus-001--wsus--windows-update-server-rce-exploitation) | seed | [2026-08-05](https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-1/) — SpecterOps; 50+ victims |
 | [Entra ID SyncJacking & Conditional Access Bypass](TRENDS.md#id-identity-entra-syncjacking-001--entra-id-syncjacking--conditional-access-bypass) | seed | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) — Semperis & MSRC confirmation |
 
-**Dormancy watch:** CertiGhost (emerging) → watch 2026-08-21 (tomorrow); automatic promotion to dormant on 2026-08-27 if no new evidence (13 days quiet since 2026-08-06).
+**Dormancy watch:** CertiGhost (emerging, 16 days quiet) — 21-day dormancy line 2026-08-27 (5 days remaining). Automatic promotion to dormant if no new evidence by 2026-08-27.
 
 ---
 
