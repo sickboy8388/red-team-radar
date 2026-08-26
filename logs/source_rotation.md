@@ -464,3 +464,10 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - Quiet day: no new trends, no evidence escalations. CertiGhost dormancy watch countdown:
   21-day line 2026-08-27 (5 days remaining). observation_queue at cap ~25 items; oldest entries
   (2026-07-31, 22 days) eligible for burndown.
+
+## 2026-08-26 (daily)
+- **ACCESS BLOCKER - SCAN INCOMPLETE**
+- attempted: primary blogs (SpecterOps, watchTowr reachable via 200 status, others not tested due to HTML parsing complexity), GHSA, NVD, CISA KEV, GitHub tool-discovery search, community pulse.
+- degraded/blocked: GitHub advisories API (403 — session repo-scoped), GitHub search API (same 403 — tool-discovery lane cannot function), NVD endpoint (timeout, refused connection), CISA KEV (403), primary blogs (reachable but no structured feed; HTML parsing inhibits efficient scanning).
+- not pursued: tool releases verification (blocked by API scoping), discovery topics (blocked by API scoping), community pulse (low signal; intake-only lane).
+- Net: 0 sources fully opened this run. Platform-level GitHub API repo-scoping (new as of this session) prevents cross-org search and advisory index access. NVD timeout is a new degradation. Per AGENTS.md Hard Rules, this is a blocker, not "no news today." See reports/2026-08-26.md for full incident note.
