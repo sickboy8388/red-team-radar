@@ -471,3 +471,16 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - degraded/blocked: GitHub advisories API (403 — session repo-scoped), GitHub search API (same 403 — tool-discovery lane cannot function), NVD endpoint (timeout, refused connection), CISA KEV (403), primary blogs (reachable but no structured feed; HTML parsing inhibits efficient scanning).
 - not pursued: tool releases verification (blocked by API scoping), discovery topics (blocked by API scoping), community pulse (low signal; intake-only lane).
 - Net: 0 sources fully opened this run. Platform-level GitHub API repo-scoping (new as of this session) prevents cross-org search and advisory index access. NVD timeout is a new degradation. Per AGENTS.md Hard Rules, this is a blocker, not "no news today." See reports/2026-08-26.md for full incident note.
+
+## 2026-09-29 (daily)
+- **34-day gap recovery:** No runs documented 2026-08-27 through 2026-09-28. Today's scan represents catch-up across full 34-day window (Sep 1–29 findings).
+- opened: primary blogs (all 13 reachable: SpecterOps, Project Zero, watchTowr, Assetnote, Outflank, MDSec, Synacktiv, PortSwigger, SensePost, Elastic, Black Hills, SecurityWeek, The Register) — HTTP 200 on all. No structured feed/API access (UA-blocked); parsed via WebFetch + agent-assisted research.
+- opened: NVD REST API — **RECOVERED** (HTTP 200, returning current 2026 data; prior run 2026-08-26 reported timeout). Sampled Sep 1–29 CRITICAL CVEs.
+- degraded: GitHub Advisories (`github.com/advisories` web + API) — persistent HTTP 403 Forbidden, session-scoped to repo only. Cross-org search blocked. **Persistent 3+ runs; escalated to TRENDS.md#blockers.**
+- degraded: GitHub API search (`api.github.com`, discovery-topic lane) — same session scoping; cross-repo search unavailable.
+- opened: tool repos (BloodHound, NetExec, Sliver, impacket, Certipy, Nuclei via web interface) — accessible; releases.atom feeds UA-blocked (as prior runs).
+- agent-assisted search: comprehensive multi-vendor sweep (SpecterOps, Rapid7, CrowdStrike, watchTowr, SensePost, Elastic, Synacktiv, Unit42, ZDI, Portswigger) covering Aug 27–Sep 29. Identified 15 high-impact findings; top 10 queued pending independent verification. 3 findings meet preliminary 2–vendor signals; remainder single-vendor or unverified sources.
+- not pursued: community pulse (intake-only, low signal in backlog period).
+- not pursued: exploration slot (time-constrained catch-up run).
+- Blocker impact: GHSA scoping prevents systematic CVE/advisory watch; compensated by NVD + WebFetch + agent-assisted blog crawl. CVE lane degraded but functional. Trend verification pending manual source spot-checks.
+- Coverage: 13/13 primary blogs opened; NVD + tool repos accessible; GHSA + GitHub API search degraded. WebSearch + agent research provided broad findings synthesis.
