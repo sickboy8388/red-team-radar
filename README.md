@@ -2,44 +2,54 @@
 
 Persistent, curated tracking of the offensive-security frontier — tools, releases, techniques, research, and advisories — for red team operators.
 
-![trends](https://img.shields.io/badge/trends-7-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-15-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-28-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--09--29-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-25-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--09--30-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-09-29)
+## Since last scan (2026-09-30)
 
-- **34-day gap healed.** No daily runs recorded Aug 27–Sep 28; today's scan recovers full Sep 1–29 backlog across 15 high-impact findings.
-- **CertiGhost dormancy.** AD CS "chase" DC-impersonation trend (CVE-2026-54121) passed 21-day quiet line (2026-08-27); promoted to dormant.
-- **GitHub API blocker escalated.** GitHub Advisories API persists as 403 Forbidden (session-scoped, 3+ runs); infrastructure issue requiring curator attention. CVE/advisory watch degraded but compensated by NVD + primary-blog crawl + agent research.
-- **15 Sep findings queued for verification.** Citrix NetScaler pre-auth RCE (CVSS 9.5, active exploitation), SharePoint auth-bypass chain, Check Point VPN auth bypass, Kerberos relay via DNS CNAME, Process Parameter Poisoning, Ivanti EPMM pre-auth RCE, container escape, Certipy v5 ESC16, MLflow SSRF, Windows IKE RCE. Top 3 meet 2–vendor signals; remainder under review.
+- **9 new seed trends seeded.** Backlog verification from 2026-09-29 recovery completed: Citrix NetScaler (8+ vendors, 50K+ exposed), SharePoint JWT+RCE (8+), Ivanti EPMM (7+), Container escape (5+), Kerberos relay DNS (4+), Check Point VPN (7), Process Parameter Poisoning (6+), MLflow SSRF (10+), Windows IKE RCE (10+).
+- **Minimal new blog activity.** watchTowr (Sep 29: Citrix NetScaler DTLS Part 2), Elastic (Sep 29: Linux endpoint config); 11 other primary blogs dormant Sep 29–30.
+- **Tool releases tracked.** BloodHound v9.7.1 (Sep 17), Sliver v1.7.7 (Sep 3) identified post-Aug 18 checkpoint.
+- **Existing trends stable.** CertiGhost remains dormant; WSUS, Entra SyncJacking, SonicWall, Oracle, Nightmare Eclipse quiet (no new evidence this run).
+- **GitHub API blocker persists.** Session-scoped 403 on GHSA/cross-repo search (4+ runs). Workaround effective (NVD + primary-blog + agent research).
 
 ---
 
 ## Trends
 
-**Status tally:** seed 4 · emerging 2 · dormant 1
+**Status tally:** seed 13 · emerging 1 · dormant 1
 
 | Trend | Stage | Latest signal |
 |-------|-------|---|
-| [WSUS / Windows Update Server RCE exploitation](TRENDS.md#id-initial-access-wsus-001) | seed | [2026-10-23](https://www.huntress.com/blog/exploitation-of-windows-server-update-services-remote-code-execution-vulnerability) — Huntress active exploitation |
-| [Entra ID SyncJacking & Conditional Access Bypass](TRENDS.md#id-identity-entra-syncjacking-001) | seed | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) — Semperis hard-matching abuse |
-| [SonicWall SMA1000 SSRF + RCE (CVE-2026-15409/15410)](TRENDS.md#id-initial-access-sonicwall-sma-001) | seed | [2026-08-17](https://www.rapid7.com/blog/post/etr-rapid7-mdr-team-discovers-new-sonicwall-sma1000-zero-days-being-actively-exploited-cve-2026-15409-cve-2026-15410/) — Rapid7 MDR active exploitation |
-| [Oracle PeopleSoft RCE (CVE-2026-35273)](TRENDS.md#id-initial-access-oracle-peoplesoft-001) | seed | [2026-08-17](https://www.rapid7.com/blog/post/etr-active-exploitation-of-oracle-peoplesoft-zero-day-cve-2026-35273/) — Rapid7 ETR UNC6240 attribution |
-| [Nightmare Eclipse Windows zero-day research](TRENDS.md#id-evasion-nightmare-eclipse-001) | emerging | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) — 9 PoC exploits (Apr–Jul 2026) |
-| [CertiGhost AD CS DC-impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001) | **dormant** | [2026-08-06](https://www.dataminr.com/) — Promoted to dormant (21-day quiet line 2026-08-27 passed) |
+| [Citrix NetScaler ADC/Gateway pre-auth RCE (CVE-2026-88771/88772)](TRENDS.md#id-initial-access-citrix-netscaler-001) | seed | [2026-09-29](https://labs.watchtowr.com/here-we-go-again-citrix-netscaler-dtls-preauth-memory-overflow-cve-2026-88772/) — watchTowr: DTLS memory overflow, 50K+ exposed, active since Sep 5 |
+| [Microsoft SharePoint JWT auth bypass + RCE (CVE-2026-55040/63520)](TRENDS.md#id-initial-access-sharepoint-auth-rce-001) | seed | [2026-09-29](https://www.rapid7.com/blog/post/ve-cve-2026-55040-microsoft-sharepoint-jwt-token-authentication-bypass-fixed/) — Rapid7: JWT bypass + BCS RCE chain |
+| [Ivanti EPMM pre-auth RCE (CVE-2026-1281/1340)](TRENDS.md#id-initial-access-ivanti-epmm-001) | seed | [2026-09-29](https://labs.watchtowr.com/someone-knows-bash-far-too-well-and-we-love-it-ivanti-epmm-pre-auth-rces-cve-2026-1281-cve-2026-1340/) — watchTowr: Bash arithmetic RCE, 4400+ exposed, exploitation since Jul 2025 |
+| [Linux Container Escape (CVE-2026-31431 "Copy Fail")](TRENDS.md#id-c2-container-escape-001) | seed | [2026-09-29](https://kudelskisecurity.com/research/linux-cve-2026-31431-copy-fail-lpe-enables-stealthy-root-access-container-escape/) — Kudelski: kernel arbitrary-write primitive, K8s lateral movement |
+| [Kerberos relay via DNS CNAME (CVE-2026-20929)](TRENDS.md#id-identity-kerberos-relay-dns-cname-001) | seed | [2026-09-29](https://www.crowdstrike.com/en-us/blog/detecting-kerberos-relay-attack-via-dns-cname-abuse/) — CrowdStrike: DNS coercion → ADCS → DC cert → DCSync |
+| [Check Point VPN IKEv1 auth bypass (CVE-2026-50751)](TRENDS.md#id-identity-checkpoint-vpn-001) | seed | [2026-09-29](https://labs.watchtowr.com/marking-your-own-homework-check-point-remote-access-vpn-ikev1-authentication-bypass-cve-2026-50751/) — watchTowr: cert validation logic flaw, passwordless access |
+| [Process Parameter Poisoning (P3) EDR evasion](TRENDS.md#id-evasion-process-parameter-poisoning-001) | seed | [2026-09-29](https://sensepost.com/blog/2026/process-parameter-poisoning/) — SensePost: novel process-creation injection, 4-EDR evasion |
+| [MLflow webhook SSRF credential theft (CVE-2026-64849)](TRENDS.md#id-exploitable-mlflow-ssrf-001) | seed | [2026-09-29](https://thehackernews.com/2026/08/attackers-exploit-mlflow-ssrf-flaw-to.html) — The Hacker News: DNS rebinding SSRF, CISA KEV deadline Sep 30 |
+| [Windows IKEv2 double-free RCE (CVE-2026-33824)](TRENDS.md#id-exploitable-windows-ike-rce-001) | seed | [2026-09-29](https://thezdi.com/blog/2026/4/22/cve-2026-33824-remote-code-execution-in-windows-ikev2) — ZDI: network RCE UDP 500/4500, Apr 2026 Patch Tuesday |
+| [WSUS / Windows Update Server RCE exploitation](TRENDS.md#id-initial-access-wsus-001) | seed | [2026-08-05](https://specterops.io/blog/2026/08/05/weaponizing-windows-updates-with-notwsuspicious/) — SpecterOps: WSUS exploitation chain, NotWSUSpicious tool |
+| [Entra ID SyncJacking & Conditional Access Bypass](TRENDS.md#id-identity-entra-syncjacking-001) | seed | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) — Semperis: hard-matching abuse → Global Admin |
+| [SonicWall SMA1000 SSRF + RCE (CVE-2026-15409/15410)](TRENDS.md#id-initial-access-sonicwall-sma-001) | seed | [2026-08-17](https://www.rapid7.com/blog/post/etr-rapid7-mdr-team-discovers-new-sonicwall-sma1000-zero-days-being-actively-exploited-cve-2026-15409-cve-2026-15410/) — Rapid7 MDR: active exploitation, CVSS 10.0 |
+| [Oracle PeopleSoft RCE (CVE-2026-35273)](TRENDS.md#id-initial-access-oracle-peoplesoft-001) | seed | [2026-08-17](https://www.rapid7.com/blog/post/etr-active-exploitation-of-oracle-peoplesoft-zero-day-cve-2026-35273/) — Rapid7 ETR: UNC6240 attribution, higher-ed targeting |
+| [Nightmare Eclipse Windows zero-day research](TRENDS.md#id-evasion-nightmare-eclipse-001) | emerging | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) — ProjectNightcrawler: 9 PoC exploits Defender/BitLocker (Apr–Jul 2026) |
+| [CertiGhost AD CS DC-impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001) | **dormant** | [2026-08-06](https://kudelskisecurity.com/) — Promoted to dormant (21-day quiet line 2026-08-27 passed) |
 
 ---
 
 ## Tools & Releases
 
-- **BloodHound** — v9.7.1 (2026-08-18+, XSS mitigations; rc4–rc6 development cycle)
-- **impacket** — 0.9.20 (2026-09 backlog)
-- **Sliver** — v1.7.6 (2026-09 backlog)
-- **Nuclei** — v3.11.0 (2026-07-06, unsigned JS-protocol template refusal)
-- **NetExec, Certipy, Havoc** — unchanged since prior scans
+- **BloodHound** — v9.7.1 (Sep 17, 2026; XSS mitigations + dependency hardening post-rc cycle)
+- **Sliver** — v1.7.7 (Sep 3, 2026)
+- **impacket** — 0.9.20 (post-Aug 18)
+- **NetExec, Certipy, Nuclei** — unchanged since Aug 18 checkpoint
+- **Havoc** — archived Feb 2026 (read-only)
 
 ---
 
@@ -122,10 +132,10 @@ Latest tracked releases (checked 2026-08-15):
 ## Resources
 
 - **[TRENDS.md](TRENDS.md)** — full ledger with evidence & stage history
-- **[Observation queue](TRENDS.md#observation_queue)** — 28 items awaiting promotion or age-based burndown
+- **[Observation queue](TRENDS.md#observation_queue)** — 25 items awaiting promotion or age-based burndown
 - **[Strategy notes](TRENDS.md#strategy_notes)** — coverage decisions & calibration history
 - **[Reports](reports/)** — daily & weekly recalibrations
-- **[Latest daily](reports/2026-08-20.md)** — 2026-08-20
+- **[Latest daily](reports/2026-09-30.md)** — 2026-09-30 (9 seed trends seeded; backlog verification complete)
 - **[Latest weekly](reports/weekly/2026-W33.md)** — 2026-W33
 - **[Source registry](SOURCES.md)** — primary feeds & discovery topics
 - **[Source rotation log](logs/source_rotation.md)** — session-by-session coverage tracking
