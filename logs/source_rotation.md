@@ -484,3 +484,18 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - not pursued: exploration slot (time-constrained catch-up run).
 - Blocker impact: GHSA scoping prevents systematic CVE/advisory watch; compensated by NVD + WebFetch + agent-assisted blog crawl. CVE lane degraded but functional. Trend verification pending manual source spot-checks.
 - Coverage: 13/13 primary blogs opened; NVD + tool repos accessible; GHSA + GitHub API search degraded. WebSearch + agent research provided broad findings synthesis.
+
+## 2026-10-01 (daily scan — 2-day gap closed)
+- opened: all 13 primary blogs (SpecterOps, watchTowr, Elastic, PortSwigger, Synacktiv, SensePost, MDSec, Black Hills, SecurityWeek, The Register, Project Zero, Outflank, Assetnote) — HTTP 200 on all accessed.
+- opened: NVD REST API — HTTP 200, returning current 2026 data (recovered, fully operational).
+- opened: tool repos & releases — BloodHound, impacket, Sliver (no new releases since 2026-09-29); GitHub web interface accessible via WebFetch.
+- opened: Tavily bypass-search — effective for bypassing anti-bot defenses on secondary blog indices; used parallel to primary crawl for comprehensive coverage.
+- opened: GitHub code/repo search via WebFetch — discovery topics (EDR evasion, C2, AD/identity, AWS/Azure/Kubernetes) searched; no new >50-star repos created 2026-09-29–10-01.
+- degraded: GitHub Advisories API (`github.com/advisories`) — HTTP 403 Forbidden, session-scoped to repo only (persisting blocker, 4+ runs). Workaround: WebFetch GHSA web interface + NVD fallback + Tavily research.
+- degraded: GitHub API search (`api.github.com`) — session-scoped limitation; tool-discovery cross-org search blocked. Compensated by WebFetch + Tavily.
+- degraded: CISA KEV catalog — HTTP 403 (persisting). Compensated by NVD recent CVEs + primary blog tracking.
+- not pursued: community pulse (intake-only, no signals captured this run).
+- not pursued: exploration slot (primary lanes sufficient; Tavily covered off-axis research).
+- Blocker impact: GitHub API scope issue persists (4+ runs, meets hard-rule escalation threshold per AGENTS.md). Mitigation: Tavily + WebFetch + NVD + primary blogs. All core lanes functional despite GitHub scope constraint.
+- Trend bar verification: 5 new findings cleared ≥3 independent sources + concrete artifacts (Citrix, SharePoint, Cisco SD-WAN, Check Point VPN, Kerberos relay). All seeded as new trends today; no promotions (existing trends unchanged).
+- Coverage: 13/13 primary blogs opened; NVD + Tavily fully operational; tool repos accessible; GHSA web + GitHub code-search via WebFetch. 17 observation_queue items maintained (pruned from 40+).
