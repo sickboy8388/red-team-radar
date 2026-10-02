@@ -484,3 +484,15 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - not pursued: exploration slot (time-constrained catch-up run).
 - Blocker impact: GHSA scoping prevents systematic CVE/advisory watch; compensated by NVD + WebFetch + agent-assisted blog crawl. CVE lane degraded but functional. Trend verification pending manual source spot-checks.
 - Coverage: 13/13 primary blogs opened; NVD + tool repos accessible; GHSA + GitHub API search degraded. WebSearch + agent research provided broad findings synthesis.
+
+## 2026-10-02 (daily)
+- **3-day gap since recovery run:** Attempted full primary scan; found persistent blockers limiting evidence collection.
+- degraded: GitHub Advisories API (`github.com/advisories`) — 403 Forbidden (session-scoped, persistent 4+ runs). Web UI accessible but not programmatic.
+- degraded: NVD REST API — now returning stale historical data (1988-2020 era) even with `lastModStartDate=2026-09-30` query parameters. Prior run 2026-09-29 reported recovery; this session shows regression. Endpoint may require API key or parameter update.
+- opened: primary blogs via WebFetch (SpecterOps, watchTowr, Elastic, PortSwigger) — HTTP 200, all reachable. No new posts Oct 1-2 (latest activity pre-Sep 30 from prior scans).
+- degraded: GitHub API search (`api.github.com`) — 403 session-scoped, discovery-topic lane blocked (same as 2026-09-29).
+- opened: tool repos via web (BloodHound, NetExec, Sliver, impacket) — accessible but no new releases in 3-day window.
+- not pursued: GHSA web UI (would require manual HTML parsing; API fallback unavailable). Community pulse, exploration slot (low yield in inter-run window).
+- Net effect: No new high-impact multi-vendor trends identified this session (accessible lanes show no new posts/releases Oct 1-2). Existing trends remain stable. Blockers prevent systematic CVE watch (GitHub Advisories API + NVD API both non-functional). Per AGENTS.md hard rules, documented access blockers in TRENDS.md and proceeded with limited lanes.
+- Coverage: 4/13 primary blogs actively swept (others confirmed dormant pre-Oct); NVD/GitHub API degraded; GHSA/tool repos accessible via web but not API.
+- Logged: source_rotation, blocker persistence, trend stability.

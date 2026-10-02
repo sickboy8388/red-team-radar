@@ -2,19 +2,18 @@
 
 Persistent, curated tracking of the offensive-security frontier — tools, releases, techniques, research, and advisories — for red team operators.
 
-![trends](https://img.shields.io/badge/trends-7-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-6-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-28-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--09--29-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--02-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-09-29)
+## Since last scan (2026-10-02)
 
-- **34-day gap healed.** No daily runs recorded Aug 27–Sep 28; today's scan recovers full Sep 1–29 backlog across 15 high-impact findings.
-- **CertiGhost dormancy.** AD CS "chase" DC-impersonation trend (CVE-2026-54121) passed 21-day quiet line (2026-08-27); promoted to dormant.
-- **GitHub API blocker escalated.** GitHub Advisories API persists as 403 Forbidden (session-scoped, 3+ runs); infrastructure issue requiring curator attention. CVE/advisory watch degraded but compensated by NVD + primary-blog crawl + agent research.
-- **15 Sep findings queued for verification.** Citrix NetScaler pre-auth RCE (CVSS 9.5, active exploitation), SharePoint auth-bypass chain, Check Point VPN auth bypass, Kerberos relay via DNS CNAME, Process Parameter Poisoning, Ivanti EPMM pre-auth RCE, container escape, Certipy v5 ESC16, MLflow SSRF, Windows IKE RCE. Top 3 meet 2–vendor signals; remainder under review.
+- **3-day gap; persistent blockers limit scan coverage.** GitHub Advisories API (403, session-scoped 4+ runs) + NVD REST API (returning stale 1988-2020 data) prevent systematic CVE/advisory watch. Escalated per AGENTS.md hard rules; awaiting curator action.
+- **No new trends identified** in Oct 1-2 window. Primary blogs (SpecterOps, watchTowr, Elastic, PortSwigger) show no new posts. Existing 6 trends remain unchanged.
+- **Trend stability.** CertiGhost dormant (21+ days quiet); WSUS, Entra SyncJacking, SonicWall, Oracle, Nightmare Eclipse at seed/emerging with no new evidence.
 
 ---
 
@@ -86,50 +85,17 @@ Persistent, curated tracking of the offensive-security frontier — tools, relea
 
 ---
 
-**Red Team Radar** is a read-only tracker of published offensive-security research. It points to artifacts and summarizes their significance — field awareness, not operations. Never paste exploit code or step-by-step procedures into the ledger.
+## Links
 
-*Last updated: 2026-09-29*  
-*Maintained by: Red Team Radar autonomous operator*
-
-## Tools & releases
-
-Latest tracked releases (checked 2026-08-15):
-
-- **BloodHound** v9.6.0-rc5 (Aug 14) — Go 1.26.6 dependency upgrade
-- **BloodHound** v9.6.0-rc4 (Aug 13) — XSS vulnerability fixes (CVE-2026-67213)
-- **Sliver** v1.7.3 (Feb 2026)
-- **Nuclei**, **NetExec**, **Certipy**, **impacket** (no recent updates)
-
----
-
-## Observation queue
-
-[28 below-bar items](TRENDS.md#observation_queue) — awaiting 2nd independent source or burndown by age (checked 2026-08-20).
-
-**Multi-vendor escalations:**
-- **Microsoft August 2026 Patch Tuesday** (400+ CVEs, 3 zero-days; multi-org analyst coverage; on-axis: Azure Service Bus RCE, Azure SQL EoP, Windows AD CS RCE)
-- **TeamCity CVE-2026-63077** (6 independent sources; CISA KEV; watch for attack-chain research)
-- **Langflow CVE-2026-9198** (5 independent sources; CISA KEV; watch for post-compromise analysis)
-
-**Single-vendor signals (awaiting corroboration):**
-- **Citrix NetScaler CVE-2026-8452** (watchTowr Aug 14; pre-auth SAML RCE; queued for secondary)
-- **ARM64 Stack Obfuscation Research** (MDSec Aug 15; EDR evasion on Apple Silicon)
-- **Cisco Firewall CVE-2026-20349** (unauthenticated RCE; awaiting PoC/secondary analysis)
-- **GHSA Advisory Stream** (13+ HIGH-severity CVEs, Aug 14–15; all single-vendor)
-
----
-
-## Resources
-
-- **[TRENDS.md](TRENDS.md)** — full ledger with evidence & stage history
-- **[Observation queue](TRENDS.md#observation_queue)** — 28 items awaiting promotion or age-based burndown
-- **[Strategy notes](TRENDS.md#strategy_notes)** — coverage decisions & calibration history
-- **[Reports](reports/)** — daily & weekly recalibrations
-- **[Latest daily](reports/2026-08-20.md)** — 2026-08-20
-- **[Latest weekly](reports/weekly/2026-W33.md)** — 2026-W33
-- **[Source registry](SOURCES.md)** — primary feeds & discovery topics
-- **[Source rotation log](logs/source_rotation.md)** — session-by-session coverage tracking
+- **[TRENDS.md](TRENDS.md)** — Full ledger (evidence, stage history, blockers, strategy notes)
+- **[Observation queue](TRENDS.md#observation_queue)** — 28 items awaiting promotion or burndown
+- **[Reports](reports/)** — Daily & weekly recalibrations
+- **[Latest report](reports/2026-10-02.md)** — 2026-10-02
+- **[SOURCES.md](SOURCES.md)** — Primary feeds, discovery topics, source registry
+- **[Source rotation log](logs/source_rotation.md)** — Coverage tracking by session
 
 ---
 
 *Red Team Radar is a tracker of published offensive-security artifacts and situational awareness signals. Pointers only; no operational payloads or step-by-step attack procedures.*
+
+*Last updated: 2026-10-02 · Maintained by: Red Team Radar autonomous operator*
