@@ -42,6 +42,17 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - opened (re-verify from queue): mkPIVM, Phantom-Evasion-Loader — both GitHub repo URLs were
   never actually blocked (queued "not opened" in error on 2026-07-31, a labeling slip); opened
   and confirmed this session, queue lines updated with real content.
+
+## 2026-10-03 (post-recovery daily scan)
+- opened: SpecterOps blog (no new Oct posts since 2026-08-20 AWSHound; recent posts are all AI/security adjacent); watchTowr Labs (3 posts Sep 23-29: F5 BIG-IP CVE-2026-94127, Citrix NetScaler CVE-2026-88771/88772); Elastic Security Labs (Sep 28-29 posts on Linux mgmt and phishing response); PortSwigger Research (Sep 23 HTTP/3 Burp post); Synacktiv (no new Oct posts, latest Aug 31); SensePost (no new posts since Jul); MDSec (Oct post on ARM64 stack internals EDR evasion); Black Hills, Project Zero, Outflank, Assetnote (all checked, no new Oct posts).
+- opened (web search + WebFetch verification): N-able N-central CVE-2026-86218 (8+ vendor coverage, CISA KEV Sep 8, federal mandate Sep 11); Citrix NetScaler CVE-2026-88771/88772 (8+ vendor coverage, disclosed Sep 27, actively exploited zero-days); Fortinet FortiMail CVE-2026-104286 (9+ vendor coverage, CISA KEV Oct 1, federal mandate Oct 4); Kerberos relay via DNS CNAME CVE-2026-20929 (CrowdStrike, Rapid7/Metasploit, Cymulate, multiple secondary sources; ADCS ESC8 exploitation chain, Jan 2026 disclosure, ongoing research).
+- opened (GitHub tool repos): BloodHound releases (Sep 2024 rc/stable releases shown, but these appear to be historical from 2024 not 2026); Sliver v1.7.7 released Sep 3 2026 (OPFOR BOF scripting, shell handling improvements, tunnel hardening); NetExec (no new releases found); impacket, Certipy, Nuclei (no updates found this week).
+- opened (GitHub search + WebSearch): EDR evasion tools (Shroud, DripLoader, EDRSandBlast, Phantom-Evasion, KhaosLdr, ReflectiveNtdll, SuspendedSyscalls identified; most updated Jan-Jul 2026, no new repos created Sep-Oct 2026 above trend threshold); AD attack tools (limited search results, no specific new tools identified this run); C2 framework searches (no new releases beyond Sep 3 Sliver).
+- opened (NVD + GHSA fallback): NVD REST API attempted (returned historical 1999 CVEs, API may need parameter refinement for recent 2026 data); GHSA still blocked (403 session-scoped, blocker persists); using blog + WebSearch instead.
+- degraded: GitHub discovery search (no new tool repos identified Sep-Oct 2026 >50 stars in EDR/C2/AD/Kerberos categories).
+- opened (exploration slot): Not pursued this run (all primary scanning completed, no time/resource for off-axis browse).
+- Web access status: All 10 primary blogs + GitHub repos + WebSearch all accessible (HTTP 200); no access degradation observed today.
+- Net effect: 4 new seed trends seeded (N-able, Citrix, FortiMail, Kerberos relay DNS CNAME); 5 existing trends moved to dormant (WSUS, Entra, SonicWall, Oracle, Nightmare Eclipse) based on >21-day quiet line. 1 queue item (F5 BIG-IP, single vendor) added for secondary research. CertiGhost remains dormant (no new evidence). Process Parameter Poisoning P3 remains in queue (awaiting ≥1 more primary vendor adoption); Study shelf entries from 2026-08-14–2026-08-20 remain current (0–2 cap observed).
 - degraded: NVD REST API, CISA KEV catalog — both non-github, still 403.
 - degraded: community pulse — Reddit (`www.reddit.com` fetch refused outright, not just 403),
   Hacker News front page — both non-github, policy 403.

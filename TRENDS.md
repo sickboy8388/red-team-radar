@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-09-29 (34-day gap healed; blocker persists; new findings processed)
+Last updated: 2026-10-03 (post-recovery daily scan; 4 new seed trends; multiple dormancy promotions)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -45,10 +45,61 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-08-06 — https://www.dataminr.com/ — DataMinr threat intelligence: public PoC exploitation tracking, PKINIT/DCSync mechanics.
   - 2026-08-06 — https://fieldeffect.com/ — FieldEffect: DC certificate impersonation analysis and detection surface.
 
-### id: initial-access-wsus-001 — WSUS / Windows Update Server RCE exploitation
+### id: initial-access-nable-ncentral-001 — N-able N-central Pre-Auth RCE (CVE-2026-86218)
 - stage: seed
 - confidence: high
+- last_evidence: 2026-10-03
+- aliases: [N-able N-central RCE, CVE-2026-86218, static code injection, managed service provider (MSP) compromise]
+- notes: N-able N-central (remote monitoring and management platform for MSPs) contains static code injection flaw allowing unauthenticated remote code execution before authentication. CVSS 10.0 (maximum severity). Disclosed 2026-09-05 by N-able with Hotfix 4 (build 2026.3.1.14). CISA added to KEV catalog 2026-09-08 with federal mandate (patch by 2026-09-11). Affects all N-central versions prior to 2026.3.1.14. Active exploitation observed before public disclosure. Chainable with related auth-bypass flaws (CVE-2026-86206/86207) for full infrastructure takeover.
+- evidence:
+  - 2026-09-08 — https://arcticwolf.com/resources/blog/cve-2026-86218/ — Arctic Wolf: CVE-2026-86218 technical analysis and active exploitation tracking.
+  - 2026-09-08 — https://www.sentinelone.com/vulnerability-database/cve-2026-86218/ — SentinelOne: vulnerability database entry and threat analysis.
+  - 2026-09-08 — https://horizon3.ai/attack-research/vulnerabilities/cve-2026-86218/ — Horizon3.ai: attack research on N-able N-central pre-auth RCE.
+  - 2026-09-08 — https://thehackernews.com/2026/09/n-able-n-central-pre-auth-rce-flaw.html — The Hacker News: N-able N-central pre-auth RCE vulnerability and exploitation confirmation.
+  - 2026-09-08 — https://labs.cloudsecurityalliance.org/research/csa-research-note-nable-ncentral-max-severity-rce-20260907-c/ — Cloud Security Alliance Research: CVE-2026-86218 analysis and impact assessment.
+
+### id: initial-access-citrix-netscaler-001 — Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)
+- stage: seed
+- confidence: high
+- last_evidence: 2026-10-03
+- aliases: [NetScaler RCE, CVE-2026-88771, CVE-2026-88772, command injection, DTLS memory overflow, zero-day]
+- notes: Two critical pre-authentication remote code execution vulnerabilities in Citrix NetScaler ADC and NetScaler Gateway (CVSSv4 9.5 each). CVE-2026-88771: improper input validation enabling arbitrary command execution. CVE-2026-88772: DTLS handshake message fragmentation parsing error allowing memory overflow/control-flow hijack/shellcode execution with root privileges. DTLS enabled by default on VPN virtual servers. Disclosed 2026-09-27 after being actively exploited in the wild as zero-days. Affects all deployments including default configurations. No additional features required for exploitation. Active installer chains with PHP web shell placement in VPN directories.
+- evidence:
+  - 2026-09-28 — https://labs.watchtowr.com/oh-look-the-foot-gun-went-off-again-citrix-netscaler-preauth-command-injection-cve-2026-88771/ — watchTowr Labs: CVE-2026-88771 command injection technical writeup.
+  - 2026-09-29 — https://labs.watchtowr.com/here-we-go-again-citrix-netscaler-dtls-preauth-memory-overflow-cve-2026-88772/ — watchTowr Labs: CVE-2026-88772 DTLS memory overflow technical analysis.
+  - 2026-09-27 — https://www.rapid7.com/blog/post/etr-zero-day-exploitation-of-citrix-netscaler-adc-and-gateway-cve-2026-88771-and-cve-2026-88772/ — Rapid7 ETR: Citrix NetScaler zero-day exploitation tracking and analysis.
+  - 2026-09-27 — https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/ — BleepingComputer: Citrix confirms NetScaler zero-day RCE flaws actively exploited in attacks.
+  - 2026-09-27 — https://gbhackers.com/citrix-confirms-netscaler-zero-day-rce-flaws/ — GBHackers: Citrix confirms NetScaler zero-day RCE flaws actively exploited in attacks.
+
+### id: initial-access-fortimail-001 — Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)
+- stage: seed
+- confidence: high
+- last_evidence: 2026-10-03
+- aliases: [FortiMail RCE, CVE-2026-104286, path traversal, arbitrary file write, zero-day]
+- notes: Critical pre-authentication path traversal + NULL byte/character neutralization flaw in Fortinet FortiMail email appliance (CVSS 9.8) allowing unauthenticated attackers to write arbitrary files to the underlying OS via crafted HTTP/HTTPS requests. Flaw in GUI Identity-Based Encryption (IBE) component; chainable to code execution and persistence. Affects FortiMail 8.0.0–8.0.1, 7.6.0–7.6.6, 7.4.0–7.4.8, 7.2.0–7.2.9; patches for some branches pending. Disclosed 2026-10-01 (advisory FG-IR-26-175) with evidence of active wild exploitation. CISA added to KEV 2026-10-01 with federal mandate (patch by 2026-10-04). Widespread email appliance deployment; high initial-access relevance.
+- evidence:
+  - 2026-10-01 — https://www.securityweek.com/exploited-fortinet-fortimail-zero-day-calls-for-urgent-action/ — SecurityWeek: exploited Fortinet FortiMail zero-day urgent escalation.
+  - 2026-10-01 — https://socradar.io/blog/fortimail-zero-day-under-active-exploitation/ — SOCRadar: FortiMail zero-day under active exploitation analysis.
+  - 2026-10-01 — https://www.esecurityplanet.com/threats/news-fortimail-zero-day-cve-2026-104286-active-exploitation/ — eSecurityPlanet: critical FortiMail zero-day exploited in the wild.
+  - 2026-10-01 — https://daily.dev/posts/fortinet-sounds-the-alarm-over-actively-exploited-fortimail-zero-day-dkwlg7a1e — Daily.dev: Fortinet sounds the alarm over actively exploited FortiMail zero-day.
+  - 2026-10-01 — https://heise.de/en/news/FortiMail-Attacks-on-zero-day-vulnerability-underway-workaround-available-11473685.html — Heise: FortiMail attacks on zero-day vulnerability underway, workaround available.
+
+### id: identity-kerberos-relay-dns-cname-001 — Kerberos Relay via DNS CNAME Abuse (CVE-2026-20929)
+- stage: seed
+- confidence: high
+- last_evidence: 2026-10-03
+- aliases: [Kerberos relay, CVE-2026-20929, DNS CNAME spoofing, Kerberos SPN abuse, ADCS certificate theft]
+- notes: Kerberos relay attack technique exploiting DNS CNAME handling in Windows Kerberos authentication. Attacker intercepts DNS query and responds with CNAME redirecting victim to attacker-controlled hostname + A record pointing to attacker IP. Victim then requests Kerberos ticket for attacker-chosen SPN and connects to attacker with AP-REQ. Relayed AP-REQ accepted by target because SPN matches relay destination. Unlike prior Kerberos relay techniques, this works reliably against user accounts on default Windows configurations. Primary exploitation target: Active Directory Certificate Services (ADCS) web enrollment (ESC8 /certsrv endpoint), obtaining certificates in victim names for persistent access lasting months/years. Microsoft's Jan 2026 patch added Channel Binding to HTTP.sys, breaking relay to HTTPS endpoints with enforcement; however, HTTP ADCS endpoints and LDAP/SMB remain vulnerable. CVSS 7.5. Disclosed Jan 2026 (Cymulate); patched Jan 2026 Patch Tuesday; ongoing research confirms residual attack surface.
+- evidence:
+  - 2026-01-15 — https://www.crowdstrike.com/en-us/blog/detecting-kerberos-relay-attack-via-dns-cname-abuse/ — CrowdStrike: Kerberos relay attack via DNS CNAME abuse detection guidance and attack chain analysis.
+  - 2026-09-27 — https://github.com/rapid7/metasploit-framework/issues/21693 — Rapid7/Metasploit Framework: Native Kerberos relay via DNS CNAME abuse (CVE-2026-20929) ADCS ESC8 module issue + technical discussion.
+  - 2026-01-15 — https://diamatix.com/kerberos-relay-dns-cname-active-directory/ — Diamatix: Kerberos relay via DNS CNAME expands identity attack surface in Active Directory.
+
+### id: initial-access-wsus-001 — WSUS / Windows Update Server RCE exploitation
+- stage: dormant
+- confidence: high
 - last_evidence: 2026-08-05
+- dormancy_entered: 2026-10-03
 - aliases: [WSUS exploitation, Windows Update Server abuse, CVE-2025-59287, CVE-2026-20856]
 - notes: Windows Server Update Services RCE via unsafe deserialization (AuthorizationCookie BinaryFormatter, CVE-2025-59287) and improper input validation (CVE-2026-20856). Active exploitation in the wild since Oct 2025, at least 50+ organizations compromised. WSUS compromise allows attacker to become SYSTEM and push malware to all managed endpoints via forged updates. No authentication required on default ports 8530/8531.
 - evidence:
@@ -59,9 +110,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-10-23 — https://unit42.paloaltonetworks.com/microsoft-cve-2025-59287/ — Palo Alto Unit42: active exploitation in the wild tracking.
 
 ### id: evasion-nightmare-eclipse-001 — Nightmare Eclipse: Windows Defender/BitLocker zero-day research campaign
-- stage: emerging
+- stage: dormant
 - confidence: high
 - last_evidence: 2026-07-31
+- dormancy_entered: 2026-10-03
 - aliases: [Nightmare Eclipse, MSNightmare (GitHub alias), Windows LPE research, Defender bypass, BitLocker bypass]
 - notes: Disgruntled security researcher operating as "Nightmare Eclipse" has released 9 working proof-of-concept exploits targeting Windows Defender, BitLocker, and kernel drivers since April 2026, with deliberate timing around Patch Tuesday releases. Each exploit is a novel local privilege escalation or sandbox escape. Actor was banned from GitHub and GitLab after 6 releases; now publishes to alternative platforms (git.projectnightcrawler.dev). No coordinated disclosure; all PoCs are public and weaponizable.
 - evidence:
@@ -74,9 +126,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-07-31 — https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive — ProjectNightcrawler repository: post-GitLab-ban publishing venue.
 
 ### id: initial-access-sonicwall-sma-001 — SonicWall SMA1000 SSRF + RCE exploitation (CVE-2026-15409/15410)
-- stage: seed
+- stage: dormant
 - confidence: high
 - last_evidence: 2026-08-17
+- dormancy_entered: 2026-10-03
 - aliases: [SonicWall SMA1000 RCE, CVE-2026-15409, CVE-2026-15410, SSRF code injection chain]
 - notes: Critical remote code execution chain in SonicWall SMA1000 Secure Mobile Access via unauthenticated server-side request forgery (CVE-2026-15409, CVSS 10.0) chained with post-authentication code injection (CVE-2026-15410). Both flaws require no authentication or user interaction on the Work Place interface. Affects models 6210, 7210, 8200v. Active exploitation in the wild confirmed by multiple vendors. Patch available (12.4.3-03453, 12.5.0-02835 or later). Widely-deployed remote-access/VPN appliance; high initial-access relevance.
 - evidence:
@@ -87,9 +140,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-08-17 — https://www.helpnetsecurity.com/2026/07/14/sonicwall-sma-attacks-via-cve-2026-15409-cve-2026-15410/ — Help Net Security: multi-vendor correlation of active exploitation.
 
 ### id: initial-access-oracle-peoplesoft-001 — Oracle PeopleSoft Unsafe Deserialization RCE (CVE-2026-35273)
-- stage: seed
+- stage: dormant
 - confidence: high
 - last_evidence: 2026-08-17
+- dormancy_entered: 2026-10-03
 - aliases: [Oracle PeopleSoft RCE, CVE-2026-35273, PeopleTools auth bypass, PSEMHUB deserialization]
 - notes: Critical unauthenticated remote code execution in Oracle PeopleSoft Enterprise PeopleTools via unsafe deserialization of attacker-controlled data at `/PSEMHUB/hub` endpoint (CVE-2026-35273, CVSS 9.8). Affects versions 8.61 and 8.62. Zero-day exploitation confirmed in the wild May 27–June 9, 2026, by UNC6240 (ShinyHunters financially motivated extortion group), heavily targeting higher-education sector. Oracle released out-of-band patch same day as advisory (June 2026). High-impact web/cloud initial access vector targeting enterprise resource planning systems.
 - evidence:
@@ -100,9 +154,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-08-17 — https://www.oracle.com/security-alerts/alert-cve-2026-35273.html — Oracle official security alert and patch advisory.
 
 ### id: identity-entra-syncjacking-001 — Entra ID SyncJacking & Conditional Access Bypass
-- stage: seed
+- stage: dormant
 - confidence: high
 - last_evidence: 2026-08-06
+- dormancy_entered: 2026-10-03
 - aliases: [SyncJacking, Entra Connect hard-matching abuse, Azure AD account takeover, Conditional Access bypass]
 - notes: SyncJacking: attacker with on-prem AD permissions abuses Entra Connect hard-matching to forcibly link low-privilege AD account to high-privilege Entra ID cloud identity, including Global Administrator. Separate CA-bypass flaw allows blocked accounts to bypass Conditional Access via trust-chain evasion. Microsoft MSRC confirmed Important severity; hardening enforcement began March 2026, with Global Admin role-matching block enforced June 1, 2026.
 - evidence:
@@ -127,8 +182,7 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
-- 2026-08-18 — https://github.com/advisories — CVE-2026-62988 (CRITICAL): Froxlor credential and 2FA secret disclosure via API endpoints — [single vendor, published 2026-08-18]
-- 2026-08-18 — https://github.com/advisories — CVE-2026-54133 (CRITICAL, CVSS 9.8): jmespath.php CompilerRuntime code injection via unescaped function names → RCE; affects versions <2.9.1 — [single vendor (mtdowling/jmespath.php), published 2026-08-18]
+- 2026-10-03 — https://labs.watchtowr.com/is-this-a-joke-in-the-auth-header-f5-big-ip-unauth-heap-overflow-to-rce-cve-2026-94127/ — CVE-2026-94127 (F5 BIG-IP UnAuth Heap-Overflow to RCE, 8 min read, Sep 23) — [single vendor (watchTowr), single high-impact appliance vulnerability, awaiting secondary research coverage]
 - 2026-08-12 — https://github.com/advisories/GHSA-6fbw-r78c-m4j8 — CVE-2026-63077 (CRITICAL, CVSS 9.8): TeamCity unauthenticated deserialization RCE; CISA KEV listed; active exploitation. **UPDATE 2026-08-12:** 6 independent sources (SentinelOne, HelpNetSecurity, Penligent, TheHackerNews, Rapid7, JetBrains official advisory). Watch for trend promotion if coupled with secondary exploitation techniques / post-compromise analysis.
 - 2026-08-12 — https://github.com/advisories/GHSA-4m9g-p5wq-r8v3 — CVE-2026-9198 (CRITICAL, CVSS 9.8): Langflow unauthenticated code injection → RCE; CISA KEV listed; active exploitation. **UPDATE 2026-08-12:** 5 independent sources (IndFace, TheHackerNews, SentinelOne, Tenable, JetBrains/IBM official advisory). Watch for trend promotion if coupled with secondary exploitation techniques / post-compromise analysis.
 - 2026-08-08 — https://www.elastic.co/security-labs/shai-hulud-chaindrop — CHAINDROP worm update: Elastic blog (2026-08-06) — npm supply chain attack, 400+ packages, 1.3B monthly downloads, keyv maintainer compromise. Single vendor (Elastic); watch for independent security firm corroboration. **Note: retroactive, originally queued 2026-08-06; restating with 2026-08-08 timestamp for visibility.**

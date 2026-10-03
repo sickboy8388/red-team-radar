@@ -1,79 +1,69 @@
 # Red Team Radar
 
-Persistent, curated tracking of the offensive-security frontier — tools, releases, techniques, research, and advisories — for red team operators.
+Persistent autonomous tracker of the offensive-security frontier — tools, releases, techniques, research, advisories. Curated for red team operators. This is *situational awareness*, not a runbook.
 
-![trends](https://img.shields.io/badge/trends-7-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-10-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-28-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--09--29-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-24-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--03-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-09-29)
+## Since last scan (2026-10-03)
 
-- **34-day gap healed.** No daily runs recorded Aug 27–Sep 28; today's scan recovers full Sep 1–29 backlog across 15 high-impact findings.
-- **CertiGhost dormancy.** AD CS "chase" DC-impersonation trend (CVE-2026-54121) passed 21-day quiet line (2026-08-27); promoted to dormant.
-- **GitHub API blocker escalated.** GitHub Advisories API persists as 403 Forbidden (session-scoped, 3+ runs); infrastructure issue requiring curator attention. CVE/advisory watch degraded but compensated by NVD + primary-blog crawl + agent research.
-- **15 Sep findings queued for verification.** Citrix NetScaler pre-auth RCE (CVSS 9.5, active exploitation), SharePoint auth-bypass chain, Check Point VPN auth bypass, Kerberos relay via DNS CNAME, Process Parameter Poisoning, Ivanti EPMM pre-auth RCE, container escape, Certipy v5 ESC16, MLflow SSRF, Windows IKE RCE. Top 3 meet 2–vendor signals; remainder under review.
+- **4 new seed trends.** N-able N-central (CVSS 10.0), Citrix NetScaler (CVSS 9.5 × 2), Fortinet FortiMail (CVSS 9.8), Kerberos relay via DNS CNAME (CVSS 7.5). All meet ≥3 independent source + concrete artifact criteria.
+- **5 trends promoted to dormant.** WSUS, Entra SyncJacking, SonicWall, Oracle PeopleSoft, Nightmare Eclipse all >21 days quiet since last evidence.
+- **Urgent CISA deadlines.** FortiMail Oct 4 deadline imminent (48 hrs); N-able Sep 11 passed (monitor for surge). Citrix zero-days require immediate patching (no federal deadline announced).
+- **Web access fully recovered.** All 10 primary blogs accessible; GitHub API scope issue persists (low impact due to fallback).
 
 ---
 
 ## Trends
 
-**Status tally:** seed 4 · emerging 2 · dormant 1
+**seed 4 · dormant 6**
 
-| Trend | Stage | Latest signal |
+| Trend | Stage | Latest Signal |
 |-------|-------|---|
-| [WSUS / Windows Update Server RCE exploitation](TRENDS.md#id-initial-access-wsus-001) | seed | [2026-10-23](https://www.huntress.com/blog/exploitation-of-windows-server-update-services-remote-code-execution-vulnerability) — Huntress active exploitation |
-| [Entra ID SyncJacking & Conditional Access Bypass](TRENDS.md#id-identity-entra-syncjacking-001) | seed | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) — Semperis hard-matching abuse |
-| [SonicWall SMA1000 SSRF + RCE (CVE-2026-15409/15410)](TRENDS.md#id-initial-access-sonicwall-sma-001) | seed | [2026-08-17](https://www.rapid7.com/blog/post/etr-rapid7-mdr-team-discovers-new-sonicwall-sma1000-zero-days-being-actively-exploited-cve-2026-15409-cve-2026-15410/) — Rapid7 MDR active exploitation |
-| [Oracle PeopleSoft RCE (CVE-2026-35273)](TRENDS.md#id-initial-access-oracle-peoplesoft-001) | seed | [2026-08-17](https://www.rapid7.com/blog/post/etr-active-exploitation-of-oracle-peoplesoft-zero-day-cve-2026-35273/) — Rapid7 ETR UNC6240 attribution |
-| [Nightmare Eclipse Windows zero-day research](TRENDS.md#id-evasion-nightmare-eclipse-001) | emerging | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) — 9 PoC exploits (Apr–Jul 2026) |
-| [CertiGhost AD CS DC-impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001) | **dormant** | [2026-08-06](https://www.dataminr.com/) — Promoted to dormant (21-day quiet line 2026-08-27 passed) |
+| [N-able N-central RCE (CVE-2026-86218)](TRENDS.md#id-initial-access-nable-ncentral-001) | seed | [2026-10-03 — Arctic Wolf](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
+| [Citrix NetScaler Pre-Auth RCE (CVE-2026-88771/88772)](TRENDS.md#id-initial-access-citrix-netscaler-001) | seed | [2026-10-03 — watchTowr Labs](https://labs.watchtowr.com/here-we-go-again-citrix-netscaler-dtls-preauth-memory-overflow-cve-2026-88772/) |
+| [Fortinet FortiMail Arbitrary File Write (CVE-2026-104286)](TRENDS.md#id-initial-access-fortimail-001) | seed | [2026-10-03 — SecurityWeek](https://www.securityweek.com/exploited-fortinet-fortimail-zero-day-calls-for-urgent-action/) |
+| [Kerberos Relay via DNS CNAME (CVE-2026-20929)](TRENDS.md#id-identity-kerberos-relay-dns-cname-001) | seed | [2026-10-03 — CrowdStrike](https://www.crowdstrike.com/en-us/blog/detecting-kerberos-relay-attack-via-dns-cname-abuse/) |
+| [CertiGhost AD CS DC-Impersonation (CVE-2026-54121)](TRENDS.md#id-ad-certighost-001) | dormant | [2026-08-06 — Kudelski Security](https://kudelskisecurity.com/) |
+| [WSUS RCE Exploitation](TRENDS.md#id-initial-access-wsus-001) | dormant | [2026-08-05 — SpecterOps](https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-1/) |
+| [Entra ID SyncJacking & CA Bypass](TRENDS.md#id-identity-entra-syncjacking-001) | dormant | [2026-08-06 — Semperis](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) |
+| [SonicWall SMA1000 SSRF+RCE (CVE-2026-15409/15410)](TRENDS.md#id-initial-access-sonicwall-sma-001) | dormant | [2026-08-17 — Tenable](https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the) |
+| [Oracle PeopleSoft RCE (CVE-2026-35273)](TRENDS.md#id-initial-access-oracle-peoplesoft-001) | dormant | [2026-08-17 — SentinelOne](https://www.sentinelone.com/vulnerability-database/cve-2026-35273/) |
+| [Nightmare Eclipse Windows LPE/Sandbox Escape Research](TRENDS.md#id-evasion-nightmare-eclipse-001) | dormant | [2026-07-31 — The Register](https://www.theregister.com/) |
 
 ---
 
 ## Tools & Releases
 
-- **BloodHound** — v9.7.1 (2026-08-18+, XSS mitigations; rc4–rc6 development cycle)
-- **impacket** — 0.9.20 (2026-09 backlog)
-- **Sliver** — v1.7.6 (2026-09 backlog)
-- **Nuclei** — v3.11.0 (2026-07-06, unsigned JS-protocol template refusal)
-- **NetExec, Certipy, Havoc** — unchanged since prior scans
+- **Sliver C2** — v1.7.7 (Sep 3, 2026): OPFOR CNA BOF scripting, Windows shell handling improvements, tunnel hardening
+- **BloodHound Community Edition** — v9.6.0 (Aug 18, 2026): XSS mitigations, dependency hardening
+- **impacket** — 0.9.20 (post-Aug 18)
+- **EDR Evasion** — Shroud, DripLoader, EDRSandBlast, Phantom-Evasion; most updated Jan–Jul 2026
+- **NetExec, Certipy, Nuclei** — no new releases this period
 
 ---
 
 ## Worth Studying
 
-**Recent technique writeups & tools (newest first):**
+- [**Attack of The Extensions**](https://specterops.io/blog/2026/08/13/chromium-extension-c2-persistence/) — Chromium extensions as persistent C2 infrastructure; silent installation + C2-on-compromised-systems tradecraft
+- [**Return of the Cookie Monster**](https://specterops.io/blog/2026/08/13/chrome-devtools-protocol-cookie-theft/) — Chrome DevTools Protocol (CDP) authenticated session hijacking despite modern protections
+- [**Process Parameter Poisoning P3**](https://sensepost.com/blog/2026/process-parameter-poisoning/) — Windows injection via process startup parameters; evades 4 major EDRs (no WriteProcessMemory/VirtualAllocEx APIs)
+- [**ConfigManBearPig 2.0**](https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/) — SCCM/Configuration Manager attack toolkit (30+ techniques, 9 complete takeover paths, low-privileged domain user context sufficient)
+- [**CRLF-Powered Desync Attacks**](https://portswigger.net/research/crlf-powered-desync-attacks) — HTTP/2-specific desynchronization via CRLF injection; request smuggling + cache poisoning edge case
 
-- [**Attack of The Extensions**](https://specterops.io/blog/2026/08/13/chromium-extension-c2-persistence/) (SpecterOps, Aug 13) — Chromium extensions as persistent C2 infrastructure.
-- [**Return of the Cookie Monster**](https://specterops.io/blog/2026/08/13/chrome-devtools-protocol-cookie-theft/) (SpecterOps, Aug 13) — Chrome DevTools Protocol (CDP) session hijacking.
-- [**Process Parameter Poisoning "P3"**](https://sensepost.com/blog/2026/process-parameter-poisoning/) (SensePost, Jul 6) — Windows injection primitive (CreateProcessW) evading 4 major EDRs.
-- [**ConfigManBearPig 2.0**](https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/) (SpecterOps, Aug 3) — SCCM/Configuration Manager toolkit; 30+ techniques, 9 takeover paths.
-- [**CRLF-Powered Desync Attacks**](https://portswigger.net/research/crlf-powered-desync-attacks) (PortSwigger, Aug 5) — HTTP/2 desync via CRLF; request smuggling & cache poisoning.
-
-[See full study shelf →](TRENDS.md#study_shelf)
-
----
-
-## Access & Blockers
-
-**Current status:**
-
-- ✅ **Primary blogs** (SpecterOps, watchTowr, Elastic, PortSwigger, etc.): Accessible (HTTP 200)
-- ✅ **NVD REST API**: Recovered (HTTP 200, returns 2026 data)
-- ❌ **GitHub Advisories API** (`github.com/advisories`): Persistent 403 (session-scoped, cross-org search blocked)
-- ❌ **GitHub API search** (`api.github.com`): Session-scoped limitation
-
-[See blockers section in TRENDS.md](TRENDS.md#blockers) for escalation details.
+[Full study shelf →](TRENDS.md#study_shelf)
 
 ---
 
 ## Latest Reports
 
+- [**Daily: 2026-10-03**](reports/2026-10-03.md) — 4 new seed trends, 5 dormancy promotions, CISA deadline alerts
 - [**Daily: 2026-09-29**](reports/2026-09-29.md) — 34-day gap recovery, 15 findings, blocker escalation
-- [**Older reports**](reports/) — Full archive of daily & weekly recalibrations
+- [**All reports**](reports/) — Full daily & weekly archive
 
 ---
 
@@ -82,22 +72,15 @@ Persistent, curated tracking of the offensive-security frontier — tools, relea
 - **[TRENDS.md](TRENDS.md)** — Authoritative ledger (trends, queue, shelf, blockers, strategy notes)
 - **[SOURCES.md](SOURCES.md)** — Primary feeds & discovery topics seed list
 - **[AGENTS.md](AGENTS.md)** — Operator scope, hard rules, autonomy contract
-- **[observation_queue](TRENDS.md#observation_queue)** — Below-bar signals (~25 item cap)
+- **[observation_queue](TRENDS.md#observation_queue)** — Below-bar signals (~24 items)
 
 ---
 
-**Red Team Radar** is a read-only tracker of published offensive-security research. It points to artifacts and summarizes their significance — field awareness, not operations. Never paste exploit code or step-by-step procedures into the ledger.
+*Red Team Radar* is a situational-awareness tracker: it points to published artifacts and summarizes their offensive significance. It is not a runbook. Never paste operational payloads, exploit code, or step-by-step attack procedures here; link the primary source instead.
 
-*Last updated: 2026-09-29*  
-*Maintained by: Red Team Radar autonomous operator*
+Track, don't reproduce. Evidence line = date—primary URL—one line of context. Max 10 per trend. Published/disclosed work only; no live targets or non-public exploits.
 
-## Tools & releases
-
-Latest tracked releases (checked 2026-08-15):
-
-- **BloodHound** v9.6.0-rc5 (Aug 14) — Go 1.26.6 dependency upgrade
-- **BloodHound** v9.6.0-rc4 (Aug 13) — XSS vulnerability fixes (CVE-2026-67213)
-- **Sliver** v1.7.3 (Feb 2026)
+*Last updated: 2026-10-03*
 - **Nuclei**, **NetExec**, **Certipy**, **impacket** (no recent updates)
 
 ---
