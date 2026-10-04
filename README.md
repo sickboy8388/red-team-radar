@@ -4,17 +4,19 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 ![trends](https://img.shields.io/badge/trends-10-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-24-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--03-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-27-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--04-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-10-03)
+## Since last scan (2026-10-04)
 
-- **4 new seed trends.** N-able N-central (CVSS 10.0), Citrix NetScaler (CVSS 9.5 × 2), Fortinet FortiMail (CVSS 9.8), Kerberos relay via DNS CNAME (CVSS 7.5). All meet ≥3 independent source + concrete artifact criteria.
-- **5 trends promoted to dormant.** WSUS, Entra SyncJacking, SonicWall, Oracle PeopleSoft, Nightmare Eclipse all >21 days quiet since last evidence.
-- **Urgent CISA deadlines.** FortiMail Oct 4 deadline imminent (48 hrs); N-able Sep 11 passed (monitor for surge). Citrix zero-days require immediate patching (no federal deadline announced).
-- **Web access fully recovered.** All 10 primary blogs accessible; GitHub API scope issue persists (low impact due to fallback).
+**Quiet day continuation; 4 seed trends from Oct 3 stable, no new evidence.** All sources checked; most recent primary blog posts dated Aug 20 (SpecterOps AWSHound, watchTowr Citrix CVE-2026-8452):
+
+- **No new trends seeded.** All 13 primary blogs swept; no new posts since Oct 3.
+- **4 seed trends stable.** N-able, Citrix, FortiMail, Kerberos DNS CNAME remain seed stage (no new independent evidence Oct 4).
+- **6 dormant trends unchanged.** CertiGhost, WSUS, Entra, SonicWall, Oracle, Nightmare Eclipse; no re-escalations.
+- **Tool releases:** No new versions identified (latest Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18).
 
 ---
 
@@ -61,8 +63,8 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 ## Latest Reports
 
+- [**Daily: 2026-10-04**](reports/2026-10-04.md) — Quiet day; all sources checked, no new trends
 - [**Daily: 2026-10-03**](reports/2026-10-03.md) — 4 new seed trends, 5 dormancy promotions, CISA deadline alerts
-- [**Daily: 2026-09-29**](reports/2026-09-29.md) — 34-day gap recovery, 15 findings, blocker escalation
 - [**All reports**](reports/) — Full daily & weekly archive
 
 ---
@@ -80,7 +82,7 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 Track, don't reproduce. Evidence line = date—primary URL—one line of context. Max 10 per trend. Published/disclosed work only; no live targets or non-public exploits.
 
-*Last updated: 2026-10-03*
+*Last updated: 2026-10-04*
 - **Nuclei**, **NetExec**, **Certipy**, **impacket** (no recent updates)
 
 ---
