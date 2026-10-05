@@ -4,25 +4,25 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 ![trends](https://img.shields.io/badge/trends-10-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-27-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--04-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-1-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--05-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-10-04)
+## Since last scan (2026-10-05)
 
-**Quiet day continuation; 4 seed trends from Oct 3 stable, no new evidence.** All sources checked; most recent primary blog posts dated Aug 20 (SpecterOps AWSHound, watchTowr Citrix CVE-2026-8452):
+**Weekly recalibration (W40); queue burndown completed, 4 seed trends stable, no stage moves.**
 
-- **No new trends seeded.** All 13 primary blogs swept; no new posts since Oct 3.
-- **4 seed trends stable.** N-able, Citrix, FortiMail, Kerberos DNS CNAME remain seed stage (no new independent evidence Oct 4).
-- **6 dormant trends unchanged.** CertiGhost, WSUS, Entra, SonicWall, Oracle, Nightmare Eclipse; no re-escalations.
-- **Tool releases:** No new versions identified (latest Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18).
+- **Observation queue cleaned.** Dropped 24 items (Jul 31 – Aug 13, 54–66 days old without new velocity). Single-vendor tools/CVEs, unverified aggregator reports retired. Watchlist reduced from ~27 items to 1 (F5 BIG-IP CVE-2026-94127, awaiting 2nd vendor).
+- **4 seed trends remain seed.** N-able (CVSS 10), Citrix NetScaler (CVSS 9.5×2, zero-days, active exploitation), FortiMail (CVSS 9.8, active exploitation), Kerberos DNS CNAME (CVSS 7.5). No new evidence Oct 4–5; candidates for emerging promotion if multi-org post-exploit chains surface next week.
+- **6 dormant trends unchanged.** CertiGhost, WSUS, Entra, SonicWall, Oracle, Nightmare Eclipse all >21 days quiet. No re-escalations.
+- **Source health:** 13/13 primary blogs checked (all HTTP 200). Most recent posts Aug 20. Tool releases unchanged (Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18). Weekly report filed: [2026-W40](reports/weekly/2026-W40.md).
 
 ---
 
 ## Trends
 
-**seed 4 · dormant 6**
+**Stage tally:** seed 4 · emerging 0 · accelerating 0 · mainstreaming 0 · dormant 6
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---|
@@ -63,6 +63,7 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 ## Latest Reports
 
+- [**Weekly: 2026-W40**](reports/weekly/2026-W40.md) — 4 seed trends recalibrated, queue burndown (25→1), no stage moves
 - [**Daily: 2026-10-04**](reports/2026-10-04.md) — Quiet day; all sources checked, no new trends
 - [**Daily: 2026-10-03**](reports/2026-10-03.md) — 4 new seed trends, 5 dormancy promotions, CISA deadline alerts
 - [**All reports**](reports/) — Full daily & weekly archive
