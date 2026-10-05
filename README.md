@@ -11,12 +11,12 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 ## Since last scan (2026-10-05)
 
-**Weekly recalibration (W40); queue burndown completed, 4 seed trends stable, no stage moves.**
+**Quiet day continuation; no new trends, no escalations. Baseline operational status confirmed.**
 
-- **Observation queue cleaned.** Dropped 24 items (Jul 31 – Aug 13, 54–66 days old without new velocity). Single-vendor tools/CVEs, unverified aggregator reports retired. Watchlist reduced from ~27 items to 1 (F5 BIG-IP CVE-2026-94127, awaiting 2nd vendor).
-- **4 seed trends remain seed.** N-able (CVSS 10), Citrix NetScaler (CVSS 9.5×2, zero-days, active exploitation), FortiMail (CVSS 9.8, active exploitation), Kerberos DNS CNAME (CVSS 7.5). No new evidence Oct 4–5; candidates for emerging promotion if multi-org post-exploit chains surface next week.
+- **4 seed trends stable.** N-able (CVSS 10), Citrix NetScaler (CVSS 9.5×2, zero-days, active exploitation), FortiMail (CVSS 9.8, active exploitation), Kerberos DNS CNAME (CVSS 7.5) all seeded Oct 3. No follow-up evidence Oct 4–5 (normal 1–3 day gap before secondary vendors report).
 - **6 dormant trends unchanged.** CertiGhost, WSUS, Entra, SonicWall, Oracle, Nightmare Eclipse all >21 days quiet. No re-escalations.
-- **Source health:** 13/13 primary blogs checked (all HTTP 200). Most recent posts Aug 20. Tool releases unchanged (Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18). Weekly report filed: [2026-W40](reports/weekly/2026-W40.md).
+- **Observation queue at floor.** Single item (F5 BIG-IP CVE-2026-94127, watchTowr Oct 3) awaiting independent security researcher coverage. Post-W40 burndown (25→1) complete and stable.
+- **Source health:** All 13 primary blogs HTTP 200 and reachable. Most recent offensive-axis posts Aug 20 (normal research-cycle lull, not degradation). Tool releases unchanged (Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18). Daily reports: [2026-10-05](reports/2026-10-05.md), [2026-10-04](reports/2026-10-04.md). Weekly: [2026-W40](reports/weekly/2026-W40.md).
 
 ---
 
@@ -83,36 +83,18 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 Track, don't reproduce. Evidence line = date—primary URL—one line of context. Max 10 per trend. Published/disclosed work only; no live targets or non-public exploits.
 
-*Last updated: 2026-10-04*
-- **Nuclei**, **NetExec**, **Certipy**, **impacket** (no recent updates)
-
----
-
-## Observation queue
-
-[28 below-bar items](TRENDS.md#observation_queue) — awaiting 2nd independent source or burndown by age (checked 2026-08-20).
-
-**Multi-vendor escalations:**
-- **Microsoft August 2026 Patch Tuesday** (400+ CVEs, 3 zero-days; multi-org analyst coverage; on-axis: Azure Service Bus RCE, Azure SQL EoP, Windows AD CS RCE)
-- **TeamCity CVE-2026-63077** (6 independent sources; CISA KEV; watch for attack-chain research)
-- **Langflow CVE-2026-9198** (5 independent sources; CISA KEV; watch for post-compromise analysis)
-
-**Single-vendor signals (awaiting corroboration):**
-- **Citrix NetScaler CVE-2026-8452** (watchTowr Aug 14; pre-auth SAML RCE; queued for secondary)
-- **ARM64 Stack Obfuscation Research** (MDSec Aug 15; EDR evasion on Apple Silicon)
-- **Cisco Firewall CVE-2026-20349** (unauthenticated RCE; awaiting PoC/secondary analysis)
-- **GHSA Advisory Stream** (13+ HIGH-severity CVEs, Aug 14–15; all single-vendor)
+*Last updated: 2026-10-05*
 
 ---
 
 ## Resources
 
 - **[TRENDS.md](TRENDS.md)** — full ledger with evidence & stage history
-- **[Observation queue](TRENDS.md#observation_queue)** — 28 items awaiting promotion or age-based burndown
+- **[Observation queue](TRENDS.md#observation_queue)** — 1 item awaiting 2nd vendor coverage
 - **[Strategy notes](TRENDS.md#strategy_notes)** — coverage decisions & calibration history
-- **[Reports](reports/)** — daily & weekly recalibrations
-- **[Latest daily](reports/2026-08-20.md)** — 2026-08-20
-- **[Latest weekly](reports/weekly/2026-W33.md)** — 2026-W33
+- **[Reports](reports/)** — daily & weekly archive
+- **[Latest daily](reports/2026-10-05.md)** — 2026-10-05
+- **[Latest weekly](reports/weekly/2026-W40.md)** — 2026-W40
 - **[Source registry](SOURCES.md)** — primary feeds & discovery topics
 - **[Source rotation log](logs/source_rotation.md)** — session-by-session coverage tracking
 

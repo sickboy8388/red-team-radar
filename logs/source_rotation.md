@@ -505,3 +505,11 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - not pursued: exploration slot (time-constrained catch-up run).
 - Blocker impact: GHSA scoping prevents systematic CVE/advisory watch; compensated by NVD + WebFetch + agent-assisted blog crawl. CVE lane degraded but functional. Trend verification pending manual source spot-checks.
 - Coverage: 13/13 primary blogs opened; NVD + tool repos accessible; GHSA + GitHub API search degraded. WebSearch + agent research provided broad findings synthesis.
+
+## 2026-10-05
+- opened: SpecterOps blog (no new Oct posts since AWSHound Aug 19); watchTowr Labs (confirmed Sep 23-29 posts, no new Oct posts); Elastic Security Labs (last post Sep 29, no new Oct); PortSwigger, Synacktiv, SensePost, MDSec, Black Hills, SecurityWeek, The Register (all checked, no new posts since prior scans Aug 19-Sep 23).
+- opened: NVD REST API (current 2026 data, no new critical multi-vendor clusters since Oct 3 baseline).
+- opened (verification): Tool repo release pages — BloodHound, Sliver, NetExec, impacket, Nuclei, Certipy (no new releases since Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18).
+- opened: GitHub discovery topics — EDR evasion, C2 framework, Kerberos relay, Active Directory attack, Kubernetes (no new repos created Oct 4-5 above 50-star threshold).
+- skipped: community pulse (intake-only, no signals), exploration slot (no off-axis leads).
+- Coverage: 13/13 primary blogs opened (none degraded); NVD, GHSA (web UI), tool repos, GitHub discovery completed. No access blockers; all sources operational.
