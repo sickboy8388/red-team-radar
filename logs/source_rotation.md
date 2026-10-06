@@ -505,3 +505,12 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - not pursued: exploration slot (time-constrained catch-up run).
 - Blocker impact: GHSA scoping prevents systematic CVE/advisory watch; compensated by NVD + WebFetch + agent-assisted blog crawl. CVE lane degraded but functional. Trend verification pending manual source spot-checks.
 - Coverage: 13/13 primary blogs opened; NVD + tool repos accessible; GHSA + GitHub API search degraded. WebSearch + agent research provided broad findings synthesis.
+
+## 2026-10-06 (daily)
+- opened: all 13 primary blogs (SpecterOps, watchTowr, Elastic, PortSwigger, Synacktiv, SensePost, MDSec, Black Hills, SecurityWeek, The Register, Project Zero, Outflank, Assetnote) — no new posts since 2026-09-29 (watchTowr Ivanti Sentry CVE-2026-10520). Most recent posts remain Aug 20 (SpecterOps AWSHound, Citrix CVE write-up).
+- opened: NVD REST API (`services.nvd.nist.gov/rest/json/cves/2.0`) — responsive, current 2026 data; no new CRITICAL CVEs published Oct 4-6.
+- opened: GHSA (`github.com/advisories`) — HTTP 200, web UI accessible; search `severity:critical published:>2026-10-04` returned no results.
+- opened: tool repos (BloodHound, NetExec, Sliver, Nuclei, impacket) — no new releases since 2026-09-03 (Sliver v1.7.7).
+- opened: discovery topics via GitHub search "edr evasion created:>2026-10-04 stars:>50", "kerberos attack created:>2026-10-04 stars:>50" — no results.
+- not pursued: community pulse (intake-only, no signals), exploration slot (quiet day pattern).
+- Net: 0 new trends seeded, 0 new evidence for existing trends. All 4 seed trends from 2026-10-03 (N-able, Citrix, FortiMail, Kerberos DNS CNAME) stable; no follow-up research yet. 6 dormant trends unchanged. observation_queue at 1 item (F5 BIG-IP CVE-2026-94127, awaiting secondary coverage). Coverage: 13/13 primary blogs opened (none degraded); all CVE lanes verified; no access blockers.

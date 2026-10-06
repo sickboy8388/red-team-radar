@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-04 (quiet day; no new trends)
+Last updated: 2026-10-06 (quiet day; no new trends)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -61,15 +61,16 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 ### id: initial-access-citrix-netscaler-001 — Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)
 - stage: seed
 - confidence: high
-- last_evidence: 2026-10-03
+- last_evidence: 2026-10-05
 - aliases: [NetScaler RCE, CVE-2026-88771, CVE-2026-88772, command injection, DTLS memory overflow, zero-day]
-- notes: Two critical pre-authentication remote code execution vulnerabilities in Citrix NetScaler ADC and NetScaler Gateway (CVSSv4 9.5 each). CVE-2026-88771: improper input validation enabling arbitrary command execution. CVE-2026-88772: DTLS handshake message fragmentation parsing error allowing memory overflow/control-flow hijack/shellcode execution with root privileges. DTLS enabled by default on VPN virtual servers. Disclosed 2026-09-27 after being actively exploited in the wild as zero-days. Affects all deployments including default configurations. No additional features required for exploitation. Active installer chains with PHP web shell placement in VPN directories.
+- notes: Two critical pre-authentication remote code execution vulnerabilities in Citrix NetScaler ADC and NetScaler Gateway (CVSSv4 9.5 each). CVE-2026-88771: improper input validation enabling arbitrary command execution. CVE-2026-88772: DTLS handshake message fragmentation parsing error allowing memory overflow/control-flow hijack/shellcode execution with root privileges. DTLS enabled by default on VPN virtual servers. Disclosed 2026-09-27 after being actively exploited in the wild as zero-days. Affects all deployments including default configurations. No additional features required for exploitation. Active installer chains with PHP web shell placement in VPN directories. Post-patch exploitation confirmed (Oct 5), indicating continued attacker activity.
 - evidence:
   - 2026-09-28 — https://labs.watchtowr.com/oh-look-the-foot-gun-went-off-again-citrix-netscaler-preauth-command-injection-cve-2026-88771/ — watchTowr Labs: CVE-2026-88771 command injection technical writeup.
   - 2026-09-29 — https://labs.watchtowr.com/here-we-go-again-citrix-netscaler-dtls-preauth-memory-overflow-cve-2026-88772/ — watchTowr Labs: CVE-2026-88772 DTLS memory overflow technical analysis.
   - 2026-09-27 — https://www.rapid7.com/blog/post/etr-zero-day-exploitation-of-citrix-netscaler-adc-and-gateway-cve-2026-88771-and-cve-2026-88772/ — Rapid7 ETR: Citrix NetScaler zero-day exploitation tracking and analysis.
   - 2026-09-27 — https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/ — BleepingComputer: Citrix confirms NetScaler zero-day RCE flaws actively exploited in attacks.
   - 2026-09-27 — https://gbhackers.com/citrix-confirms-netscaler-zero-day-rce-flaws/ — GBHackers: Citrix confirms NetScaler zero-day RCE flaws actively exploited in attacks.
+  - 2026-10-05 — https://www.securityweek.com/exploitation-of-citrix-netscaler-zero-day-hits-appliances-patched-days-earlier/ — SecurityWeek: post-patch exploitation confirmed on patched appliances.
 
 ### id: initial-access-fortimail-001 — Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)
 - stage: seed
@@ -142,16 +143,17 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 ### id: initial-access-oracle-peoplesoft-001 — Oracle PeopleSoft Unsafe Deserialization RCE (CVE-2026-35273)
 - stage: dormant
 - confidence: high
-- last_evidence: 2026-08-17
+- last_evidence: 2026-10-05
 - dormancy_entered: 2026-10-03
 - aliases: [Oracle PeopleSoft RCE, CVE-2026-35273, PeopleTools auth bypass, PSEMHUB deserialization]
-- notes: Critical unauthenticated remote code execution in Oracle PeopleSoft Enterprise PeopleTools via unsafe deserialization of attacker-controlled data at `/PSEMHUB/hub` endpoint (CVE-2026-35273, CVSS 9.8). Affects versions 8.61 and 8.62. Zero-day exploitation confirmed in the wild May 27–June 9, 2026, by UNC6240 (ShinyHunters financially motivated extortion group), heavily targeting higher-education sector. Oracle released out-of-band patch same day as advisory (June 2026). High-impact web/cloud initial access vector targeting enterprise resource planning systems.
+- notes: Critical unauthenticated remote code execution in Oracle PeopleSoft Enterprise PeopleTools via unsafe deserialization of attacker-controlled data at `/PSEMHUB/hub` endpoint (CVE-2026-35273, CVSS 9.8). Affects versions 8.61 and 8.62. Zero-day exploitation confirmed in the wild May 27–June 9, 2026, by UNC6240 (ShinyHunters financially motivated extortion group), heavily targeting higher-education sector. Oracle released out-of-band patch same day as advisory (June 2026). High-impact web/cloud initial access vector targeting enterprise resource planning systems. ShinyHunters threat actor leadership arrested Oct 2026 (FBI, Oct 5).
 - evidence:
   - 2026-08-17 — https://www.sentinelone.com/vulnerability-database/cve-2026-35273/ — SentinelOne: CVE-2026-35273 technical analysis and threat tracking.
   - 2026-08-17 — https://horizon3.ai/attack-research/vulnerabilities/cve-2026-35273/ — Horizon3.ai: attack research on Oracle PeopleSoft unauth RCE.
   - 2026-08-17 — https://www.rapid7.com/blog/post/etr-active-exploitation-of-oracle-peoplesoft-zero-day-cve-2026-35273/ — Rapid7 ETR: active exploitation evidence and UNC6240 attribution.
   - 2026-08-17 — https://www.picussecurity.com/resource/blog/cve-2026-35273-oracle-peoplesoft-rce-zero-day-explained — Picus Security: RCE chain explanation and remediation.
   - 2026-08-17 — https://www.oracle.com/security-alerts/alert-cve-2026-35273.html — Oracle official security alert and patch advisory.
+  - 2026-10-05 — https://www.theregister.com/security/2026/10/05/fbi-confirms-multiple-arrests-related-to-shinyhunters-hack/5301178 — FBI confirms multiple arrests related to ShinyHunters (threat actor disruption; law enforcement coordination).
 
 ### id: identity-entra-syncjacking-001 — Entra ID SyncJacking & Conditional Access Bypass
 - stage: dormant
@@ -182,6 +184,11 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
+- 2026-10-06 — https://www.theregister.com/security/2026/10/06/atlassian-warns-of-critical-file-access-flaw-in-its-datacenter-products/5301284 — Atlassian datacenter critical file access vulnerability (Oct 6 advisory) — [single vendor (Atlassian), initial-access relevance on widely-deployed enterprise product, awaiting secondary security firm coverage]
+- 2026-10-06 — https://www.securityweek.com/exploitation-hits-rejetto-hfs-vulnerability-discovered-by-ai/ — Rejetto HFS vulnerability exploitation (AI-discovered, currently exploited) — [single vendor (SecurityWeek report), awaiting independent researcher corroboration]
+- 2026-10-06 — https://www.securityweek.com/linux-backdoor-abuses-stun-protocol-exploits-dozens-of-flaws/ — Linux malware campaign abusing STUN protocol — [single vendor (SecurityWeek), awaiting secondary coverage]
+- 2026-10-06 — https://github.com/advisories/GHSA-xq3m-2v4x-88gg — CRITICAL: protobufjs arbitrary code execution, RCE via crafted message — [CRITICAL GHSA, single product, public PoC likely; watch for exploitation activity]
+- 2026-10-06 — https://github.com/advisories/GHSA-c5cp-vx83-jhqx — CRITICAL: Langflow missing authentication on critical API (CVE-2026-21445) — [CRITICAL GHSA, LLM/agent application framework, RCE chain risk; watch for exploitation]
 - 2026-10-03 — https://labs.watchtowr.com/is-this-a-joke-in-the-auth-header-f5-big-ip-unauth-heap-overflow-to-rce-cve-2026-94127/ — CVE-2026-94127 (F5 BIG-IP UnAuth Heap-Overflow to RCE, 8 min read, Sep 23) — [single vendor (watchTowr), single high-impact appliance vulnerability, awaiting secondary research coverage]
 
 ---

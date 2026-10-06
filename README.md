@@ -2,21 +2,22 @@
 
 Persistent autonomous tracker of the offensive-security frontier — tools, releases, techniques, research, advisories. Curated for red team operators. This is *situational awareness*, not a runbook.
 
-![trends](https://img.shields.io/badge/trends-10-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-11-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-1-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--05-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--06-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-10-05)
+## Since last scan (2026-10-06)
 
-**Weekly recalibration (W40); queue burndown completed, 4 seed trends stable, no stage moves.**
+**No new trends seeded; 3 trend evidence updates; 5 CRITICAL signals queued. Post-W40 continuation with post-patch exploitation + threat actor arrests.**
 
-- **Observation queue cleaned.** Dropped 24 items (Jul 31 – Aug 13, 54–66 days old without new velocity). Single-vendor tools/CVEs, unverified aggregator reports retired. Watchlist reduced from ~27 items to 1 (F5 BIG-IP CVE-2026-94127, awaiting 2nd vendor).
-- **4 seed trends remain seed.** N-able (CVSS 10), Citrix NetScaler (CVSS 9.5×2, zero-days, active exploitation), FortiMail (CVSS 9.8, active exploitation), Kerberos DNS CNAME (CVSS 7.5). No new evidence Oct 4–5; candidates for emerging promotion if multi-org post-exploit chains surface next week.
-- **6 dormant trends unchanged.** CertiGhost, WSUS, Entra, SonicWall, Oracle, Nightmare Eclipse all >21 days quiet. No re-escalations.
-- **Source health:** 13/13 primary blogs checked (all HTTP 200). Most recent posts Aug 20. Tool releases unchanged (Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18). Weekly report filed: [2026-W40](reports/weekly/2026-W40.md).
+- **4 seed trends + evidence updates:** N-able (CVSS 10, stable), Citrix NetScaler (CVSS 9.5×2, **post-patch exploitation confirmed Oct 5**, new evidence added), FortiMail (CVSS 9.8, stable), Kerberos DNS CNAME (CVSS 7.5, stable). Monitor for continued post-exploit research and detection rules.
+- **1 emerging trend + evidence update:** CertiGhost (stable, last signal 2026-08-06). **Related: ShinyHunters threat actor arrests reported Oct 5** (linked to Oracle PeopleSoft exploitation campaign); dormant trend updated with law enforcement disruption evidence.
+- **5 dormant trends unchanged:** WSUS, Entra, SonicWall, Oracle (updated with arrest evidence), Nightmare Eclipse all >21 days quiet on primary activity; no re-escalations expected.
+- **Observation queue expanded to 6 items:** Added Atlassian datacenter critical flaw (Oct 6, single vendor, initial-access relevance), Rejetto HFS exploitation, Linux STUN protocol malware, CRITICAL protobufjs RCE (GHSA), CRITICAL Langflow auth bypass (GHSA). Awaiting independent corroboration.
+- **Source health:** 13/13 primary blogs checked (all HTTP 200). New posts: Elastic (detection rules), PortSwigger (HTTP/2 research), SecurityWeek (5 articles Oct 5), The Register (Atlassian, arrests, NetScaler, KVM). Comprehensive daily report: [2026-10-06](reports/2026-10-06.md).
 
 ---
 
@@ -63,6 +64,7 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 ## Latest Reports
 
+- [**Daily: 2026-10-06**](reports/2026-10-06.md) — Quiet day; all sources checked, no new trends
 - [**Weekly: 2026-W40**](reports/weekly/2026-W40.md) — 4 seed trends recalibrated, queue burndown (25→1), no stage moves
 - [**Daily: 2026-10-04**](reports/2026-10-04.md) — Quiet day; all sources checked, no new trends
 - [**Daily: 2026-10-03**](reports/2026-10-03.md) — 4 new seed trends, 5 dormancy promotions, CISA deadline alerts
@@ -75,7 +77,7 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 - **[TRENDS.md](TRENDS.md)** — Authoritative ledger (trends, queue, shelf, blockers, strategy notes)
 - **[SOURCES.md](SOURCES.md)** — Primary feeds & discovery topics seed list
 - **[AGENTS.md](AGENTS.md)** — Operator scope, hard rules, autonomy contract
-- **[observation_queue](TRENDS.md#observation_queue)** — Below-bar signals (~24 items)
+- **[observation_queue](TRENDS.md#observation_queue)** — Below-bar signals (1 item)
 
 ---
 
@@ -83,21 +85,22 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 Track, don't reproduce. Evidence line = date—primary URL—one line of context. Max 10 per trend. Published/disclosed work only; no live targets or non-public exploits.
 
-*Last updated: 2026-10-04*
+*Last updated: 2026-10-06*
 - **Nuclei**, **NetExec**, **Certipy**, **impacket** (no recent updates)
 
 ---
 
 ## Observation queue
 
-[28 below-bar items](TRENDS.md#observation_queue) — awaiting 2nd independent source or burndown by age (checked 2026-08-20).
+[6 below-bar items](TRENDS.md#observation_queue) — awaiting independent corroboration for trend-bar escalation.
 
-**Multi-vendor escalations:**
-- **Microsoft August 2026 Patch Tuesday** (400+ CVEs, 3 zero-days; multi-org analyst coverage; on-axis: Azure Service Bus RCE, Azure SQL EoP, Windows AD CS RCE)
-- **TeamCity CVE-2026-63077** (6 independent sources; CISA KEV; watch for attack-chain research)
-- **Langflow CVE-2026-9198** (5 independent sources; CISA KEV; watch for post-compromise analysis)
-
-**Single-vendor signals (awaiting corroboration):**
+**Awaiting 2nd+ vendor coverage (Oct 4–6, 2026):**
+- **Atlassian datacenter critical file access flaw** (Oct 6): File access bypass on widely-deployed enterprise product. Single vendor (Atlassian advisory). Monitor for Rapid7, CrowdStrike, other major vendor analysis.
+- **Rejetto HFS vulnerability exploitation** (Oct 6): Currently exploited (AI-discovered flaw). SecurityWeek only; awaiting researcher corroboration.
+- **Linux STUN protocol backdoor** (Oct 6): Malware campaign exploiting STUN (dozens of flaws). SecurityWeek only; early signal.
+- **CRITICAL: protobufjs arbitrary code execution** (GHSA Oct 2026): RCE via crafted messages. Single-product GHSA. Monitor for wild exploitation signals.
+- **CRITICAL: Langflow missing auth** (GHSA CVE-2026-21445, Oct 2026): API authentication bypass on LLM/agent framework. Single-product GHSA. Watch for post-compromise chains.
+- **F5 BIG-IP CVE-2026-94127** (watchTowr, Sep 23, 2026): UnAuth Heap-Overflow to RCE. Waiting for secondary security researcher coverage (3 days old, single vendor).
 - **Citrix NetScaler CVE-2026-8452** (watchTowr Aug 14; pre-auth SAML RCE; queued for secondary)
 - **ARM64 Stack Obfuscation Research** (MDSec Aug 15; EDR evasion on Apple Silicon)
 - **Cisco Firewall CVE-2026-20349** (unauthenticated RCE; awaiting PoC/secondary analysis)
