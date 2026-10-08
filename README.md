@@ -4,19 +4,20 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 ![trends](https://img.shields.io/badge/trends-10-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-2-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--07-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-3-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--08-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-10-07)
+## Since last scan (2026-10-08)
 
-**Quiet day; 1 new CVE queued for independent verification. 4 seed trends stable, 6 dormant unchanged.**
+**Atlassian CVE escalates to 2-vendor coverage; Citrix DoS variant identified; N-able receives new weaponization evidence. 4 seed trends stable, 6 dormant unchanged.**
 
-- **CVE-2026-21589 (Atlassian Jira/Confluence pre-auth file read)** — [watchTowr Labs, Oct 6](https://labs.watchtowr.com/you-wont-hear-about-these-even-in-myths-atlassian-jira-confluence-and-more-pre-auth-arbitrary-file-read-cve-2026-21589/) — published Oct 5 by Atlassian; affects Bitbucket, Confluence, Jira Service Management, Bamboo, Crowd, Crucible, Fisheye Data Centers. Single vendor so far; queued pending independent security researcher corroboration.
-- **4 seed trends remain seed.** N-able (CVSS 10), Citrix NetScaler (CVSS 9.5×2, zero-days), FortiMail (CVSS 9.8, active exploitation), Kerberos DNS CNAME (CVSS 7.5). No new evidence since Oct 3.
-- **6 dormant trends unchanged.** CertiGhost, WSUS, Entra, SonicWall, Oracle, Nightmare Eclipse all >21 days quiet; no re-escalations.
-- **Source health:** 13/13 primary blogs checked (all HTTP 200). Most recent posts Aug 20. Tool releases unchanged (Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18). Daily report: [2026-10-07](reports/2026-10-07.md).
+- **CVE-2026-21589 (Atlassian Jira/Confluence pre-auth file read) escalates to 2 vendors** — [watchTowr Labs, Oct 6](https://labs.watchtowr.com/you-wont-hear-about-these-even-in-myths-atlassian-jira-confluence-and-more-pre-auth-arbitrary-file-read-cve-2026-21589/) + [Rapid7, Oct 5](https://www.rapid7.com/blog/post/cve-2026-21589-critical-unauthenticated-arbitrary-file-access-in-atlassian-products/) — affects 8 Atlassian Data Center products; CVSS 10.0; approaching 3-vendor threshold for trend bar (1 more needed).
+- **CVE-2026-88779 (Citrix NetScaler Memory Overflow DoS)** — [watchTowr Labs](https://labs.watchtowr.com/citrix-netscaler-adc-and-citrix-netscaler-gateway-improper-restriction-of-operations-within-the-bounds-of-a-memory-buffer-vulnerability-cve-2026-88779/), [CISA KEV Oct 4](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) — related to existing CVE-2026-88771/72 RCE trend but separate DoS vector; SAML-auth-only scope; queued pending relationship clarification.
+- **N-able CVE-2026-86218 receives weaponization evidence** — [Rapid7 Metasploit Module](https://github.com/rapid7/metasploit-framework/) — confirms active exploitation tooling; does not advance trend stage (secondary research).
+- **4 seed trends remain seed.** N-able (CVSS 10), Citrix NetScaler RCE (CVSS 9.5×2, zero-days), FortiMail (CVSS 9.8, active exploitation), Kerberos DNS CNAME (CVSS 7.5). No new evidence since Oct 3.
+- **Source health:** 13/13 primary blogs checked (all HTTP 200). Tool releases unchanged (Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18). Daily report: [2026-10-08](reports/2026-10-08.md).
 
 ---
 
@@ -63,8 +64,8 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 ## Latest Reports
 
-- [**Weekly: 2026-W40**](reports/weekly/2026-W40.md) — 4 seed trends recalibrated, queue burndown (25→1), no stage moves
-- [**Daily: 2026-10-04**](reports/2026-10-04.md) — Quiet day; all sources checked, no new trends
+- [**Daily: 2026-10-08**](reports/2026-10-08.md) — Atlassian CVE escalates to 2-vendor, Citrix DoS variant queued, N-able receives weaponization evidence
+- [**Daily: 2026-10-07**](reports/2026-10-07.md) — Quiet day; 1 new CVE queued, 4 seed trends stable
 - [**Daily: 2026-10-03**](reports/2026-10-03.md) — 4 new seed trends, 5 dormancy promotions, CISA deadline alerts
 - [**All reports**](reports/) — Full daily & weekly archive
 
@@ -83,25 +84,20 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 Track, don't reproduce. Evidence line = date—primary URL—one line of context. Max 10 per trend. Published/disclosed work only; no live targets or non-public exploits.
 
-*Last updated: 2026-10-04*
-- **Nuclei**, **NetExec**, **Certipy**, **impacket** (no recent updates)
+*Last updated: 2026-10-08*
 
 ---
 
 ## Observation queue
 
-[28 below-bar items](TRENDS.md#observation_queue) — awaiting 2nd independent source or burndown by age (checked 2026-08-20).
+[3 below-bar items](TRENDS.md#observation_queue) — 2–3 items awaiting 2nd independent source or trend bar assessment.
 
-**Multi-vendor escalations:**
-- **Microsoft August 2026 Patch Tuesday** (400+ CVEs, 3 zero-days; multi-org analyst coverage; on-axis: Azure Service Bus RCE, Azure SQL EoP, Windows AD CS RCE)
-- **TeamCity CVE-2026-63077** (6 independent sources; CISA KEV; watch for attack-chain research)
-- **Langflow CVE-2026-9198** (5 independent sources; CISA KEV; watch for post-compromise analysis)
+**Escalating (multi-vendor signals):**
+- **CVE-2026-21589 (Atlassian)** (watchTowr + Rapid7 = 2 vendors; needs 1 more for trend bar)
 
-**Single-vendor signals (awaiting corroboration):**
-- **Citrix NetScaler CVE-2026-8452** (watchTowr Aug 14; pre-auth SAML RCE; queued for secondary)
-- **ARM64 Stack Obfuscation Research** (MDSec Aug 15; EDR evasion on Apple Silicon)
-- **Cisco Firewall CVE-2026-20349** (unauthenticated RCE; awaiting PoC/secondary analysis)
-- **GHSA Advisory Stream** (13+ HIGH-severity CVEs, Aug 14–15; all single-vendor)
+**New findings (single-vendor, pending verification):**
+- **CVE-2026-88779 (Citrix NetScaler DoS)** (watchTowr + CISA KEV; relationship to CVE-2026-88771/72 pending)
+- **CVE-2026-94127 (F5 BIG-IP)** (watchTowr; awaiting secondary vendor coverage)
 
 ---
 
