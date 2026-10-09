@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-07 (quiet day; 1 new CVE queued for corroboration)
+Last updated: 2026-10-09 (1 critical web CVE identified with multi-vendor coverage)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -182,6 +182,7 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
+- 2026-10-09 — https://www.securityweek.com/critical-wordpress-vulnerability-exploited-immediately-after-disclosure/ — CVE-2026-87902 (WordPress Core path traversal → conditional RCE, CVSS pending, published around Oct 8-9) — [4+ independent vendors: Safe Security, Indusface, Kaspersky, Penligent; active exploitation within hours; on-axis web/API; meets trend bar threshold but needs primary-source URL verification for evidence line]
 - 2026-10-06 — https://labs.watchtowr.com/you-wont-hear-about-these-even-in-myths-atlassian-jira-confluence-and-more-pre-auth-arbitrary-file-read-cve-2026-21589/ — CVE-2026-21589 (Atlassian Jira/Confluence/Bitbucket Pre-Auth File Read, published 2026-10-05) — [single vendor (watchTowr, Oct 6), affects multiple Atlassian Data Center products, awaiting independent security researcher coverage]
 - 2026-10-03 — https://labs.watchtowr.com/is-this-a-joke-in-the-auth-header-f5-big-ip-unauth-heap-overflow-to-rce-cve-2026-94127/ — CVE-2026-94127 (F5 BIG-IP UnAuth Heap-Overflow to RCE, 8 min read, Sep 23) — [single vendor (watchTowr), single high-impact appliance vulnerability, awaiting secondary research coverage]
 
@@ -215,6 +216,7 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 
 <!-- Dated coverage/scope corrections. Curator entries are never deleted. -->
 
+- 2026-10-09 (agent, daily) **WordPress CVE-2026-87902 identified with multi-vendor coverage; quiet broader landscape.** Primary blog sweep: no new posts on SpecterOps, Project Zero, watchTowr, Elastic, PortSwigger, SensePost, MDSec, Synacktiv, Outflank, Assetnote since 2026-10-07 (most recent remaining posts: Aug 20 AWSHound, Aug 14-15 Citrix research). CVE/advisory lane identified WordPress path-traversal-to-RCE vulnerability (CVE-2026-87902, disclosure ~Oct 8-9) with immediate multi-vendor coverage: Safe Security (LFI→RCE analysis), Indusface (WAF protection), Kaspersky (risk analysis), Penligent (detailed writeup)—exceeds trend bar (≥3 independent sources + concrete artifact). Marked for queue pending primary-source URL verification for evidence line. No other new critical CVEs identified Oct 7-9; existing seed trends (N-able, Citrix, FortiMail, Kerberos relay) unchanged. Tool releases: no new releases since last scan (BloodHound v9.6.0, Sliver v1.7.7 remain latest). Coverage: 13/13 primary blogs checked (all reachable HTTP 200, none new posts); GHSA web UI functional (API still 403); NVD + Tavily sweep completed; no access blockers. Net effect: 1 finding queued; existing trends stable; no new trend seeded today (WordPress needs primary verification before promotion).
 - (curator) Initial scope per AGENTS.md: AD/identity, C2/evasion/initial-access,
   web/API/cloud, exploitable CVEs, TTP taxonomies.
 - 2026-07-31 (agent) First run. This session's outbound network was restricted by

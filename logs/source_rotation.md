@@ -62,6 +62,16 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
   repo/code search) carried enough independent-source diversity to clear the trend bar —
   see `TRENDS.md → strategy_notes` (2026-08-01 entry).
 
+## 2026-10-09 (daily — WordPress CVE identified, quiet otherwise)
+- opened: all 13 primary blogs (SpecterOps, Project Zero, watchTowr, Assetnote, Outflank, MDSec, Synacktiv, PortSwigger, SensePost, Elastic, Black Hills, SecurityWeek, The Register). **No new posts since 2026-10-07**. Most recent posts: Aug 20-31 range; latest active: SpecterOps AWSHound (Aug 20), watchTowr Citrix (Aug 14-15).
+- opened: GHSA via web UI (API still 403) — scanned for critical/high advisories Oct 7-9; no new CRITICAL published; HIGH-severity batch under review.
+- opened: NVD REST API — sampled Oct 7-9 critical CVEs; no new CRITICAL-severity cluster above 1-vendor threshold identified (legacy findings being re-reported).
+- opened (Tavily): comprehensive search sweep covering October findings, zero-day tracking, AD/identity attacks, C2/evasion, web/API vulnerabilities. Identified: CVE-2026-87902 (WordPress path traversal RCE, 4+ vendor coverage, active exploitation); no other new CRITICAL findings Oct 8-9 that aren't already tracked (Citrix, FortiMail, N-able, Kerberos relay all from Oct 3 scans).
+- opened: tool repos & releases (BloodHound, NetExec, Sliver, Certipy, impacket, Nuclei) — no new releases since Oct 3 (latest still BloodHound v9.6.0 Aug 18, Sliver v1.7.7 Sep 3).
+- opened: GitHub search "created:>2026-10-07 stars:>50" for discovery topics (edr evasion, c2 framework) — no new repos matching offensive-relevance threshold created Oct 8-9.
+- not pursued: community pulse (intake-only lane, low yield for Oct 9 timeframe). Exploration slot (primary sweep complete, tight timeline).
+- **Net effect:** 1 finding queued (WordPress CVE); existing trends stable (N-able, Citrix, FortiMail, Kerberos relay unchanged from Oct 3 seeding). No trend promotions, no trend evidence updates. observation_queue now at cap with WordPress entry. Coverage: 13/13 primary blogs checked (all opened, none degraded; all reachable HTTP 200). No access blockers. GitHub API scoping persists but manageable via web UI + NVD fallback.
+
 ## 2026-10-04 (daily — quiet day)
 - opened: primary blogs (all 13 reachable per Oct 3 status: SpecterOps, Project Zero, watchTowr, Assetnote, Outflank, MDSec, Synacktiv, PortSwigger, SensePost, Elastic, Black Hills, SecurityWeek, The Register). **No new posts since Oct 3** (most recent still dated Aug 20–Aug 31; latest active blogs: SpecterOps AWSHound Aug 20, watchTowr Citrix Aug 20). Confirmed no new on-axis content published Oct 4.
 - opened: GHSA via web UI (API still 403) — scanned critical/high advisories Oct 3-4; no new CRITICAL published. HIGH-severity batch (Oct 3+): pending detailed review (typical Oct 3-4 output: 5-10 single-vendor HIGH advisories, none clearing trend bar without independent corroboration).
