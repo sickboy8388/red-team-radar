@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-07 (quiet day; 1 new CVE queued for corroboration)
+Last updated: 2026-10-10 (PaperCut RCE + other Oct 8-10 posts; no new trends seeded)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -182,6 +182,7 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
+- 2026-10-09 — https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/ — PaperCut pre-auth RCE chain (CVE-2026-82077/82078/81578, WT-2026-0141/0142/0143/0144); multiple pre-auth RCE vectors + patch bypasses; affects widely-deployed print management infrastructure — [single vendor (watchTowr, Oct 9), initial-access axis, high red-team relevance; awaiting independent security researcher coverage]
 - 2026-10-06 — https://labs.watchtowr.com/you-wont-hear-about-these-even-in-myths-atlassian-jira-confluence-and-more-pre-auth-arbitrary-file-read-cve-2026-21589/ — CVE-2026-21589 (Atlassian Jira/Confluence/Bitbucket Pre-Auth File Read, published 2026-10-05) — [single vendor (watchTowr, Oct 6), affects multiple Atlassian Data Center products, awaiting independent security researcher coverage]
 - 2026-10-03 — https://labs.watchtowr.com/is-this-a-joke-in-the-auth-header-f5-big-ip-unauth-heap-overflow-to-rce-cve-2026-94127/ — CVE-2026-94127 (F5 BIG-IP UnAuth Heap-Overflow to RCE, 8 min read, Sep 23) — [single vendor (watchTowr), single high-impact appliance vulnerability, awaiting secondary research coverage]
 

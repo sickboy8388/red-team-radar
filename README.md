@@ -4,19 +4,20 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 ![trends](https://img.shields.io/badge/trends-10-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-2-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--07-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-3-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--10-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-10-07)
+## Since last scan (2026-10-10)
 
-**Quiet day; 1 new CVE queued for independent verification. 4 seed trends stable, 6 dormant unchanged.**
+**PaperCut RCE chain found (watchTowr Oct 9); queued for independent verification. 4 seed trends stable, 6 dormant unchanged.**
 
-- **CVE-2026-21589 (Atlassian Jira/Confluence pre-auth file read)** — [watchTowr Labs, Oct 6](https://labs.watchtowr.com/you-wont-hear-about-these-even-in-myths-atlassian-jira-confluence-and-more-pre-auth-arbitrary-file-read-cve-2026-21589/) — published Oct 5 by Atlassian; affects Bitbucket, Confluence, Jira Service Management, Bamboo, Crowd, Crucible, Fisheye Data Centers. Single vendor so far; queued pending independent security researcher corroboration.
+- **PaperCut pre-auth RCE chain** — [watchTowr, Oct 9](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) — CVE-2026-82077/82078/81578; patch bypasses; widely-deployed print management infrastructure (Hive). High initial-access relevance. Single vendor so far; queued pending independent security researcher corroboration.
+- **CVE-2026-21589 (Atlassian Jira/Confluence pre-auth file read)** — [watchTowr Labs, Oct 6](https://labs.watchtowr.com/you-wont-hear-about-these-even-in-myths-atlassian-jira-confluence-and-more-pre-auth-arbitrary-file-read-cve-2026-21589/) — affects Bitbucket, Confluence, Jira Data Centers. Single vendor; awaiting independent corroboration.
 - **4 seed trends remain seed.** N-able (CVSS 10), Citrix NetScaler (CVSS 9.5×2, zero-days), FortiMail (CVSS 9.8, active exploitation), Kerberos DNS CNAME (CVSS 7.5). No new evidence since Oct 3.
-- **6 dormant trends unchanged.** CertiGhost, WSUS, Entra, SonicWall, Oracle, Nightmare Eclipse all >21 days quiet; no re-escalations.
-- **Source health:** 13/13 primary blogs checked (all HTTP 200). Most recent posts Aug 20. Tool releases unchanged (Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18). Daily report: [2026-10-07](reports/2026-10-07.md).
+- **6 dormant trends unchanged.** CertiGhost, WSUS, Entra, SonicWall, Oracle, Nightmare Eclipse all quiet; no re-escalations.
+- **Source health:** 13/13 primary blogs checked (all HTTP 200). New posts Oct 8-10 on watchTowr, Elastic, SecurityWeek, Register. Tool releases unchanged (Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18). Daily report: [2026-10-10](reports/2026-10-10.md).
 
 ---
 
@@ -63,9 +64,9 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 ## Latest Reports
 
-- [**Weekly: 2026-W40**](reports/weekly/2026-W40.md) — 4 seed trends recalibrated, queue burndown (25→1), no stage moves
-- [**Daily: 2026-10-04**](reports/2026-10-04.md) — Quiet day; all sources checked, no new trends
-- [**Daily: 2026-10-03**](reports/2026-10-03.md) — 4 new seed trends, 5 dormancy promotions, CISA deadline alerts
+- [**Daily: 2026-10-10**](reports/2026-10-10.md) — PaperCut RCE queued, 4 seed trends stable, full primary sweep
+- [**Daily: 2026-10-07**](reports/2026-10-07.md) — Quiet day; Atlassian CVE queued
+- [**Daily: 2026-10-03**](reports/2026-10-03.md) — 4 new seed trends, CISA deadline alerts
 - [**All reports**](reports/) — Full daily & weekly archive
 
 ---
@@ -83,7 +84,7 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 Track, don't reproduce. Evidence line = date—primary URL—one line of context. Max 10 per trend. Published/disclosed work only; no live targets or non-public exploits.
 
-*Last updated: 2026-10-04*
+*Last updated: 2026-10-10*
 - **Nuclei**, **NetExec**, **Certipy**, **impacket** (no recent updates)
 
 ---
