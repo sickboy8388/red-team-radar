@@ -2,31 +2,32 @@
 
 Persistent autonomous tracker of the offensive-security frontier — tools, releases, techniques, research, advisories. Curated for red team operators. This is *situational awareness*, not a runbook.
 
-![trends](https://img.shields.io/badge/trends-10-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-11-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-3-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--10-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-2-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--11-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-10-10)
+## Since last scan (2026-10-11)
 
-**PaperCut RCE chain found (watchTowr Oct 9); queued for independent verification. 4 seed trends stable, 6 dormant unchanged.**
+**PaperCut NG/MF RCE promoted to seed trend (3+ independent sources verified). 5 total seed trends; 6 dormant unchanged.**
 
-- **PaperCut pre-auth RCE chain** — [watchTowr, Oct 9](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) — CVE-2026-82077/82078/81578; patch bypasses; widely-deployed print management infrastructure (Hive). High initial-access relevance. Single vendor so far; queued pending independent security researcher corroboration.
-- **CVE-2026-21589 (Atlassian Jira/Confluence pre-auth file read)** — [watchTowr Labs, Oct 6](https://labs.watchtowr.com/you-wont-hear-about-these-even-in-myths-atlassian-jira-confluence-and-more-pre-auth-arbitrary-file-read-cve-2026-21589/) — affects Bitbucket, Confluence, Jira Data Centers. Single vendor; awaiting independent corroboration.
-- **4 seed trends remain seed.** N-able (CVSS 10), Citrix NetScaler (CVSS 9.5×2, zero-days), FortiMail (CVSS 9.8, active exploitation), Kerberos DNS CNAME (CVSS 7.5). No new evidence since Oct 3.
-- **6 dormant trends unchanged.** CertiGhost, WSUS, Entra, SonicWall, Oracle, Nightmare Eclipse all quiet; no re-escalations.
-- **Source health:** 13/13 primary blogs checked (all HTTP 200). New posts Oct 8-10 on watchTowr, Elastic, SecurityWeek, Register. Tool releases unchanged (Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18). Daily report: [2026-10-10](reports/2026-10-10.md).
+- **PaperCut pre-auth RCE chain promoted** — [watchTowr, Oct 9](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) · [FieldEffect, Aug 31](https://fieldeffect.com/blog/papercut-ng-mf-zero-day-vulnerabilities-chain) · [SOC Prime](https://socprime.com/?p=51824) — CVE-2026-82077/82078/81578; patch bypasses; widely-deployed print management (Hive); CISA KEV. 3+ independent sources confirmed; promoted to seed.
+- **4 seed trends remain seed.** N-able (CVSS 10, CISA KEV Sep 8), Citrix NetScaler (CVSS 9.5×2, zero-days), FortiMail (CVSS 9.8, active exploitation, CISA KEV Oct 1), Kerberos DNS CNAME (CVSS 7.5). No new evidence this run.
+- **6 dormant trends unchanged.** CertiGhost, WSUS, Entra, SonicWall, Oracle, Nightmare Eclipse all quiet (21+ days); no re-escalations.
+- **Observation queue: 2 single-vendor items.** Atlassian CVE-2026-21589 pre-auth file read (Oct 6), F5 BIG-IP CVE-2026-94127 heap overflow (Oct 3). Awaiting independent researcher coverage.
+- **No new tool releases.** Sliver v1.7.7 (Sep 3), BloodHound v9.6.0 (Aug 18) remain latest. Daily report: [2026-10-11](reports/2026-10-11.md).
 
 ---
 
 ## Trends
 
-**seed 4 · dormant 6**
+**seed 5 · dormant 6**
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---|
+| [PaperCut NG/MF Pre-Auth RCE (CVE-2026-82077/82078/81578)](TRENDS.md#id-initial-access-papercut-001--papercut-ngmf-pre-auth-rce-chain-cve-2026-820778257881578) | seed | [2026-10-09 — watchTowr](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) — pre-auth RCE chain, patch bypasses, Hive print management |
 | [N-able N-central Pre-Auth RCE (CVE-2026-86218)](TRENDS.md#id-initial-access-nable-ncentral-001) | seed | [2026-10-03 — Arctic Wolf](https://arcticwolf.com/resources/blog/cve-2026-86218/) — CVSS 10.0, static code injection, pre-auth RCE, CISA KEV Sep 8 |
 | [Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)](TRENDS.md#id-initial-access-citrix-netscaler-001) | seed | [2026-10-03 — watchTowr Labs](https://labs.watchtowr.com/oh-look-the-foot-gun-went-off-again-citrix-netscaler-preauth-command-injection-cve-2026-88771/) — CVSS 9.5×2, zero-days, active exploitation |
 | [Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)](TRENDS.md#id-initial-access-fortimail-001) | seed | [2026-10-03 — SecurityWeek](https://www.securityweek.com/exploited-fortinet-fortimail-zero-day-calls-for-urgent-action/) — CVSS 9.8, path traversal, active wild exploitation, CISA KEV Oct 1 |
@@ -64,9 +65,9 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 ## Latest Reports
 
-- [**Daily: 2026-10-10**](reports/2026-10-10.md) — PaperCut RCE queued, 4 seed trends stable, full primary sweep
+- [**Daily: 2026-10-11**](reports/2026-10-11.md) — PaperCut RCE promoted to seed trend (3+ sources), 5 total seed trends
+- [**Daily: 2026-10-10**](reports/2026-10-10.md) — PaperCut RCE identified, 4 seed trends stable
 - [**Daily: 2026-10-07**](reports/2026-10-07.md) — Quiet day; Atlassian CVE queued
-- [**Daily: 2026-10-03**](reports/2026-10-03.md) — 4 new seed trends, CISA deadline alerts
 - [**All reports**](reports/) — Full daily & weekly archive
 
 ---
