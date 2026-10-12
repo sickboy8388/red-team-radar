@@ -26,6 +26,7 @@ in after verifying it by opening it this session; never guess/invent a mirror UR
 - Kudelski Security Research Center (mitigation/architecture) — https://kudelskisecurity.com/ [verified 2026-08-06]
 - DataMinr (threat intelligence / PoC tracking) — https://dataminr.com/ [verified 2026-08-06]
 - FieldEffect (offensive-defense analysis) — https://fieldeffect.com/ [verified 2026-08-06]
+- SOC Prime (detection rules & threat intelligence) — https://socprime.com/ [verified 2026-10-12]
 
 Tool repos & releases (check `<repo>/releases`):
 - BloodHound — https://github.com/SpecterOps/BloodHound
@@ -57,5 +58,4 @@ Tool repos & releases (check `<repo>/releases`):
 <!-- auto-staged tally: domain — times seen — last artifact+date — first-seen date -->
 <!-- Promotion threshold: ≥2 on-axis primaries, or recurrence across ≥2 runs. Drop if no reappearance by cutoff. -->
 
-- SOC Prime (`socprime.com`, 1x Certighost detection stack 2026-08-06) — re-queue; threshold 2026-08-20 for promotion or drop
-- Hive Security (`hivesecurity.gitlab.io`, 1x BloodHound CE AD attack paths 2026-08-06) — re-queue; threshold 2026-08-20 for promotion or drop
+(none currently staged)

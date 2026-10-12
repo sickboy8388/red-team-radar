@@ -5,19 +5,23 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 ![trends](https://img.shields.io/badge/trends-11-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-2-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--11-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--12-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-10-11)
+## Since last scan (2026-10-12)
 
-**PaperCut NG/MF RCE promoted to seed trend (3+ independent sources verified). 5 total seed trends; 6 dormant unchanged.**
+**Weekly recalibration complete. 5 seed trends (PaperCut promoted Oct 11); 6 dormant unchanged. No new evidence Oct 6–12. SOC Prime added to primary feeds.**
 
-- **PaperCut pre-auth RCE chain promoted** — [watchTowr, Oct 9](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) · [FieldEffect, Aug 31](https://fieldeffect.com/blog/papercut-ng-mf-zero-day-vulnerabilities-chain) · [SOC Prime](https://socprime.com/?p=51824) — CVE-2026-82077/82078/81578; patch bypasses; widely-deployed print management (Hive); CISA KEV. 3+ independent sources confirmed; promoted to seed.
-- **4 seed trends remain seed.** N-able (CVSS 10, CISA KEV Sep 8), Citrix NetScaler (CVSS 9.5×2, zero-days), FortiMail (CVSS 9.8, active exploitation, CISA KEV Oct 1), Kerberos DNS CNAME (CVSS 7.5). No new evidence this run.
-- **6 dormant trends unchanged.** CertiGhost, WSUS, Entra, SonicWall, Oracle, Nightmare Eclipse all quiet (21+ days); no re-escalations.
-- **Observation queue: 2 single-vendor items.** Atlassian CVE-2026-21589 pre-auth file read (Oct 6), F5 BIG-IP CVE-2026-94127 heap overflow (Oct 3). Awaiting independent researcher coverage.
-- **No new tool releases.** Sliver v1.7.7 (Sep 3), BloodHound v9.6.0 (Aug 18) remain latest. Daily report: [2026-10-11](reports/2026-10-11.md).
+- **PaperCut NG/MF pre-auth RCE remains seed.** CVE-2026-82077/82078/81578; 3 independent sources (watchTowr Oct 9, FieldEffect Aug 31, SOC Prime). Multiple vectors + patch bypasses. Widely-deployed print management (Hive); CISA KEV; active exploitation. [watchTowr](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/)
+
+- **4 seed trends hold (Oct 3 seeding, no new evidence Oct 6–12).** N-able N-central (CVSS 10, CISA Sep 8), Citrix NetScaler (CVSS 9.5×2, zero-days, pre-disclosure exploitation), Fortinet FortiMail (CVSS 9.8, active wild exploitation, CISA Oct 1 deadline passed), Kerberos DNS CNAME (CVSS 7.5, persistent ADCS cert theft, HTTP/LDAP/SMB vulnerable).
+
+- **6 dormant trends unchanged.** CertiGhost, WSUS, Entra SyncJacking, SonicWall SMA1000, Oracle PeopleSoft, Nightmare Eclipse all quiet (≥21 days); no re-escalation signals.
+
+- **Observation queue: 2 single-vendor pending corroboration.** Atlassian Jira/Confluence pre-auth file read CVE-2026-21589 (watchTowr Oct 6), F5 BIG-IP heap-overflow RCE CVE-2026-94127 (watchTowr Oct 3). Threshold for trend: ≥3 independent sources + artifact.
+
+- **Source discovery: SOC Prime promoted to primary feeds.** Recurrence across 2 runs (Certighost Aug 6 + PaperCut Oct 11). Detection rules + threat intelligence on exploitable CVEs. [SOC Prime](https://socprime.com/). Weekly report: [2026-W42](reports/weekly/2026-W42.md).
 
 ---
 
