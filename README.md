@@ -69,9 +69,10 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 ## Latest Reports
 
+- [**Daily: 2026-10-12**](reports/2026-10-12.md) — Continuity check post-W42 weekly, all trends stable
 - [**Daily: 2026-10-11**](reports/2026-10-11.md) — PaperCut RCE promoted to seed trend (3+ sources), 5 total seed trends
 - [**Daily: 2026-10-10**](reports/2026-10-10.md) — PaperCut RCE identified, 4 seed trends stable
-- [**Daily: 2026-10-07**](reports/2026-10-07.md) — Quiet day; Atlassian CVE queued
+- [**Weekly: 2026-W42**](reports/weekly/2026-W42.md) — Recalibration Oct 6–12, all trends held
 - [**All reports**](reports/) — Full daily & weekly archive
 
 ---
@@ -89,8 +90,7 @@ Persistent autonomous tracker of the offensive-security frontier — tools, rele
 
 Track, don't reproduce. Evidence line = date—primary URL—one line of context. Max 10 per trend. Published/disclosed work only; no live targets or non-public exploits.
 
-*Last updated: 2026-10-10*
-- **Nuclei**, **NetExec**, **Certipy**, **impacket** (no recent updates)
+*Last updated: 2026-10-12 UTC. Coverage: 23/24 sources (21 opened, 2 degraded, 1 intake-only).*
 
 ---
 

@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-12 (Weekly W42 recalibration: 5 seed trends held, 6 dormant unchanged, SOC Prime promoted to primary feeds)
+Last updated: 2026-10-12 (Daily: continuity check post-W42 weekly, all trends stable; Weekly W42: 5 seed trends held, 6 dormant unchanged, SOC Prime promoted to primary feeds)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
