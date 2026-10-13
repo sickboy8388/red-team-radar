@@ -535,3 +535,12 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - **Exploration slot:** Not pursued.
 - **Degraded/blocked:** None. All primary sources reachable; no new access blockers. Persistent GitHub API scope (low impact) and CISA KEV 403 (fallback via blog/vendor advisories functional).
 - **Net:** 1 new seed trend seeded (PaperCut), 5 total seed trends (N-able, Citrix, FortiMail, Kerberos relay, PaperCut); 6 dormant trends unchanged; 2 single-vendor queue items maintained; observation_queue reduced from ~3 to ~2 top-priority items. Coverage: 13/13 primary blogs checked; NVD/GHSA, tool repos, discovery topics completed via WebFetch; WebSearch for secondary verification. No access blockers. Daily continuity maintained.
+
+## 2026-10-13 (daily)
+- **All 13 primary blogs opened** (HTTP 200, via Tavily + WebFetch): SpecterOps, Project Zero, watchTowr, Assetnote, Outflank, MDSec, Synacktiv, PortSwigger, SensePost, Elastic, Black Hills, SecurityWeek, The Register; no new posts Oct 12-13 from active blogs.
+- **CVE/advisory watch:** NVD API responsive (though returns paginated historical data, not a real-time feed); Tavily search identified 2 new CRITICAL vulnerabilities clearing trend bar (CVE-2026-69836 Entra ID, CVE-2026-20131 Cisco FMC).
+- **Tool releases:** No new releases detected Oct 12-13; BloodHound v9.6.0 (Aug 18), Sliver v1.7.7 (Sep 3) remain latest.
+- **Discovery topics:** GitHub searches (EDR evasion, C2, AD attacks, created:>2026-10-10) via Tavily completed; no new repos >50 stars.
+- **Community pulse:** Not pursued (intake-only lane; no signals this run).
+- **Status:** 2 new seed trends seeded; 5 existing seed stable; 6 dormant unchanged; 2 single-vendor queue items maintained.
+- **Access:** Full primary sweep completed; all blogs reachable; NVD API functional (low-fidelity); GitHub API scope persists (WebFetch fallback functional).
