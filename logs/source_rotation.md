@@ -535,3 +535,13 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - **Exploration slot:** Not pursued.
 - **Degraded/blocked:** None. All primary sources reachable; no new access blockers. Persistent GitHub API scope (low impact) and CISA KEV 403 (fallback via blog/vendor advisories functional).
 - **Net:** 1 new seed trend seeded (PaperCut), 5 total seed trends (N-able, Citrix, FortiMail, Kerberos relay, PaperCut); 6 dormant trends unchanged; 2 single-vendor queue items maintained; observation_queue reduced from ~3 to ~2 top-priority items. Coverage: 13/13 primary blogs checked; NVD/GHSA, tool repos, discovery topics completed via WebFetch; WebSearch for secondary verification. No access blockers. Daily continuity maintained.
+
+## 2026-10-14 (daily)
+- **Primary blogs:** Full sweep of 13/13 blogs (HTTP 200); 1 new relevant post identified (Elastic Oct 12: REF8801 Apex Accelerator npm campaign).
+- **CVE/advisory watch:** NVD API + GHSA web UI functional. 4 new single-vendor HIGH/CRITICAL CVEs identified Oct 11-14 (Collabora Online RCE active, Abandoned Cart SQLi+PoC, TeamPlus code injection, Samsung command injection). No multi-vendor clusters.
+- **Tool releases:** No new releases Oct 11-14 (Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18 remain latest). GitHub tool repos accessible.
+- **Discovery topics:** [Pending agent completion]
+- **Community pulse:** Not pursued (intake-only lane).
+- **Exploration slot:** Not pursued.
+- **Degraded/blocked:** None. All primary sources reachable; persistent GitHub API scope (low impact) and CISA KEV 403 (fallback functional).
+- **Net:** 1 new seed trend seeded (Apex Accelerator REF8801 npm campaign, 3+ sources verified). 5 existing seed trends stable (N-able, Citrix, FortiMail, Kerberos relay, PaperCut), no new evidence. 6 dormant unchanged. 3 new single-vendor CVEs queued. Observation_queue: 5 items total (3 new + 2 prior). Coverage: 13/13 primary blogs checked; NVD/GHSA, tool repos completed. Daily continuity confirmed.

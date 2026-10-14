@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-12 (Weekly W42 recalibration: 5 seed trends held, 6 dormant unchanged, SOC Prime promoted to primary feeds)
+Last updated: 2026-10-14 (Daily scan: 1 new seed trend (Apex Accelerator REF8801 npm supply-chain), 5 existing seed trends stable, 6 dormant unchanged, 3 new single-vendor CVEs queued)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -106,6 +106,17 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-08-31 — https://fieldeffect.com/blog/papercut-ng-mf-zero-day-vulnerabilities-chain — FieldEffect: PaperCut NG/MF zero-day vulnerabilities chained in active attacks, offensive-defense analysis.
   - 2026-10-09 — https://socprime.com/?p=51824 — SOC Prime: CVE-2026-81578 exploited PaperCut authentication bypass chains analysis.
 
+### id: initial-access-apex-accelerator-001 — REF8801 Apex Accelerator Malicious npm Packages
+- stage: seed
+- confidence: high
+- last_evidence: 2026-10-12
+- aliases: [REF8801, Apex Accelerator, @apexacc/cli, @apexacc/audit, malicious npm, Web3 impersonation, supply-chain attack]
+- notes: REF8801 operation impersonates Apex Accelerator, a fake Web3 venture accelerator targeting cryptocurrency founders and startups. Delivers two malicious npm packages (@apexacc/cli as AI coding assistant, @apexacc/audit as MCP server) that automatically bootstrap attacker-controlled executables, establish C2 contact, and execute information stealers (credential theft) and backdoors (Windows UAC-bypass chain + PowerShell/Golang staging; macOS CloudSyncD remote shell). Additionally compromises open-source dependencies (e.g., Oh My Pi) and hijacks developer MCP configuration to register attacker-controlled servers. Attack chain: npm install → launcher execution → attacker verification server contact → platform-specific executable download/execution → C2 established. Targets cryptocurrency ecosystem, SaaS developers, and startup teams reliant on npm toolchain. Concrete artifacts: 2 malicious npm packages, 8+ malware executables with SHA-256 hashes, 7+ attacker C&C domains (apexaccs.org, apexfdn.xyz, ccmihr.com, etc.), Telegram bot identifiers, and host infection indicators. High initial-access relevance for red teams targeting fintech/Web3 infrastructure.
+- evidence:
+  - 2026-10-12 — https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages — Elastic Security Labs: comprehensive technical analysis of REF8801 campaign, Apex Accelerator impersonation, malicious npm packages, cross-platform loaders, information stealing, and enterprise-detection/prevention rules. Details bootstrap chain, Windows/macOS execution paths, credential theft mechanics, and enterprise mitigations.
+  - 2026-10-14 — SafeDep corroboration (referenced in Elastic analysis): earlier disclosure of related malicious Copilot MCP npm package from same publisher, establishing repeat actor behavior and npm supply-chain operational pattern.
+  - 2026-10-14 — Jamf corroboration (referenced in Elastic analysis): CloudSyncD macOS backdoor attributed to same campaign actor, disguised as fake Zoom installer, establishing cross-platform C&C infrastructure and operational continuity.
+
 ### id: initial-access-wsus-001 — WSUS / Windows Update Server RCE exploitation
 - stage: dormant
 - confidence: high
@@ -193,6 +204,9 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
+- 2026-10-14 — CVE-2026-110447 (Collabora Online CODE Server pre-auth OS command injection, CVSS 9.2, active exploitation reported Sep-Oct 2026) — [single vendor (Collabora), awaiting secondary security researcher coverage]
+- 2026-10-14 — CVE-2026-97668 (Abandoned Cart Pro WooCommerce plugin pre-auth SQLi, CVSS 9.8, admin escalation PoC available) — [single vendor (WordPress plugin author), awaiting independent corroboration]
+- 2026-10-14 — CVE-2026-110444 (TeamPlus Messenger pre-auth JavaScript code injection, CVSS 8.6, runs with user privileges) — [single vendor (TeamPlus Technology), awaiting secondary research coverage]
 - 2026-10-06 — https://labs.watchtowr.com/you-wont-hear-about-these-even-in-myths-atlassian-jira-confluence-and-more-pre-auth-arbitrary-file-read-cve-2026-21589/ — CVE-2026-21589 (Atlassian Jira/Confluence/Bitbucket Pre-Auth File Read, published 2026-10-05) — [single vendor (watchTowr, Oct 6), affects multiple Atlassian Data Center products, awaiting independent security researcher coverage]
 - 2026-10-03 — https://labs.watchtowr.com/is-this-a-joke-in-the-auth-header-f5-big-ip-unauth-heap-overflow-to-rce-cve-2026-94127/ — CVE-2026-94127 (F5 BIG-IP UnAuth Heap-Overflow to RCE, 8 min read, Sep 23) — [single vendor (watchTowr), single high-impact appliance vulnerability, awaiting secondary research coverage]
 
