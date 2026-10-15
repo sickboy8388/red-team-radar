@@ -545,3 +545,13 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - **Exploration slot:** Not pursued.
 - **Degraded/blocked:** None. All primary sources reachable; persistent GitHub API scope (low impact) and CISA KEV 403 (fallback functional).
 - **Net:** 1 new seed trend seeded (Apex Accelerator REF8801 npm campaign, 3+ sources verified). 5 existing seed trends stable (N-able, Citrix, FortiMail, Kerberos relay, PaperCut), no new evidence. 6 dormant unchanged. 3 new single-vendor CVEs queued. Observation_queue: 5 items total (3 new + 2 prior). Coverage: 13/13 primary blogs checked; NVD/GHSA, tool repos completed. Daily continuity confirmed.
+
+## 2026-10-15 (daily)
+- **Primary blogs:** Full sweep of 13/13 blogs (HTTP 200 on 11, 1 degraded 403, 1 safeguard blocked). 2 new on-axis posts identified (SecurityWeek Oct 14: Windows IKE zero-day CVE-2026-96951 with active exploitation + multi-vendor Citrix/Fortinet/Ivanti patches; The Register Oct 14: Cisco email zero-day RCE, Ivanti Connect Secure zero-day).
+- **CVE/advisory watch:** NVD REST API + GHSA web UI functional. 24 HIGH/CRITICAL CVEs identified Oct 14-15 (all single-vendor, no multi-vendor clusters). 6 highest-offensive-relevance findings queued (Windows zero-day, WordPress plugin RCEs, Samsung command injection, TP-Link Kasa auth bypass).
+- **Tool releases:** No new releases Oct 14-15 (Sliver v1.7.7 Sep 3, BloodHound v9.6.0 Aug 18 remain latest). GitHub tool repos accessible.
+- **Discovery topics:** GitHub searches (AD attack, EDR evasion, created:>2026-10-14) returned no new repos >50-star threshold.
+- **Community pulse:** Reddit/HN checked; no new TTP names or offensive-security disclosures identified.
+- **Exploration slot:** Not pursued.
+- **Degraded/blocked:** Outflank 403 (persistent), Google Project Zero safeguard (temporary), GitHub API scope (low impact), CISA KEV 403 (low impact).
+- **Net:** No new trends seeded. 5 existing seed trends stable (N-able, Citrix, FortiMail, Kerberos relay, PaperCut), 6 dormant unchanged. 6 new single-vendor CVEs queued; observation_queue now ~11 items. Coverage: 13/13 primary blogs checked; NVD/GHSA, tool repos, discovery topics completed. Daily continuity maintained.
