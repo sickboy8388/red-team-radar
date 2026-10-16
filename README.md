@@ -6,17 +6,17 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 ![seed](https://img.shields.io/badge/seed-6-0969da?style=flat-square)
 ![dormant](https://img.shields.io/badge/dormant-6-6c757d?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-11-ffc90e?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--15-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--16-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-10-14 → 2026-10-15)
+## Since last scan (2026-10-15 → 2026-10-16)
 
-- **Windows IKE zero-day CVE-2026-96951** — Microsoft Patch Tuesday (Oct 12) zero-day RCE with active exploitation reported. SecurityWeek Oct 14 coverage. [SecurityWeek](https://www.securityweek.com/)
-- **Cisco email system zero-day** — New pre-auth RCE "make-me-root" email bug exploited in the wild. The Register Oct 14 coverage. [The Register](https://www.theregister.com/)
-- **6 new single-vendor CVEs queued** — Collabora Online (actively exploited), WordPress plugin RCEs (Printcart/AGE-GATE/Snazzy file upload chains), Samsung QA-Board command injection, TP-Link Kasa adjacent-network auth bypass (24 models). All await independent security researcher coverage.
-- **Existing seed trends stable** — N-able, Citrix, FortiMail, Kerberos relay, PaperCut show no new evidence Oct 14-15. All 6 dormant trends unchanged.
-- **No new tool releases** — No discovery-topic repos created Oct 14-15 meeting >50-star criteria. BloodHound v9.6.0 (Aug 18) and Sliver v1.7.7 (Sep 3) remain current.
+- **Quiet day: no new blog posts** — All primary blogs dormant since Oct 14. No new on-axis offensive-security research published Oct 15-16.
+- **6 new CRITICAL CVEs from GHSA Oct 15** — Infrastructure/cloud-focused: Podman sandbox-bypass, KEDA K8s privilege-escalation, Argo CD restriction-bypass, TanStack Router XSS, Dgraph DoS, Vitess XSS. Single-vendor; limited initial-access relevance; no trend bar clearance.
+- **Observation queue stable** — 11 queued items (Windows zero-day CVE-2026-96951, WordPress plugin RCEs, Samsung command injection, TP-Link Kasa auth bypass, Collabora Online, Atlassian file-read, F5 heap-overflow) all remain single-vendor, awaiting independent verification.
+- **5 existing seed trends stable** — N-able, Citrix, FortiMail, Kerberos relay, PaperCut show no new evidence Oct 16. 6 dormant trends unchanged.
+- **No new tool releases** — BloodHound v9.8.0 (Oct 7), Sliver v1.7.7 (Sep 3) remain latest. No discovery-topic repos created Oct 15-16 meeting >50-star criteria.
 
 ---
 
@@ -43,11 +43,12 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 
 ## Tools & Releases
 
-- **BloodHound CE** v9.6.0 (Aug 18, 2026) — [SpecterOps/BloodHound](https://github.com/SpecterOps/BloodHound) — Active Directory attack-path analysis (XSS fix CVE-2026-67213 in rc4+).
-- **Sliver C2** v1.7.7 (Sep 3, 2026) — [BishopFox/sliver](https://github.com/BishopFox/sliver) — Lightweight command-and-control framework.
-- **impacket** 0.9.20 (Aug 2026) — [fortra/impacket](https://github.com/fortra/impacket) — Active Directory / SMB toolkit.
-- **Nuclei** (projectdiscovery/nuclei) — Template-driven vulnerability scanner (no recent release this period).
-- **Certipy** (ly4k/Certipy) — AD CS exploitation tool (no recent release this period).
+- **BloodHound CE** v9.8.0 (Oct 7, 2026) — [SpecterOps/BloodHound](https://github.com/SpecterOps/BloodHound) — Active Directory attack-path analysis with XSS hardening (CVE-2026-67213 fix).
+- **Sliver C2** v1.7.7 (Sep 3, 2026) — [BishopFox/sliver](https://github.com/BishopFox/sliver) — Golang command-and-control framework with OPFOR tradecraft.
+- **impacket** 0.9.20+ (Aug 2026+) — [fortra/impacket](https://github.com/fortra/impacket) — Windows/SMB/Active Directory toolkit.
+- **Nuclei** v3.11.0+ — [projectdiscovery/nuclei](https://github.com/projectdiscovery/nuclei) — Template-driven scanner (enforces template signing, breaking change for unsigned JS protocols).
+- **Certipy** (active maintenance) — [ly4k/Certipy](https://github.com/ly4k/Certipy) — AD CS enumeration and exploitation automation.
+- **NetExec** (active maintenance) — [Pennyw0rth/NetExec](https://github.com/Pennyw0rth/NetExec) — Network enumeration and exploitation framework.
 - **NetExec** (Pennyw0rth/NetExec) — Credentials & lateral-movement executor (no recent release this period).
 
 ---
