@@ -5,18 +5,18 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 ![trends](https://img.shields.io/badge/trends-12-3266ad?style=flat-square)
 ![seed](https://img.shields.io/badge/seed-6-0969da?style=flat-square)
 ![dormant](https://img.shields.io/badge/dormant-6-6c757d?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-11-ffc90e?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--15-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-18-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--17-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-10-14 → 2026-10-15)
+## Since last scan (2026-10-15 → 2026-10-17)
 
-- **Windows IKE zero-day CVE-2026-96951** — Microsoft Patch Tuesday (Oct 12) zero-day RCE with active exploitation reported. SecurityWeek Oct 14 coverage. [SecurityWeek](https://www.securityweek.com/)
-- **Cisco email system zero-day** — New pre-auth RCE "make-me-root" email bug exploited in the wild. The Register Oct 14 coverage. [The Register](https://www.theregister.com/)
-- **6 new single-vendor CVEs queued** — Collabora Online (actively exploited), WordPress plugin RCEs (Printcart/AGE-GATE/Snazzy file upload chains), Samsung QA-Board command injection, TP-Link Kasa adjacent-network auth bypass (24 models). All await independent security researcher coverage.
-- **Existing seed trends stable** — N-able, Citrix, FortiMail, Kerberos relay, PaperCut show no new evidence Oct 14-15. All 6 dormant trends unchanged.
-- **No new tool releases** — No discovery-topic repos created Oct 14-15 meeting >50-star criteria. BloodHound v9.6.0 (Aug 18) and Sliver v1.7.7 (Sep 3) remain current.
+- **6 seed trends holding stable** — N-able N-central, Citrix NetScaler, FortiMail, Kerberos Relay DNS CNAME, PaperCut RCE chain, Apex Accelerator npm supply-chain (5–14 days since latest signal; all far from 21-day dormancy threshold).
+- **Windows MOTW evasion (CVE-2026-96951) actively exploited in the wild** — Mark of the Web bypass, patched October 2026 Patch Tuesday, added to CISA KEV. Evasion-relevant for initial-access research. [SOC Prime](https://socprime.com/?p=54408)
+- **8 new single-vendor CVEs identified Oct 14-17** — lmcache insecure object loading, claude-agent-sdk command injection, TanStack React Start XSS, podman sandbox bypass, Outlook RCE, AOS-S buffer overflow, and others. All below 3-source trend bar, awaiting secondary research coverage.
+- **Primary blog activity quiet (1 low-relevance post Oct 14–17)** — Last major content Oct 9–12; normal weekly variation expected. All sources reachable except Outflank (persistent 403).
+- **No new major tool releases** — Sliver v1.7.7 (Sep 3), BloodHound v9.8.0 (Oct 7), NetExec v1.3.0 (Oct 13), Mythic v3.4 (Oct 10) remain current.
 
 ---
 
@@ -31,7 +31,7 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 | [Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)](#initial-access-fortimail-001) | seed | [2026-10-03](https://www.securityweek.com/) |
 | [Kerberos Relay via DNS CNAME Abuse (CVE-2026-20929)](#identity-kerberos-relay-dns-cname-001) | seed | [2026-10-03](https://www.crowdstrike.com/) |
 | [PaperCut NG/MF Pre-Auth RCE Chain (CVE-2026-82077/82078/81578)](#initial-access-papercut-001) | seed | [2026-10-11](https://labs.watchtowr.com/) |
-| [REF8801 Apex Accelerator Malicious npm Supply-Chain](#initial-access-apex-accelerator-001) | seed | [2026-10-14](https://www.elastic.co/security-labs) |
+| [REF8801 Apex Accelerator Malicious npm Supply-Chain](#initial-access-apex-accelerator-001) | seed | [2026-10-12](https://www.elastic.co/security-labs) |
 | [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#ad-certighost-001) | dormant | [2026-08-06](https://fieldeffect.com/) |
 | [WSUS / Windows Update Server RCE exploitation](#initial-access-wsus-001) | dormant | [2026-08-05](https://specterops.io/) |
 | [Nightmare Eclipse: Windows Defender/BitLocker research campaign](#evasion-nightmare-eclipse-001) | dormant | [2026-07-31](https://git.projectnightcrawler.dev/) |
@@ -43,11 +43,11 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 
 ## Tools & Releases
 
-- **BloodHound CE** v9.6.0 (Aug 18, 2026) — [SpecterOps/BloodHound](https://github.com/SpecterOps/BloodHound) — Active Directory attack-path analysis (XSS fix CVE-2026-67213 in rc4+).
-- **Sliver C2** v1.7.7 (Sep 3, 2026) — [BishopFox/sliver](https://github.com/BishopFox/sliver) — Lightweight command-and-control framework.
-- **impacket** 0.9.20 (Aug 2026) — [fortra/impacket](https://github.com/fortra/impacket) — Active Directory / SMB toolkit.
-- **Nuclei** (projectdiscovery/nuclei) — Template-driven vulnerability scanner (no recent release this period).
-- **Certipy** (ly4k/Certipy) — AD CS exploitation tool (no recent release this period).
+- **BloodHound CE** v9.8.0 (Oct 7, 2026) — [SpecterOps/BloodHound](https://github.com/SpecterOps/BloodHound) — Active Directory attack-path analysis and threat modeling.
+- **NetExec** v1.3.0 (Oct 13, 2026) — [Pennyw0rth/NetExec](https://github.com/Pennyw0rth/NetExec) — Multi-purpose post-exploitation tool (SMB/WinRM/SSH/Kerberos).
+- **Sliver C2** v1.7.7 (Sep 3, 2026) — [BishopFox/sliver](https://github.com/BishopFox/sliver) — Lightweight command-and-control framework with OPFOR BOF scripting.
+- **Mythic C2** v3.4 (Oct 10, 2026) — [its-a-feature/Mythic](https://github.com/its-a-feature/Mythic) — Collaborative multi-agent red team platform.
+- **impacket** 0.9.20+ (post-Aug 2026) — [fortra/impacket](https://github.com/fortra/impacket) — Active Directory / SMB toolkit.
 - **NetExec** (Pennyw0rth/NetExec) — Credentials & lateral-movement executor (no recent release this period).
 
 ---

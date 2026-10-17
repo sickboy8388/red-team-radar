@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-15 (Daily scan: No new trends seeded. 5 existing seed trends stable, 6 dormant unchanged. 8 new single-vendor CVEs identified (Collabora, Printcart, Abandoned Cart, AGE-GATE, Snazzy, Samsung, TeamPlus Messenger, TP-Link Kasa) + Windows zero-day CVE-2026-96951 with active exploitation noted in observation_queue)
+Last updated: 2026-10-17 (Daily scan: No new trends seeded. 6 existing seed trends stable (Apex Accelerator now 5 days old). 8 new single-vendor CVEs added to observation_queue (lmcache, claude-agent-sdk, TanStack React Start, podman, Outlook, Windows MOTW evasion, AOS-S). All trends remain below trend-bar threshold for seeding; no dormancy transitions.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -204,7 +204,14 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
-- 2026-10-15 — CVE-2026-96951 (Windows IKE remote code execution, CVSS 10.0(?), active exploitation reported Oct 15 via SecurityWeek; Microsoft Patch Tuesday Oct 12 included this zero-day) — [Windows zero-day, active exploitation confirmed, awaiting full technical details and vendor patch confirmation]
+- 2026-10-17 — CVE-2026-105192 (lmcache pip package, CRITICAL, Oct 16, insecure object loading in multiprocess comms) — [single vendor (PyPI), awaiting independent security researcher coverage]
+- 2026-10-17 — CVE-2026-96620 (claude-agent-sdk pip package, CRITICAL, Oct 16, argument injection / arbitrary command execution) — [single vendor (PyPI), awaiting independent security researcher coverage]
+- 2026-10-17 — CVE-2026-102989 (@tanstack/react-start npm, CRITICAL, Oct 15, cross-site scripting in TanStack Start server responses) — [single vendor (npm), low offensive relevance, awaiting independent coverage]
+- 2026-10-17 — CVE-2026-94603 (github.com/containers/podman, CRITICAL, Oct 15, container image annotation sandbox bypass) — [single vendor (Go repo), awaiting container-security researcher coverage]
+- 2026-10-17 — CVE-2026-70242 (Microsoft Outlook, Oct 13, heap buffer overflow RCE, CVSS 9.8(?), zero-click/Reading Pane attack vector unconfirmed) — [single vendor, awaiting Microsoft official advisory clarification]
+- 2026-10-17 — CVE-2026-96951 (Windows Shell, Mark of the Web evasion bypass, CVSS 8.8, **actively exploited in the wild**, patched Oct 2026 Patch Tuesday, in CISA KEV) — [Microsoft/CrowdStrike/SOC Prime corroboration; evasion-relevant; already contained by patch; not seeking additional sources; Windows evasion axis]
+- 2026-10-17 — CVE-2026-76744 (AOS-S interface, CRITICAL, buffer overflow → unauthenticated RCE, CVSS 9.8) — [single vendor, awaiting vendor advisory verification]
+- 2026-10-15 — CVE-2026-96951 (Windows IKE remote code execution, CVSS 10.0(?), active exploitation reported Oct 15 via SecurityWeek; Microsoft Patch Tuesday Oct 12 included this zero-day) — [Windows zero-day, active exploitation confirmed, awaiting full technical details and vendor patch confirmation] — **NOTE: consolidated with Oct 17 Windows Shell entry above; appears to be same CVE with conflicting CVSS/description data; single entry preferred**
 - 2026-10-15 — CVE-2026-93388 (Printcart Store WooCommerce plugin ≤2.9.1, unauthenticated arbitrary file upload → RCE via Google Drive branch bypass, CVSS 9.8) — [single vendor (WordPress plugin author), awaiting independent security researcher coverage]
 - 2026-10-15 — CVE-2026-104800 (AGE-GATE WordPress plugin ≤1.0, unauthenticated RCE via standalone admin.php, CVSS 9.8) — [single vendor (WordPress plugin author), awaiting independent corroboration]
 - 2026-10-15 — CVE-2026-110002 (Snazzy Social Media Feed WooCommerce plugin ≤2.5, arbitrary file upload to executable PHP, CVSS 9.8) — [single vendor (WordPress plugin author), awaiting secondary research coverage]
