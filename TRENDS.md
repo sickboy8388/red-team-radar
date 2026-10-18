@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-15 (Daily scan: No new trends seeded. 5 existing seed trends stable, 6 dormant unchanged. 8 new single-vendor CVEs identified (Collabora, Printcart, Abandoned Cart, AGE-GATE, Snazzy, Samsung, TeamPlus Messenger, TP-Link Kasa) + Windows zero-day CVE-2026-96951 with active exploitation noted in observation_queue)
+Last updated: 2026-10-18 (Daily scan: 3-day gap scan (Oct 15→18). Network access constraints encountered; documented source blockers. 5 existing seed trends (N-able, Citrix, FortiMail, Kerberos relay, PaperCut) stable. 6 dormant trends unchanged. 12 items in observation_queue pending independent verification—no new trend bar clearance. Windows zero-day CVE-2026-96951 (active exploitation, Oct 15) prioritized for secondary source monitoring.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
