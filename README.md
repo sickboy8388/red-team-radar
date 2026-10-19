@@ -6,17 +6,17 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 ![seed](https://img.shields.io/badge/seed-6-0969da?style=flat-square)
 ![dormant](https://img.shields.io/badge/dormant-6-6c757d?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-11-ffc90e?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--15-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--19-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-10-14 → 2026-10-15)
+## Since last recalibration (2026-W43)
 
-- **Windows IKE zero-day CVE-2026-96951** — Microsoft Patch Tuesday (Oct 12) zero-day RCE with active exploitation reported. SecurityWeek Oct 14 coverage. [SecurityWeek](https://www.securityweek.com/)
-- **Cisco email system zero-day** — New pre-auth RCE "make-me-root" email bug exploited in the wild. The Register Oct 14 coverage. [The Register](https://www.theregister.com/)
-- **6 new single-vendor CVEs queued** — Collabora Online (actively exploited), WordPress plugin RCEs (Printcart/AGE-GATE/Snazzy file upload chains), Samsung QA-Board command injection, TP-Link Kasa adjacent-network auth bypass (24 models). All await independent security researcher coverage.
-- **Existing seed trends stable** — N-able, Citrix, FortiMail, Kerberos relay, PaperCut show no new evidence Oct 14-15. All 6 dormant trends unchanged.
-- **No new tool releases** — No discovery-topic repos created Oct 14-15 meeting >50-star criteria. BloodHound v9.6.0 (Aug 18) and Sliver v1.7.7 (Sep 3) remain current.
+- **[Apex Accelerator REF8801 npm supply-chain campaign](https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages)** — Web3 venture accelerator impersonation targeting cryptocurrency developers via malicious npm packages (@apexacc/cli, @apexacc/audit). Cross-platform infection chain (Windows UAC bypass, macOS CloudSyncD remote shell); 7+ attacker C&C domains. Seeded Oct 14 on 3 independent sources (Elastic, SafeDep, Jamf).
+- **[Windows IKE RCE CVE-2026-96951](https://www.securityweek.com/)** — Microsoft Patch Tuesday (Oct 12) zero-day (CVSS 10.0) with active exploitation Oct 15. Awaiting secondary vendor analysis (Rapid7, Unit42, CrowdStrike) for trend promotion candidate.
+- **[PaperCut NG/MF Pre-Auth RCE](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/)** — Multi-vector pre-auth RCE chain (CVE-2026-82077/82078/81578) with patch-bypass techniques documented. CISA KEV; active exploitation since Aug 2026.
+- **Seed trends stable** — All 6 seed trends (N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator) held at stage; no new evidence Oct 13–19 except Apex Accelerator promotion. All 6 dormant trends unchanged.
+- **Observation queue** — 11 items pending corroboration. Windows IKE zero-day flagged as high-priority secondary analysis watch. WordPress plugin RCEs, Samsung QA-Board, TP-Link Kasa auth bypass await independent researcher coverage.
 
 ---
 
