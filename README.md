@@ -3,26 +3,25 @@
 Persistent situational awareness for offensive-security operators. Autonomous tracker of the active frontier: tools, releases, techniques, research, and advisories on Active Directory, C2/evasion, web/API/cloud, exploitable CVEs, and threat TTPs.
 
 ![trends](https://img.shields.io/badge/trends-12-3266ad?style=flat-square)
-![seed](https://img.shields.io/badge/seed-6-0969da?style=flat-square)
-![dormant](https://img.shields.io/badge/dormant-6-6c757d?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-11-ffc90e?style=flat-square)
+![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-20-6c757d?style=flat-square)
 ![updated](https://img.shields.io/badge/updated-2026--10--19-2f9e44?style=flat-square)
 
 ---
 
-## Since last recalibration (2026-W43)
+## Since 2026-10-18
 
-- **[Apex Accelerator REF8801 npm supply-chain campaign](https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages)** — Web3 venture accelerator impersonation targeting cryptocurrency developers via malicious npm packages (@apexacc/cli, @apexacc/audit). Cross-platform infection chain (Windows UAC bypass, macOS CloudSyncD remote shell); 7+ attacker C&C domains. Seeded Oct 14 on 3 independent sources (Elastic, SafeDep, Jamf).
-- **[Windows IKE RCE CVE-2026-96951](https://www.securityweek.com/)** — Microsoft Patch Tuesday (Oct 12) zero-day (CVSS 10.0) with active exploitation Oct 15. Awaiting secondary vendor analysis (Rapid7, Unit42, CrowdStrike) for trend promotion candidate.
-- **[PaperCut NG/MF Pre-Auth RCE](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/)** — Multi-vector pre-auth RCE chain (CVE-2026-82077/82078/81578) with patch-bypass techniques documented. CISA KEV; active exploitation since Aug 2026.
-- **Seed trends stable** — All 6 seed trends (N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator) held at stage; no new evidence Oct 13–19 except Apex Accelerator promotion. All 6 dormant trends unchanged.
-- **Observation queue** — 11 items pending corroboration. Windows IKE zero-day flagged as high-priority secondary analysis watch. WordPress plugin RCEs, Samsung QA-Board, TP-Link Kasa auth bypass await independent researcher coverage.
+- **NVD Oct 18 CVE burst** — 16 CRITICAL/HIGH findings published (mostly WordPress plugins, single-vendor). All queued; no trend-level offensive clusters identified. [NVD REST API](https://services.nvd.nist.gov/rest/json/cves/2.0).
+- **Primary blog sweep quiet** — No new posts Oct 18-19 across 13 tracked sources. Latest activity: Oct 17 (SpecterOps), Oct 16 (CISA/GitHub). Natural inter-advisory lull.
+- **Windows IKE zero-day priority** — CVE-2026-96951 (active exploitation Oct 15). Watch for secondary vendor patch analysis + attack-surface research from Rapid7, Unit42, CrowdStrike within next 48-72h.
+- **Observation queue near cap** — 20/25 items; Oct 15 entries (7–8 days) eligible for burndown if no corroboration within 30-day window.
+- **All 6 seed trends stable** — N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator unchanged. No new evidence Oct 13–19. All 6 dormant trends unchanged.
 
 ---
 
 ## Trends
 
-**seed 6 · dormant 6**
+**seed 6 · dormant 6** (12 total: 6 seed, 0 emerging, 0 accelerating, 0 mainstreaming, 6 dormant)
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
@@ -43,12 +42,12 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 
 ## Tools & Releases
 
-- **BloodHound CE** v9.6.0 (Aug 18, 2026) — [SpecterOps/BloodHound](https://github.com/SpecterOps/BloodHound) — Active Directory attack-path analysis (XSS fix CVE-2026-67213 in rc4+).
-- **Sliver C2** v1.7.7 (Sep 3, 2026) — [BishopFox/sliver](https://github.com/BishopFox/sliver) — Lightweight command-and-control framework.
-- **impacket** 0.9.20 (Aug 2026) — [fortra/impacket](https://github.com/fortra/impacket) — Active Directory / SMB toolkit.
-- **Nuclei** (projectdiscovery/nuclei) — Template-driven vulnerability scanner (no recent release this period).
-- **Certipy** (ly4k/Certipy) — AD CS exploitation tool (no recent release this period).
-- **NetExec** (Pennyw0rth/NetExec) — Credentials & lateral-movement executor (no recent release this period).
+- **Sliver C2** v1.7.8 (Oct 3, 2026) — [BishopFox/sliver](https://github.com/BishopFox/sliver) — Lightweight command-and-control framework.
+- **BloodHound** v9.6.0 (Aug 18, 2026) — [SpecterOps/BloodHound](https://github.com/SpecterOps/BloodHound) — Active Directory attack-path analysis.
+- **Nuclei** v3.11.1 (Aug 8, 2026) — [projectdiscovery/nuclei](https://github.com/projectdiscovery/nuclei) — Template-driven vulnerability scanner.
+- **NetExec** v1.5.1 (Feb 23, 2024) — [Pennyw0rth/NetExec](https://github.com/Pennyw0rth/NetExec) — Credentials & lateral-movement executor.
+- **Certipy** v5.1.0 (Jun 23, 2026) — [ly4k/Certipy](https://github.com/ly4k/Certipy) — AD CS exploitation tool.
+- **impacket** (Oct 15, 2026 — uncommitted) — [fortra/impacket](https://github.com/fortra/impacket) — Active Directory / SMB toolkit.
 
 ---
 
@@ -81,11 +80,11 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 - **[TRENDS.md](./TRENDS.md)** — Single source of truth: seed/emerging/accelerating/mainstreaming/dormant trends, confidence, aliases, evidence chains, strategy notes.
 - **[Observation Queue](./TRENDS.md#observation_queue)** — Below-bar signals awaiting independent verification (≥3 sources threshold for trend seeding).
 - **[Reports](./reports/)** — Daily & weekly publications tracking changes, findings, and calibration metrics.
-- **[Latest Daily Report](./reports/2026-10-15.md)** — Oct 15 scan results (no new trends, 6 new CVEs queued, Windows/Cisco zero-days).
+- **[Latest Daily Report](./reports/2026-10-19.md)** — Oct 19 scan results (quiet day, 10 NVD CVEs queued, no new trends, all seed trends stable).
 - **[SOURCES.md](./SOURCES.md)** — Agent-maintained registry of primary blogs, CVE feeds, tool repos, discovery topics, community pulse venues.
 
 ---
 
-**Last updated:** 2026-10-15
+**Last updated:** 2026-10-19
 
 *Autonomous red-team situational awareness — curated for operators.*

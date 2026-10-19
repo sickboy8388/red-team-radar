@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-18 (Daily scan: 3-day gap scan (Oct 15→18). Network access constraints encountered; documented source blockers. 5 existing seed trends (N-able, Citrix, FortiMail, Kerberos relay, PaperCut) stable. 6 dormant trends unchanged. 12 items in observation_queue pending independent verification—no new trend bar clearance. Windows zero-day CVE-2026-96951 (active exploitation, Oct 15) prioritized for secondary source monitoring.)
+Last updated: 2026-10-19 (Daily scan: quiet day, no new blog posts Oct 18-19. NVD reported 16 CRITICAL/HIGH CVEs (mostly WordPress plugins, single-vendor, all queued). No new seed trends. 5 existing seed trends (N-able, Citrix, FortiMail, Kerberos relay, PaperCut) stable. 6 dormant trends unchanged. 20 items in observation_queue (10 new + prior). No new tool releases. Windows zero-day CVE-2026-96951 remains priority watch.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -204,6 +204,16 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
+- 2026-10-19 — CVE-2026-109894 (CVSS 9.3, Booktics WordPress plugin ≤1.0.29, SQL injection, web attack vector) — [NVD, single vendor, WordPress plugin, awaiting independent researcher coverage]
+- 2026-10-19 — CVE-2026-110372 (CVSS 9.8, OttoKit/SureTriggers ≤1.1.40, privilege escalation) — [NVD, single vendor, awaiting independent coverage]
+- 2026-10-19 — CVE-2026-110886 (CVSS 9.8, Conversational Forms for ChatBot ≤1.5.1, unsafe deserialization/RCE) — [NVD, single vendor, awaiting independent coverage]
+- 2026-10-19 — CVE-2026-110383 (CVSS 7.5, Fluent Forms e-signature ≤2.0.5, authorization bypass) — [NVD, single vendor, awaiting independent coverage]
+- 2026-10-19 — CVE-2026-110031 (CVSS 7.2, Salon Booking System ≤10.31.11, privilege escalation) — [NVD, single vendor, awaiting independent coverage]
+- 2026-10-19 — CVE-2026-110373 (CVSS 8.1, Login with Phone Number plugin ≤1.8.77, privilege escalation) — [NVD, single vendor, awaiting independent coverage]
+- 2026-10-19 — CVE-2026-107436 (CVSS 8.8, Strong Testimonials ≤3.3.12, unsafe deserialization) — [NVD, single vendor, awaiting independent coverage]
+- 2026-10-19 — CVE-2026-111871 (CVSS 7.3, Online-Examination-System, SQL injection, public PoC available) — [NVD, single vendor, awaiting independent coverage]
+- 2026-10-19 — CVE-2026-111872 (CVSS 7.3, Online-Examination-System database class, SQL injection, public PoC) — [NVD, single vendor, awaiting independent coverage]
+- 2026-10-19 — CVE-2026-111873 (CVSS 7.3, Online-Examination-System AJAX endpoint, SQL injection, public PoC) — [NVD, single vendor, awaiting independent coverage]
 - 2026-10-15 — CVE-2026-96951 (Windows IKE remote code execution, CVSS 10.0(?), active exploitation reported Oct 15 via SecurityWeek; Microsoft Patch Tuesday Oct 12 included this zero-day) — [Windows zero-day, active exploitation confirmed, awaiting full technical details and vendor patch confirmation]
 - 2026-10-15 — CVE-2026-93388 (Printcart Store WooCommerce plugin ≤2.9.1, unauthenticated arbitrary file upload → RCE via Google Drive branch bypass, CVSS 9.8) — [single vendor (WordPress plugin author), awaiting independent security researcher coverage]
 - 2026-10-15 — CVE-2026-104800 (AGE-GATE WordPress plugin ≤1.0, unauthenticated RCE via standalone admin.php, CVSS 9.8) — [single vendor (WordPress plugin author), awaiting independent corroboration]
