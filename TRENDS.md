@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-19 (Daily scan: quiet day, no new blog posts Oct 18-19. NVD reported 16 CRITICAL/HIGH CVEs (mostly WordPress plugins, single-vendor, all queued). No new seed trends. 5 existing seed trends (N-able, Citrix, FortiMail, Kerberos relay, PaperCut) stable. 6 dormant trends unchanged. 20 items in observation_queue (10 new + prior). No new tool releases. Windows zero-day CVE-2026-96951 remains priority watch.)
+Last updated: 2026-10-20 (Daily scan: continuing quiet pattern from Oct 19. No new blog posts Oct 19-20. NVD reports no new on-axis CRITICAL/HIGH CVEs Oct 19-20 (prior single-vendor WordPress CVEs below trend bar remain queued). No new trends seeded. 5 existing seed trends (N-able, Citrix, FortiMail, Kerberos relay, PaperCut) stable. 6 dormant trends unchanged. Observation_queue maintained at ~20 items. No new tool releases. Windows zero-day CVE-2026-96951 remains priority watch, awaiting secondary vendor analysis.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.

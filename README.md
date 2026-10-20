@@ -5,17 +5,17 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 ![trends](https://img.shields.io/badge/trends-12-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-20-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--19-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--20-2f9e44?style=flat-square)
 
 ---
 
-## Since 2026-10-18
+## Since 2026-10-19
 
-- **NVD Oct 18 CVE burst** — 16 CRITICAL/HIGH findings published (mostly WordPress plugins, single-vendor). All queued; no trend-level offensive clusters identified. [NVD REST API](https://services.nvd.nist.gov/rest/json/cves/2.0).
-- **Primary blog sweep quiet** — No new posts Oct 18-19 across 13 tracked sources. Latest activity: Oct 17 (SpecterOps), Oct 16 (CISA/GitHub). Natural inter-advisory lull.
-- **Windows IKE zero-day priority** — CVE-2026-96951 (active exploitation Oct 15). Watch for secondary vendor patch analysis + attack-surface research from Rapid7, Unit42, CrowdStrike within next 48-72h.
-- **Observation queue near cap** — 20/25 items; Oct 15 entries (7–8 days) eligible for burndown if no corroboration within 30-day window.
-- **All 6 seed trends stable** — N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator unchanged. No new evidence Oct 13–19. All 6 dormant trends unchanged.
+- **Continuing quiet pattern** — No new blog posts Oct 19-20 across 13 tracked primary sources. No new on-axis CRITICAL/HIGH CVEs identified; prior single-vendor WordPress CVEs remain below trend bar. Natural inter-advisory lull continues.
+- **All trends stable** — 6 seed trends (N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator) show no new evidence Oct 19-20. 6 dormant trends unchanged.
+- **Windows IKE zero-day continues watch** — CVE-2026-96951 (active exploitation Oct 15) awaiting secondary vendor analysis / attack-surface research.
+- **Observation queue at cap** — 20/25 items maintained; oldest entries (Oct 15+) within 30-day corroboration window.
+- **Tool releases stable** — Sliver v1.7.8 (Oct 3), BloodHound v9.6.0 (Aug 18) remain latest; no new releases Oct 19-20.
 
 ---
 
