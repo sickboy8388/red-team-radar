@@ -4,18 +4,18 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 
 ![trends](https://img.shields.io/badge/trends-12-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-20-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--19-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-21-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--21-2f9e44?style=flat-square)
 
 ---
 
-## Since 2026-10-18
+## Since 2026-10-19
 
-- **NVD Oct 18 CVE burst** — 16 CRITICAL/HIGH findings published (mostly WordPress plugins, single-vendor). All queued; no trend-level offensive clusters identified. [NVD REST API](https://services.nvd.nist.gov/rest/json/cves/2.0).
-- **Primary blog sweep quiet** — No new posts Oct 18-19 across 13 tracked sources. Latest activity: Oct 17 (SpecterOps), Oct 16 (CISA/GitHub). Natural inter-advisory lull.
-- **Windows IKE zero-day priority** — CVE-2026-96951 (active exploitation Oct 15). Watch for secondary vendor patch analysis + attack-surface research from Rapid7, Unit42, CrowdStrike within next 48-72h.
-- **Observation queue near cap** — 20/25 items; Oct 15 entries (7–8 days) eligible for burndown if no corroboration within 30-day window.
-- **All 6 seed trends stable** — N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator unchanged. No new evidence Oct 13–19. All 6 dormant trends unchanged.
+- **Continuity restored** — 2-day gap (Oct 20–21) closed; all 13 primary blogs, NVD API, GitHub tool releases confirmed operational.
+- **Quiet scan period** — No new critical research posts or multi-vendor CVE clusters published Oct 20–21. Oldest SpecterOps post Oct 18, watchTowr Oct 14.
+- **Windows IKE zero-day priority (CVE-2026-96951)** — Active exploitation Oct 15; escalation candidate awaiting independent security firm analysis (Rapid7, CrowdStrike, Tenable).
+- **Observation queue stable** — 21/25 items; Oct 14–15 entries (6–7 days old) remain under burndown threshold. No new promotions to trend status.
+- **All 6 seed trends stable** — N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator unchanged. No new evidence Oct 19–21. All 6 dormant trends unchanged.
 
 ---
 
