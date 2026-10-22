@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-21 (Daily scan: quiet day, no new critical blog posts Oct 19-21. NVD scanned Oct 19-21 (mostly single-vendor plugin CVEs, no multi-vendor clusters). No new seed trends. 5 existing seed trends (N-able, Citrix, FortiMail, Kerberos relay, PaperCut) stable. 6 dormant trends unchanged. ~20 items in observation_queue. No new tool releases Oct 19-21. Windows zero-day CVE-2026-96951 remains priority watch.)
+Last updated: 2026-10-22 (Daily scan Oct 22: primary blogs opened (SpecterOps, watchTowr, PortSwigger, Elastic, Black Hills), no new posts except Elastic Oct 21 on php2shell RCE. NVD API timeout. GitHub GHSA 13 CRITICAL/HIGH (Pillow library focus, low offensive relevance). BloodHound v9.9.0-rc3 CVE cherry-picks. Community pulse: Railway infrastructure attack, LiteLLM PyPI backdoor queued. Windows IKE CVE-2026-96951 confirmed CISA KEV CVSS 10.0, federal deadline passed Oct 16, awaiting secondary vendor analysis. No new seed trends. 5 seed trends stable. 6 dormant unchanged. ~23 items observation_queue.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -204,6 +204,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
+- 2026-10-22 — https://www.elastic.co/security-labs/threat-command/php2shell-assessing-elastic-detection-coverage — php2shell + CVE-2026-109618/109619 (Elastic Security Labs, Oct 21): PHP RCE detection coverage assessment; CVEs allow PHP code execution via web shells. Web/initial-access axis. Single vendor (Elastic), awaiting secondary researcher coverage.
+- 2026-10-22 — Railway infrastructure security incident (Hacker News, Oct 21): Unauthorized access to Railway platform environment variable storage; credentials (API keys, database creds, registry tokens) leaked for AI/ML infrastructure targeting. Supply-chain/infrastructure attack surface. Unverified; awaiting primary source confirmation from Railway PSIRT/blog.
+- 2026-10-22 — LiteLLM 1.107.0 PyPI package compromise (Hacker News, Oct 21): Malicious package on PyPI with credential stealer + backdoor; targets LLM/AI developer tools. Supply-chain attack via package registry. Unverified; awaiting primary source (package maintainer advisory or security researcher coverage).
+- 2026-10-15 — CVE-2026-96951 (Windows IKE remote code execution, CVSS 10.0, CWE-77 command injection) — [CISA KEV confirmed Oct 13, federal patching deadline Oct 16 PASSED, active exploitation reported Oct 15, awaiting secondary vendor analysis from Rapid7/Tenable/CrowdStrike/Unit42 (blogs blocked, unable to verify)]
 - 2026-10-19 — CVE-2026-109894 (CVSS 9.3, Booktics WordPress plugin ≤1.0.29, SQL injection, web attack vector) — [NVD, single vendor, WordPress plugin, awaiting independent researcher coverage]
 - 2026-10-19 — CVE-2026-110372 (CVSS 9.8, OttoKit/SureTriggers ≤1.1.40, privilege escalation) — [NVD, single vendor, awaiting independent coverage]
 - 2026-10-19 — CVE-2026-110886 (CVSS 9.8, Conversational Forms for ChatBot ≤1.5.1, unsafe deserialization/RCE) — [NVD, single vendor, awaiting independent coverage]

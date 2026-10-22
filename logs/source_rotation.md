@@ -49,6 +49,17 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - opened (GitHub tool repos): BloodHound releases (Sep 2024 rc/stable releases shown, but these appear to be historical from 2024 not 2026); Sliver v1.7.7 released Sep 3 2026 (OPFOR BOF scripting, shell handling improvements, tunnel hardening); NetExec (no new releases found); impacket, Certipy, Nuclei (no updates found this week).
 - opened (GitHub search + WebSearch): EDR evasion tools (Shroud, DripLoader, EDRSandBlast, Phantom-Evasion, KhaosLdr, ReflectiveNtdll, SuspendedSyscalls identified; most updated Jan-Jul 2026, no new repos created Sep-Oct 2026 above trend threshold); AD attack tools (limited search results, no specific new tools identified this run); C2 framework searches (no new releases beyond Sep 3 Sliver).
 
+## 2026-10-22 (daily scan)
+- opened: SpecterOps blog, watchTowr Labs, PortSwigger Research, Elastic Security Labs, Black Hills Security Blog — all HTTP 200; no new critical posts Oct 21-22 except Elastic Oct 21 (php2shell RCE detection coverage + CVE-2026-109618/109619).
+- degraded: NVD REST API (timeout on CVE query Oct 21-22 range, CVSS ≥7.5). GHSA web UI fallback confirmed accessible.
+- opened: GitHub GHSA advisories (13 CRITICAL/HIGH published Oct 21, mostly Pillow library memory-safety issues, low offensive relevance; 1 possible (CVE-2026-113722 virtualenv shell injection, details insufficient for queue)).
+- opened: tool releases — BloodHound v9.9.0-rc3 (Oct 21, CVE cherry-picks, details internal); NetExec, Sliver (blocked by safeguards), Mythic, impacket, Certipy, Nuclei (no new releases Oct 21-22).
+- opened: GitHub code search (discovery topics "kerberos relay" + "adcs esc", "edr evasion" + "shellcode loader", created:>2026-10-19 stars:>100) — filters did not apply; returned known repos only, no new threshold-qualifying tools.
+- opened: awesome-list spot check (Red-Teaming-Toolkit last commit May 7 2026, no Oct updates; Awesome-Red-Teaming marked no-longer-updated).
+- opened: Hacker News community pulse — 2 novel supply-chain signals identified (Railway infrastructure attack, LiteLLM PyPI backdoor) — queued to observation_queue pending primary source verification.
+- degraded: Reddit r/redteamsec (HTTP 403 Forbidden, persistent access blocker).
+- priority watch update: CVE-2026-96951 (Windows IKE RCE, CVSS 10.0) confirmed CISA KEV CVSS + federal deadline Oct 16 passed; secondary vendor analysis (Rapid7, Tenable, CrowdStrike, Unit42) inaccessible (blog proxy/access restrictions); remains in observation_queue pending secondary source opens.
+
 ## 2026-10-10 (daily scan, post-recovery continuity)
 - opened: SpecterOps blog (no new posts since 2026-08-20); watchTowr (1 new post Oct 9: PaperCut RCE chain CVE-2026-82077/78/81578 — pre-auth, patch bypasses, high initial-access relevance); Elastic Security Labs (2 posts Oct 8-9, titles extracted but non-axis); PortSwigger, Synacktiv, SensePost, MDSec, Black Hills (no new posts since prior scans); SecurityWeek, The Register (multiple Oct 8-9 posts, mixed relevance — Citrix NetScaler coverage, Google Pixel exploits, domain hijacking; one Citrix post overlaps with Oct 3 seed trend).
 - opened: NVD REST API (HTTP 200, accessible); CISA KEV catalog (HTTP 403, persistent blocker; fallback via blog/vendor advisories).
