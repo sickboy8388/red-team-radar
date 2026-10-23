@@ -4,18 +4,18 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 
 ![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-25-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--22-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-14-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--23-2f9e44?style=flat-square)
 
 ---
 
-## Since 2026-10-22
+## Since 2026-10-23
 
-- **Windows IKE RCE (CVE-2026-96951, CVSS 10.0)** — CISA KEV confirmed; federal patching deadline passed Oct 16; active exploitation confirmed Oct 15. Awaiting secondary vendor analysis (Rapid7, Tenable, CrowdStrike) for trend promotion.
-- **php2shell RCE detection bypass** (Elastic Security Labs, Oct 21) — PHP post-exploitation web shell detection evasion research.
-- **Supply-chain signals queued** — Railway infrastructure credential breach (API keys, DB tokens); LiteLLM 1.107.0 PyPI backdoor targeting AI/LLM developers — pending primary source verification.
-- **Tool updates** — BloodHound v9.9.0-rc3 (Oct 21) with CVE cherry-picks; no major releases from Sliver, NetExec, impacket, Certipy, Nuclei.
-- **Observation queue additions** — 3 new items queued; queue now 25 items (at cap). All 6 seed trends remain stable. No new trend promotions.
+- **CVE-2026-110264** ([GitLab unauth RCE, CVSS 10.0](https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-110264)): Integer overflow in regex compilation enables arbitrary code execution on GitLab 7.0–19.5. Web/initial-access axis.
+- **CVE-2026-114575** (TOTOLIK A950RG router command injection, CVSS 10.0, public PoC available): Edge-device RCE via UploadCustomModule FileMd5 argument; firmware 4.1.2cu.5268_B20221104.
+- **CVE-2026-112212** (GitLab OAuth/OIDC cache poisoning, CVSS 7.5): Unauthenticated attacker can poison shared discovery document cache to redirect auth flows → credential theft. Affects GitLab 18.3–19.5.
+- **7 new GHSA advisories** (Oct 23, CRITICAL+HIGH): frevvo authentication bypass/SSRF, Azure AD App Proxy privilege escalation, Microsoft Exchange buffer overflow, Kiloview NDI encoder flaws — all single-vendor, below trend bar, queued for secondary coverage.
+- **Windows IKE priority watch** — CVE-2026-96951 (CVSS 10.0, actively exploited) remains in queue; federal deadline Oct 16 passed; awaiting secondary vendor analysis to clear trend threshold.
 
 ---
 
