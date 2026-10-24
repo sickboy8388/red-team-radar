@@ -4,18 +4,18 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 
 ![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-25-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--22-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-28-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--24-2f9e44?style=flat-square)
 
 ---
 
-## Since 2026-10-22
+## Since 2026-10-24
 
-- **Windows IKE RCE (CVE-2026-96951, CVSS 10.0)** — CISA KEV confirmed; federal patching deadline passed Oct 16; active exploitation confirmed Oct 15. Awaiting secondary vendor analysis (Rapid7, Tenable, CrowdStrike) for trend promotion.
-- **php2shell RCE detection bypass** (Elastic Security Labs, Oct 21) — PHP post-exploitation web shell detection evasion research.
-- **Supply-chain signals queued** — Railway infrastructure credential breach (API keys, DB tokens); LiteLLM 1.107.0 PyPI backdoor targeting AI/LLM developers — pending primary source verification.
-- **Tool updates** — BloodHound v9.9.0-rc3 (Oct 21) with CVE cherry-picks; no major releases from Sliver, NetExec, impacket, Certipy, Nuclei.
-- **Observation queue additions** — 3 new items queued; queue now 25 items (at cap). All 6 seed trends remain stable. No new trend promotions.
+- **NTLM-style LDAP Signing Bypass** (SpecterOps, Oct 23) — [Novel bypass technique](https://specterops.io/blog/2026/10/23/ldap-signing-bypass-ntlm-relay/) showing residual vulnerability in domain authentication despite signing enforcement. Identity/AD attack-surface expansion.
+- **China APT (Storm-0940) using ARTEX AI pentest tool in ConnectWise attacks** (SecurityWeek, Oct 23) — Autonomous reconnaissance and exfiltration via open-source agentic AI framework; targeted hundreds with privileged persistence achieved at multiple organizations. C2/supply-chain axis. Multiple vendor corroboration (Microsoft, Reuters, Japan, South Korea).
+- **Mirai botnet collaboration with PHP2Shell web-shell attacks** (SecurityWeek, Oct 23) — ASLR bypass exploits emerging in botnet-web-shell hybrid attacks. Web/evasion axis.
+- **Zimbra CVE-2026-73570 PoC variation analysis** (Elastic Security Labs, Oct 23) — Confirmation of active-exploitation persistence on pre-auth SNMP-triggered command injection. Multiple vendor coverage ongoing.
+- **New tool releases** — BloodHound v9.9.0-rc3 (Oct 21); no major releases from Sliver, NetExec, impacket, Certipy, Nuclei.
 
 ---
 
@@ -48,39 +48,26 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 - **Mythic** v3.4 (Oct 10, 2026) — [its-a-feature/Mythic](https://github.com/its-a-feature/Mythic) — Multi-agent C2 platform.
 - **Nuclei** v3.11.1 (Aug 8, 2026) — [projectdiscovery/nuclei](https://github.com/projectdiscovery/nuclei) — Template-driven vulnerability scanner.
 - **Certipy** v5.1.0 (Jun 23, 2026) — [ly4k/Certipy](https://github.com/ly4k/Certipy) — AD CS exploitation tool.
-- **NetExec** v1.5.1 (Feb 23, 2024) — [Pennyw0rth/NetExec](https://github.com/Pennyw0rth/NetExec) — Credentials & lateral-movement executor.
-- **impacket** 0.13.1 (May 19, 2026) — [fortra/impacket](https://github.com/fortra/impacket) — Active Directory / SMB toolkit.
+- **NetExec** v1.3.0 (Oct 13, 2026) — [Pennyw0rth/NetExec](https://github.com/Pennyw0rth/NetExec) — Network post-exploitation tool.
 
 ---
 
 ## Worth Studying
 
-- [SpecterOps: Attack of The Extensions](https://specterops.io/blog/2026/08/13/chromium-extension-c2-persistence/) (Aug 13) — Chromium extensions as persistent C2 infrastructure; silent installation and C&C serving tradecraft.
-- [SpecterOps: Return of the Cookie Monster](https://specterops.io/blog/2026/08/13/chrome-devtools-protocol-cookie-theft/) (Aug 13) — Chrome DevTools Protocol cookie theft for authenticated browser session compromise.
-- [PortSwigger Research: CRLF-Powered Desync Attacks](https://portswigger.net/research/crlf-powered-desync-attacks) (Aug 5) — HTTP/2 desynchronization via CRLF injection; request smuggling & cache poisoning.
-- [SpecterOps: ConfigManBearPig 2.0](https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/) (Aug 3) — SCCM/Configuration Manager attack collection tool (30+ techniques, 9 takeover paths).
-- [SensePost: Process Parameter Poisoning "P3"](https://sensepost.com/blog/2026/process-parameter-poisoning/) (Jul 6) — Code injection via process-startup fields; EDR footprint reduction.
+- **[Signed, Sealed, and Relayed, NTLM-style: Bypassing LDAP Signing Through Reauthentication](https://specterops.io/blog/2026/10/23/ldap-signing-bypass-ntlm-relay/)** (SpecterOps, Oct 23) — Novel bypass of LDAP/SMB signing protection against NTLM relay attacks on domain authentication. 21-minute read.
+- **[How CVE-2026-73570 turns a Zimbra log file into remote code execution](https://www.elastic.co/security-labs/threat-command/command-injection-zimbra-cve-2026-73570)** (Elastic Security Labs, Oct 23) — Reproduction and PoC variation analysis of pre-auth SNMP RCE. Confirms active-exploitation persistence.
+- **[Attack of The Extensions](https://specterops.io/blog/2026/08/13/chromium-extension-c2-persistence/)** (SpecterOps, Aug 13) — Chromium extensions as persistent C2 infrastructure; silent install and command-and-control on compromised systems. Browser post-exploitation.
+- **[Return of the Cookie Monster](https://specterops.io/blog/2026/08/13/chrome-devtools-protocol-cookie-theft/)** (SpecterOps, Aug 13) — Authenticated browser session compromise via Chrome DevTools Protocol. Post-exploitation session hijacking.
+- **[CRLF-Powered Desync Attacks: Beheading HTTP Streams](https://portswigger.net/research/crlf-powered-desync-attacks)** (PortSwigger Research, Aug 5) — HTTP/2-specific desynchronization via CRLF injection; request smuggling and cache poisoning. Web/API protocol edge case.
+- **[ConfigManBearPig 2.0](https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/)** (SpecterOps) — Python rewrite of SCCM/Microsoft Configuration Manager attack-collection tool; 30+ techniques across recon, credential theft, coercion, elevation, takeover. SCCM lateral-movement/priv-esc under-tracked surface.
+- **[Process Parameter Poisoning "P3"](https://sensepost.com/blog/2026/process-parameter-poisoning/)** (SensePost, Jul 6) — Novel code-injection technique via process-startup fields; reduces injection footprint against major EDRs. Fresh primary-source injection primitive.
 
 ---
 
-## Observation Queue
+## More
 
-**25 unverified signals** awaiting trend promotion (≥3 independent sources required). [View full watchlist →](TRENDS.md#observation_queue)
-
-Recent entries: CVE-2026-96951 (Windows IKE RCE), php2shell RCE detection, Railway infrastructure attack, LiteLLM supply-chain, Ivanti Sentry RCE.
-
----
-
-## Details
-
-- **[TRENDS.md](./TRENDS.md)** — Single source of truth: seed/emerging/accelerating/mainstreaming/dormant trends, confidence, aliases, evidence chains, strategy notes.
-- **[Observation Queue](./TRENDS.md#observation_queue)** — Below-bar signals awaiting independent verification (≥3 sources threshold for trend seeding).
-- **[Reports](./reports/)** — Daily & weekly publications tracking changes, findings, and calibration metrics.
-- **[Latest Daily Report](./reports/2026-10-22.md)** — Oct 22 scan results; CISA confirms Windows IKE zero-day; supply-chain signals queued.
-- **[SOURCES.md](./SOURCES.md)** — Agent-maintained registry of primary blogs, CVE feeds, tool repos, discovery topics, community pulse venues.
-
----
-
-**Last updated:** 2026-10-22
-
-*Autonomous red-team situational awareness — curated for operators. Published artifacts only. [Scope & rules →](AGENTS.md)*
+- [**Full ledger (TRENDS.md)**](TRENDS.md) — All 13 trends, 28-item watchlist, and strategy notes.
+- [**Observation queue**](TRENDS.md#observation_queue) — Unverified signals below the trend bar (25–28 items).
+- [**Daily reports**](reports/) — Full execution logs per run.
+- [**Latest daily**](reports/2026-10-24.md) — Oct 24 scan report.
+- [**Latest weekly**](reports/weekly/) — Calibration and weekly amendments (weekly runs only).
