@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-22 (Daily scan Oct 22: primary blogs opened (SpecterOps, watchTowr, PortSwigger, Elastic, Black Hills), no new posts except Elastic Oct 21 on php2shell RCE. NVD API timeout. GitHub GHSA 13 CRITICAL/HIGH (Pillow library focus, low offensive relevance). BloodHound v9.9.0-rc3 CVE cherry-picks. Community pulse: Railway infrastructure attack, LiteLLM PyPI backdoor queued. Windows IKE CVE-2026-96951 confirmed CISA KEV CVSS 10.0, federal deadline passed Oct 16, awaiting secondary vendor analysis. No new seed trends. 5 seed trends stable. 6 dormant unchanged. ~23 items observation_queue.)
+Last updated: 2026-10-26 (Weekly recalibration W44: 4 seed trends (N-able, Citrix, FortiMail, Kerberos relay) demoted to dormant due to 21+ days without evidence. 2 seed trends held (PaperCut 15 days quiet, Apex Accelerator 12 days quiet). 6 dormant trends unchanged. observation_queue at ~23 items (oldest Oct 14-15, under 14-day burndown threshold). No trend promotions; no evidence escalations. Source strategy 21/24 swept sources opened this week. No amendments proposed.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -46,9 +46,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-08-06 — https://fieldeffect.com/ — FieldEffect: DC certificate impersonation analysis and detection surface.
 
 ### id: initial-access-nable-ncentral-001 — N-able N-central Pre-Auth RCE (CVE-2026-86218)
-- stage: seed
+- stage: dormant
 - confidence: high
 - last_evidence: 2026-10-03
+- dormancy_entered: 2026-10-26
 - aliases: [N-able N-central RCE, CVE-2026-86218, static code injection, managed service provider (MSP) compromise]
 - notes: N-able N-central (remote monitoring and management platform for MSPs) contains static code injection flaw allowing unauthenticated remote code execution before authentication. CVSS 10.0 (maximum severity). Disclosed 2026-09-05 by N-able with Hotfix 4 (build 2026.3.1.14). CISA added to KEV catalog 2026-09-08 with federal mandate (patch by 2026-09-11). Affects all N-central versions prior to 2026.3.1.14. Active exploitation observed before public disclosure. Chainable with related auth-bypass flaws (CVE-2026-86206/86207) for full infrastructure takeover.
 - evidence:
@@ -59,9 +60,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-09-08 — https://labs.cloudsecurityalliance.org/research/csa-research-note-nable-ncentral-max-severity-rce-20260907-c/ — Cloud Security Alliance Research: CVE-2026-86218 analysis and impact assessment.
 
 ### id: initial-access-citrix-netscaler-001 — Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)
-- stage: seed
+- stage: dormant
 - confidence: high
 - last_evidence: 2026-10-03
+- dormancy_entered: 2026-10-26
 - aliases: [NetScaler RCE, CVE-2026-88771, CVE-2026-88772, command injection, DTLS memory overflow, zero-day]
 - notes: Two critical pre-authentication remote code execution vulnerabilities in Citrix NetScaler ADC and NetScaler Gateway (CVSSv4 9.5 each). CVE-2026-88771: improper input validation enabling arbitrary command execution. CVE-2026-88772: DTLS handshake message fragmentation parsing error allowing memory overflow/control-flow hijack/shellcode execution with root privileges. DTLS enabled by default on VPN virtual servers. Disclosed 2026-09-27 after being actively exploited in the wild as zero-days. Affects all deployments including default configurations. No additional features required for exploitation. Active installer chains with PHP web shell placement in VPN directories.
 - evidence:
@@ -72,9 +74,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-09-27 — https://gbhackers.com/citrix-confirms-netscaler-zero-day-rce-flaws/ — GBHackers: Citrix confirms NetScaler zero-day RCE flaws actively exploited in attacks.
 
 ### id: initial-access-fortimail-001 — Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)
-- stage: seed
+- stage: dormant
 - confidence: high
 - last_evidence: 2026-10-03
+- dormancy_entered: 2026-10-26
 - aliases: [FortiMail RCE, CVE-2026-104286, path traversal, arbitrary file write, zero-day]
 - notes: Critical pre-authentication path traversal + NULL byte/character neutralization flaw in Fortinet FortiMail email appliance (CVSS 9.8) allowing unauthenticated attackers to write arbitrary files to the underlying OS via crafted HTTP/HTTPS requests. Flaw in GUI Identity-Based Encryption (IBE) component; chainable to code execution and persistence. Affects FortiMail 8.0.0–8.0.1, 7.6.0–7.6.6, 7.4.0–7.4.8, 7.2.0–7.2.9; patches for some branches pending. Disclosed 2026-10-01 (advisory FG-IR-26-175) with evidence of active wild exploitation. CISA added to KEV 2026-10-01 with federal mandate (patch by 2026-10-04). Widespread email appliance deployment; high initial-access relevance.
 - evidence:
@@ -85,9 +88,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-10-01 — https://heise.de/en/news/FortiMail-Attacks-on-zero-day-vulnerability-underway-workaround-available-11473685.html — Heise: FortiMail attacks on zero-day vulnerability underway, workaround available.
 
 ### id: identity-kerberos-relay-dns-cname-001 — Kerberos Relay via DNS CNAME Abuse (CVE-2026-20929)
-- stage: seed
+- stage: dormant
 - confidence: high
 - last_evidence: 2026-10-03
+- dormancy_entered: 2026-10-26
 - aliases: [Kerberos relay, CVE-2026-20929, DNS CNAME spoofing, Kerberos SPN abuse, ADCS certificate theft]
 - notes: Kerberos relay attack technique exploiting DNS CNAME handling in Windows Kerberos authentication. Attacker intercepts DNS query and responds with CNAME redirecting victim to attacker-controlled hostname + A record pointing to attacker IP. Victim then requests Kerberos ticket for attacker-chosen SPN and connects to attacker with AP-REQ. Relayed AP-REQ accepted by target because SPN matches relay destination. Unlike prior Kerberos relay techniques, this works reliably against user accounts on default Windows configurations. Primary exploitation target: Active Directory Certificate Services (ADCS) web enrollment (ESC8 /certsrv endpoint), obtaining certificates in victim names for persistent access lasting months/years. Microsoft's Jan 2026 patch added Channel Binding to HTTP.sys, breaking relay to HTTPS endpoints with enforcement; however, HTTP ADCS endpoints and LDAP/SMB remain vulnerable. CVSS 7.5. Disclosed Jan 2026 (Cymulate); patched Jan 2026 Patch Tuesday; ongoing research confirms residual attack surface.
 - evidence:
