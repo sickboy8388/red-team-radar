@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-26 (Weekly recalibration W44: 4 seed trends (N-able, Citrix, FortiMail, Kerberos relay) demoted to dormant due to 21+ days without evidence. 2 seed trends held (PaperCut 15 days quiet, Apex Accelerator 12 days quiet). 6 dormant trends unchanged. observation_queue at ~23 items (oldest Oct 14-15, under 14-day burndown threshold). No trend promotions; no evidence escalations. Source strategy 21/24 swept sources opened this week. No amendments proposed.)
+Last updated: 2026-10-26 (Daily update: GitLab RCE seeded as new trend (CVE-2026-110264, CVSS 10.0, 3+ independent sources, 10+ public PoCs confirmed). 3 seed trends: GitLab, PaperCut, Apex Accelerator. 10 dormant trends unchanged. observation_queue +4 items (Arista SQL injection, Zimbra RCE, SpecterOps LDAP signing bypass, ConnectWise/Artex breach intel). Coverage: 13/13 primary blogs opened; GHSA, tool repos reviewed; no new stable releases Oct 22-26. No trend promotions; PaperCut & Apex Accelerator remain stable.
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -121,6 +121,17 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-10-14 — SafeDep corroboration (referenced in Elastic analysis): earlier disclosure of related malicious Copilot MCP npm package from same publisher, establishing repeat actor behavior and npm supply-chain operational pattern.
   - 2026-10-14 — Jamf corroboration (referenced in Elastic analysis): CloudSyncD macOS backdoor attributed to same campaign actor, disguised as fake Zoom installer, establishing cross-platform C&C infrastructure and operational continuity.
 
+### id: initial-access-gitlab-rce-001 — GitLab Integer Overflow Remote Code Execution (CVE-2026-110264)
+- stage: seed
+- confidence: high
+- last_evidence: 2026-10-23
+- aliases: [GitLab RCE, CVE-2026-110264, regex integer overflow, pre-auth code execution, maximum-severity]
+- notes: Critical remote code execution vulnerability in GitLab CE/EE via integer overflow in regex compilation (CWE-190). An unauthenticated attacker can craft a specially-formed regular expression that triggers an integer overflow during compilation, leading to arbitrary code execution on the GitLab server under the application context. CVSS 10.0 (maximum severity). Affects all versions from 7.0 before 18.11.13, 19.0 before 19.0.10, 19.1 before 19.1.9, 19.2 before 19.2.9, 19.3 before 19.3.6, 19.4 before 19.4.3, 19.5 before 19.5.1 (12+ years of releases). Multiple public proof-of-concept exploits released on GitHub immediately after disclosure (10+ repos with working code). Active exploitation likely given trivial reproduction and widespread platform deployment. GitLab is a core SCM/DevOps platform in thousands of enterprises and is a high-value target for initial access to development infrastructure, CI/CD systems, and source code repositories.
+- evidence:
+  - 2026-10-22 — https://www.theregister.com/ — The Register: GitLab maximum-severity remote code execution bug affecting 12 years of releases, vendor urges immediate upgrade.
+  - 2026-10-22 — https://github.com/advisories/GHSA-83vq-rvff-66gw — Official GHSA advisory: CVE-2026-110264, CVSS 10.0, integer overflow in regex compilation enables unauthenticated RCE.
+  - 2026-10-22 — https://github.com/search?q=gitlab+cve-2026-110264&type=repositories — GitHub search: 12 public repositories with exploit code and PoC demonstrations (googlesky, TahuCryptsi, al4n4n, xaviware, emirwtz, lesterlam, Masriyan, bastet-ai, TheGlitchFixer, etc.).
+
 ### id: initial-access-wsus-001 — WSUS / Windows Update Server RCE exploitation
 - stage: dormant
 - confidence: high
@@ -208,6 +219,11 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
+- 2026-10-23 — https://github.com/advisories/GHSA-964w-6mm5-rm95 — CVE-2026-114625 (Arista VeloCloud Orchestrator on-prem, authenticated user → superuser operator privilege escalation via SQL injection, CVSS 9.4, CWE-89). Critical severity. Affected versions unknown; hosted/Dedicated patched. Single vendor (GHSA/Arista), SecurityWeek reported Oct 23, awaiting secondary security researcher coverage.
+- 2026-10-23 — https://www.elastic.co/security-labs — CVE-2026-73570 (Zimbra, log file RCE): "How CVE-2026-73570 turns a Zimbra log file into remote code execution" (Elastic Security Labs, Oct 23). Single vendor (Elastic), awaiting independent researcher corroboration.
+- 2026-10-23 — https://specterops.io/blog/ — "Signed, Sealed, and Relayed, NTLM-style: Bypassing LDAP Signing Through Reauthentication" (SpecterOps, Oct 23): LDAP relay technique exploiting reauthentication, AD/identity axis. Single vendor (SpecterOps), awaiting independent researcher analysis.
+- 2026-10-23 — ConnectWise + Artex APT campaign (SecurityWeek, Oct 22-23): China-linked APT using AI pentest tool "Artex" in ConnectWise SkyKick breach attacks against 2,250+ cloud tenants; privileged access achieved in some environments in <3 hours. Reported by Microsoft, active exploitation confirmed. Initial-access axis. Awaiting independent vendor corroboration beyond Microsoft/SecurityWeek.
+- 2026-10-23 — Atlassian October 2026 bulletin (SecurityWeek Oct 23): Atlassian releases October bulletin covering 75 flaws in Data Center and Server products, 14 critical severity, third-party components. Already queued CVE-2026-21589 (pre-auth file read) related; awaiting independent researcher audit of new bulletin.
 - 2026-10-22 — https://www.elastic.co/security-labs/threat-command/php2shell-assessing-elastic-detection-coverage — php2shell + CVE-2026-109618/109619 (Elastic Security Labs, Oct 21): PHP RCE detection coverage assessment; CVEs allow PHP code execution via web shells. Web/initial-access axis. Single vendor (Elastic), awaiting secondary researcher coverage.
 - 2026-10-22 — Railway infrastructure security incident (Hacker News, Oct 21): Unauthorized access to Railway platform environment variable storage; credentials (API keys, database creds, registry tokens) leaked for AI/ML infrastructure targeting. Supply-chain/infrastructure attack surface. Unverified; awaiting primary source confirmation from Railway PSIRT/blog.
 - 2026-10-22 — LiteLLM 1.107.0 PyPI package compromise (Hacker News, Oct 21): Malicious package on PyPI with credential stealer + backdoor; targets LLM/AI developer tools. Supply-chain attack via package registry. Unverified; awaiting primary source (package maintainer advisory or security researcher coverage).

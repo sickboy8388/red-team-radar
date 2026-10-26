@@ -1,40 +1,41 @@
-# Red Team Radar — Offensive Security Trend Tracker
+# Red Team Radar
 
-Persistent situational awareness for offensive-security operators. Autonomous tracker of the active frontier: tools, releases, techniques, research, and advisories on Active Directory, C2/evasion, web/API/cloud, exploitable CVEs, and threat TTPs.
+Persistent field awareness — offensive-security intelligence from primary sources.
 
-![trends](https://img.shields.io/badge/trends-12-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-23-6c757d?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-30-6c757d?style=flat-square)
 ![updated](https://img.shields.io/badge/updated-2026--10--26-2f9e44?style=flat-square)
 
 ---
 
-## Since 2026-10-26
+## Since 2026-10-22 (4-day scan window)
 
-- **4 seed trends demoted to dormant** — N-able N-central, Citrix NetScaler, Fortinet FortiMail, Kerberos relay DNS CNAME all reached 21+ days without new evidence (seeded Oct 3). Demoted per ledger-update rule.
-- **Fresh seed trends held** — PaperCut (Oct 11, 15 days quiet), Apex Accelerator (Oct 14, 12 days quiet) remain at seed stage; no new evidence this week but within monitoring window.
-- **Observation queue maintained** — ~23 items, under cap; Oct 14–15 CVEs approaching 14-day burndown threshold (verification sweep required Oct 29). Windows IKE CVE-2026-96951 priority watch continues (CISA KEV, CVSS 10.0, active exploitation, awaiting secondary vendor analysis).
-- **No trend promotions** — Only 1 daily scan processed this week (Oct 22); no new evidence on existing trends, zero captures.
-- **Source strategy stable** — 21/24 swept sources opened (NVD API timeout, CISA KEV 403, GitHub API scope — all low impact with fallbacks). All primary blogs reachable.
+- **[GitLab Integer Overflow RCE (CVE-2026-110264)](https://github.com/advisories/GHSA-83vq-rvff-66gw)** — CVSS 10.0 maximum severity. Pre-auth code execution via regex integer overflow in versions 7.0→19.5 (12+ years of releases). Multiple public PoCs on GitHub. Promoted to **seed trend** Oct 26.
+- **[Arista VeloCloud SQL Injection (CVE-2026-114625)](https://github.com/advisories/GHSA-964w-6mm5-rm95)** — CVSS 9.4 critical. Authenticated user → superuser operator privilege escalation. Queued Oct 23.
+- **[Zimbra Log File RCE (CVE-2026-73570)](https://www.elastic.co/security-labs)** — Elastic Security Labs analysis Oct 23. Single vendor at this hour; queued.
+- **[SpecterOps LDAP Signing Bypass](https://specterops.io/blog/)** — New relay attack technique, Oct 23. AD/identity axis.
+- **[ConnectWise SkyKick Breach + Artex APT](https://www.securityweek.com/)** — China-linked APT using AI pentest tool; 2,250+ cloud tenants, privileged access <3h. Oct 22-23.
 
 ---
 
 ## Trends
 
-**seed 2 · dormant 10** (12 total: 2 seed, 0 emerging, 0 accelerating, 0 mainstreaming, 10 dormant)
+**seed 3 · dormant 10** (13 total)
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
+| [GitLab Integer Overflow RCE (CVE-2026-110264)](#initial-access-gitlab-rce-001) | seed | [2026-10-22](https://github.com/advisories/GHSA-83vq-rvff-66gw) — CVSS 10.0, 10+ public PoCs |
 | [PaperCut NG/MF Pre-Auth RCE Chain (CVE-2026-82077/82078/81578)](#initial-access-papercut-001) | seed | [2026-10-11](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) |
-| [REF8801 Apex Accelerator Malicious npm Supply-Chain](#initial-access-apex-accelerator-001) | seed | [2026-10-12](https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages) |
+| [REF8801 Apex Accelerator Malicious npm Supply-Chain](#initial-access-apex-accelerator-001) | seed | [2026-10-14](https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages) |
 | [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#ad-certighost-001) | dormant | [2026-08-06](https://github.com/advisories/GHSA-64qv-2ffq-h4w6) |
 | [N-able N-central Pre-Auth RCE (CVE-2026-86218)](#initial-access-nable-ncentral-001) | dormant | [2026-10-03](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
 | [Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)](#initial-access-citrix-netscaler-001) | dormant | [2026-10-03](https://labs.watchtowr.com/oh-look-the-foot-gun-went-off-again-citrix-netscaler-preauth-command-injection-cve-2026-88771/) |
 | [Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)](#initial-access-fortimail-001) | dormant | [2026-10-03](https://www.securityweek.com/exploited-fortinet-fortimail-zero-day-calls-for-urgent-action/) |
 | [Kerberos Relay via DNS CNAME Abuse (CVE-2026-20929)](#identity-kerberos-relay-dns-cname-001) | dormant | [2026-10-03](https://www.crowdstrike.com/en-us/blog/detecting-kerberos-relay-attack-via-dns-cname-abuse/) |
-| [WSUS / Windows Update Server RCE exploitation](#initial-access-wsus-001) | dormant | [2026-10-23](https://www.huntress.com/blog/exploitation-of-windows-server-update-services-remote-code-execution-vulnerability) |
-| [Nightmare Eclipse: Windows Defender/BitLocker research campaign](#evasion-nightmare-eclipse-001) | dormant | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) |
-| [SonicWall SMA1000 SSRF + RCE exploitation (CVE-2026-15409/15410)](#initial-access-sonicwall-sma-001) | dormant | [2026-08-17](https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the) |
+| [WSUS / Windows Update Server RCE](#initial-access-wsus-001) | dormant | [2026-10-23](https://www.huntress.com/blog/exploitation-of-windows-server-update-services-remote-code-execution-vulnerability) |
+| [Nightmare Eclipse: Windows Defender/BitLocker research](#evasion-nightmare-eclipse-001) | dormant | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) |
+| [SonicWall SMA1000 SSRF + RCE (CVE-2026-15409/15410)](#initial-access-sonicwall-sma-001) | dormant | [2026-08-17](https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the) |
 | [Oracle PeopleSoft Unsafe Deserialization RCE (CVE-2026-35273)](#initial-access-oracle-peoplesoft-001) | dormant | [2026-08-17](https://www.sentinelone.com/vulnerability-database/cve-2026-35273/) |
 | [Entra ID SyncJacking & Conditional Access Bypass](#identity-entra-syncjacking-001) | dormant | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) |
 
@@ -42,12 +43,12 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 
 ## Tools & Releases
 
-- **BloodHound** v9.9.0-rc3 (Oct 21, 2026) — [SpecterOps/BloodHound](https://github.com/SpecterOps/BloodHound) — Active Directory attack-path analysis.
-- **Sliver C2** v1.7.8 (Oct 3, 2026) — [BishopFox/sliver](https://github.com/BishopFox/sliver) — Lightweight command-and-control framework.
-- **Mythic** v3.4 (Oct 10, 2026) — [its-a-feature/Mythic](https://github.com/its-a-feature/Mythic) — Multi-agent C2 platform.
-- **Nuclei** v3.11.1 (Aug 8, 2026) — [projectdiscovery/nuclei](https://github.com/projectdiscovery/nuclei) — Template-driven vulnerability scanner.
-- **Certipy** v5.1.0 (Jun 23, 2026) — [ly4k/Certipy](https://github.com/ly4k/Certipy) — AD CS exploitation tool.
-- **NetExec** v1.5.1 (Feb 23, 2024) — [Pennyw0rth/NetExec](https://github.com/Pennyw0rth/NetExec) — Credentials & lateral-movement executor.
+- **BloodHound** — [v9.8.0](https://github.com/SpecterOps/BloodHound/releases/tag/v9.8.0) stable (Oct 7); v9.9.0-rc3 pre-release (Oct 21)
+- **NetExec** — [v1.3.0](https://github.com/Pennyw0rth/NetExec/releases) (Oct 13)
+- **Sliver** — [v1.7.8](https://github.com/BishopFox/sliver/releases) (Oct 3)
+- **Certipy** — [v5.1.0](https://github.com/ly4k/Certipy/releases) (Jun 23)
+- **Nuclei** — [v3.11.1](https://github.com/projectdiscovery/nuclei/releases) (Aug 8; templates must be signed as of Jul 6)
+- **impacket** — [0.9.20](https://github.com/fortra/impacket/releases) (stable)
 - **impacket** 0.13.1 (May 19, 2026) — [fortra/impacket](https://github.com/fortra/impacket) — Active Directory / SMB toolkit.
 
 ---
