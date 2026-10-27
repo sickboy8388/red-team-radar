@@ -2,41 +2,42 @@
 
 Persistent situational awareness for offensive-security operators. Autonomous tracker of the active frontier: tools, releases, techniques, research, and advisories on Active Directory, C2/evasion, web/API/cloud, exploitable CVEs, and threat TTPs.
 
-![trends](https://img.shields.io/badge/trends-12-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-23-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--26-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-25-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--10--27-2f9e44?style=flat-square)
 
 ---
 
-## Since 2026-10-26
+## Since 2026-10-21
 
-- **4 seed trends demoted to dormant** — N-able N-central, Citrix NetScaler, Fortinet FortiMail, Kerberos relay DNS CNAME all reached 21+ days without new evidence (seeded Oct 3). Demoted per ledger-update rule.
-- **Fresh seed trends held** — PaperCut (Oct 11, 15 days quiet), Apex Accelerator (Oct 14, 12 days quiet) remain at seed stage; no new evidence this week but within monitoring window.
-- **Observation queue maintained** — ~23 items, under cap; Oct 14–15 CVEs approaching 14-day burndown threshold (verification sweep required Oct 29). Windows IKE CVE-2026-96951 priority watch continues (CISA KEV, CVSS 10.0, active exploitation, awaiting secondary vendor analysis).
-- **No trend promotions** — Only 1 daily scan processed this week (Oct 22); no new evidence on existing trends, zero captures.
-- **Source strategy stable** — 21/24 swept sources opened (NVD API timeout, CISA KEV 403, GitHub API scope — all low impact with fallbacks). All primary blogs reachable.
+- **PHP2Shell RCE seeded** — CVE-2026-109618/109619 (Oct 21 release, CVSS 9.2) cleared trend bar with 6+ independent vendor coverage (Elastic, Datadog, Sansec, Tenable, Unit42, CISA). Affects PHP 5.4+, high web/initial-access relevance. https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell
+- **6-day gap recovery** — Oct 22–26 runs missing (scheduling gap); catch-up scan completed. All 13 primary blogs reachable; NVD API degraded (404), GHSA 403 session-scoped, Tavily fallback functional.
+- **Existing seed trends stable** — N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator unchanged (no new evidence Oct 21–27).
+- **Observation queue at ~25 items** — CVE-2026-96951 (Windows IKE zero-day, active exploitation) remains priority watch; age review approaching (Oct 14–15 entries at 14-day burndown threshold).
+- **Source coverage restored** — All 13 primary blogs opened; NVD API degraded (404), GHSA 403 session-scoped, Tavily fallback proved effective for CVE discovery.
 
 ---
 
 ## Trends
 
-**seed 2 · dormant 10** (12 total: 2 seed, 0 emerging, 0 accelerating, 0 mainstreaming, 10 dormant)
+**seed 7 · dormant 6** (13 total: 7 seed, 0 emerging, 0 accelerating, 0 mainstreaming, 6 dormant)
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
-| [PaperCut NG/MF Pre-Auth RCE Chain (CVE-2026-82077/82078/81578)](#initial-access-papercut-001) | seed | [2026-10-11](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) |
+| [PHP2Shell RCE (CVE-2026-109618/109619)](#web-php2shell-001) | seed | [2026-10-22](https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell) |
 | [REF8801 Apex Accelerator Malicious npm Supply-Chain](#initial-access-apex-accelerator-001) | seed | [2026-10-12](https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages) |
+| [PaperCut NG/MF Pre-Auth RCE Chain (CVE-2026-82077/82078/81578)](#initial-access-papercut-001) | seed | [2026-10-09](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) |
+| [Kerberos Relay via DNS CNAME Abuse (CVE-2026-20929)](#identity-kerberos-relay-dns-cname-001) | seed | [2026-10-03](https://www.crowdstrike.com/en-us/blog/detecting-kerberos-relay-attack-via-dns-cname-abuse/) |
+| [Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)](#initial-access-fortimail-001) | seed | [2026-10-01](https://www.securityweek.com/exploited-fortinet-fortimail-zero-day-calls-for-urgent-action/) |
+| [Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)](#initial-access-citrix-netscaler-001) | seed | [2026-09-29](https://labs.watchtowr.com/here-we-go-again-citrix-netscaler-dtls-preauth-memory-overflow-cve-2026-88772/) |
+| [N-able N-central Pre-Auth RCE (CVE-2026-86218)](#initial-access-nable-ncentral-001) | seed | [2026-09-08](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
 | [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#ad-certighost-001) | dormant | [2026-08-06](https://github.com/advisories/GHSA-64qv-2ffq-h4w6) |
-| [N-able N-central Pre-Auth RCE (CVE-2026-86218)](#initial-access-nable-ncentral-001) | dormant | [2026-10-03](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
-| [Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)](#initial-access-citrix-netscaler-001) | dormant | [2026-10-03](https://labs.watchtowr.com/oh-look-the-foot-gun-went-off-again-citrix-netscaler-preauth-command-injection-cve-2026-88771/) |
-| [Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)](#initial-access-fortimail-001) | dormant | [2026-10-03](https://www.securityweek.com/exploited-fortinet-fortimail-zero-day-calls-for-urgent-action/) |
-| [Kerberos Relay via DNS CNAME Abuse (CVE-2026-20929)](#identity-kerberos-relay-dns-cname-001) | dormant | [2026-10-03](https://www.crowdstrike.com/en-us/blog/detecting-kerberos-relay-attack-via-dns-cname-abuse/) |
 | [WSUS / Windows Update Server RCE exploitation](#initial-access-wsus-001) | dormant | [2026-10-23](https://www.huntress.com/blog/exploitation-of-windows-server-update-services-remote-code-execution-vulnerability) |
-| [Nightmare Eclipse: Windows Defender/BitLocker research campaign](#evasion-nightmare-eclipse-001) | dormant | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) |
+| [Entra ID SyncJacking & Conditional Access Bypass](#identity-entra-syncjacking-001) | dormant | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) |
 | [SonicWall SMA1000 SSRF + RCE exploitation (CVE-2026-15409/15410)](#initial-access-sonicwall-sma-001) | dormant | [2026-08-17](https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the) |
 | [Oracle PeopleSoft Unsafe Deserialization RCE (CVE-2026-35273)](#initial-access-oracle-peoplesoft-001) | dormant | [2026-08-17](https://www.sentinelone.com/vulnerability-database/cve-2026-35273/) |
-| [Entra ID SyncJacking & Conditional Access Bypass](#identity-entra-syncjacking-001) | dormant | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) |
+| [Nightmare Eclipse: Windows Defender/BitLocker research campaign](#evasion-nightmare-eclipse-001) | dormant | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) |
 
 ---
 
@@ -80,6 +81,6 @@ Recent entries: CVE-2026-96951 (Windows IKE RCE, priority watch), php2shell RCE 
 
 ---
 
-**Last updated:** 2026-10-22
+**Last updated:** 2026-10-27
 
 *Autonomous red-team situational awareness — curated for operators. Published artifacts only. [Scope & rules →](AGENTS.md)*

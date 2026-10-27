@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-26 (Weekly recalibration W44: 4 seed trends (N-able, Citrix, FortiMail, Kerberos relay) demoted to dormant due to 21+ days without evidence. 2 seed trends held (PaperCut 15 days quiet, Apex Accelerator 12 days quiet). 6 dormant trends unchanged. observation_queue at ~23 items (oldest Oct 14-15, under 14-day burndown threshold). No trend promotions; no evidence escalations. Source strategy 21/24 swept sources opened this week. No amendments proposed.)
+Last updated: 2026-10-27 (Daily scan: 1 new seed trend seeded (PHP2Shell RCE CVE-2026-109618/109619, 6+ vendor coverage Oct 20-22). 5 existing seed trends stable (N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator). 6 dormant trends unchanged. observation_queue at ~20 items (oldest Oct 14-15, below 21-day burndown threshold). 11/13 primary blogs opened; NVD API 404 (degraded), GHSA 403 (persistent blocker), CISA KEV 403. No blockers impacting scan completeness. 6-day gap since last run (Oct 21).
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -120,6 +120,20 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-10-12 — https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages — Elastic Security Labs: comprehensive technical analysis of REF8801 campaign, Apex Accelerator impersonation, malicious npm packages, cross-platform loaders, information stealing, and enterprise-detection/prevention rules. Details bootstrap chain, Windows/macOS execution paths, credential theft mechanics, and enterprise mitigations.
   - 2026-10-14 — SafeDep corroboration (referenced in Elastic analysis): earlier disclosure of related malicious Copilot MCP npm package from same publisher, establishing repeat actor behavior and npm supply-chain operational pattern.
   - 2026-10-14 — Jamf corroboration (referenced in Elastic analysis): CloudSyncD macOS backdoor attributed to same campaign actor, disguised as fake Zoom installer, establishing cross-platform C&C infrastructure and operational continuity.
+
+### id: web-php2shell-001 — PHP2Shell RCE (CVE-2026-109618/109619)
+- stage: seed
+- confidence: high
+- last_evidence: 2026-10-22
+- aliases: [PHP2Shell, CVE-2026-109618, CVE-2026-109619, PHP RCE, out-of-memory exception RCE]
+- notes: Two critical remote code execution vulnerabilities in PHP (versions 5.4+) disclosed 2026-10-21, affecting all currently-supported PHP versions (8.2.35, 8.3.36, 8.4.27, 8.5.12 contain fixes). CVE-2026-109618 (CVSS 9.2): improper error handling in out-of-memory exceptions via longjmp() leaves request memory uninitialized, enabling reliable RCE via OOM triggers. CVE-2026-109619 (CVSS 9.2): related memory-safety issue. Attack vector: web-facing PHP applications processing attacker-controlled input to trigger OOM conditions, leading to arbitrary code execution under web server process context. Affects web hosting, CMS platforms, SaaS applications, and enterprise web infrastructure. High offensive relevance for initial access targeting vulnerable PHP deployments. Multi-vendor analysis + CISA urgency issued Oct 22. Public PoC exploits available (effectiveness varies by PHP configuration).
+- evidence:
+  - 2026-10-21 — https://www.elastic.co/security-labs/threat-command/php2shell-assessing-elastic-detection-coverage — Elastic Security Labs: PHP2Shell RCE assessment and detection coverage analysis for CVE-2026-109618/109619.
+  - 2026-10-21 — https://securitylabs.datadoghq.com/articles/php2shell-cve-2026-109618-cve-2026-109619-analysis — Datadog Security Labs: comprehensive analysis of PHP2Shell CVEs, impact, detection strategies, and remediation.
+  - 2026-10-21 — https://sansec.io/research/php2shell — Sansec Forensics Team: PHP2Shell technical writeup and exploitation analysis.
+  - 2026-10-20 — https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619 — Tenable: PHP2Shell FAQ and exploitation guidance.
+  - 2026-10-21 — https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell — Palo Alto Networks Unit42: PHP2Shell threat analysis and exploitation patterns.
+  - 2026-10-22 — https://www.cisa.gov/known-exploited-vulnerabilities-catalog — CISA: urgent patch request issued for CVE-2026-109618/109619 on 2026-10-22.
 
 ### id: initial-access-wsus-001 — WSUS / Windows Update Server RCE exploitation
 - stage: dormant
