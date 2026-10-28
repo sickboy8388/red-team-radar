@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-27 (Daily scan: 1 new seed trend seeded (PHP2Shell RCE CVE-2026-109618/109619, 6+ vendor coverage Oct 20-22). 5 existing seed trends stable (N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator). 6 dormant trends unchanged. observation_queue at ~20 items (oldest Oct 14-15, below 21-day burndown threshold). 11/13 primary blogs opened; NVD API 404 (degraded), GHSA 403 (persistent blocker), CISA KEV 403. No blockers impacting scan completeness. 6-day gap since last run (Oct 21).
+Last updated: 2026-10-28 (Daily scan: 2 new seed trends seeded (Node2Shell Brotli RCE CVE-2026-111497 & GitLab regex RCE CVE-2026-110264; 6+ vendor multi-org coverage each Oct 21-22). 5 existing seed trends stable (PaperCut, Apex Accelerator, PHP2Shell). 6 dormant trends unchanged. observation_queue maintained at ~20 items (no burndowns, age review pending). Primary sweep verified reachable; Tavily + WebFetch effective for CVE discovery. No new access blockers. Daily continuity maintained (1-day gap).
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -134,6 +134,34 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-10-20 — https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619 — Tenable: PHP2Shell FAQ and exploitation guidance.
   - 2026-10-21 — https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell — Palo Alto Networks Unit42: PHP2Shell threat analysis and exploitation patterns.
   - 2026-10-22 — https://www.cisa.gov/known-exploited-vulnerabilities-catalog — CISA: urgent patch request issued for CVE-2026-109618/109619 on 2026-10-22.
+
+### id: web-node2shell-001 — Node2Shell: Brotli Decoder RCE (CVE-2026-111497)
+- stage: seed
+- confidence: high
+- last_evidence: 2026-10-28
+- aliases: [Node2Shell, CVE-2026-111497, HTTP2Shell, Broccoli2Shell, Brotli RCE, Brotli2Shell, out-of-bounds write]
+- notes: Critical out-of-bounds write vulnerability in Google's Brotli compression library decoder (versions 1.0.3–1.2.0) affecting any runtime or software bundling Brotli, including Node.js (all supported versions affected), Bun, Python HTTP clients, Envoy Proxy, and HTTP/2 implementations. Triggered by malformed Brotli-compressed data; attacker can corrupt decoder state memory, leak sensitive information, cause denial of service, or achieve remote code execution. Disclosed Oct 21, 2026 by Node.js; public PoC available Oct 22, 2026. CVSS 9.2. Fixed in Brotli 1.0.10, 1.1.1, 1.2.1 and all Node.js, Bun, Python releases. Primary offensive relevance: web applications using affected Node.js/Python/Bun deployments for HTTP decompression of untrusted attacker-controlled data → initial access / code execution. High deployment breadth (compression is default in HTTP/2, Express 5, fetch() APIs).
+- evidence:
+  - 2026-10-21 — https://nodejs.org/en/blog/vulnerability/brotli-oct-2026/ — Node.js official advisory and security release announcement (CVE-2026-111497).
+  - 2026-10-21 — https://www.sysdig.com/blog/cve-2026-111497-node2shell/ — Sysdig: Node2Shell technical analysis, decoder root cause, exploitation surface.
+  - 2026-10-21 — https://www.akamai.com/us/en/research/threat-intelligence/cve-2026-111497-node2shell-brotli-rce/ — Akamai: Node2Shell out-of-bounds write analysis, impact on Node.js/Bun/Envoy.
+  - 2026-10-22 — https://www.imperva.com/blog/cve-2026-111497-node2shell-brotli-rce/ — Imperva Red Team: RCE demonstration against vulnerable Node.js builds, PoC validation.
+  - 2026-10-21 — https://www.wiz.io/blog/node2shell-brotli-cve-2026-111497 — Wiz: comprehensive Node2Shell analysis, affected technologies (Node.js, Bun, Envoy, Istio), exploitation vectors.
+  - 2026-10-21 — https://nvd.nist.gov/vuln/detail/CVE-2026-111497 — NVD: CVE-2026-111497 official vulnerability record and CVSS 9.2 rating.
+
+### id: web-gitlab-rce-001 — GitLab Regex Compiler RCE (CVE-2026-110264)
+- stage: seed
+- confidence: high
+- last_evidence: 2026-10-28
+- aliases: [GitLab RCE, CVE-2026-110264, regex compiler overflow, integer overflow, Onigmo RCE, Ruby regex bug]
+- notes: Critical integer overflow in GitLab Community Edition and Enterprise Edition regex compiler (Onigmo Ruby regex engine) enabling unauthenticated remote code execution on self-managed instances. Specially crafted regular expression triggers integer overflow during compilation → memory corruption → arbitrary code execution. Affects all CE/EE versions 7.0 (released 2014) through 19.5.0, with patches for versions 18.11.13, 19.0.10, 19.1.9, 19.2.9, 19.3.6, 19.4.3, 19.5.1. CVSS 10.0 (maximum severity). GitLab.com and GitLab Dedicated cloud instances unaffected (already patched). Disclosed Oct 21, 2026; no active in-the-wild exploitation publicly reported at publication, but flaw trivial to exploit if public projects accept regex payloads (CI config, branch protection rules, code search patterns). Fourth regex-engine RCE in GitLab within 30 days (all by researcher joaxcar via HackerOne), suggesting systemic Onigmo vulnerabilities. Primary offensive relevance: GitLab self-managed instances in enterprise/development environments → initial access / infrastructure compromise. High deployment breadth across organizations.
+- evidence:
+  - 2026-10-21 — https://about.gitlab.com/releases/2026/10/21/critical-security-release-18-11-13-released/ — GitLab official security release (CVE-2026-110264) and patch advisory.
+  - 2026-10-21 — https://socprime.com/blog/cve-2026-110264-critical-gitlab-rce-vulnerability-explained/ — SOC Prime: CVE-2026-110264 technical analysis, integer overflow mechanics, exploitation surface.
+  - 2026-10-21 — https://www.aviatrix.ai/blog/cve-2026-110264-critical-gitlab-rce-regex-compiler/ — Aviatrix: GitLab RCE technical breakdown, CVSS 10.0 justification, affected version ranges.
+  - 2026-10-21 — https://www.bleepingcomputer.com/news/security/critical-gitlab-flaw-cvss-10-0-allows-unauthenticated-rce-on-self-managed-servers/ — BleepingComputer: GitLab CVE-2026-110264 advisory, widespread deployment impact, patch urgency.
+  - 2026-10-23 — https://www.ruby-lang.org/en/news/2026/10/23/ruby-fixes-regex-bugs/ — Ruby official: Onigmo regex engine patches for CVE-2026-89078, CVE-2026-93577, CVE-2026-97229, CVE-2026-110264 (fixes responsible for 4 GitLab RCEs).
+  - 2026-10-21 — https://nvd.nist.gov/vuln/detail/CVE-2026-110264 — NVD: CVE-2026-110264 official vulnerability record and CVSS 10.0 rating.
 
 ### id: initial-access-wsus-001 — WSUS / Windows Update Server RCE exploitation
 - stage: dormant
