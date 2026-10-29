@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-27 (Daily scan: 1 new seed trend seeded (PHP2Shell RCE CVE-2026-109618/109619, 6+ vendor coverage Oct 20-22). 5 existing seed trends stable (N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator). 6 dormant trends unchanged. observation_queue at ~20 items (oldest Oct 14-15, below 21-day burndown threshold). 11/13 primary blogs opened; NVD API 404 (degraded), GHSA 403 (persistent blocker), CISA KEV 403. No blockers impacting scan completeness. 6-day gap since last run (Oct 21).
+Last updated: 2026-10-29 (Daily scan: 1 new seed trend seeded (Node2Shell Brotli RCE CVE-2026-111497, 4+ vendor coverage Oct 21-22). PHP2Shell gets +1 new evidence (APT exploitation Oct 25). 3 existing seed trends stable (PaperCut, Apex Accelerator, PHP2Shell + new evidence). 6 dormant trends unchanged. observation_queue maintained at ~22 items (oldest Oct 14-15, below 21-day burndown threshold). Primary blogs reachable (SpecterOps, Elastic confirmed); Tavily access functional. k0t firewall-to-domain-admin research (3 sources) queued pending bar verification. 2-day gap since last run (Oct 27).
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -124,9 +124,9 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 ### id: web-php2shell-001 — PHP2Shell RCE (CVE-2026-109618/109619)
 - stage: seed
 - confidence: high
-- last_evidence: 2026-10-22
+- last_evidence: 2026-10-25
 - aliases: [PHP2Shell, CVE-2026-109618, CVE-2026-109619, PHP RCE, out-of-memory exception RCE]
-- notes: Two critical remote code execution vulnerabilities in PHP (versions 5.4+) disclosed 2026-10-21, affecting all currently-supported PHP versions (8.2.35, 8.3.36, 8.4.27, 8.5.12 contain fixes). CVE-2026-109618 (CVSS 9.2): improper error handling in out-of-memory exceptions via longjmp() leaves request memory uninitialized, enabling reliable RCE via OOM triggers. CVE-2026-109619 (CVSS 9.2): related memory-safety issue. Attack vector: web-facing PHP applications processing attacker-controlled input to trigger OOM conditions, leading to arbitrary code execution under web server process context. Affects web hosting, CMS platforms, SaaS applications, and enterprise web infrastructure. High offensive relevance for initial access targeting vulnerable PHP deployments. Multi-vendor analysis + CISA urgency issued Oct 22. Public PoC exploits available (effectiveness varies by PHP configuration).
+- notes: Two critical remote code execution vulnerabilities in PHP (versions 5.4+) disclosed 2026-10-21, affecting all currently-supported PHP versions (8.2.35, 8.3.36, 8.4.27, 8.5.12 contain fixes). CVE-2026-109618 (CVSS 9.2): improper error handling in out-of-memory exceptions via longjmp() leaves request memory uninitialized, enabling reliable RCE via OOM triggers. CVE-2026-109619 (CVSS 9.2): related memory-safety issue. Attack vector: web-facing PHP applications processing attacker-controlled input to trigger OOM conditions, leading to arbitrary code execution under web server process context. Affects web hosting, CMS platforms, SaaS applications, and enterprise web infrastructure. High offensive relevance for initial access targeting vulnerable PHP deployments. Multi-vendor analysis + CISA urgency issued Oct 22. Public PoC exploits available (effectiveness varies by PHP configuration). Confirmed active exploitation by China-nexus APT chaining PHP2Shell + CVE-2026-46300 (Linux kernel LPE) to compromise 25+ servers across US, Japan, Taiwan, South Korea (Oct 25, 2026).
 - evidence:
   - 2026-10-21 — https://www.elastic.co/security-labs/threat-command/php2shell-assessing-elastic-detection-coverage — Elastic Security Labs: PHP2Shell RCE assessment and detection coverage analysis for CVE-2026-109618/109619.
   - 2026-10-21 — https://securitylabs.datadoghq.com/articles/php2shell-cve-2026-109618-cve-2026-109619-analysis — Datadog Security Labs: comprehensive analysis of PHP2Shell CVEs, impact, detection strategies, and remediation.
@@ -134,6 +134,19 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-10-20 — https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619 — Tenable: PHP2Shell FAQ and exploitation guidance.
   - 2026-10-21 — https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell — Palo Alto Networks Unit42: PHP2Shell threat analysis and exploitation patterns.
   - 2026-10-22 — https://www.cisa.gov/known-exploited-vulnerabilities-catalog — CISA: urgent patch request issued for CVE-2026-109618/109619 on 2026-10-22.
+  - 2026-10-25 — https://aviatrix.ai/2026/10/25/php2shell-cve-2026-109618-attack-roots-25-servers/ — Aviatrix.ai: China-nexus APT exploitation of PHP2Shell chained with CVE-2026-46300 (Linux kernel LPE), confirmed compromise of 25+ servers across US, Japan, Taiwan, South Korea; active APT campaign confirmation.
+
+### id: web-node2shell-001 — Node2Shell Brotli Decoder RCE (CVE-2026-111497)
+- stage: seed
+- confidence: high
+- last_evidence: 2026-10-22
+- aliases: [Node2Shell, CVE-2026-111497, Node.js Brotli RCE, out-of-bounds write]
+- notes: Critical remote code execution vulnerability in Node.js affecting all major versions (22.23.4, 24.22.1, 26.12.1 contain fixes). CVE-2026-111497: out-of-bounds write in the bundled Brotli decompression library, triggered by malformed Brotli-compressed data. Attacker supplying crafted Brotli-compressed payload causes memory buffer overflow → code execution under Node.js process context. Disclosed 2026-10-21; affects Node.js versions 18.x-22.x and all dependent applications. Web/API/infrastructure attack surface: SaaS platforms, microservices, REST APIs, and real-time communication systems relying on Brotli compression. High initial-access relevance. Multi-vendor analysis + public PoC detection released Oct 22. Imperva confirmed running code on affected systems Oct 22.
+- evidence:
+  - 2026-10-21 — https://www.akamai.com/us/en/blog/security-research/node2shell-inside-node2shell/ — Akamai: detailed technical analysis of Node2Shell CVE-2026-111497 Brotli decoder vulnerability and exploitation mechanics.
+  - 2026-10-21 — https://www.aikido.dev/blog/node2shell-cve-2026-111497 — Aikido.dev: Node2Shell vulnerability deep-dive, Brotli decoder analysis, and exploitation impact assessment.
+  - 2026-10-21 — https://sysdig.com/blog/node2shell-detecting/ — Sysdig: detection and response guidance for CVE-2026-111497 Node.js Brotli RCE.
+  - 2026-10-22 — https://www.imperva.com/blog/node2shell-rce/ — Imperva: confirmation of running code on Node.js systems affected by CVE-2026-111497; exploitation confirmed.
 
 ### id: initial-access-wsus-001 — WSUS / Windows Update Server RCE exploitation
 - stage: dormant
@@ -222,7 +235,7 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
-- 2026-10-22 — https://www.elastic.co/security-labs/threat-command/php2shell-assessing-elastic-detection-coverage — php2shell + CVE-2026-109618/109619 (Elastic Security Labs, Oct 21): PHP RCE detection coverage assessment; CVEs allow PHP code execution via web shells. Web/initial-access axis. Single vendor (Elastic), awaiting secondary researcher coverage.
+- 2026-10-29 — https://www.nyxlab.com/posts/stray-cat-open-doors-k0t/ — k0t Firewall-to-Domain-Admin attack chain (Group-IB & NyxLab, Oct 21): multi-stage exploitation of edge devices (firewalls, WAF, VPN gateways) via CVE-2025-64446 (Fortinet FortiWeb path traversal) → lateral movement to domain admin. Initial-access + identity axis. 3 sources verified (Group-IB/NyxLab primary, WizardCyber, Hard2Bit secondary). Borderline trend candidate; promote next run if additional vendor analysis emerges.
 - 2026-10-22 — Railway infrastructure security incident (Hacker News, Oct 21): Unauthorized access to Railway platform environment variable storage; credentials (API keys, database creds, registry tokens) leaked for AI/ML infrastructure targeting. Supply-chain/infrastructure attack surface. Unverified; awaiting primary source confirmation from Railway PSIRT/blog.
 - 2026-10-22 — LiteLLM 1.107.0 PyPI package compromise (Hacker News, Oct 21): Malicious package on PyPI with credential stealer + backdoor; targets LLM/AI developer tools. Supply-chain attack via package registry. Unverified; awaiting primary source (package maintainer advisory or security researcher coverage).
 - 2026-10-15 — CVE-2026-96951 (Windows IKE remote code execution, CVSS 10.0, CWE-77 command injection) — [CISA KEV confirmed Oct 13, federal patching deadline Oct 16 PASSED, active exploitation reported Oct 15, awaiting secondary vendor analysis from Rapid7/Tenable/CrowdStrike/Unit42 (blogs blocked, unable to verify)]
