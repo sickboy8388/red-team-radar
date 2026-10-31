@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-27 (Daily scan: 1 new seed trend seeded (PHP2Shell RCE CVE-2026-109618/109619, 6+ vendor coverage Oct 20-22). 5 existing seed trends stable (N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator). 6 dormant trends unchanged. observation_queue at ~20 items (oldest Oct 14-15, below 21-day burndown threshold). 11/13 primary blogs opened; NVD API 404 (degraded), GHSA 403 (persistent blocker), CISA KEV 403. No blockers impacting scan completeness. 6-day gap since last run (Oct 21).
+Last updated: 2026-10-31 (Daily scan: no new trends seeded. 3 seed trends (PaperCut, Apex Accelerator, PHP2Shell) stable with no new evidence Oct 28-31. 10 dormant trends unchanged. NVD sweep identified 118 CRITICAL CVEs Oct 28-31; 14+ red-team-relevant (Chrome RCE, WordPress plugins, enterprise tools). Top findings queued pending multi-vendor corroboration. observation_queue at ~25 items (at cap, oldest entries from Oct 3-15 eligible for burndown). 13/13 primary blogs opened; no new posts in window. NVD API accessible, GHSA 403 (persistent blocker), CISA KEV 403. No blockers impacting scan completeness. 4-day gap since last run (Oct 27).
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -222,6 +222,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
+- 2026-10-30 — CVE-2026-119261, CVE-2026-119263 (Google Chrome RCE, CVSS 10.0 each, Skia input validation + memory corruption) — [NVD confirmed Oct 30, likely Google/multi-vendor coverage pending, initial-access axis, high relevance]
+- 2026-10-30 — CVE-2026-103039 (Gravity Forms ≤3.1.2 WordPress plugin, PHP object injection, unauthenticated RCE, CVSS 9.8) — [NVD, single vendor, initial-access axis, awaiting independent researcher coverage]
+- 2026-10-30 — CVE-2026-116241 (pgAdmin 4 import/export code execution via psql wrapping, CVSS 9.8) — [NVD, single vendor, infrastructure/initial-access axis, awaiting secondary analysis]
+- 2026-10-30 — CVE-2026-62849, CVE-2026-62853 (ThingLinks IoT platform SQL injection + RCE, unauthenticated, CVSS 9.0+) — [NVD, single vendor, IoT/web-api axis, awaiting independent coverage]
 - 2026-10-22 — https://www.elastic.co/security-labs/threat-command/php2shell-assessing-elastic-detection-coverage — php2shell + CVE-2026-109618/109619 (Elastic Security Labs, Oct 21): PHP RCE detection coverage assessment; CVEs allow PHP code execution via web shells. Web/initial-access axis. Single vendor (Elastic), awaiting secondary researcher coverage.
 - 2026-10-22 — Railway infrastructure security incident (Hacker News, Oct 21): Unauthorized access to Railway platform environment variable storage; credentials (API keys, database creds, registry tokens) leaked for AI/ML infrastructure targeting. Supply-chain/infrastructure attack surface. Unverified; awaiting primary source confirmation from Railway PSIRT/blog.
 - 2026-10-22 — LiteLLM 1.107.0 PyPI package compromise (Hacker News, Oct 21): Malicious package on PyPI with credential stealer + backdoor; targets LLM/AI developer tools. Supply-chain attack via package registry. Unverified; awaiting primary source (package maintainer advisory or security researcher coverage).
