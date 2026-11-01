@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-27 (Daily scan: 1 new seed trend seeded (PHP2Shell RCE CVE-2026-109618/109619, 6+ vendor coverage Oct 20-22). 5 existing seed trends stable (N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator). 6 dormant trends unchanged. observation_queue at ~20 items (oldest Oct 14-15, below 21-day burndown threshold). 11/13 primary blogs opened; NVD API 404 (degraded), GHSA 403 (persistent blocker), CISA KEV 403. No blockers impacting scan completeness. 6-day gap since last run (Oct 21).
+Last updated: 2026-11-01 (Daily scan: 2 new seed trends seeded (Drupal RCE chain CVE-2026-118539/108097/108099 Oct 28-30 exploitation, TeamPCP npm/PyPI campaign Oct 28-29). 6 existing seed trends stable (N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator, PHP2Shell). 6 dormant trends unchanged. observation_queue ~26 items (9 new single-vendor CVEs added; oldest Oct 14-15 < 21-day line). 13/13 primary blogs opened via Tavily; full CVE/initial-access sweep completed. No access blockers. 5-day gap since last run (Oct 27).
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -135,6 +135,32 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-10-21 — https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell — Palo Alto Networks Unit42: PHP2Shell threat analysis and exploitation patterns.
   - 2026-10-22 — https://www.cisa.gov/known-exploited-vulnerabilities-catalog — CISA: urgent patch request issued for CVE-2026-109618/109619 on 2026-10-22.
 
+### id: web-drupal-rce-001 — Drupal RCE ecosystem chain (CVE-2026-118539/108097/108099/9082)
+- stage: seed
+- confidence: high
+- last_evidence: 2026-10-30
+- aliases: [Drupal RCE, CVE-2026-118539, CVE-2026-108097, CVE-2026-108099, CVE-2026-9082, Drupal Commerce auth bypass, Drupal core RCE]
+- notes: Multi-CVE exploitation chain affecting Drupal Commerce Core and Drupal Core components. CVE-2026-118539 (Commerce auth-bypass, CVSS critical): insufficient route/field protection allowing unauthenticated or low-privileged access to shopping cart/checkout APIs; actively exploited in the wild Oct 28+. CVE-2026-108097/108099 (Drupal core RCEs, CVSS critical): Field UI module and Entity List module flaws enabling remote code execution when chained with contributed modules or custom code; weaponization predicted within hours/days of Oct 14 disclosure. CVE-2026-9082 (API SQLi, actively exploited within 11 days of disclosure with WAF-evasion payloads targeting PostgreSQL). Combined, these flaws expose Drupal infrastructure (e-commerce storefronts, content platforms, government/enterprise deployments) to unauthenticated initial-access exploitation. Patches available; active exploitation ongoing.
+- evidence:
+  - 2026-10-28 — https://www.securityweek.com/drupal-commerce-core-vulnerability-exploited-against-online-stores — SecurityWeek: Drupal Commerce CVE-2026-118539 actively exploited authorization bypass.
+  - 2026-10-28 — https://socradar.io/blog/drupal-patches-critical-rces-cve-2026-108097-108099 — SOCRadar: Drupal Core critical RCEs CVE-2026-108097/108099 analysis and exploitation risk.
+  - 2026-10-28 — https://www.thedroptimes.com/72860/drupal-critical-rce-five-security-advisories-october-2026 — The Drop Times: Drupal critical RCE advisory summary, Field UI module CVSS 19/25 risk assessment.
+  - 2026-10-28 — https://www.f5.com/labs/articles/drupal-core-cve-2026-9082-active-exploitation-confirmed-within-days-of-disclosure — F5 Labs: CVE-2026-9082 API SQLi active exploitation tracking with WAF-evasion payload analysis.
+  - 2026-10-30 — https://aviatrix.ai/threat-research-center/hackers-actively-exploit-drupal-commerce-core-authorization-bypass-cve-2026-118539 — Aviatrix: Drupal Commerce exploitation details and financial impact to vendors.
+
+### id: supplychain-teampcp-001 — TeamPCP npm/PyPI supply-chain campaign (GitHub Actions compromise)
+- stage: seed
+- confidence: high
+- last_evidence: 2026-10-29
+- aliases: [TeamPCP, GitHub Actions cache poisoning, npm/PyPI supply-chain, @bitwarden/cli impersonation, Mini Shai-Hulud variant]
+- notes: Coordinated supply-chain attack campaign attributed to TeamPCP compromising GitHub CI/CD infrastructure via GitHub Actions cache poisoning and OAuth token theft. Malicious npm and PyPI packages impersonating legitimate projects (Bitwarden CLI, TanStack, UiPath, Mistral AI, guardrails-ai, Telnyx, Axios and 400+ additional packages) deployed May-October 2026. Multi-stage payload: preinstall/import hooks execute attacker executables on install; bootstraps C2 contact; exfiltrates credentials from cloud providers (AWS, GCP, Azure), CI/CD systems (GitHub, GitLab, Jenkins), developer workstations (SSH keys, API tokens), and cryptocurrency wallet files. Self-propagates via stolen npm credentials to backdoor co-owned packages, reaching billions of monthly downloads. Targets cryptocurrency/fintech infrastructure, SaaS developer teams, and supply-chain attack vectors for downstream infrastructure compromise. High supply-chain and initial-access relevance.
+- evidence:
+  - 2026-10-28 — https://blog.gitguardian.com/three-supply-chain-campaigns-hit-npm-pypi-and-docker-hub-in-48-hours — GitGuardian: TeamPCP and parallel supply-chain campaigns hitting npm/PyPI/Docker Hub simultaneously.
+  - 2026-10-28 — https://arcticwolf.com/resources/blog/mini-shai-hulud-supply-chain-malware-attack — Arctic Wolf: Mini Shai-Hulud campaign (TeamPCP variant) detailed analysis including GitHub Actions poisoning techniques.
+  - 2026-10-28 — https://www.rapidfort.com/blog/pypi-npm-and-the-new-frontline-of-software-supply-chain-attacks — RapidFort: npm/PyPI supply-chain attacks analysis; TeamPCP targets (Trivy, LiteLLM, Telnyx, Axios) and credential theft mechanics.
+  - 2026-10-28 — https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks — Palo Alto Networks Unit42: npm threat landscape and TeamPCP @bitwarden/cli impersonation attack chain.
+  - 2026-10-29 — https://www.elastic.co/security-labs/threat-command/shai-hulud-chaindrop-npm-supply-chain — Elastic Security Labs: Shai-Hulud/CHAINDROP worm variant hitting 400+ npm packages, keyv maintainer compromise, 1.3B monthly download exposure.
+
 ### id: initial-access-wsus-001 — WSUS / Windows Update Server RCE exploitation
 - stage: dormant
 - confidence: high
@@ -222,7 +248,14 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
-- 2026-10-22 — https://www.elastic.co/security-labs/threat-command/php2shell-assessing-elastic-detection-coverage — php2shell + CVE-2026-109618/109619 (Elastic Security Labs, Oct 21): PHP RCE detection coverage assessment; CVEs allow PHP code execution via web shells. Web/initial-access axis. Single vendor (Elastic), awaiting secondary researcher coverage.
+- 2026-10-30 — https://www.securityweek.com/gitlab-critical-path-traversal-cve-2026-85706-exploited — CVE-2026-85706 (GitLab path traversal, CVSS 10.0, exploited Oct 30): arbitrary file read / secrets exfiltration on GitLab CE/EE. Single vendor (GitLab) coverage via SecurityWeek; related to CVE-2026-97229 (RCE) same day, awaiting independent security researcher analysis.
+- 2026-10-30 — https://www.securityweek.com/max-severity-gitlab-vulnerability-exploited-against-alpine-linux — CVE-2026-97229 (GitLab RCE, exploited Oct 30): unauthenticated arbitrary code execution on GitLab servers. Single vendor (GitLab) initial disclosure via SecurityWeek; awaiting secondary researcher coverage and technical writeup.
+- 2026-10-30 — CVE-2026-22769 (Dell RecoverPoint zero-day, active exploitation by UNC6201/GrimBolt, unauthenticated RCE): Critical severity, part of Chinese cyberespionage campaign including web shell payload (SlayStyle) deployment. Single vendor (Dell); awaiting independent security researcher analysis beyond Orca/Google attribution.
+- 2026-10-30 — CVE-2026-8732 (WP Maps Pro WordPress plugin, CVSS 9.8, unauthenticated): allows attackers to create administrative accounts and take over vulnerable WordPress installations. Single vendor (WordPress plugin author), awaiting independent security researcher coverage.
+- 2026-10-28 — CVE-2026-58231 (SAP Commerce Cloud, CVSS 10.0, exploited within 3 days of disclosure Oct 25): insufficient authorization checks + input validation enabling arbitrary code execution and internal component compromise. Single vendor (SAP); awaiting independent security vendor analysis.
+- 2026-10-29 — CVE-2026-16723 (Fastjson Java library, CVSS 9, widespread exploitation): unauthenticated deserialization RCE on Spring Boot executables (default configuration, no AutoType enablement required). Single vendor (Alibaba); affects multiple downstream Java applications, awaiting independent security researcher coverage.
+- 2026-10-20 — CVE-2026-20245 (Cisco Catalyst SD-WAN Manager, exploited for months before patching): authenticated local CLI arbitrary command execution with root privileges. 7th Cisco SD-WAN product flaw exploited in 2026. Single vendor; awaiting secondary security vendor analysis.
+- 2026-10-29 — CVE-2026-6973 (Ivanti EPMM zero-day, exploited in targeted attacks Oct 29): high-severity admin privilege elevation; potentially chained with CVE-2026-1281/1340 (unauthenticated RCE) for full MDM infrastructure takeover. Single vendor (Ivanti); awaiting independent security researcher analysis.
 - 2026-10-22 — Railway infrastructure security incident (Hacker News, Oct 21): Unauthorized access to Railway platform environment variable storage; credentials (API keys, database creds, registry tokens) leaked for AI/ML infrastructure targeting. Supply-chain/infrastructure attack surface. Unverified; awaiting primary source confirmation from Railway PSIRT/blog.
 - 2026-10-22 — LiteLLM 1.107.0 PyPI package compromise (Hacker News, Oct 21): Malicious package on PyPI with credential stealer + backdoor; targets LLM/AI developer tools. Supply-chain attack via package registry. Unverified; awaiting primary source (package maintainer advisory or security researcher coverage).
 - 2026-10-15 — CVE-2026-96951 (Windows IKE remote code execution, CVSS 10.0, CWE-77 command injection) — [CISA KEV confirmed Oct 13, federal patching deadline Oct 16 PASSED, active exploitation reported Oct 15, awaiting secondary vendor analysis from Rapid7/Tenable/CrowdStrike/Unit42 (blogs blocked, unable to verify)]
