@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-10-27 (Daily scan: 1 new seed trend seeded (PHP2Shell RCE CVE-2026-109618/109619, 6+ vendor coverage Oct 20-22). 5 existing seed trends stable (N-able, Citrix, FortiMail, Kerberos relay, PaperCut, Apex Accelerator). 6 dormant trends unchanged. observation_queue at ~20 items (oldest Oct 14-15, below 21-day burndown threshold). 11/13 primary blogs opened; NVD API 404 (degraded), GHSA 403 (persistent blocker), CISA KEV 403. No blockers impacting scan completeness. 6-day gap since last run (Oct 21).
+Last updated: 2026-11-02 (Weekly recalibration 2026-W45: 1 new seed trend (PHP2Shell RCE CVE-2026-109618/109619, 6+ vendor multi-org cluster). 3 seed trends total (PHP2Shell, PaperCut 16 days quiet approaching dormancy Nov 1, Apex Accelerator 13 days quiet). 10 dormant trends (4 demoted W44 + 6 prior). observation_queue at ~20 items (oldest Oct 14-15, approaching 14-day burndown threshold Oct 28-29). No stage moves this week. Coverage: 13/13 primary blogs accessible; Tavily fallback effective. Forward bets: PHP2Shell technique research, PaperCut dormancy decision Nov 1, Apex Accelerator downstream cascade.
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
