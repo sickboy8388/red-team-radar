@@ -5,34 +5,34 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 ![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-20-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--10--27-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--04-2f9e44?style=flat-square)
 
 ---
 
-## Since 2026-10-21
+## Since 2026-10-27
 
-- **PHP2Shell RCE seeded as new trend** — CVE-2026-109618/109619 (Oct 21 release, CVSS 9.2) cleared trend bar with 6+ independent vendor coverage (Elastic, Datadog, Sansec, Tenable, Unit42, CISA). Affects PHP 5.4+ (all current versions); high web/initial-access relevance. https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell
-- **6-day backfill recovery** — Oct 21–27 catch-up completed (Oct 22–26 daily reports missing from scheduling gap). All 13 primary blogs reachable; NVD API degraded (404 on date-range queries Oct 21–22, recovered by Oct 27), GHSA 403 session-scoped, Tavily fallback effective.
-- **Existing seed trends stable** — PaperCut (Oct 11, 16 days quiet), Apex Accelerator (Oct 14, 13 days quiet) held at seed with no new evidence. PaperCut approaches dormancy watch (21-day line Nov 1).
-- **Observation queue age review approaching** — Oct 14–15 entries (Windows IKE zero-day, WordPress plugin RCEs, Samsung/TP-Link device vulns) at 12–13 days old; burndown decisions forthcoming Oct 28–29 if no secondary sources clear.
-- **Source coverage maintained** — 13/13 primary blogs accessible Oct 27; Tavily proved effective CVE/advisory fallback for 403-blocked sources.
+- **Quiet period (Oct 28 – Nov 3)** — No new CRITICAL multi-vendor CVE clusters. Primary blogs (11/13 reachable) show no new posts since Oct 27. NVD API returns historical data (parameter degradation). Tavily + WebSearch fallback functional.
+- **Dormancy transitions applied** — PaperCut (24 days quiet) and Apex Accelerator (23 days quiet) moved from seed → dormant. PHP2Shell remains active seed (13 days quiet). Leaves 1 active seed trend.
+- **Observation queue at capacity** — 20 items; oldest entries (Oct 14–15, 21 days old) at burndown threshold. Eligible for resolution if no secondary sources surface by 2026-11-11.
+- **Tool releases unchanged** — Sliver v1.7.8 (Oct 3) and BloodHound v9.6.0 (Aug 18) remain latest. No new releases this period.
+- **Access status** — Outflank 403 persistent. NVD API degraded. GHSA API 403-scoped. GitHub tool repos reachable. Tavily + WebSearch fallback effective.
 
 ---
 
 ## Trends
 
-**seed 3 · dormant 10** (13 total: 3 seed, 0 emerging, 0 accelerating, 0 mainstreaming, 10 dormant)
+**seed 1 · dormant 12** (13 total: 1 seed, 0 emerging, 0 accelerating, 0 mainstreaming, 12 dormant)
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
 | [PHP2Shell RCE (CVE-2026-109618/109619)](#web-php2shell-001) | seed | [2026-10-22](https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell) |
-| [REF8801 Apex Accelerator Malicious npm Supply-Chain](#initial-access-apex-accelerator-001) | seed | [2026-10-12](https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages) |
-| [PaperCut NG/MF Pre-Auth RCE Chain (CVE-2026-82077/82078/81578)](#initial-access-papercut-001) | seed | [2026-10-09](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) |
 | [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#ad-certighost-001) | dormant | [2026-08-06](https://github.com/advisories/GHSA-64qv-2ffq-h4w6) |
 | [N-able N-central Pre-Auth RCE (CVE-2026-86218)](#initial-access-nable-ncentral-001) | dormant | [2026-09-08](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
 | [Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)](#initial-access-citrix-netscaler-001) | dormant | [2026-09-29](https://labs.watchtowr.com/here-we-go-again-citrix-netscaler-dtls-preauth-memory-overflow-cve-2026-88772/) |
 | [Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)](#initial-access-fortimail-001) | dormant | [2026-10-01](https://www.securityweek.com/exploited-fortinet-fortimail-zero-day-calls-for-urgent-action/) |
 | [Kerberos Relay via DNS CNAME Abuse (CVE-2026-20929)](#identity-kerberos-relay-dns-cname-001) | dormant | [2026-10-03](https://www.crowdstrike.com/en-us/blog/detecting-kerberos-relay-attack-via-dns-cname-abuse/) |
+| [PaperCut NG/MF Pre-Auth RCE Chain (CVE-2026-82077/82078/81578)](#initial-access-papercut-001) | dormant | [2026-10-11](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) |
+| [REF8801 Apex Accelerator Malicious npm Supply-Chain](#initial-access-apex-accelerator-001) | dormant | [2026-10-12](https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages) |
 | [WSUS / Windows Update Server RCE exploitation](#initial-access-wsus-001) | dormant | [2026-10-23](https://www.huntress.com/blog/exploitation-of-windows-server-update-services-remote-code-execution-vulnerability) |
 | [Entra ID SyncJacking & Conditional Access Bypass](#identity-entra-syncjacking-001) | dormant | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) |
 | [SonicWall SMA1000 SSRF + RCE exploitation (CVE-2026-15409/15410)](#initial-access-sonicwall-sma-001) | dormant | [2026-08-17](https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the) |
@@ -70,7 +70,7 @@ Recent research, technique writeups, and secondary analysis on the radar:
 - **Study shelf** ([secondary research & technique writeups](TRENDS.md#study_shelf)) — Strong research artifacts not yet forming trends
 - **Daily reports:** [reports/](reports/) (scan logs with findings, source status, and blockers)
 - **Weekly recalibrations:** [reports/weekly/](reports/weekly/) (trend velocity, stage moves, amendments)
-- **Latest:** [2026-10-27 daily](reports/2026-10-27.md) · [2026-W45 weekly](reports/weekly/2026-W45.md)
+- **Latest:** [2026-11-04 daily](reports/2026-11-04.md) · [2026-W45 weekly](reports/weekly/2026-W45.md)
 
 ---
 
