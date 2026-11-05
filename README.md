@@ -4,7 +4,7 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ![trends](https://img.shields.io/badge/trends-14-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-30-6c757d?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-29-6c757d?style=flat-square)
 ![updated](https://img.shields.io/badge/updated-2026--11--05-2f9e44?style=flat-square)
 
 ---
@@ -50,7 +50,7 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 Latest stable versions (checked 2026-11-05):
 
-- [BloodHound](https://github.com/SpecterOps/BloodHound) — v9.6.0 (2026-08-18)
+- [BloodHound](https://github.com/SpecterOps/BloodHound) — v9.9.1 (2026-11-04, security fixes + UI improvements)
 - [NetExec](https://github.com/Pennyw0rth/NetExec) — (no release data)
 - [Sliver C2](https://github.com/BishopFox/sliver) — v1.7.8 (2026-10-03)
 - [Certipy](https://github.com/ly4k/Certipy) — (no release data)
@@ -82,7 +82,7 @@ Latest stable versions (checked 2026-11-05):
 - **Observation queue:** 30 items (over ~25 cap). Oldest entries (Oct 3-6, ~32 days) overdue for burndown; Oct 14-15 entries (21 days) at threshold.
 
 **Latest full ledger:** [TRENDS.md](./TRENDS.md)  
-**Today's findings:** [observation_queue](./TRENDS.md#observation_queue) (30 items, 2 new Kyverno CVEs)  
+**Today's findings:** [observation_queue](./TRENDS.md#observation_queue) (29 items; 5 new Nov 5: @enspirit/elo npm RCEs, Keycloak JWT bypass, stanza Python RCE, Kyverno policy bypass cluster)  
 **Reports:** [Daily](./reports/2026-11-05.md) · [Weekly](./reports/weekly/) · [Archive](./reports/)
 
 ---
