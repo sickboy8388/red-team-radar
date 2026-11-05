@@ -1,31 +1,36 @@
-# Red Team Radar — Offensive Security Trend Tracker
+# Red Team Radar
 
-Persistent situational awareness for offensive-security operators. Autonomous tracker of the active frontier: tools, releases, techniques, research, and advisories on Active Directory, C2/evasion, web/API/cloud, exploitable CVEs, and threat TTPs.
+Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-14-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-20-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--04-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-30-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--05-2f9e44?style=flat-square)
 
 ---
 
-## Since 2026-10-27
+## Since last scan (2026-11-05)
 
-- **Quiet period (Oct 28 – Nov 3)** — No new CRITICAL multi-vendor CVE clusters. Primary blogs (11/13 reachable) show no new posts since Oct 27. NVD API returns historical data (parameter degradation). Tavily + WebSearch fallback functional.
-- **Dormancy transitions applied** — PaperCut (24 days quiet) and Apex Accelerator (23 days quiet) moved from seed → dormant. PHP2Shell remains active seed (13 days quiet). Leaves 1 active seed trend.
-- **Observation queue at capacity** — 20 items; oldest entries (Oct 14–15, 21 days old) at burndown threshold. Eligible for resolution if no secondary sources surface by 2026-11-11.
-- **Tool releases unchanged** — Sliver v1.7.8 (Oct 3) and BloodHound v9.6.0 (Aug 18) remain latest. No new releases this period.
-- **Access status** — Outflank 403 persistent. NVD API degraded. GHSA API 403-scoped. GitHub tool repos reachable. Tavily + WebSearch fallback effective.
+- **New AD attack tool:** [adshell-rs](https://github.com/g0h4n/adshell-rs) (v1.0.0 released Nov 2) — Interactive AD shell over LDAP(S)/ADWS written in Rust; supports RBCD, DCSync grant, Shadow Credentials, multiple auth modes. First new tool discovered this period. [Study pick.](./TRENDS.md#study_shelf)
+
+- **Kyverno Critical policy bypasses:** [CVE-2026-122310](https://github.com/advisories/GHSA-4c7q-j33x-866w) (CVSS 9.4) and [4 supporting CVEs](https://github.com/advisories?query=is%3Areviewed+sort%3Aupdated-desc) (Nov 4-5 release) — Namespace-scoped users can escalate to cluster admin via Policy path traversal. Kubernetes/cloud axis. [Queued.](./TRENDS.md#observation_queue)
+
+- **Community pulse quiet:** Reddit r/redteamsec 403 persistent. Hacker News security posts low red-team relevance. No new TTP names identified outside PHP2Shell tracking.
+
+- **GitHub searches:** Kerberos relay, C2 frameworks, EDR evasion created >Nov 2 with >50 stars: 0 results. Broader search found adshell-rs (6 stars). GitHub search rate-limited mid-session.
+
+- **Primary blogs:** No new posts since Nov 4 (quiet period continues). 11/13 blogs reachable; 2 degraded (Outflank 403, Google Project Zero safeguard).
 
 ---
 
 ## Trends
 
-**seed 1 · dormant 12** (13 total: 1 seed, 0 emerging, 0 accelerating, 0 mainstreaming, 12 dormant)
+**seed 1 · emerging 1 · dormant 12** (14 total: 1 seed, 1 emerging, 0 accelerating, 0 mainstreaming, 12 dormant)
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
 | [PHP2Shell RCE (CVE-2026-109618/109619)](#web-php2shell-001) | seed | [2026-10-22](https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell) |
+| [ADCS abuse & escalation](#ad-adcs-001) | emerging | [2026-08-06](https://www.nextron-systems.com/) |
 | [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#ad-certighost-001) | dormant | [2026-08-06](https://github.com/advisories/GHSA-64qv-2ffq-h4w6) |
 | [N-able N-central Pre-Auth RCE (CVE-2026-86218)](#initial-access-nable-ncentral-001) | dormant | [2026-09-08](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
 | [Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)](#initial-access-citrix-netscaler-001) | dormant | [2026-09-29](https://labs.watchtowr.com/here-we-go-again-citrix-netscaler-dtls-preauth-memory-overflow-cve-2026-88772/) |
@@ -41,19 +46,24 @@ Persistent situational awareness for offensive-security operators. Autonomous tr
 
 ---
 
-## Tools & Releases
+## Tools & releases
 
-- **BloodHound** v9.6.0 (Aug 18, 2026) — [SpecterOps/BloodHound](https://github.com/SpecterOps/BloodHound) — Active Directory attack-path analysis.
-- **Sliver C2** v1.7.8 (Oct 3, 2026) — [BishopFox/sliver](https://github.com/BishopFox/sliver) — Lightweight command-and-control framework.
-- **Nuclei** v3.11.1 (Aug 8, 2026) — [projectdiscovery/nuclei](https://github.com/projectdiscovery/nuclei) — Template-driven vulnerability scanner.
-- **Certipy** v5.1.0 (Jun 23, 2026) — [ly4k/Certipy](https://github.com/ly4k/Certipy) — AD CS exploitation tool.
-- **impacket** v0.9.20 (Sep 2026) — [fortra/impacket](https://github.com/fortra/impacket) — Python network protocol library.
+Latest stable versions (checked 2026-11-05):
+
+- [BloodHound](https://github.com/SpecterOps/BloodHound) — v9.6.0 (2026-08-18)
+- [NetExec](https://github.com/Pennyw0rth/NetExec) — (no release data)
+- [Sliver C2](https://github.com/BishopFox/sliver) — v1.7.8 (2026-10-03)
+- [Certipy](https://github.com/ly4k/Certipy) — (no release data)
+- [Nuclei](https://github.com/projectdiscovery/nuclei) — v3.11.0 (2026-07-06, breaking change: unsigned JS templates now blocked)
+- [impacket](https://github.com/fortra/impacket) — (no release data)
 
 ---
 
-## Worth Studying
+## Worth studying
 
-Recent research, technique writeups, and secondary analysis on the radar:
+**Study shelf (newest first).** Each qualifies on its own merits; trend bar does not apply.
+
+- **adshell-rs** (Nov 5) — Interactive Rust-native AD shell over LDAP(S) or ADWS. Supports RBCD, DCSync grant, Shadow Credentials, multiple auth modes (password, pass-the-hash, Kerberos, pass-the-certificate). Released Nov 2. Clear first-class tool for identity-axis operators. https://github.com/g0h4n/adshell-rs
 
 - **Attack of The Extensions** (SpecterOps, Aug 13) — Chromium extensions as persistent C2 infrastructure; silently install and serve as command-and-control on compromised systems. https://specterops.io/blog/2026/08/13/chromium-extension-c2-persistence/
 - **Return of the Cookie Monster** (SpecterOps, Aug 13) — Authenticated browser session compromise via Chrome DevTools Protocol; cookie-theft techniques and modern protections. https://specterops.io/blog/2026/08/13/chrome-devtools-protocol-cookie-theft/
@@ -63,14 +73,17 @@ Recent research, technique writeups, and secondary analysis on the radar:
 
 ---
 
-## References
+## Coverage & continuity
 
-- **Full ledger:** [TRENDS.md](TRENDS.md) (primary source of truth; all trend definitions, evidence, and stage definitions)
-- **Observation queue** ([unverified / single-vendor signals](TRENDS.md#observation_queue)) — Items pending independent verification or below trend bar
-- **Study shelf** ([secondary research & technique writeups](TRENDS.md#study_shelf)) — Strong research artifacts not yet forming trends
-- **Daily reports:** [reports/](reports/) (scan logs with findings, source status, and blockers)
-- **Weekly recalibrations:** [reports/weekly/](reports/weekly/) (trend velocity, stage moves, amendments)
-- **Latest:** [2026-11-04 daily](reports/2026-11-04.md) · [2026-W45 weekly](reports/weekly/2026-W45.md)
+- **Primary sweep:** 13/13 research/vendor blogs checked (11 open, 2 degraded: Outflank 403, Google Project Zero safeguard).
+- **CVE/advisory watch:** NVD API degraded (parameter issue); GHSA accessible; CISA KEV 403 (low impact).
+- **Tool discovery:** GitHub searches (created >2026-11-02, stars >50) completed on 2+ topics; 1 tool captured via broader search.
+- **Community pulse:** Reddit 403 (persistent); Hacker News live feed accessible (low yield).
+- **Observation queue:** 30 items (over ~25 cap). Oldest entries (Oct 3-6, ~32 days) overdue for burndown; Oct 14-15 entries (21 days) at threshold.
+
+**Latest full ledger:** [TRENDS.md](./TRENDS.md)  
+**Today's findings:** [observation_queue](./TRENDS.md#observation_queue) (30 items, 2 new Kyverno CVEs)  
+**Reports:** [Daily](./reports/2026-11-05.md) · [Weekly](./reports/weekly/) · [Archive](./reports/)
 
 ---
 
