@@ -60,6 +60,7 @@ Do not limit yourself to these axes if you find something clearly more important
 |---|---|---|
 | `TRENDS.md` | Trend ledger + `observation_queue`, `strategy_notes`, `study_shelf`, `blockers` | follow `ledger-update` skill |
 | `SOURCES.md` | Agent-owned source registry | maintained by the radar itself |
+| `SUMMARY.md` | At-a-glance daily snapshot (date + entries) — regenerate every run | fully derived |
 | `README.md` | THE output surface — regenerate via `render-dashboard`; never edit by hand | fully derived |
 | `reports/YYYY-MM-DD.md` | Daily reports | write once, never edit old ones |
 | `reports/weekly/YYYY-Wnn.md` | Weekly reports | write once |
