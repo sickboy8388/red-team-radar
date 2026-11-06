@@ -59,6 +59,17 @@ or still `degraded: ...` if no GitHub-native path exists).
   bar, burn down to ~25 (resolve oldest with a one-line reason; never silently delete).
 - Append one dated line to `logs/source_rotation.md`. Update "Last updated" in TRENDS.md.
 - Regenerate `README.md` from the ledger in the SAME commit (`render-dashboard` skill).
+- Regenerate `SUMMARY.md` in the SAME commit. Format (match `Neetx/ai-research-radar`):
+  ```
+  # Red Team Radar — YYYY-MM-DD
+
+  - **Tag** · [Title](URL) — one-line description (→ [trend/section](TRENDS.md#anchor)).
+  ```
+  Tags: **New trend**, **Evidence**, **Stage change**, **Study pick**, **Queued**, **Tool**,
+  **Dormant**, **Quiet** (when nothing happened). Each entry links a primary URL and, where
+  applicable, the relevant TRENDS.md anchor. Keep it to 3–8 entries capturing the run's most
+  important outputs. On a quiet day, a single **Quiet** line plus any watch/queue highlights
+  is enough.
 
 ## 5. Study picks
 Select 0–2 items a red teamer should know this week (tool, technique writeup, CVE, paper).

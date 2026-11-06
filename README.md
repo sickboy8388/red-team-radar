@@ -2,36 +2,35 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-14-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-29-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--05-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--06-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-05)
+## Since last scan (2026-11-06)
 
-- **New AD attack tool:** [adshell-rs](https://github.com/g0h4n/adshell-rs) (v1.0.0 released Nov 2) — Interactive AD shell over LDAP(S)/ADWS written in Rust; supports RBCD, DCSync grant, Shadow Credentials, multiple auth modes. First new tool discovered this period. [Study pick.](./TRENDS.md#study_shelf)
+- **Quiet period continues:** 9-day streak of zero primary blog posts (most recent: Elastic Oct 26, SpecterOps Oct 23). Consistent with end-of-quarter seasonality.
 
-- **Kyverno Critical policy bypasses:** [CVE-2026-122310](https://github.com/advisories/GHSA-4c7q-j33x-866w) (CVSS 9.4) and [4 supporting CVEs](https://github.com/advisories?query=is%3Areviewed+sort%3Aupdated-desc) (Nov 4-5 release) — Namespace-scoped users can escalate to cluster admin via Policy path traversal. Kubernetes/cloud axis. [Queued.](./TRENDS.md#observation_queue)
+- **PHP2Shell remains active seed:** 14 days quiet as of Nov 6; dormancy watch ongoing (21-day line 2026-10-27).
 
-- **Community pulse quiet:** Reddit r/redteamsec 403 persistent. Hacker News security posts low red-team relevance. No new TTP names identified outside PHP2Shell tracking.
+- **No new multi-vendor CVEs identified** Nov 5-6; all findings single-vendor awaiting secondary corroboration. Kyverno policy bypass cluster (Nov 4-5) remains queued awaiting secondary research.
 
-- **GitHub searches:** Kerberos relay, C2 frameworks, EDR evasion created >Nov 2 with >50 stars: 0 results. Broader search found adshell-rs (6 stars). GitHub search rate-limited mid-session.
+- **Tool release lane quiet:** 0 new releases detected across 6 key tracked repos (Sliver, BloodHound, NetExec, Certipy, Nuclei, impacket) Nov 5-6; latest Sliver v1.7.8 (Oct 3).
 
-- **Primary blogs:** No new posts since Nov 4 (quiet period continues). 11/13 blogs reachable; 2 degraded (Outflank 403, Google Project Zero safeguard).
+- **Observation queue at capacity:** ~29 items (over ~25 cap); oldest entries (Oct 3-6, ~32 days) eligible for burndown next run.
 
 ---
 
 ## Trends
 
-**seed 1 · emerging 1 · dormant 12** (14 total: 1 seed, 1 emerging, 0 accelerating, 0 mainstreaming, 12 dormant)
+**seed 1 · dormant 12** (13 total: 1 seed, 0 accelerating, 12 dormant)
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
 | [PHP2Shell RCE (CVE-2026-109618/109619)](#web-php2shell-001) | seed | [2026-10-22](https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell) |
-| [ADCS abuse & escalation](#ad-adcs-001) | emerging | [2026-08-06](https://www.nextron-systems.com/) |
-| [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#ad-certighost-001) | dormant | [2026-08-06](https://github.com/advisories/GHSA-64qv-2ffq-h4w6) |
+| [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#ad-certighost-001) | dormant | [2026-08-06](https://www.nextron-systems.com/) |
 | [N-able N-central Pre-Auth RCE (CVE-2026-86218)](#initial-access-nable-ncentral-001) | dormant | [2026-09-08](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
 | [Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)](#initial-access-citrix-netscaler-001) | dormant | [2026-09-29](https://labs.watchtowr.com/here-we-go-again-citrix-netscaler-dtls-preauth-memory-overflow-cve-2026-88772/) |
 | [Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)](#initial-access-fortimail-001) | dormant | [2026-10-01](https://www.securityweek.com/exploited-fortinet-fortimail-zero-day-calls-for-urgent-action/) |
@@ -48,14 +47,12 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ## Tools & releases
 
-Latest stable versions (checked 2026-11-05):
+Latest stable versions (checked 2026-11-06):
 
-- [BloodHound](https://github.com/SpecterOps/BloodHound) — v9.9.1 (2026-11-04, security fixes + UI improvements)
-- [NetExec](https://github.com/Pennyw0rth/NetExec) — (no release data)
-- [Sliver C2](https://github.com/BishopFox/sliver) — v1.7.8 (2026-10-03)
-- [Certipy](https://github.com/ly4k/Certipy) — (no release data)
-- [Nuclei](https://github.com/projectdiscovery/nuclei) — v3.11.0 (2026-07-06, breaking change: unsigned JS templates now blocked)
-- [impacket](https://github.com/fortra/impacket) — (no release data)
+- [BloodHound](https://github.com/SpecterOps/BloodHound) — v9.6.0 (2026-08-18, XSS fixes + dependency hardening)
+- [Sliver C2](https://github.com/BishopFox/sliver) — v1.7.8 (2026-10-03, tunnel hardening + shell improvements)
+- [Nuclei](https://github.com/projectdiscovery/nuclei) — v3.11.0 (2026-07-31, breaking change: unsigned JS templates now blocked)
+- [NetExec](https://github.com/Pennyw0rth/NetExec), [Certipy](https://github.com/ly4k/Certipy), [impacket](https://github.com/fortra/impacket) — no new releases since last checked
 
 ---
 
@@ -75,15 +72,15 @@ Latest stable versions (checked 2026-11-05):
 
 ## Coverage & continuity
 
-- **Primary sweep:** 13/13 research/vendor blogs checked (11 open, 2 degraded: Outflank 403, Google Project Zero safeguard).
-- **CVE/advisory watch:** NVD API degraded (parameter issue); GHSA accessible; CISA KEV 403 (low impact).
-- **Tool discovery:** GitHub searches (created >2026-11-02, stars >50) completed on 2+ topics; 1 tool captured via broader search.
-- **Community pulse:** Reddit 403 (persistent); Hacker News live feed accessible (low yield).
-- **Observation queue:** 30 items (over ~25 cap). Oldest entries (Oct 3-6, ~32 days) overdue for burndown; Oct 14-15 entries (21 days) at threshold.
+- **Primary sweep (Nov 6):** 13/13 research/vendor blogs checked (11 open HTTP 200, 2 degraded: Outflank 403 persistent, Google Project Zero safeguard block). **0 new posts since Nov 4** (9-day quiet period continues).
+- **CVE/advisory watch:** No new CRITICAL multi-vendor CVEs identified Nov 5-6; all findings single-vendor. NVD API degraded (parameter issue); GHSA accessible; CISA KEV 403.
+- **Tool discovery:** GitHub searches on 3 discovery topics (Kerberos relay, EDR evasion, C2 frameworks; created >2026-11-05, stars >50): 0 results. Tool release lane quiet (6 key repos checked; 0 new releases).
+- **Community pulse:** Reddit 403 persistent; Hacker News scanned (low red-team relevance yield). No new TTP names identified outside PHP2Shell.
+- **Observation queue:** 29 items (over ~25 cap). Oldest entries (Oct 3-6, ~32 days) eligible for burndown; Oct 14-15 entries (21 days) at threshold.
 
 **Latest full ledger:** [TRENDS.md](./TRENDS.md)  
-**Today's findings:** [observation_queue](./TRENDS.md#observation_queue) (29 items; 5 new Nov 5: @enspirit/elo npm RCEs, Keycloak JWT bypass, stanza Python RCE, Kyverno policy bypass cluster)  
-**Reports:** [Daily](./reports/2026-11-05.md) · [Weekly](./reports/weekly/) · [Archive](./reports/)
+**Today's findings:** [observation_queue](./TRENDS.md#observation_queue) · [Daily Report](./reports/2026-11-06.md)  
+**Reports:** [Weekly](./reports/weekly/) · [Archive](./reports/)
 
 ---
 
