@@ -27,6 +27,17 @@ in after verifying it by opening it this session; never guess/invent a mirror UR
 - DataMinr (threat intelligence / PoC tracking) — https://dataminr.com/ [verified 2026-08-06]
 - FieldEffect (offensive-defense analysis) — https://fieldeffect.com/ [verified 2026-08-06]
 - SOC Prime (detection rules & threat intelligence) — https://socprime.com/ [verified 2026-10-12]
+- Wiz Security Research — https://www.wiz.io/blog/ [verified 2026-11-06]
+- Check Point Research Blog — https://blog.checkpoint.com/security/ [verified 2026-11-06]
+- Akamai Security Research — https://www.akamai.com/blog/security-research/ [verified 2026-11-06]
+- Volexity Threat Research — https://www.volexity.com/blog/ [verified 2026-11-06]
+- Sysdig Threat Research — https://www.sysdig.com/blog/ [verified 2026-11-06]
+- Recorded Future (threat intelligence) — https://www.recordedfuture.com/blog/ [verified 2026-11-06]
+- Qualys Threat Research — https://blog.qualys.com/ [verified 2026-11-06]
+- Cisco Talos Intelligence — https://blog.talosintelligence.com/ [verified 2026-11-06]
+- Greenbone Security Blog — https://www.greenbone.net/en/blog/ [verified 2026-11-06]
+- The Hacker News (broad CVE/exploit/breach coverage) — https://thehackernews.com/ [verified 2026-11-06, Playwright anti-bot bypass required]
+- BleepingComputer (broad CVE/exploit/breach coverage) — https://www.bleepingcomputer.com/ [verified 2026-11-06, Cloudflare challenge — Playwright partial, needs stealth improvement]
 
 Tool repos & releases (check `<repo>/releases`):
 - BloodHound — https://github.com/SpecterOps/BloodHound
