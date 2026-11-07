@@ -1,7 +1,7 @@
-# Red Team Radar — 2026-11-06
+# Red Team Radar — 2026-11-07
 
-- **Quiet** · No new trends, no new evidence — 9-day publication drought across all 13 primary blogs.
-- **Seed watch** · [PHP2Shell RCE (CVE-2026-109618/109619)](https://www.elastic.co/security-labs/threat-command/php2shell-assessing-elastic-detection-coverage) — 14 days quiet; approaching dormancy line (→ [PHP2Shell](TRENDS.md#id-web-php2shell-001--php2shell-rce-cve-2026-109618109619)).
-- **Queued** · [Kyverno policy bypass cluster (CVE-2026-122310, CVSS 9.4)](https://github.com/advisories/GHSA-4c7q-j33x-866w) — namespace → cluster-admin escalation via path traversal; awaiting secondary coverage (→ [observation_queue](TRENDS.md#observation_queue)).
-- **Queued** · [@enspirit/elo npm RCEs (CVE-2026-44267/44266)](https://github.com/advisories) — sandbox escape + code injection in JS/Ruby emitter; single vendor (→ [observation_queue](TRENDS.md#observation_queue)).
-- **Tool** · [adshell-rs](https://github.com/g0h4n/adshell-rs) — Rust-native AD shell over LDAP(S)/ADWS; RBCD, DCSync, Shadow Credentials (v1.0.0, Nov 2) (→ [study_shelf](TRENDS.md#study_shelf)).
+- **Quiet** · Persistent security landscape; no new trends seeded this run.
+- **Queued** · [Barracuda Email Security Gateway RCE](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/) (CVE-2026-116606/111560) — watchTowr Nov 5 discovery; initial-access edge device axis; awaiting secondary vendor analysis (→ [observation_queue](TRENDS.md#observation_queue)).
+- **Maintenance** · Burned down 2 oldest observation_queue entries (32+ days, no trend-bar progression: F5 BIG-IP Oct 3, Atlassian Oct 6); consolidated Oct 14-15 plugin cluster. Queue hygiene improved to ~20 items.
+- **Access Restored** · GitHub Advisories API now reachable globally (previously persistent 403-scoped). NVD parameter issue persists; GHSA fallback functional.
+- **Dormancy Watch** · [PHP2Shell RCE](TRENDS.md#id-web-php2shell-001--php2shell-rce-cve-2026-109618109619) (seed, 16 days quiet); dormancy line approaches 2026-11-21 if no new evidence.

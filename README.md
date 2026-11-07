@@ -2,24 +2,24 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-14-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-29-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--06-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-28-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--07-2f9e44?style=flat-square)
 
 ---
 
 ## Since last scan (2026-11-06)
 
-- **Quiet period continues:** 9-day streak of zero primary blog posts (most recent: Elastic Oct 26, SpecterOps Oct 23). Consistent with end-of-quarter seasonality.
+- **Network access restored:** GitHub Advisories API now globally reachable (previously session-scoped 403 for 3+ runs). Significant improvement to primary-source verification capability.
 
-- **PHP2Shell remains active seed:** 14 days quiet as of Nov 6; dormancy watch ongoing (21-day line 2026-10-27).
+- **New finding queued:** [Barracuda Email Security Gateway Pre-Auth RCE (CVE-2026-116606/111560)](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/) — watchTowr Nov 5 discovery; edge device/initial-access axis; single vendor; awaiting secondary corroboration.
 
-- **No new multi-vendor CVEs identified** Nov 5-6; all findings single-vendor awaiting secondary corroboration. Kyverno policy bypass cluster (Nov 4-5) remains queued awaiting secondary research.
+- **Queue hygiene:** Burned down 2 oldest entries (32+ days quiet, no trend-bar progression: F5 BIG-IP Oct 3, Atlassian Oct 6) and consolidated Oct 14-15 plugin cluster (3→1). Queue now ~20 items (target: ~25).
 
-- **Tool release lane quiet:** 0 new releases detected across 6 key tracked repos (Sliver, BloodHound, NetExec, Certipy, Nuclei, impacket) Nov 5-6; latest Sliver v1.7.8 (Oct 3).
+- **PHP2Shell watch:** Web RCE seed at 16 days quiet; dormancy line approaching 2026-11-21 if no new evidence.
 
-- **Observation queue at capacity:** ~29 items (over ~25 cap); oldest entries (Oct 3-6, ~32 days) eligible for burndown next run.
+- **Tool release lane unchanged:** No new releases Nov 4-7 across tracked repos.
 
 ---
 
