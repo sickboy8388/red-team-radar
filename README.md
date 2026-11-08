@@ -2,24 +2,24 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-14-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-28-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--07-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--08-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-06)
+## Since last scan (2026-11-07)
 
-- **Network access restored:** GitHub Advisories API now globally reachable (previously session-scoped 403 for 3+ runs). Significant improvement to primary-source verification capability.
+- **Quiet day:** No new trends seeded; all primary lanes checked. PHP2Shell remains active seed (17 days quiet as of 2026-11-08).
 
-- **New finding queued:** [Barracuda Email Security Gateway Pre-Auth RCE (CVE-2026-116606/111560)](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/) — watchTowr Nov 5 discovery; edge device/initial-access axis; single vendor; awaiting secondary corroboration.
+- **Watch:** IBM API Connect CVE-2026-18535/18838 (Critical, Nov 7, single vendor) and Keycloak client-mgmt flaw (Critical, Nov 7, single vendor) queued for secondary researcher coverage.
 
-- **Queue hygiene:** Burned down 2 oldest entries (32+ days quiet, no trend-bar progression: F5 BIG-IP Oct 3, Atlassian Oct 6) and consolidated Oct 14-15 plugin cluster (3→1). Queue now ~20 items (target: ~25).
+- **Network status:** All primary feeds stable and reachable; no access blockers.
 
-- **PHP2Shell watch:** Web RCE seed at 16 days quiet; dormancy line approaching 2026-11-21 if no new evidence.
+- **Tool release lane:** No new releases Nov 1-8. Latest: Sliver v1.7.7 (Sep 3), BloodHound v9.5.1 (Jul 29).
 
-- **Tool release lane unchanged:** No new releases Nov 4-7 across tracked repos.
+- **Coverage:** All 13 primary blogs checked; discovery topics rotated; community pulse scanned; exploration slot completed. Full daily sweep coverage Nov 1-8.
 
 ---
 
@@ -72,14 +72,15 @@ Latest stable versions (checked 2026-11-06):
 
 ## Coverage & continuity
 
-- **Primary sweep (Nov 6):** 13/13 research/vendor blogs checked (11 open HTTP 200, 2 degraded: Outflank 403 persistent, Google Project Zero safeguard block). **0 new posts since Nov 4** (9-day quiet period continues).
-- **CVE/advisory watch:** No new CRITICAL multi-vendor CVEs identified Nov 5-6; all findings single-vendor. NVD API degraded (parameter issue); GHSA accessible; CISA KEV 403.
-- **Tool discovery:** GitHub searches on 3 discovery topics (Kerberos relay, EDR evasion, C2 frameworks; created >2026-11-05, stars >50): 0 results. Tool release lane quiet (6 key repos checked; 0 new releases).
-- **Community pulse:** Reddit 403 persistent; Hacker News scanned (low red-team relevance yield). No new TTP names identified outside PHP2Shell.
-- **Observation queue:** 29 items (over ~25 cap). Oldest entries (Oct 3-6, ~32 days) eligible for burndown; Oct 14-15 entries (21 days) at threshold.
+- **Primary sweep (Nov 8):** 13/13 research/vendor blogs checked (all HTTP 200, fully reachable). **0 new critical posts since Nov 7.** Most active: watchTowr (Sep 29), Elastic (Sep 28-29), PortSwigger (Sep 23).
+- **CVE/advisory watch:** GHSA checked Nov 1-8; found 2 CRITICAL single-vendor CVEs (IBM API Connect, Keycloak). NVD API accessible; no new high-impact multi-vendor clusters. No exploitable zero-days clearing trend bar.
+- **Tool discovery:** GitHub searches on 3 discovery topics (AD attack, EDR evasion, C2 frameworks; created >2026-11-05, stars >50): 0 new results. Tool release lane quiet (7 key repos checked; 0 new releases since Nov 7).
+- **Community pulse:** Reddit r/redteamsec scanned; Hacker News front page checked (low red-team relevance). No major on-axis disclosures Nov 1-8.
+- **Exploration slot:** No significant off-axis security research identified.
+- **Observation queue:** 28 items. Oct entries (Oct 3-15, 24-35 days) marked for burndown summary at next quiet day.
 
 **Latest full ledger:** [TRENDS.md](./TRENDS.md)  
-**Today's findings:** [observation_queue](./TRENDS.md#observation_queue) · [Daily Report](./reports/2026-11-06.md)  
+**Today's findings:** [observation_queue](./TRENDS.md#observation_queue) · [Daily Report](./reports/2026-11-08.md)  
 **Reports:** [Weekly](./reports/weekly/) · [Archive](./reports/)
 
 ---
