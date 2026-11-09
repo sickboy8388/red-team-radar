@@ -2,24 +2,24 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-14-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-28-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--07-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-20-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--09-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-06)
+## Since last weekly (2026-W46, Nov 9)
 
-- **Network access restored:** GitHub Advisories API now globally reachable (previously session-scoped 403 for 3+ runs). Significant improvement to primary-source verification capability.
+- **Dormancy threshold reached:** [PaperCut NG/MF Pre-Auth RCE (CVE-2026-82077/82078/81578)](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) and [REF8801 Apex Accelerator malicious npm](https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages) both demoted from seed to dormant (21+ days quiet without new evidence).
 
-- **New finding queued:** [Barracuda Email Security Gateway Pre-Auth RCE (CVE-2026-116606/111560)](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/) — watchTowr Nov 5 discovery; edge device/initial-access axis; single vendor; awaiting secondary corroboration.
+- **Network access improved:** GitHub Advisories API now globally accessible (previously session-scoped 403 for 3+ weeks). Expect enhanced CVE/advisory verification capability in future runs.
 
-- **Queue hygiene:** Burned down 2 oldest entries (32+ days quiet, no trend-bar progression: F5 BIG-IP Oct 3, Atlassian Oct 6) and consolidated Oct 14-15 plugin cluster (3→1). Queue now ~20 items (target: ~25).
+- **Queue hygiene:** Burned down 2 oldest entries (F5 BIG-IP Oct 3, Atlassian Oct 6; 32-35 days quiet, single-vendor, no trend-bar progression) and consolidated Oct 14-15 WordPress plugin RCE cluster (3→1). Queue now ~20 items (target ~25).
 
-- **PHP2Shell watch:** Web RCE seed at 16 days quiet; dormancy line approaching 2026-11-21 if no new evidence.
+- **PHP2Shell watch:** Web RCE seed at 16 days quiet (last evidence Oct 22); dormancy line Nov 12. Watch for exploitation-technique research (WAF bypass, in-memory execution, exploit chains) to accelerate trend.
 
-- **Tool release lane unchanged:** No new releases Nov 4-7 across tracked repos.
+- **New finding queued:** [Barracuda Email Security Gateway Pre-Auth RCE (CVE-2026-116606/111560)](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/) — watchTowr Nov 5; edge appliance/initial-access axis; single vendor; awaiting secondary corroboration (Tenable, Rapid7, Horizon3, SentinelOne).
 
 ---
 
@@ -47,41 +47,37 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ## Tools & releases
 
-Latest stable versions (checked 2026-11-06):
+Latest stable versions (checked 2026-11-07):
 
-- [BloodHound](https://github.com/SpecterOps/BloodHound) — v9.6.0 (2026-08-18, XSS fixes + dependency hardening)
-- [Sliver C2](https://github.com/BishopFox/sliver) — v1.7.8 (2026-10-03, tunnel hardening + shell improvements)
-- [Nuclei](https://github.com/projectdiscovery/nuclei) — v3.11.0 (2026-07-31, breaking change: unsigned JS templates now blocked)
-- [NetExec](https://github.com/Pennyw0rth/NetExec), [Certipy](https://github.com/ly4k/Certipy), [impacket](https://github.com/fortra/impacket) — no new releases since last checked
+- **BloodHound** — v9.6.0 (2026-08-18) — Active Directory attack-path analysis and privilege escalation visualization
+- **Sliver** — v1.7.8 (2026-10-03) — Multiperson collaborative red-team C2 framework (Havoc successor)
+- **impacket** — 0.9.20 (2026-08) — Kerberos/AD tooling (impacket, GetUserSPNs, secretsdump, wmiexec, psexec)
+- **NetExec** — (2026-08) — SMB/LDAP/SSH/FTP scanner and exploitation (nxc)
+- **Nuclei** — v3.11.0 (2026-07-06) — Unsigned JavaScript-protocol templates now refused; use signing
+- **Certipy** — (2026-08) — Active Directory Certificate Services abuse and exploitation
 
 ---
 
 ## Worth studying
 
-**Study shelf (newest first).** Each qualifies on its own merits; trend bar does not apply.
+- **[adshell-rs](https://github.com/g0h4n/adshell-rs)** — Interactive AD shell over LDAP(S)/ADWS (Rust, v1.0.0 released 2026-11-02). Fills gap in Rust-native AD attack tooling; supports RBCD management, DCSync delegation, Shadow Credentials, user password reset, Kerberos auth modes.
 
-- **adshell-rs** (Nov 5) — Interactive Rust-native AD shell over LDAP(S) or ADWS. Supports RBCD, DCSync grant, Shadow Credentials, multiple auth modes (password, pass-the-hash, Kerberos, pass-the-certificate). Released Nov 2. Clear first-class tool for identity-axis operators. https://github.com/g0h4n/adshell-rs
+- **[Process Parameter Poisoning "P3"](https://sensepost.com/blog/2026/process-parameter-poisoning/)** — Code-injection via smuggled payload in legitimate process fields, using `CreateProcessW` + thread-context manipulation instead of `WriteProcessMemory`/`VirtualAllocEx`; reduces EDR injection footprint against major endpoint defense products.
 
-- **Attack of The Extensions** (SpecterOps, Aug 13) — Chromium extensions as persistent C2 infrastructure; silently install and serve as command-and-control on compromised systems. https://specterops.io/blog/2026/08/13/chromium-extension-c2-persistence/
-- **Return of the Cookie Monster** (SpecterOps, Aug 13) — Authenticated browser session compromise via Chrome DevTools Protocol; cookie-theft techniques and modern protections. https://specterops.io/blog/2026/08/13/chrome-devtools-protocol-cookie-theft/
-- **ConfigManBearPig 2.0** (SpecterOps, Aug 3) — SCCM/Configuration Manager attack-collection tool covering 30+ lateral-movement, priv-esc, and takeover paths; Linux support, proxy/alt-auth OPSEC. https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/
-- **Process Parameter Poisoning "P3"** (SensePost, Jul 6) — Novel code-injection via process startup fields + CreateProcessW, reducing EDR footprint against four major vendors. https://sensepost.com/blog/2026/process-parameter-poisoning/
-- **CRLF-Powered Desync Attacks** (PortSwigger Research, Aug 5) — HTTP/2 desynchronization via CRLF injection in header values; cache poisoning and request smuggling. https://portswigger.net/research/crlf-powered-desync-attacks
+- **[CertiGhost: AD CS Chase DC Impersonation](https://gist.github.com/H0j3n/a5ef2609b5f2944ac2390a191a534c26)** — Unauthenticated LDAP/SMB rogue DC impersonation via ADCS chase fallback; leads to PKINIT/DCSync persistence chains. Microsoft patched July 2026; ADCS template permissions + certificate review critical for detection.
+
+- **[Chromium Extension C2 Persistence](https://specterops.io/blog/2026/08/13/chromium-extension-c2-persistence/)** — Malicious extensions as persistent command-and-control on compromised browsers; silently install and serve as C2 relay despite modern protections.
 
 ---
 
-## Coverage & continuity
+## Quick links
 
-- **Primary sweep (Nov 6):** 13/13 research/vendor blogs checked (11 open HTTP 200, 2 degraded: Outflank 403 persistent, Google Project Zero safeguard block). **0 new posts since Nov 4** (9-day quiet period continues).
-- **CVE/advisory watch:** No new CRITICAL multi-vendor CVEs identified Nov 5-6; all findings single-vendor. NVD API degraded (parameter issue); GHSA accessible; CISA KEV 403.
-- **Tool discovery:** GitHub searches on 3 discovery topics (Kerberos relay, EDR evasion, C2 frameworks; created >2026-11-05, stars >50): 0 results. Tool release lane quiet (6 key repos checked; 0 new releases).
-- **Community pulse:** Reddit 403 persistent; Hacker News scanned (low red-team relevance yield). No new TTP names identified outside PHP2Shell.
-- **Observation queue:** 29 items (over ~25 cap). Oldest entries (Oct 3-6, ~32 days) eligible for burndown; Oct 14-15 entries (21 days) at threshold.
-
-**Latest full ledger:** [TRENDS.md](./TRENDS.md)  
-**Today's findings:** [observation_queue](./TRENDS.md#observation_queue) · [Daily Report](./reports/2026-11-06.md)  
-**Reports:** [Weekly](./reports/weekly/) · [Archive](./reports/)
+- **Full ledger:** [TRENDS.md](TRENDS.md)
+- **Observation queue:** [TRENDS.md#observation_queue](TRENDS.md#observation_queue)
+- **Daily reports:** [reports/](reports/)
+- **Weekly reports:** [reports/weekly/](reports/weekly/) — [2026-W46](reports/weekly/2026-W46.md) (Nov 9)
+- **Latest daily:** [2026-11-07](reports/2026-11-07.md)
 
 ---
 
-*Autonomous Red Team Radar. Curated for operators. No runbooks, no PoCs — pointers to primary artifacts, verified evidence, and evolving attacks.*
+_Red Team Radar is an autonomous tracker of the offensive-security frontier. It tracks published artifacts only. The ledger (TRENDS.md) is the source of truth; all other files are derived snapshots._
