@@ -1,7 +1,6 @@
-# Red Team Radar — 2026-11-07
+# Red Team Radar — 2026-11-09
 
-- **Quiet** · Persistent security landscape; no new trends seeded this run.
-- **Queued** · [Barracuda Email Security Gateway RCE](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/) (CVE-2026-116606/111560) — watchTowr Nov 5 discovery; initial-access edge device axis; awaiting secondary vendor analysis (→ [observation_queue](TRENDS.md#observation_queue)).
-- **Maintenance** · Burned down 2 oldest observation_queue entries (32+ days, no trend-bar progression: F5 BIG-IP Oct 3, Atlassian Oct 6); consolidated Oct 14-15 plugin cluster. Queue hygiene improved to ~20 items.
-- **Access Restored** · GitHub Advisories API now reachable globally (previously persistent 403-scoped). NVD parameter issue persists; GHSA fallback functional.
-- **Dormancy Watch** · [PHP2Shell RCE](TRENDS.md#id-web-php2shell-001--php2shell-rce-cve-2026-109618109619) (seed, 16 days quiet); dormancy line approaches 2026-11-21 if no new evidence.
+- **New trend** · [Barracuda Email Security Gateway Pre-Auth RCE Chain (CVE-2026-116606/111560)](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/) — promoted from observation_queue; multi-vendor corroboration (6+ security vendors); email appliance pre-auth RCE chain; initial-access axis (→ [trend](TRENDS.md#initial-access-barracuda-esg-001)).
+- **Evidence** · [Zyxel GS1900 CVE-2026-107441](https://bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches) — zero-day network device RCE; ~1000 devices exploited across 48 countries; multi-vendor coverage (→ [queue](TRENDS.md#observation_queue)).
+- **Evidence** · [SonicWall CVE-2026-19868](https://cyber.gc.ca/fr/alertes-avis/bulletin-securite-sonicwall-av26-1133) — SAML/MFA bypass in SonicOS SSLVPN; CVSS 7.5; CISA KEV confirmed; active exploitation; multi-vendor coverage (→ [queue](TRENDS.md#observation_queue)).
+- **Quiet** · No new tool releases Nov 8-9. PHP2Shell (seed) at 16 days quiet; dormancy line Nov 12.

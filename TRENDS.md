@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-11-09 (Weekly recalibration 2026-W46 complete. PaperCut & Apex demoted to dormant (21+ days quiet); PHP2Shell held at seed (16 days quiet, dormancy line Nov 12); queue pruned to ~20 items (burned down F5 Oct 3, Atlassian Oct 6, consolidated Oct 14-15 cluster). Network access improved: GitHub Advisories API restored to global 200 (was session-scoped 403). 13/13 primary blogs reachable (11 opened, 2 degraded). 1 CVE queued (Barracuda, single vendor, awaiting corroboration); 1 tool shelved (adshell-rs, AD shell, Nov 2 release). No new trends seeded this week. 12 dormant trends unchanged. CertiGhost oldest dormant at 63 days (below 45-day archival threshold). Continuity maintained.)
+Last updated: 2026-11-09 (Daily scan reveals 2 multi-vendor CVEs and 1 trend promotion. Barracuda Email Security Gateway RCE (CVE-2026-116606/111560) promoted seed: multi-vendor coverage (BleepingComputer, SecurityAffairs, TheHackerNews, SecurityWeek, eSecurityPlanet, NetworkWorld, CSOnline, more). Zyxel GS1900 CVE-2026-107441 (zero-day, 1000 devices exploited, multi-vendor) + SonicWall CVE-2026-19868 (SAML/MFA bypass, CISA KEV, multi-vendor) queued. SpecterOps Nov 4-6 posts (Azure AppRegs, iSCSI abuse) + Elastic wesp.sys evasion research added to shelf candidates. No new tool releases Nov 8-9. 13/13 primary blogs checked (11 opened, 2 degraded). GitHub Advisories API functional. PHP2Shell seed remains at 16 days quiet (dormancy line Nov 12). 12 dormant trends unchanged. Continuity maintained.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -195,6 +195,22 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-08-17 — https://www.picussecurity.com/resource/blog/cve-2026-35273-oracle-peoplesoft-rce-zero-day-explained — Picus Security: RCE chain explanation and remediation.
   - 2026-08-17 — https://www.oracle.com/security-alerts/alert-cve-2026-35273.html — Oracle official security alert and patch advisory.
 
+### id: initial-access-barracuda-esg-001 — Barracuda Email Security Gateway Pre-Auth RCE Chain (CVE-2026-116606/111560)
+- stage: seed
+- confidence: high
+- last_evidence: 2026-11-09
+- aliases: [Barracuda ESG RCE, CVE-2026-116606, CVE-2026-111560, pre-auth authorization bypass, command injection chain]
+- notes: Barracuda Email Security Gateway (ESG) contains pre-authentication authorization bypass (CVE-2026-116606, CVSS 9.3) chainable with command injection (CVE-2026-111560) to achieve unauthenticated root code execution. Attack vector: unauthorized attacker can restore crafted configuration backup via bypass, then inject OS commands via the flawed component. Affects Email Security Gateway models 400, 600, 800 and firmware versions prior to 9.4.0.017 (fixed BNSF-40425 or BNSF-40430). Widely-deployed mail appliance; high initial-access relevance for red team operators targeting enterprise email infrastructure.
+- evidence:
+  - 2026-11-05 — https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/ — watchTowr Labs: "Barracuda Networks is Your New Best Friend" technical writeup of pre-auth authorization bypass + command injection chain.
+  - 2026-11-06 — https://www.bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices/ — BleepingComputer: Barracuda critical flaws allowing root access, patches released.
+  - 2026-11-06 — https://securityaffairs.com/?p=202440 — Security Affairs: Two Barracuda ESG flaws chained for full root access; patches released.
+  - 2026-11-06 — https://thehackernews.com/2026/11/experts-demonstrate-barracuda-email.html — The Hacker News: Experts demonstrate Barracuda email security vulnerabilities.
+  - 2026-11-06 — https://www.csoonline.com/article/4244334/barracudas-security-appliances-have-a-security-problem-of-their-own.html — CSOnline: Barracuda security appliances vulnerability analysis.
+  - 2026-11-06 — https://www.networkworld.com/article/4244361/barracudas-security-appliances-have-a-security-problem-of-their-own-2.html — Network World: Barracuda security appliances flaw coverage.
+  - 2026-11-06 — https://www.esecurityplanet.com/fr/news/barracuda-corrige-deux-failles-susceptibles-de-donner-un-acces-root-aux-hackers/ — eSecurityPlanet: Barracuda patches critical flaws.
+  - 2026-11-06 — https://www.securityweek.com/ — SecurityWeek: Barracuda critical vulnerabilities coverage.
+
 ### id: identity-entra-syncjacking-001 — Entra ID SyncJacking & Conditional Access Bypass
 - stage: dormant
 - confidence: high
@@ -224,7 +240,8 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 <!-- Below-bar / unverified signals. Cap ~25. Line format:
 - YYYY-MM-DD — https://... — context — [unverified | N groups so far] -->
 
-- 2026-11-05 — https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/ — Barracuda Email Security Gateway pre-auth RCE (CVE-2026-116606/111560). Edge device/mail appliance, initial-access axis. Single vendor (watchTowr) at this hour; awaiting secondary research-firm coverage for trend-bar eligibility (≥3 independent sources + concrete artifact).
+- 2026-11-09 — https://bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches — Zyxel GS1900 CVE-2026-107441 (out-of-bounds write pre-auth RCE, zero-day exploited in the wild, ~1000 network switches compromised across 48 countries). Network device/infrastructure, initial-access axis. Multi-vendor coverage (BleepingComputer, NetworkWorld, SecurityWeek, TheHackerNews, eSecurityPlanet, CSOnline, SOCRadar, Binarly attribution). Patch available (firmware 2.90 Patch 3, Oct 22-23 2026). High offensive relevance for edge-device exploitation.
+- 2026-11-09 — https://cyber.gc.ca/fr/alertes-avis/bulletin-securite-sonicwall-av26-1133 — SonicWall CVE-2026-19868 (SAML/MFA authentication bypass in SonicOS SSLVPN, CVSS 7.5 HIGH, CISA KEV catalog confirmed Nov 6, active exploitation reported). VPN/identity axis. Multi-vendor coverage (Canadian Cyber Centre, CISA, SecurityAffairs, CyberSecurityDive, Blumira). Users with valid alternate-auth credentials can bypass SAML-enforced MFA. Remediation: fixed builds 7.3.4-7013 and 8.2.2-8015. High offensive relevance for VPN compromise scenarios.
 - 2026-11-05 — https://github.com/advisories — @enspirit/elo npm (2 CRITICAL: GHSA-33r5-xmm8-v6x5 CVE-2026-44267, GHSA-7w38-ggh5-v542 CVE-2026-44266): Sandbox escape + unescaped interpolation enable arbitrary code execution in Node.js/browser environments. Supply-chain/initial-access axis. Single vendor (GitHub advisory), awaiting independent security researcher confirmation and exploit chain documentation.
 - 2026-11-05 — https://nvd.nist.gov/vuln/detail/CVE-2026-11800 — Keycloak (CVE-2026-11800, CVSS 8.1 HIGH): JWT Authorization Grant algorithm confusion allows signature bypass and unauthorized access token forgery; affects 26.6.x. Identity/auth attack surface. Single vendor (NVD/MITRE), no exploitation reported yet; awaiting secondary researcher analysis and real-world exploitation status.
 - 2026-11-05 — https://github.com/advisories — stanza (Python, CVE-2026-115878, CVSS 7.5 HIGH): Pickle deserialization in model loaders allows arbitrary code execution when loading pretrained models. Web/supply-chain/deserialization RCE axis. Single vendor (GitHub advisory), awaiting secondary researcher coverage and exploitation chain verification.

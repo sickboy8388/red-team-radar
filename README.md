@@ -2,33 +2,32 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-14-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-20-6c757d?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-27-6c757d?style=flat-square)
 ![updated](https://img.shields.io/badge/updated-2026--11--09-2f9e44?style=flat-square)
 
 ---
 
-## Since last weekly (2026-W46, Nov 9)
+## Since last daily (2026-11-07)
 
-- **Dormancy threshold reached:** [PaperCut NG/MF Pre-Auth RCE (CVE-2026-82077/82078/81578)](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) and [REF8801 Apex Accelerator malicious npm](https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages) both demoted from seed to dormant (21+ days quiet without new evidence).
+- **1 new SEED trend:** [Barracuda Email Security Gateway Pre-Auth RCE Chain (CVE-2026-116606/111560)](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/) — promoted from observation_queue. Multi-vendor corroboration (watchTowr + 6+ security vendors). Email appliance pre-auth RCE; high initial-access relevance.
 
-- **Network access improved:** GitHub Advisories API now globally accessible (previously session-scoped 403 for 3+ weeks). Expect enhanced CVE/advisory verification capability in future runs.
+- **2 multi-vendor CVEs queued:** [Zyxel GS1900 CVE-2026-107441](https://bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches) (zero-day, ~1000 devices exploited across 48 countries, network device/initial-access axis) and [SonicWall CVE-2026-19868](https://cyber.gc.ca/fr/alertes-avis/bulletin-securite-sonicwall-av26-1133) (SAML/MFA bypass, CISA KEV, active exploitation, VPN/identity axis).
 
-- **Queue hygiene:** Burned down 2 oldest entries (F5 BIG-IP Oct 3, Atlassian Oct 6; 32-35 days quiet, single-vendor, no trend-bar progression) and consolidated Oct 14-15 WordPress plugin RCE cluster (3→1). Queue now ~20 items (target ~25).
+- **PHP2Shell watch:** Web RCE seed at 16 days quiet (last evidence Oct 22); dormancy line Nov 12. Monitor for exploitation-technique research or new evidence.
 
-- **PHP2Shell watch:** Web RCE seed at 16 days quiet (last evidence Oct 22); dormancy line Nov 12. Watch for exploitation-technique research (WAF bypass, in-memory execution, exploit chains) to accelerate trend.
-
-- **New finding queued:** [Barracuda Email Security Gateway Pre-Auth RCE (CVE-2026-116606/111560)](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/) — watchTowr Nov 5; edge appliance/initial-access axis; single vendor; awaiting secondary corroboration (Tenable, Rapid7, Horizon3, SentinelOne).
+- **SpecterOps Nov 4-6:** Identity and infrastructure attack posts identified (Principal Problems: Azure multi-tenant risks; Mi Scusi, My SCSI: iSCSI abuse). Assessment pending full content review.
 
 ---
 
 ## Trends
 
-**seed 1 · dormant 12** (13 total: 1 seed, 0 accelerating, 12 dormant)
+**seed 2 · dormant 12** (14 total: 2 seed, 0 accelerating, 12 dormant)
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
+| [Barracuda Email Security Gateway Pre-Auth RCE (CVE-2026-116606/111560)](#initial-access-barracuda-esg-001) | seed | [2026-11-09](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/) |
 | [PHP2Shell RCE (CVE-2026-109618/109619)](#web-php2shell-001) | seed | [2026-10-22](https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell) |
 | [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#ad-certighost-001) | dormant | [2026-08-06](https://www.nextron-systems.com/) |
 | [N-able N-central Pre-Auth RCE (CVE-2026-86218)](#initial-access-nable-ncentral-001) | dormant | [2026-09-08](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
@@ -47,7 +46,7 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ## Tools & releases
 
-Latest stable versions (checked 2026-11-07):
+Latest stable versions (checked 2026-11-09):
 
 - **BloodHound** — v9.6.0 (2026-08-18) — Active Directory attack-path analysis and privilege escalation visualization
 - **Sliver** — v1.7.8 (2026-10-03) — Multiperson collaborative red-team C2 framework (Havoc successor)
@@ -76,7 +75,7 @@ Latest stable versions (checked 2026-11-07):
 - **Observation queue:** [TRENDS.md#observation_queue](TRENDS.md#observation_queue)
 - **Daily reports:** [reports/](reports/)
 - **Weekly reports:** [reports/weekly/](reports/weekly/) — [2026-W46](reports/weekly/2026-W46.md) (Nov 9)
-- **Latest daily:** [2026-11-07](reports/2026-11-07.md)
+- **Latest daily:** [2026-11-09](reports/2026-11-09.md)
 
 ---
 
