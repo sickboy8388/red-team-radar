@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-11-09 (Weekly recalibration 2026-W46 complete. PaperCut & Apex demoted to dormant (21+ days quiet); PHP2Shell held at seed (16 days quiet, dormancy line Nov 12); queue pruned to ~20 items (burned down F5 Oct 3, Atlassian Oct 6, consolidated Oct 14-15 cluster). Network access improved: GitHub Advisories API restored to global 200 (was session-scoped 403). 13/13 primary blogs reachable (11 opened, 2 degraded). 1 CVE queued (Barracuda, single vendor, awaiting corroboration); 1 tool shelved (adshell-rs, AD shell, Nov 2 release). No new trends seeded this week. 12 dormant trends unchanged. CertiGhost oldest dormant at 63 days (below 45-day archival threshold). Continuity maintained.)
+Last updated: 2026-11-10 (Daily scan completed. Network access stable (GHSA API restored, NVD partial). 9/13 primary blogs opened (MDSec 522 blocked); 1 off-scope post (Synacktiv Star Wars game RCE). 1 CRITICAL + 3 HIGH CVEs identified Nov 8-10, all single-vendor, queued for secondary corroboration. 1 new BloodHound pre-release (v9.10.0-rc1, UI improvements). 0 new high-star repos in discovery topics. No new trends seeded. PHP2Shell remains seed (17 days quiet, dormancy line Nov 21). 12 dormant trends unchanged. Observation queue at ~29 items (cap ~25); oldest entries (Oct 3-6) eligible for burndown next run. Continuity maintained.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -252,6 +252,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 - 2026-11-07 — **BURNDOWN**: F5 BIG-IP CVE-2026-94127 (Oct 3, 35 days quiet; single-vendor watchTowr writeup, no secondary corroboration, no trend-bar progression).
 - 2026-11-05 — https://github.com/advisories/GHSA-4c7q-j33x-866w — CVE-2026-122310 (Kyverno 1.19.1→1.19.2, CVSS 9.4 Critical): Policy context.apiCall path traversal; namespace-scoped user can hide `../` segments behind fragment/query to reach cluster-scoped endpoints, escalate to cluster admin. Kubernetes/cloud axis. Single vendor (Kyverno), awaiting secondary security researcher coverage and exploitation status confirmation.
 - 2026-11-05 — https://github.com/advisories?query=is%3Areviewed+sort%3Aupdated-desc — Kyverno policy bypass cluster (CVE-2026-122307, CVE-2026-122311, CVE-2026-122316, CVE-2026-122321, CVSS High/Critical, all affecting 1.16.0–1.19.2): Multiple policy engine authorization bypasses published Nov 4-5 2026. Kubernetes/cloud axis. Single vendor, awaiting secondary security researcher coverage.
+- 2026-11-09 — https://github.com/advisories — CVE-2026-116879 (CVSS 9.9 Critical): Apache OFBiz remote code execution via unsafe deserialization in event handler, unauthenticated attack vector. Initial-access/RCE axis. Single vendor (Apache OFBiz PSIRT), awaiting secondary research-firm analysis.
+- 2026-11-08 — https://github.com/advisories — CVE-2026-122410 (CVSS 8.2 High): Kubernetes kubelet insecure symlink handling in volume mounts allows privilege escalation on node. Cloud/Kubernetes axis. Single vendor, awaiting secondary security researcher coverage.
+- 2026-11-09 — https://github.com/advisories — CVE-2026-121340 (CVSS 8.3 High): AWS Lambda (Lambda@Edge) improper CloudFront trigger validation allows cache poisoning and unauthorized access. Cloud/AWS axis. Single vendor, awaiting secondary vendor analysis.
+- 2026-11-09 — https://github.com/advisories — CVE-2026-122501 (CVSS 7.8 High): OpenStack Nova missing authorization check in instance-attach-volume allows privilege escalation. Cloud/OpenStack axis. Single vendor, awaiting secondary security researcher coverage.
 
 ---
 
