@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-11-09 (Weekly recalibration 2026-W46 complete. PaperCut & Apex demoted to dormant (21+ days quiet); PHP2Shell held at seed (16 days quiet, dormancy line Nov 12); queue pruned to ~20 items (burned down F5 Oct 3, Atlassian Oct 6, consolidated Oct 14-15 cluster). Network access improved: GitHub Advisories API restored to global 200 (was session-scoped 403). 13/13 primary blogs reachable (11 opened, 2 degraded). 1 CVE queued (Barracuda, single vendor, awaiting corroboration); 1 tool shelved (adshell-rs, AD shell, Nov 2 release). No new trends seeded this week. 12 dormant trends unchanged. CertiGhost oldest dormant at 63 days (below 45-day archival threshold). Continuity maintained.)
+Last updated: 2026-11-11 (Daily scan: quiet period continuation. 7-day gap (Nov 4→11) yielded 1 recent blog post (watchTowr Nov 5 Barracuda Email Gateway RCE, already queued single-vendor). PHP2Shell seed: 20 days quiet (approaches 21-day dormancy line Nov 12); recommend dormancy promotion if no new evidence by Nov 13. No new trends seeded. observation_queue ~27 items (over ~25 cap); Oct 14-15 entries (28 days old) eligible for burndown. 12 dormant trends unchanged. All primary lanes functional (persistent GitHub API scope, NVD parameter degradation low-impact). Daily continuity maintained.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.

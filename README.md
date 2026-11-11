@@ -4,22 +4,20 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-20-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--09-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-26-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--11-2f9e44?style=flat-square)
 
 ---
 
-## Since last weekly (2026-W46, Nov 9)
+## Since last scan (2026-11-07)
 
-- **Dormancy threshold reached:** [PaperCut NG/MF Pre-Auth RCE (CVE-2026-82077/82078/81578)](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) and [REF8801 Apex Accelerator malicious npm](https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages) both demoted from seed to dormant (21+ days quiet without new evidence).
+- **Quiet period continues:** 7-day gap (Nov 4→11) produces 1 new blog post (watchTowr Nov 5 [Barracuda Email Security Gateway RCE](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/)); already queued as single-vendor signal. No new multi-vendor CVE clusters or trend-bar escalations.
 
-- **Network access improved:** GitHub Advisories API now globally accessible (previously session-scoped 403 for 3+ weeks). Expect enhanced CVE/advisory verification capability in future runs.
+- **Dormancy approaching:** [PHP2Shell RCE](TRENDS.md#id-web-php2shell-001--php2shell-rce-cve-2026-109618109619) seed trend reaches 20 days quiet (last evidence Oct 22); dormancy threshold Nov 12. Monitor Nov 12-13 for new exploitation research (WAF bypass, in-memory execution, exploit chains) before automatic dormancy promotion.
 
-- **Queue hygiene:** Burned down 2 oldest entries (F5 BIG-IP Oct 3, Atlassian Oct 6; 32-35 days quiet, single-vendor, no trend-bar progression) and consolidated Oct 14-15 WordPress plugin RCE cluster (3→1). Queue now ~20 items (target ~25).
+- **Queue at capacity:** observation_queue ~26 items (over ~25 cap). Oct 14-15 WordPress plugin consolidated entries (~28 days old) eligible for burndown by Nov 14 if no secondary corroboration surfaces.
 
-- **PHP2Shell watch:** Web RCE seed at 16 days quiet (last evidence Oct 22); dormancy line Nov 12. Watch for exploitation-technique research (WAF bypass, in-memory execution, exploit chains) to accelerate trend.
-
-- **New finding queued:** [Barracuda Email Security Gateway Pre-Auth RCE (CVE-2026-116606/111560)](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/) — watchTowr Nov 5; edge appliance/initial-access axis; single vendor; awaiting secondary corroboration (Tenable, Rapid7, Horizon3, SentinelOne).
+- **Trends stable:** 12 dormant trends (CertiGhost, WSUS, Entra, SonicWall, Oracle, PaperCut, Apex, Nightmare Eclipse, N-able, Citrix, FortiMail, Kerberos) unchanged; 0 accelerating; 0 emerging. No new evidence for any active trend.
 
 ---
 
@@ -47,7 +45,7 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ## Tools & releases
 
-Latest stable versions (checked 2026-11-07):
+Latest stable versions (checked 2026-11-11):
 
 - **BloodHound** — v9.6.0 (2026-08-18) — Active Directory attack-path analysis and privilege escalation visualization
 - **Sliver** — v1.7.8 (2026-10-03) — Multiperson collaborative red-team C2 framework (Havoc successor)
@@ -76,7 +74,7 @@ Latest stable versions (checked 2026-11-07):
 - **Observation queue:** [TRENDS.md#observation_queue](TRENDS.md#observation_queue)
 - **Daily reports:** [reports/](reports/)
 - **Weekly reports:** [reports/weekly/](reports/weekly/) — [2026-W46](reports/weekly/2026-W46.md) (Nov 9)
-- **Latest daily:** [2026-11-07](reports/2026-11-07.md)
+- **Latest daily:** [2026-11-11](reports/2026-11-11.md)
 
 ---
 
