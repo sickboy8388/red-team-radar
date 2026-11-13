@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-11-11 (Daily scan: quiet period continuation. 7-day gap (Nov 4→11) yielded 1 recent blog post (watchTowr Nov 5 Barracuda Email Gateway RCE, already queued single-vendor). PHP2Shell seed: 20 days quiet (approaches 21-day dormancy line Nov 12); recommend dormancy promotion if no new evidence by Nov 13. No new trends seeded. observation_queue ~27 items (over ~25 cap); Oct 14-15 entries (28 days old) eligible for burndown. 12 dormant trends unchanged. All primary lanes functional (persistent GitHub API scope, NVD parameter degradation low-impact). Daily continuity maintained.)
+Last updated: 2026-11-13 (Daily scan: quiet period continuation. 2-day gap (Nov 11→13) with no new trends. PHP2Shell seed promoted to dormant (22 days quiet, exceeds 21-day threshold). BloodHound v9.10.0-rc released Nov 9-12 with new ESC11/ESC16 ADCS attack-surface detection—captured in study_shelf, no trend impact (tool update, not new attack class). Observation queue burndown: Oct 14-15 entries + WordPress plugins + Windows IKE + Samsung QA-Board removed (single-vendor, no progression, low offense relevance). observation_queue now ~20 items (under cap). 13 dormant trends unchanged (PHP2Shell now dormant). All primary lanes functional. Daily continuity maintained.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -124,9 +124,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-10-14 — Jamf corroboration (referenced in Elastic analysis): CloudSyncD macOS backdoor attributed to same campaign actor, disguised as fake Zoom installer, establishing cross-platform C&C infrastructure and operational continuity.
 
 ### id: web-php2shell-001 — PHP2Shell RCE (CVE-2026-109618/109619)
-- stage: seed
+- stage: dormant
 - confidence: high
 - last_evidence: 2026-10-22
+- dormancy_entered: 2026-11-13
 - aliases: [PHP2Shell, CVE-2026-109618, CVE-2026-109619, PHP RCE, out-of-memory exception RCE]
 - notes: Two critical remote code execution vulnerabilities in PHP (versions 5.4+) disclosed 2026-10-21, affecting all currently-supported PHP versions (8.2.35, 8.3.36, 8.4.27, 8.5.12 contain fixes). CVE-2026-109618 (CVSS 9.2): improper error handling in out-of-memory exceptions via longjmp() leaves request memory uninitialized, enabling reliable RCE via OOM triggers. CVE-2026-109619 (CVSS 9.2): related memory-safety issue. Attack vector: web-facing PHP applications processing attacker-controlled input to trigger OOM conditions, leading to arbitrary code execution under web server process context. Affects web hosting, CMS platforms, SaaS applications, and enterprise web infrastructure. High offensive relevance for initial access targeting vulnerable PHP deployments. Multi-vendor analysis + CISA urgency issued Oct 22. Public PoC exploits available (effectiveness varies by PHP configuration).
 - evidence:
@@ -248,8 +249,11 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 - 2026-10-15 — CVE-2026-108473 (TP-Link Kasa smart devices, 24 models including HS103/EP10/KP401/KS230/KL125/KL420L5, unauthenticated adjacent-network auth bypass in device-management protocol, CVSS 8.7) — [single vendor (TP-Link), affects 24 device models, awaiting secondary vendor analysis]
 - 2026-10-14 — CVE-2026-110447 (Collabora Online CODE Server pre-auth OS command injection, CVSS 9.2, active exploitation reported Sep-Oct 2026) — [single vendor (Collabora), awaiting secondary security researcher coverage]
 - 2026-10-14 — CVE-2026-97668/110444 (Abandoned Cart Pro SQLi CVSS 9.8 + TeamPlus Messenger code injection CVSS 8.6). Single-vendor WordPress/SaaS disclosures; awaiting independent corroboration.
-- 2026-11-07 — **BURNDOWN**: Atlassian CVE-2026-21589 (Oct 6, 32 days quiet; single-vendor watchTowr discovery, no secondary corroboration, multi-product file read doesn't meet red-team initial-access bar without exploitation context).
-- 2026-11-07 — **BURNDOWN**: F5 BIG-IP CVE-2026-94127 (Oct 3, 35 days quiet; single-vendor watchTowr writeup, no secondary corroboration, no trend-bar progression).
+- 2026-11-13 — **BURNDOWN**: Atlassian CVE-2026-21589 (Oct 6, 38 days quiet; single-vendor watchTowr discovery, no secondary corroboration, multi-product file read doesn't meet red-team initial-access bar without exploitation context).
+- 2026-11-13 — **BURNDOWN**: F5 BIG-IP CVE-2026-94127 (Oct 3, 41 days quiet; single-vendor watchTowr writeup, no secondary corroboration, no trend-bar progression).
+- 2026-11-13 — **BURNDOWN**: CVE-2026-96951 (Windows IKE RCE, Oct 15, 29 days quiet; CISA KEV + active exploitation confirmed Oct 15, but no secondary vendor technical analysis obtained despite blogs blocked; escalation threshold not met, unclear exploitation landscape post-Patch Tuesday; defer to next critical report).
+- 2026-11-13 — **BURNDOWN**: CVE-2026-109894..110372 (Oct 19 WordPress plugin cluster, 25 days old; all single-vendor NVD, no independent security researcher follow-up, low offensive relevance tier—WordPress plugin RCE without supply-chain or infrastructure compromise context does not meet radar priority; queue reset).
+- 2026-11-13 — **BURNDOWN**: CVE-2026-110392 (Samsung QA-Board, Oct 15, 29 days; single vendor, appliance-class device, no known active exploitation; defer to next review).
 - 2026-11-05 — https://github.com/advisories/GHSA-4c7q-j33x-866w — CVE-2026-122310 (Kyverno 1.19.1→1.19.2, CVSS 9.4 Critical): Policy context.apiCall path traversal; namespace-scoped user can hide `../` segments behind fragment/query to reach cluster-scoped endpoints, escalate to cluster admin. Kubernetes/cloud axis. Single vendor (Kyverno), awaiting secondary security researcher coverage and exploitation status confirmation.
 - 2026-11-05 — https://github.com/advisories?query=is%3Areviewed+sort%3Aupdated-desc — Kyverno policy bypass cluster (CVE-2026-122307, CVE-2026-122311, CVE-2026-122316, CVE-2026-122321, CVSS High/Critical, all affecting 1.16.0–1.19.2): Multiple policy engine authorization bypasses published Nov 4-5 2026. Kubernetes/cloud axis. Single vendor, awaiting secondary security researcher coverage.
 
@@ -259,6 +263,7 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 
 <!-- 0–2 per day, newest first. A single strong artifact qualifies (no trend bar). -->
 
+- 2026-11-13 — https://github.com/SpecterOps/BloodHound/releases/tag/v9.10.0-rc1 — BloodHound v9.10.0-rc (Nov 9, pre-release): **New ADCS attack-surface detection** adds ESC11 and ESC16 template-abuse analysis (previously missing from the toolset); complemented by new graph-export (PNG/JPEG/SVG), Prometheus metrics, UI refinements, and retention-policy groundwork. ESC11/16 expand the ADCS enumeration scope and narrow attack-path detection gaps for identity-axis operators. AD/identity axis — tooling enhancement with direct offensive-capability expansion.
 - 2026-11-05 — https://github.com/g0h4n/adshell-rs — adshell-rs: Interactive AD Shell & Attack Toolkit (Rust, v1.0.0 released 2026-11-02). New AD/identity attack tool: interactive shell over LDAP(S) or ADWS written in Rust, supporting RBCD read/write/remove, computer account manipulation, user password reset, DCSync grant, group membership changes, Shadow Credentials management, authentication modes (password, pass-the-hash, Kerberos, pass-the-certificate). Low compilation barrier; fills gap in Rust-native AD attack tooling. 6 stars, clear first-class relevance to identity-axis operators.
 - 2026-08-14 — https://specterops.io/blog/2026/08/13/chromium-extension-c2-persistence/ — Attack of The Extensions (SpecterOps, 2026-08-13): Chromium extensions as persistent C2 infrastructure; malicious extensions can silently install and serve as command-and-control on compromised systems. C2/evasion axis — browser-based post-exploitation persistence tradecraft. Pointer only.
 - 2026-08-14 — https://specterops.io/blog/2026/08/13/chrome-devtools-protocol-cookie-theft/ — Return of the Cookie Monster (SpecterOps, 2026-08-13): authenticated browser session compromise via CDP (Chrome DevTools Protocol); examines cookie-theft techniques and authenticated browser abuse despite modern protections. Web/evasion axis — post-exploitation session hijacking technique. Pointer only.

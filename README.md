@@ -2,32 +2,33 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-14-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-26-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--11-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-31-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--13-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-07)
+## Since last scan (2026-11-11)
 
-- **Quiet period continues:** 7-day gap (Nov 4→11) produces 1 new blog post (watchTowr Nov 5 [Barracuda Email Security Gateway RCE](https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/)); already queued as single-vendor signal. No new multi-vendor CVE clusters or trend-bar escalations.
+- **PHP2Shell promoted to dormant:** [PHP2Shell RCE](TRENDS.md#id-web-php2shell-001--php2shell-rce-cve-2026-109618109619) seed trend reaches 22 days quiet (last evidence Oct 22), exceeding the 21-day dormancy threshold. Now dormant (dormancy_entered 2026-11-13).
 
-- **Dormancy approaching:** [PHP2Shell RCE](TRENDS.md#id-web-php2shell-001--php2shell-rce-cve-2026-109618109619) seed trend reaches 20 days quiet (last evidence Oct 22); dormancy threshold Nov 12. Monitor Nov 12-13 for new exploitation research (WAF bypass, in-memory execution, exploit chains) before automatic dormancy promotion.
+- **BloodHound v9.10.0-rc:** [New ESC11/ESC16 ADCS attack-surface detection](https://github.com/SpecterOps/BloodHound/releases/tag/v9.10.0-rc1) + graph export (PNG/JPEG/SVG) + Prometheus metrics (Nov 9-12 pre-release). Stable v9.9.2 also released Nov 6. AD/identity axis — direct offensive-capability expansion for AD Certificate Services enumeration.
 
-- **Queue at capacity:** observation_queue ~26 items (over ~25 cap). Oct 14-15 WordPress plugin consolidated entries (~28 days old) eligible for burndown by Nov 14 if no secondary corroboration surfaces.
+- **Observation queue burndown:** 5 items removed (Oct 14-15 era + WordPress plugins cluster + Windows IKE + Samsung QA-Board; all single-vendor, 25+ days, low offensive relevance). Queue reduced to ~20 active items (under cap).
 
-- **Trends stable:** 12 dormant trends (CertiGhost, WSUS, Entra, SonicWall, Oracle, PaperCut, Apex, Nightmare Eclipse, N-able, Citrix, FortiMail, Kerberos) unchanged; 0 accelerating; 0 emerging. No new evidence for any active trend.
+- **Quiet period continues:** 2-day gap (Nov 11→13) produces no new trends. Barracuda Email Gateway CVE (watchTowr Nov 5, single-vendor) remains queued pending secondary coverage.
+
+- **Trends stable:** 13 dormant (now includes PHP2Shell), 0 accelerating, 0 emerging, 1 seed (none). No new evidence for any trend.
 
 ---
 
 ## Trends
 
-**seed 1 · dormant 12** (13 total: 1 seed, 0 accelerating, 12 dormant)
+**dormant 13** (14 total: 0 seed, 0 emerging, 0 accelerating, 13 dormant)
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
-| [PHP2Shell RCE (CVE-2026-109618/109619)](#web-php2shell-001) | seed | [2026-10-22](https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell) |
 | [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#ad-certighost-001) | dormant | [2026-08-06](https://www.nextron-systems.com/) |
 | [N-able N-central Pre-Auth RCE (CVE-2026-86218)](#initial-access-nable-ncentral-001) | dormant | [2026-09-08](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
 | [Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)](#initial-access-citrix-netscaler-001) | dormant | [2026-09-29](https://labs.watchtowr.com/here-we-go-again-citrix-netscaler-dtls-preauth-memory-overflow-cve-2026-88772/) |
@@ -35,47 +36,58 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 | [Kerberos Relay via DNS CNAME Abuse (CVE-2026-20929)](#identity-kerberos-relay-dns-cname-001) | dormant | [2026-10-03](https://www.crowdstrike.com/en-us/blog/detecting-kerberos-relay-attack-via-dns-cname-abuse/) |
 | [PaperCut NG/MF Pre-Auth RCE Chain (CVE-2026-82077/82078/81578)](#initial-access-papercut-001) | dormant | [2026-10-11](https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/) |
 | [REF8801 Apex Accelerator Malicious npm Supply-Chain](#initial-access-apex-accelerator-001) | dormant | [2026-10-12](https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages) |
+| [PHP2Shell RCE (CVE-2026-109618/109619)](#web-php2shell-001) | dormant | [2026-10-22](https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell) |
 | [WSUS / Windows Update Server RCE exploitation](#initial-access-wsus-001) | dormant | [2026-10-23](https://www.huntress.com/blog/exploitation-of-windows-server-update-services-remote-code-execution-vulnerability) |
-| [Entra ID SyncJacking & Conditional Access Bypass](#identity-entra-syncjacking-001) | dormant | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) |
+| [Nightmare Eclipse: Windows Defender/BitLocker research campaign](#evasion-nightmare-eclipse-001) | dormant | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) |
 | [SonicWall SMA1000 SSRF + RCE exploitation (CVE-2026-15409/15410)](#initial-access-sonicwall-sma-001) | dormant | [2026-08-17](https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the) |
 | [Oracle PeopleSoft Unsafe Deserialization RCE (CVE-2026-35273)](#initial-access-oracle-peoplesoft-001) | dormant | [2026-08-17](https://www.sentinelone.com/vulnerability-database/cve-2026-35273/) |
-| [Nightmare Eclipse: Windows Defender/BitLocker research campaign](#evasion-nightmare-eclipse-001) | dormant | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) |
+| [Entra ID SyncJacking & Conditional Access Bypass](#identity-entra-syncjacking-001) | dormant | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) |
 
 ---
 
 ## Tools & releases
 
-Latest stable versions (checked 2026-11-11):
+Latest stable / pre-release versions (checked 2026-11-13):
 
-- **BloodHound** — v9.6.0 (2026-08-18) — Active Directory attack-path analysis and privilege escalation visualization
-- **Sliver** — v1.7.8 (2026-10-03) — Multiperson collaborative red-team C2 framework (Havoc successor)
-- **impacket** — 0.9.20 (2026-08) — Kerberos/AD tooling (impacket, GetUserSPNs, secretsdump, wmiexec, psexec)
-- **NetExec** — (2026-08) — SMB/LDAP/SSH/FTP scanner and exploitation (nxc)
-- **Nuclei** — v3.11.0 (2026-07-06) — Unsigned JavaScript-protocol templates now refused; use signing
-- **Certipy** — (2026-08) — Active Directory Certificate Services abuse and exploitation
+- **BloodHound** — v9.10.0-rc1/rc2 (2026-11-09/12, pre-release) — **NEW ESC11/ESC16 ADCS attack-surface detection**, graph export, Prometheus metrics. Stable: v9.9.2 (2026-11-06).
+
+- **NetExec** — v1.5.1 (2026-02-23) — SMB/AD exploitation framework
+
+- **Sliver** — v1.7.8 (2026-10-03) — Command-and-control framework (C2)
+
+- **Nuclei** — v3.11.0+ (2026-07-06+) — Vulnerability scanner templates (unsigned JavaScript templates now refused)
+
+- **Certipy** — Active; AD Certificate Services enumeration/exploitation
+
+- **impacket** — Active; network protocol and AD authentication libraries
 
 ---
 
 ## Worth studying
 
-- **[adshell-rs](https://github.com/g0h4n/adshell-rs)** — Interactive AD shell over LDAP(S)/ADWS (Rust, v1.0.0 released 2026-11-02). Fills gap in Rust-native AD attack tooling; supports RBCD management, DCSync delegation, Shadow Credentials, user password reset, Kerberos auth modes.
+- [BloodHound v9.10.0-rc](https://github.com/SpecterOps/BloodHound/releases/tag/v9.10.0-rc1) — ESC11/ESC16 ADCS template-abuse detection (new attack surface), graph export, metrics. AD/identity axis.
 
-- **[Process Parameter Poisoning "P3"](https://sensepost.com/blog/2026/process-parameter-poisoning/)** — Code-injection via smuggled payload in legitimate process fields, using `CreateProcessW` + thread-context manipulation instead of `WriteProcessMemory`/`VirtualAllocEx`; reduces EDR injection footprint against major endpoint defense products.
+- [adshell-rs v1.0.0](https://github.com/g0h4n/adshell-rs) — Interactive AD Shell & Attack Toolkit (Rust; RBCD, Shadow Credentials, DCSync grant, group manipulation, authentication modes).
 
-- **[CertiGhost: AD CS Chase DC Impersonation](https://gist.github.com/H0j3n/a5ef2609b5f2944ac2390a191a534c26)** — Unauthenticated LDAP/SMB rogue DC impersonation via ADCS chase fallback; leads to PKINIT/DCSync persistence chains. Microsoft patched July 2026; ADCS template permissions + certificate review critical for detection.
-
-- **[Chromium Extension C2 Persistence](https://specterops.io/blog/2026/08/13/chromium-extension-c2-persistence/)** — Malicious extensions as persistent command-and-control on compromised browsers; silently install and serve as C2 relay despite modern protections.
+- [ConfigManBearPig 2.0](https://specterops.io/blog/2026/08/03/configmanbearpig-2-0/) — SCCM/Microsoft Configuration Manager attack-collection tool (30+ techniques across recon, credential theft, coercion, elevation, takeover).
 
 ---
 
-## Quick links
+## Ledger
 
-- **Full ledger:** [TRENDS.md](TRENDS.md)
-- **Observation queue:** [TRENDS.md#observation_queue](TRENDS.md#observation_queue)
-- **Daily reports:** [reports/](reports/)
-- **Weekly reports:** [reports/weekly/](reports/weekly/) — [2026-W46](reports/weekly/2026-W46.md) (Nov 9)
-- **Latest daily:** [2026-11-11](reports/2026-11-11.md)
+- **Trends:** 14 total (0 seed, 0 emerging, 0 accelerating, 13 dormant)
+- **Observation queue:** ~31 items (including audit trail of burndowns; ~20 active)
+- **Last updated:** [2026-11-13](reports/2026-11-13.md)
+- **Weekly report:** [2026-W46](reports/weekly/) (pending)
 
 ---
 
-_Red Team Radar is an autonomous tracker of the offensive-security frontier. It tracks published artifacts only. The ledger (TRENDS.md) is the source of truth; all other files are derived snapshots._
+**See also:**
+- [TRENDS.md](TRENDS.md) — Full ledger with evidence and stage transitions
+- [Observation queue](TRENDS.md#observation_queue) — Below-bar signals awaiting corroboration
+- [Daily reports](reports/) — Archive of all daily scans
+- [Source registry](SOURCES.md) — Feeds and discovery topics
+
+---
+
+**Red Team Radar** is an autonomous tracker for the offensive-security frontier. Every claim links to a primary published artifact. No operational payloads or attack runbooks are included — only situational awareness.
