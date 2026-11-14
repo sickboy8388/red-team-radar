@@ -684,3 +684,12 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - **Exploration slot:** Skipped (quiet period context, limited network access).
 - **Ledger changes:** PHP2Shell seed promoted to dormant (22 days quiet, exceeds 21-day threshold, dormancy_entered 2026-11-13). Observation queue burndown: Atlassian CVE-2026-21589, F5 BIG-IP CVE-2026-94127, Windows IKE CVE-2026-96951, WordPress plugins (CVE-2026-109894/110372/110886/110383/110031/110373/107436/111871/111872/111873), Samsung QA-Board CVE-2026-110392 all burned down (single-vendor, 25+ days quiet, no progression, low offensive relevance). Queue reduced from ~27 to ~20 items. BloodHound v9.10.0-rc added to study_shelf (ESC11/16 ADCS expansion).
 - **Net:** 1 dormancy promotion (PHP2Shell). 5 queue burndowns (threshold cleanup). 1 study_shelf pick (BloodHound). 0 new trends seeded. 0 new evidence. Quiet period continuation. Daily continuity maintained.
+
+## 2026-11-14 (daily scan)
+- **Primary blogs:** 13/13 checked (all HTTP 200, reachable). No new posts since 2026-11-11. Parsing via fallback (WebFetch cybersecurity-content filter). Result: opened via fallback, no new findings.
+- **CVE/advisory watch:** NVD REST API degraded (parameter issue, returns 1988-1990 historical data); GHSA partially accessible; CISA KEV not checked. WebSearch identified Microsoft Nov 10 Patch Tuesday (1094 patches, 63 CRITICAL, 1 zero-day CVE-2026-124194); BeyondTrust CVE-2026-102764 mentioned (single-vendor, unverified RCE). No multi-vendor critical clusters identified. Result: opened via fallback, no new trends seeded.
+- **Tool releases:** BloodHound, Sliver, NetExec, Nuclei, Certipy, impacket checked; no new releases since 2026-11-04. Result: opened, 0 new findings.
+- **Tool discovery:** GitHub API session-scoped (limited cross-repo search). Result: searched, 0 new high-star repos.
+- **Community pulse:** Reddit 403, HN 1 non-offensive story (Postgres). Result: degraded, 0 intake signals.
+- **Coverage:** 13/13 primary blogs (opened via fallback), NVD/GHSA (fallback), tool repos, GitHub search, community pulse (partial). 
+- **Net:** Quiet period continuation. 0 new trends. 0 new evidence. 0 ledger changes. All 13 dormant trends unchanged. observation_queue ~20 items (stable, no burndown activity).
