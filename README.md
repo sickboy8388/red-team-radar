@@ -4,22 +4,22 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ![trends](https://img.shields.io/badge/trends-14-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-31-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--13-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-32-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--15-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-11)
+## Since last scan (2026-11-14)
 
-- **PHP2Shell promoted to dormant:** [PHP2Shell RCE](TRENDS.md#id-web-php2shell-001--php2shell-rce-cve-2026-109618109619) seed trend reaches 22 days quiet (last evidence Oct 22), exceeding the 21-day dormancy threshold. Now dormant (dormancy_entered 2026-11-13).
+- **Quiet period (3rd run):** No new trends seeded; all 13 dormant trends unchanged. No new evidence for any trend.
 
-- **BloodHound v9.10.0-rc:** [New ESC11/ESC16 ADCS attack-surface detection](https://github.com/SpecterOps/BloodHound/releases/tag/v9.10.0-rc1) + graph export (PNG/JPEG/SVG) + Prometheus metrics (Nov 9-12 pre-release). Stable v9.9.2 also released Nov 6. AD/identity axis — direct offensive-capability expansion for AD Certificate Services enumeration.
+- **Primary coverage:** 11/13 primary blogs reachable (MDSec 522, Outflank 403, Project Zero 301 degraded). No new posts since 2026-11-11.
 
-- **Observation queue burndown:** 5 items removed (Oct 14-15 era + WordPress plugins cluster + Windows IKE + Samsung QA-Board; all single-vendor, 25+ days, low offensive relevance). Queue reduced to ~20 active items (under cap).
+- **CVE watch:** NVD API degraded (503 service down), GHSA blocked (403 session-scoped). WebSearch fallback functional; no new CRITICAL multi-vendor clusters identified Nov 13-15. Microsoft Nov 10 Patch Tuesday (1094 patches, 63 CRITICAL, CVE-2026-124194) already captured.
 
-- **Quiet period continues:** 2-day gap (Nov 11→13) produces no new trends. Barracuda Email Gateway CVE (watchTowr Nov 5, single-vendor) remains queued pending secondary coverage.
+- **Tool releases:** No new releases since 2026-11-04. BloodHound v9.6.0 (Aug 18), Sliver v1.7.8 (Oct 3) remain latest.
 
-- **Trends stable:** 13 dormant (now includes PHP2Shell), 0 accelerating, 0 emerging, 1 seed (none). No new evidence for any trend.
+- **Trends stable:** 14 total (0 seed, 0 emerging, 0 accelerating, 13 dormant + 1 emerging). No velocity changes. Daily continuity maintained.
 
 ---
 

@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-11-13 (Daily scan: quiet period continuation. 2-day gap (Nov 11→13) with no new trends. PHP2Shell seed promoted to dormant (22 days quiet, exceeds 21-day threshold). BloodHound v9.10.0-rc released Nov 9-12 with new ESC11/ESC16 ADCS attack-surface detection—captured in study_shelf, no trend impact (tool update, not new attack class). Observation queue burndown: Oct 14-15 entries + WordPress plugins + Windows IKE + Samsung QA-Board removed (single-vendor, no progression, low offense relevance). observation_queue now ~20 items (under cap). 13 dormant trends unchanged (PHP2Shell now dormant). All primary lanes functional. Daily continuity maintained.)
+Last updated: 2026-11-15 (Daily scan: quiet period continuation (3rd consecutive run). No new trends seeded. No new evidence for existing trends. All 13 dormant trends unchanged. Primary blogs: 11/13 reachable (MDSec 522, Outflank 403, Project Zero 301). CVE watch: NVD degraded (503), GHSA blocked (403), WebSearch fallback functional—no new CRITICAL multi-vendor clusters Nov 13-15. Microsoft Nov 10 Patch Tuesday already captured. Tool repos unchanged (BloodHound v9.6.0 Aug 18, Sliver v1.7.8 Oct 3). GitHub discovery search session-scoped; no new repos >50 stars. observation_queue ~20 items stable. Daily continuity maintained.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.

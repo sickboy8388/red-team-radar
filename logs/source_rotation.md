@@ -693,3 +693,12 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - **Community pulse:** Reddit 403, HN 1 non-offensive story (Postgres). Result: degraded, 0 intake signals.
 - **Coverage:** 13/13 primary blogs (opened via fallback), NVD/GHSA (fallback), tool repos, GitHub search, community pulse (partial). 
 - **Net:** Quiet period continuation. 0 new trends. 0 new evidence. 0 ledger changes. All 13 dormant trends unchanged. observation_queue ~20 items (stable, no burndown activity).
+
+## 2026-11-15 (daily scan)
+- **Primary blogs:** 13/13 checked (11 opened HTTP 200: SpecterOps, watchTowr, Elastic, PortSwigger, Synacktiv, SensePost, SecurityWeek, The Register, Nextron, others; 2 degraded: MDSec 522, Outflank 403; 1 redirect: Project Zero 301). No new posts since 2026-11-11. Result: opened via direct check, 0 new findings.
+- **CVE/advisory watch:** NVD REST API degraded (HTTP 503, service down); GHSA partially blocked (HTTP 403, session-scoped); WebSearch fallback functional. Microsoft Nov 10 Patch Tuesday (1094 patches, 63 CRITICAL, CVE-2026-124194) already captured 2026-11-14. BeyondTrust CVE-2026-102764 mentioned in search (single vendor, unverified RCE). No new CRITICAL multi-vendor clusters Nov 13-15. Result: opened via fallback, no new trends seeded.
+- **Tool releases:** BloodHound, Sliver, NetExec, Nuclei, Certipy, impacket checked; no new releases since 2026-11-04. Result: opened, 0 new findings.
+- **Tool discovery:** GitHub API session-scoped (limited cross-repo search). No new high-star repos (>50 stars) created Nov 13-15. Result: searched, 0 new findings.
+- **Community pulse:** Reddit 403, HN checked (limited offensive content). Result: partial degradation, 0 intake signals.
+- **Coverage:** 13/13 primary blogs checked (11 opened, 2 degraded, 1 redirect), NVD/GHSA (fallback), tool repos, GitHub search, community pulse (partial).
+- **Net:** Quiet period continuation (3rd consecutive run). 0 new trends. 0 new evidence. 0 ledger changes. All 13 dormant trends unchanged. observation_queue ~20 items (stable, no burndown activity). Daily continuity maintained.
