@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-11-16 (Weekly recalibration W47: archived CertiGhost (48 days dormant, past 45-day threshold). 12 dormant trends remain. Observation queue: ~20 items; Oct 14-22 items burned down (33+ days old, single-vendor, no secondary corroboration). PHP2Shell dormant since 2026-11-13 (21+ days quiet, Oct 22 seeding). GitHub Advisories API restored to global access (major improvement); no new trends seeded this week. Coverage: 13/13 primary blogs functional; no access blockers. Daily continuity maintained.)
+Last updated: 2026-11-16 (Daily scan: quiet run, 4th consecutive day with no new trends seeded. NVD API degraded (503); GHSA partial fallback functional. 12 dormant trends remain unchanged. Observation queue: burndown applied (CVE-2026-110447, CVE-2026-97668/110444, 33+ days old each; deferred to next quarter / queue reset per low offensive-relevance tier). All primary blogs checked; no new posts since Nov 15. GitHub repo releases unchanged. No new tool discovery. Coverage: 13/13 primary blogs checked, 11 opened; NVD/CISA unavailable. Daily continuity maintained.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.

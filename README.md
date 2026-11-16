@@ -2,24 +2,24 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-12-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-18-6c757d?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-24-6c757d?style=flat-square)
 ![updated](https://img.shields.io/badge/updated-2026--11--16-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-15)
+## Since last scan (2026-11-16)
 
-- **Archival:** CertiGhost (48 days dormant) archived this week. Real multi-vendor exploit; patch deployment post-August 2026 eliminated attack surface. See [post-mortem](reports/weekly/2026-W47.md).
+- **Quiet period continuation (4th consecutive run):** No new trends seeded; all 13 dormant trends unchanged. Zero new evidence captured across all lanes.
 
-- **Quiet period (3rd consecutive run):** No new trends seeded; all 12 dormant trends unchanged. Zero new evidence across the board.
+- **Observation queue burndown:** Aged out 2 old items (CVE-2026-110447, CVE-2026-97668/110444, 33+ days each, single-vendor, no secondary progression). Queue maintained at ~20 active items for ongoing hygiene.
 
-- **Primary coverage:** 11/13 primary blogs reachable (MDSec 522, Outflank 403 persistent). GitHub Advisories API **restored to global access** (major improvement from session-scoped 403).
+- **Primary coverage:** 11/13 primary blogs reachable (MDSec 522, Outflank 403 persistent). GitHub Advisories API functional. No new posts since 2026-11-15.
 
-- **CVE watch:** NVD API degraded (parameter issue), GHSA fallback functional. No new CRITICAL multi-vendor clusters Nov 13-16. Microsoft Nov 10 Patch Tuesday already captured.
+- **CVE watch:** NVD API degraded (HTTP 503, infrastructure outage). GHSA fallback functional via GitHub API. No new CRITICAL multi-vendor clusters Nov 15-16. 
 
-- **Tool releases:** No new releases since 2026-11-04. BloodHound v9.6.0 (Aug 18), Sliver v1.7.8 (Oct 3) remain latest.
+- **Tool releases:** No new releases since 2026-11-04. BloodHound v9.6.0 (Aug 18), Sliver v1.7.8 (Oct 3) remain latest. GitHub repo searches found 0 new on-axis tools created past 3 days.
 
 ---
 

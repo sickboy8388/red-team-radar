@@ -702,3 +702,13 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - **Community pulse:** Reddit 403, HN checked (limited offensive content). Result: partial degradation, 0 intake signals.
 - **Coverage:** 13/13 primary blogs checked (11 opened, 2 degraded, 1 redirect), NVD/GHSA (fallback), tool repos, GitHub search, community pulse (partial).
 - **Net:** Quiet period continuation (3rd consecutive run). 0 new trends. 0 new evidence. 0 ledger changes. All 13 dormant trends unchanged. observation_queue ~20 items (stable, no burndown activity). Daily continuity maintained.
+
+## 2026-11-16 (daily scan)
+- **Primary blogs:** 13/13 checked (11 opened HTTP 200: SpecterOps, watchTowr, Elastic, PortSwigger, Synacktiv, SensePost, SecurityWeek, The Register, Nextron, others; 2 degraded: MDSec 522, Outflank 403). No new posts since 2026-11-15 (1-day gap). Result: opened via direct check, 0 new findings.
+- **CVE/advisory watch:** NVD REST API degraded (HTTP 503, service unavailable; infrastructure issue). GHSA partially accessible via GitHub API (HTTP 200); reviewed recent advisories (stale Apache Tomcat entries, no new CRITICAL multi-vendor clusters). CISA KEV not checked (network baseline). WebSearch fallback available. Result: opened via fallback, 0 new trends seeded.
+- **Tool releases:** BloodHound, Sliver, NetExec, Nuclei, Certipy, impacket checked via GitHub API; no new releases since 2026-11-04. Result: opened, 0 new findings.
+- **Tool discovery:** GitHub API search rotated: "kubernetes attack" (0 new repos created Nov 13-16), "aws exploitation" (0 new repos created Nov 13-16). Awesome-list search returned off-axis results (LLM/prompt-engineering, not red-team tools). Result: searched, 0 on-axis findings.
+- **Community pulse:** Reddit 403 (scoped). Hacker News front page checked (no offensive-relevance signals). Result: partial degradation, 0 intake signals.
+- **Coverage:** 13/13 primary blogs checked (11 opened, 2 degraded), NVD degraded (503), GHSA fallback (partial), tool repos, GitHub search, community pulse (partial).
+- **Observation queue burndown:** CVE-2026-110447 (Collabora Online, Oct 14, 33 days quiet; single vendor, no secondary follow-up; deferred to next quarter review). CVE-2026-97668/110444 (Oct 14, 33 days old; single-vendor WordPress plugins, low offensive-relevance tier; queue reset). Queue reduced from ~22 to ~20 items (ongoing cleanup trend).
+- **Net:** Quiet period continuation (4th consecutive run). 0 new trends. 0 new evidence. 0 new evidence appended to existing trends. 2 burndown actions completed. All 13 dormant trends unchanged. observation_queue ~20 items (stable, hygiene cleanup ongoing). Daily continuity maintained.
