@@ -2,34 +2,33 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-14-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-12-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-32-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--15-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-18-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--16-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-14)
+## Since last scan (2026-11-15)
 
-- **Quiet period (3rd run):** No new trends seeded; all 13 dormant trends unchanged. No new evidence for any trend.
+- **Archival:** CertiGhost (48 days dormant) archived this week. Real multi-vendor exploit; patch deployment post-August 2026 eliminated attack surface. See [post-mortem](reports/weekly/2026-W47.md).
 
-- **Primary coverage:** 11/13 primary blogs reachable (MDSec 522, Outflank 403, Project Zero 301 degraded). No new posts since 2026-11-11.
+- **Quiet period (3rd consecutive run):** No new trends seeded; all 12 dormant trends unchanged. Zero new evidence across the board.
 
-- **CVE watch:** NVD API degraded (503 service down), GHSA blocked (403 session-scoped). WebSearch fallback functional; no new CRITICAL multi-vendor clusters identified Nov 13-15. Microsoft Nov 10 Patch Tuesday (1094 patches, 63 CRITICAL, CVE-2026-124194) already captured.
+- **Primary coverage:** 11/13 primary blogs reachable (MDSec 522, Outflank 403 persistent). GitHub Advisories API **restored to global access** (major improvement from session-scoped 403).
+
+- **CVE watch:** NVD API degraded (parameter issue), GHSA fallback functional. No new CRITICAL multi-vendor clusters Nov 13-16. Microsoft Nov 10 Patch Tuesday already captured.
 
 - **Tool releases:** No new releases since 2026-11-04. BloodHound v9.6.0 (Aug 18), Sliver v1.7.8 (Oct 3) remain latest.
-
-- **Trends stable:** 14 total (0 seed, 0 emerging, 0 accelerating, 13 dormant + 1 emerging). No velocity changes. Daily continuity maintained.
 
 ---
 
 ## Trends
 
-**dormant 13** (14 total: 0 seed, 0 emerging, 0 accelerating, 13 dormant)
+**dormant 12** (12 total: 0 seed, 0 emerging, 0 accelerating, 12 dormant)
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
-| [CertiGhost AD CS "chase" DC-impersonation (CVE-2026-54121)](#ad-certighost-001) | dormant | [2026-08-06](https://www.nextron-systems.com/) |
 | [N-able N-central Pre-Auth RCE (CVE-2026-86218)](#initial-access-nable-ncentral-001) | dormant | [2026-09-08](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
 | [Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)](#initial-access-citrix-netscaler-001) | dormant | [2026-09-29](https://labs.watchtowr.com/here-we-go-again-citrix-netscaler-dtls-preauth-memory-overflow-cve-2026-88772/) |
 | [Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)](#initial-access-fortimail-001) | dormant | [2026-10-01](https://www.securityweek.com/exploited-fortinet-fortimail-zero-day-calls-for-urgent-action/) |
@@ -47,7 +46,7 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ## Tools & releases
 
-Latest stable / pre-release versions (checked 2026-11-13):
+Latest stable / pre-release versions (checked 2026-11-16):
 
 - **BloodHound** — v9.10.0-rc1/rc2 (2026-11-09/12, pre-release) — **NEW ESC11/ESC16 ADCS attack-surface detection**, graph export, Prometheus metrics. Stable: v9.9.2 (2026-11-06).
 
@@ -75,10 +74,10 @@ Latest stable / pre-release versions (checked 2026-11-13):
 
 ## Ledger
 
-- **Trends:** 14 total (0 seed, 0 emerging, 0 accelerating, 13 dormant)
-- **Observation queue:** ~31 items (including audit trail of burndowns; ~20 active)
-- **Last updated:** [2026-11-13](reports/2026-11-13.md)
-- **Weekly report:** [2026-W46](reports/weekly/) (pending)
+- **Trends:** 12 dormant (0 active); 1 archived (CertiGhost)
+- **Observation queue:** ~18 active items (cap ~25)
+- **Last updated:** [2026-11-16](reports/2026-11-16.md) (daily)
+- **Weekly report:** [2026-W47](reports/weekly/2026-W47.md)
 
 ---
 
