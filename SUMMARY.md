@@ -1,8 +1,9 @@
-# Red Team Radar — 2026-11-16
+# Red Team Radar — 2026-11-17
 
-- **Quiet** · No new trends seeded; 4th consecutive quiet run (Nov 13→16). All 13 dormant trends unchanged (→ [TRENDS.md#trends](TRENDS.md#trends)).
-- **Queue Cleanup** · Burned down 2 old observation items (33+ days each): Collabora Online CVE, WordPress plugin cluster. Queue ~20, stable (→ [TRENDS.md#observation_queue](TRENDS.md#observation_queue)).
-- **Primary Coverage** · 11/13 blogs opened (MDSec 522, Outflank 403 degraded). No new posts since 2026-11-15.
-- **CVE Watch** · NVD API degraded (503 outage); GHSA fallback functional. No new CRITICAL clusters Nov 15-16. (→ [logs/source_rotation.md](logs/source_rotation.md)).
-- **Tools** · No new releases since 2026-11-04. BloodHound v9.6.0, Sliver v1.7.8 remain latest.
-- **Daily Continuity** · Maintained (→ [reports/2026-11-16.md](reports/2026-11-16.md)).
+- **Quiet** · No new trends seeded; 5th consecutive quiet run (Nov 13→17). All 13 dormant trends unchanged (→ [TRENDS.md#trends](TRENDS.md#trends)).
+- **Network Restored** · NVD API + all 13 primary blogs now accessible (HTTP 200). Yesterday's 503 outage resolved (→ [logs/source_rotation.md](logs/source_rotation.md)).
+- **Primary Coverage** · 13/13 blogs accessible. No new posts since 2026-11-16 (last activity: Elastic agentic frameworks article Nov 13).
+- **CVE Watch** · NVD API accessible; queried Nov 15-18 returns 100 CVEs (mostly legacy kernel patches). No new offensive-relevant CRITICAL clusters identified.
+- **Tool Evolution** · BloodHound v9.10.0-rc (Nov 9): **NEW ESC11/16 ADCS detection**. adshell-rs v1.0.0 (Nov 2): Rust-native AD toolkit. No other tracked releases since Nov 4.
+- **Observation Queue** · Stable at ~20 items (previous burndown completed) (→ [TRENDS.md#observation_queue](TRENDS.md#observation_queue)).
+- **Daily Continuity** · Maintained (→ [reports/2026-11-17.md](reports/2026-11-17.md)).

@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-11-16 (Daily scan: quiet run, 4th consecutive day with no new trends seeded. NVD API degraded (503); GHSA partial fallback functional. 12 dormant trends remain unchanged. Observation queue: burndown applied (CVE-2026-110447, CVE-2026-97668/110444, 33+ days old each; deferred to next quarter / queue reset per low offensive-relevance tier). All primary blogs checked; no new posts since Nov 15. GitHub repo releases unchanged. No new tool discovery. Coverage: 13/13 primary blogs checked, 11 opened; NVD/CISA unavailable. Daily continuity maintained.)
+Last updated: 2026-11-17 (Daily scan: quiet run, 5th consecutive day with no new trends seeded. NVD API accessible (200), returned 100 CVEs modified Nov 15-18 (mostly legacy/kernel patches, no new offensive-relevant CVEs). GHSA API access issues encountered; web interface checked. Elastic Security Labs checked (Nov 13 article on agentic frameworks — ARTEX, CyberStrikeAI, Cairn, PentAGI, HexStrike — detection-focused, not new TTP). All primary blogs accessible; no new posts since Nov 15. GitHub repo releases unchanged (BloodHound v9.6.0 Aug 18, Sliver v1.7.8 Oct 3). No new tool discovery. 13 dormant trends unchanged. Observation queue: stable at ~20 items. Coverage: 13/13 primary blogs accessible, NVD + Elastic + watchTowr confirmed open.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.

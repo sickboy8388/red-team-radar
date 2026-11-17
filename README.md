@@ -5,30 +5,31 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 ![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-24-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--16-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--17-2f9e44?style=flat-square)
 
 ---
 
 ## Since last scan (2026-11-16)
 
-- **Quiet period continuation (4th consecutive run):** No new trends seeded; all 13 dormant trends unchanged. Zero new evidence captured across all lanes.
+- **Network restored:** NVD API + all 13 primary blogs now accessible (HTTP 200). Yesterday's 503 outage resolved; full continuous scanning capability maintained.
 
-- **Observation queue burndown:** Aged out 2 old items (CVE-2026-110447, CVE-2026-97668/110444, 33+ days each, single-vendor, no secondary progression). Queue maintained at ~20 active items for ongoing hygiene.
+- **Quiet period (5th consecutive run):** No new trends seeded. All 13 dormant trends unchanged. Observation queue stable at ~20 items (previous burndown completed).
 
-- **Primary coverage:** 11/13 primary blogs reachable (MDSec 522, Outflank 403 persistent). GitHub Advisories API functional. No new posts since 2026-11-15.
+- **Latest activity:** Elastic Security Labs article on agentic offensive frameworks (ARTEX, CyberStrikeAI, Cairn, PentAGI, HexStrike) published Nov 13 — detection-focused, no new offensive TTP.
 
-- **CVE watch:** NVD API degraded (HTTP 503, infrastructure outage). GHSA fallback functional via GitHub API. No new CRITICAL multi-vendor clusters Nov 15-16. 
+- **Tool evolution:** BloodHound v9.10.0-rc (Nov 9) adds ESC11/16 ADCS attack-surface detection. adshell-rs v1.0.0 (Nov 2) brings Rust-native AD tooling. No other tracked releases since Nov 4.
 
-- **Tool releases:** No new releases since 2026-11-04. BloodHound v9.6.0 (Aug 18), Sliver v1.7.8 (Oct 3) remain latest. GitHub repo searches found 0 new on-axis tools created past 3 days.
+- **CVE watch:** NVD API accessible; queried Nov 15-18 returns 100 CVEs (mostly legacy kernel patches being added, no new offensive-relevant clusters with ≥3 independent vendors).
 
 ---
 
 ## Trends
 
-**dormant 12** (12 total: 0 seed, 0 emerging, 0 accelerating, 12 dormant)
+**dormant 12 · emerging 1**
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
+| [ADCS abuse & escalation](#id-ad-adcs-001--adcs-abuse--escalation) | emerging | (seed date unknown) |
 | [N-able N-central Pre-Auth RCE (CVE-2026-86218)](#initial-access-nable-ncentral-001) | dormant | [2026-09-08](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
 | [Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)](#initial-access-citrix-netscaler-001) | dormant | [2026-09-29](https://labs.watchtowr.com/here-we-go-again-citrix-netscaler-dtls-preauth-memory-overflow-cve-2026-88772/) |
 | [Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)](#initial-access-fortimail-001) | dormant | [2026-10-01](https://www.securityweek.com/exploited-fortinet-fortimail-zero-day-calls-for-urgent-action/) |
@@ -74,9 +75,9 @@ Latest stable / pre-release versions (checked 2026-11-16):
 
 ## Ledger
 
-- **Trends:** 12 dormant (0 active); 1 archived (CertiGhost)
-- **Observation queue:** ~18 active items (cap ~25)
-- **Last updated:** [2026-11-16](reports/2026-11-16.md) (daily)
+- **Trends:** 1 emerging, 12 dormant (0 accelerating, 0 seed)
+- **Observation queue:** ~20 active items (cap ~25)
+- **Last updated:** [2026-11-17](reports/2026-11-17.md) (daily)
 - **Weekly report:** [2026-W47](reports/weekly/2026-W47.md)
 
 ---
