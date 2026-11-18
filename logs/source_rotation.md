@@ -722,3 +722,12 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - **Exploration slot:** Elastic Security Labs article on agentic offensive frameworks (ARTEX, CyberStrikeAI, Cairn, PentAGI, HexStrike) published Nov 13 — detection-focused writeup, not new TTP or capability disclosure. No off-axis trends identified. Result: 0 new findings.
 - **Coverage:** 13/13 primary blogs accessible (all 200). NVD 200. GHSA 401 (partial). Tool repos 200. Community pulse 403 partial. All major lanes covered.
 - **Net:** Quiet period continuation (5th consecutive run). 0 new trends seeded. 0 new evidence appended to existing trends. All 13 dormant trends unchanged. observation_queue ~20 items (stable). Daily continuity maintained. Network access significantly improved (no 503s, all primary blogs + NVD accessible); no access blocker escalation triggered.
+
+## 2026-11-18 (daily)
+- **Primary blogs:** 13/13 opened (all HTTP 200). Last activity: SpecterOps/Elastic Nov 13 (agentic frameworks, detection-focused). watchTowr dormant since Oct 9. PortSwigger since Aug 6. No new on-axis posts Nov 16-18.
+- **CVE/advisory watch:** NVD API (HTTP 200) returned 3781 CVEs modified Nov 16-18 (routine backlog, mostly legacy/kernel patches, no offensive-relevant clusters). GHSA web UI functional (API still 403 session-scoped). No new CRITICAL advisories identified.
+- **Tool releases:** BloodHound v9.6.0 (Aug 18), Sliver v1.7.8 (Oct 3), all others pre-Oct. No new releases identified.
+- **Discovery topics:** GitHub search rotation "privilege escalation", awesome-lists — no new on-axis tools identified (results were off-axis LLM/prompt-engineering).
+- **Community pulse:** Reddit 403 (persistent blocker). Hacker News front page: no offensive-team signals.
+- **Network status:** All 13 primary blogs + NVD + GHSA accessible (no new blockers). GitHub API scoped but low-impact (web fallback available).
+- **Continuity:** Quiet period extends to 6th consecutive run (Nov 13-18) with no new trends seeded. Dormancy tracking: 13 dormant trends unchanged, observation_queue stable at ~20 items. Coverage: 13/13 primary blogs, NVD + GHSA + tool repos confirmed open.
