@@ -1,10 +1,9 @@
-# Red Team Radar — 2026-11-18
+# Red Team Radar — 2026-11-19
 
-- **Quiet** · No new trends seeded; 6th consecutive quiet run (Nov 13→18). All 13 dormant trends unchanged (→ [TRENDS.md#trends](TRENDS.md#trends)).
-- **Primary Coverage** · 13/13 blogs accessible (HTTP 200). No new on-axis posts since Nov 13 (Elastic agentic frameworks article, detection-focused).
-- **CVE Watch** · NVD API accessible; queried Nov 16-18 returns 3781 CVEs (routine backlog, mostly legacy kernel patches). No new offensive-relevant CRITICAL clusters identified with ≥3 independent vendors.
-- **Tool Releases** · BloodHound v9.6.0 (Aug 18), Sliver v1.7.8 (Oct 3), all others pre-October. No new releases identified.
-- **Discovery Topics** · GitHub search rotation "privilege escalation", awesome-lists — no new on-axis tools identified.
-- **Network Status** · All lanes accessible. GitHub API scoped (low-impact). No new blockers. Egress stable (→ [logs/source_rotation.md](logs/source_rotation.md)).
-- **Observation Queue** · Stable at ~20 items. Oldest entries at 24+ days (eligible for burndown if no corroboration by 2026-11-25) (→ [TRENDS.md#observation_queue](TRENDS.md#observation_queue)).
-- **Daily Continuity** · Maintained (→ [reports/2026-11-18.md](reports/2026-11-18.md)).
+- **New trend** · [Microsoft agent-framework PyPI Supply-Chain Attack](TRENDS.md#id-initial-access-agent-framework-001) — Credential stealer on PyPI versions 1.26.1-1.26.2 (Nov 17, 192k/month downloads, targeting Azure/GitHub Actions secrets). 4+ vendor sources.
+- **New trend** · [Optimizely OPTIMJACK Web Attack](TRENDS.md#id-initial-access-optimizely-001) — JavaScript injection affecting 178+ orgs (CNN, BBC, Zoom, Ledger, HSBC, Equifax, Salesforce, Nov 16). 5+ vendor sources.
+- **New trend** · [Java4Shell OpenJDK RCE](TRENDS.md#id-web-java4shell-001) — Pre-auth RCE (CVE-2026-114938) on identity services and dev infrastructure (Keycloak, PingFederate, Jenkins, Jira, Confluence). 4+ sources.
+- **Tool release** · [BloodHound v9.10.0](https://github.com/SpecterOps/BloodHound/releases/tag/v9.10.0) — New stable (Nov 16) with ADCS ESC14, trust path fixes, multi-destination pathfinding, graph export.
+- **Queued** · [9 single-vendor CVEs](TRENDS.md#observation_queue) added Nov 18-19 (Perforce Puppet RCE, Miren cert bypass, Atomic Server auth bypass, Mustache Ruby injection, Oracle CSPU, Chrome 158, NGINX AI-discovered bugs, Danfoss fridge zero-days, NoisyTCP Linux crash).
+- **Network Status** · 13/13 primary blogs HTTP 200. NVD accessible. GHSA 403 fallback functional. No new blockers (→ [logs/source_rotation.md](logs/source_rotation.md)).
+- **Daily Continuity** · Maintained (→ [reports/2026-11-19.md](reports/2026-11-19.md)).

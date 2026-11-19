@@ -731,3 +731,12 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - **Community pulse:** Reddit 403 (persistent blocker). Hacker News front page: no offensive-team signals.
 - **Network status:** All 13 primary blogs + NVD + GHSA accessible (no new blockers). GitHub API scoped but low-impact (web fallback available).
 - **Continuity:** Quiet period extends to 6th consecutive run (Nov 13-18) with no new trends seeded. Dormancy tracking: 13 dormant trends unchanged, observation_queue stable at ~20 items. Coverage: 13/13 primary blogs, NVD + GHSA + tool repos confirmed open.
+
+## 2026-11-19 (daily — THREE NEW SEED TRENDS)
+- **Primary blogs:** 13/13 opened (all HTTP 200): SpecterOps, watchTowr, Elastic, PortSwigger, Synacktiv, SensePost, MDSec, Outflank, Assetnote, Project Zero, Black Hills, SecurityWeek, The Register. New on-axis posts: (1) SpecterOps Nov 17 — "Black October Made Attack Path Management a 'Now' Problem" (Patch Tuesday impact analysis); (2) watchTowr Nov 5 — Barracuda Email Security Gateway CVE-2026-116606/111560 pre-auth RCE (single-vendor, queued); (3) PortSwigger Nov 18 — XSS research (web axis); (4) Elastic Nov 18 — AI attack frameworks (detection-focused).
+- **CVE/advisory watch:** GHSA advisories revealed 3 CRITICAL: Miren Runtime, Atomic Server, Mustache Ruby. SecurityWeek/Register articles identified: agent-framework PyPI supply-chain (Nov 17, 4+ vendor, **TREND-BAR**), Optimizely OPTIMJACK (Nov 16, 5+ vendor, **TREND-BAR**), Java4Shell (Nov 2026, 4+ sources, **TREND-BAR**), plus 9 single-vendor findings.
+- **Tool releases:** BloodHound v9.10.0 released Nov 16 (ADCS improvements, graph export, multi-destination pathfinding).
+- **Discovery topics:** GitHub search on AD/EDR topics — no new 2026 on-axis tools confirmed. Established repos (DripLoader, HellBunny, Shhhloader) updated but pre-2026.
+- **Community pulse:** Reddit 403. No verified Nov 2026 signals.
+- **Coverage:** 13/13 primary blogs HTTP 200. WebFetch + WebSearch verified 3 trend-bar items + 9 single-vendor CVEs.
+- **Net:** Quiet period BROKEN. THREE NEW SEED TRENDS SEEDED. Observation_queue now ~30 items (cap 25; burndown needed). All 13 dormant trends unchanged.

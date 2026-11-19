@@ -2,25 +2,37 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-13-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-16-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-20-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--18-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-30-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--19-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-18)
+## Since last scan (2026-11-19)
 
-**Quiet period continues (6th consecutive run):** No new trends seeded. All 13 dormant trends unchanged. Observation queue stable at ~20 items. All primary sources verified accessible: 13 blogs HTTP 200, NVD API functional, GHSA web UI operational. Latest on-axis activity: Elastic Security Labs + SpecterOps Nov 13 (agentic frameworks article, detection-focused). NVD backlog processed (3781 CVEs modified Nov 16-18, mostly legacy/kernel patches); no new multi-vendor offensive-relevance clusters. Tool releases flat (BloodHound v9.6.0 Aug 18, Sliver v1.7.8 Oct 3).
+**Quiet period broken — three supply-chain/infrastructure seed trends seeded on Nov 19:**
+
+1. **[Microsoft agent-framework PyPI credential stealer](https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi)** — Nov 17 attack on PyPI package (versions 1.26.1-1.26.2, 192k downloads/month). Payload: Python .pth startup file harvesting Azure/GitHub Actions secrets. 4+ independent vendor sources (Wiz, OX Security, Endor Labs, StepSecurity).
+
+2. **[Optimizely OPTIMJACK web platform injection](https://report.uri.report/2026/11/16/optimjack-the-optimizely-web-experimentation-incident)** — Nov 16 attack on Optimizely Web Experimentation platform affecting 178+ organizations (CNN, BBC, Zoom, Ledger, HSBC, Equifax, Salesforce, etc.). Payload: JavaScript with crypto clipper, card skimmer, cookie stealer, iOS exploit kits. 5+ independent sources (BleepingComputer, Report URI, ReversingLabs, Sonatype, TuxCare).
+
+3. **[Java4Shell OpenJDK Base64 RCE](https://blog.qualys.com/vulnerabilities-threat-research/2026/11/17/how-to-find-mitigate-and-patch-the-critical-java4shell-flaw-cve-2026-114938-now)** (CVE-2026-114938) — Pre-auth RCE on identity services (Keycloak, PingFederate) and dev infrastructure (Jenkins, Jira, Confluence, Artifactory). 4+ independent sources (Qualys, Semgrep, Jenkins, researchers).
+
+**Operational context:** All three are on-axis initial-access vectors (supply-chain attacks targeting developer/infrastructure teams, identity service compromise). Observation queue now ~30 items (over 25-item cap; burndown needed). BloodHound v9.10.0 released Nov 16 (ADCS ESC14 support, graph export). All primary blogs + NVD accessible.
 
 ---
 
 ## Trends
 
-**dormant 13**
+**seed 3 · emerging 1 · dormant 12**
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
+| [Microsoft agent-framework PyPI Supply-Chain Attack](#initial-access-agent-framework-001) | seed | [2026-11-17](https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi) |
+| [Optimizely Web Experimentation Supply-Chain Attack (OPTIMJACK)](#initial-access-optimizely-001) | seed | [2026-11-16](https://report.uri.report/2026/11/16/optimjack-the-optimizely-web-experimentation-incident) |
+| [Java4Shell OpenJDK Base64 RCE (CVE-2026-114938)](#web-java4shell-001) | seed | [2026-11-18](https://blog.qualys.com/vulnerabilities-threat-research/2026/11/17/how-to-find-mitigate-and-patch-the-critical-java4shell-flaw-cve-2026-114938-now) |
+| [Entra ID SyncJacking & Conditional Access Bypass](#identity-entra-syncjacking-001) | emerging | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) |
 | [N-able N-central Pre-Auth RCE (CVE-2026-86218)](#initial-access-nable-ncentral-001) | dormant | [2026-10-03](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
 | [Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)](#initial-access-citrix-netscaler-001) | dormant | [2026-09-28](https://labs.watchtowr.com/oh-look-the-foot-gun-went-off-again-citrix-netscaler-preauth-command-injection-cve-2026-88771/) |
 | [Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)](#initial-access-fortimail-001) | dormant | [2026-10-01](https://socradar.io/blog/fortimail-zero-day-under-active-exploitation/) |
@@ -38,9 +50,9 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ## Tools & releases
 
-Latest stable / pre-release versions (checked 2026-11-18):
+Latest stable / pre-release versions (checked 2026-11-19):
 
-- **BloodHound** — v9.6.0 (2026-08-18, stable)
+- **BloodHound** — v9.10.0 (2026-11-16, stable) [ADCS improvements: ESC14, trust paths; multi-destination pathfinding; graph export PNG/JPEG/SVG]
 
 - **NetExec** — v1.5.1 (2026-02-13)
 
