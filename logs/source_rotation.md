@@ -740,3 +740,16 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - **Community pulse:** Reddit 403. No verified Nov 2026 signals.
 - **Coverage:** 13/13 primary blogs HTTP 200. WebFetch + WebSearch verified 3 trend-bar items + 9 single-vendor CVEs.
 - **Net:** Quiet period BROKEN. THREE NEW SEED TRENDS SEEDED. Observation_queue now ~30 items (cap 25; burndown needed). All 13 dormant trends unchanged.
+
+## 2026-11-20 (daily — QUIET DAY)
+- **Primary blogs:** 13/13 sources checked via Tavily + WebFetch + direct curl verification. No new on-axis posts detected since Nov 19 scan. Last activity: SpecterOps Nov 17, watchTowr Nov 5, Elastic Nov 18, PortSwigger Nov 18. Confirmed HTTP 200 on all sources (no network degradation).
+- **CVE/advisory watch:** NVD REST API query (lastMod Nov 19-20) returned 2,176 results; parsed for CRITICAL/HIGH offensive-relevance — no new multi-vendor trend-bar items identified. GHSA web UI checked; no new CRITICAL advisories breaking since Nov 19. Single-vendor findings from Nov 18 (Perforce Puppet, Miren Runtime, Atomic Server, Mustache Ruby, Oracle CSPU, Chrome 158, NGINX, Danfoss, NoisyTCP) remain below trend-bar.
+- **Tool releases:** BloodHound, NetExec, Sliver, Certipy, impacket, Nuclei checked via GitHub — no new releases detected Nov 19-20. Latest: BloodHound v9.10.0 (Nov 16), Sliver v1.7.9 (Oct 25).
+- **Discovery topics:** GitHub search rotation "active directory attack", "EDR evasion" (created:>2026-11-18 stars:>50) — zero new high-star repos created Nov 19-20. Existing established tools reviewed but no new offensive-relevance threshold hits.
+- **Community pulse:** Reddit 403 (persistent blocker). Hacker News front page: no offensive-security signals Nov 20.
+- **Exploration slot:** Not pursued (primary sweep complete, no off-axis discovery warranted).
+- **Queue maintenance:** Burned down 5 oldest Oct items (CVE-2026-96951, CVE-2026-109894..110373, CVE-2026-110392, CVE-2026-108473, CVE-2026-93388/104800/110002) — all 25+ days old, single-vendor, low offensive relevance without supply-chain/infrastructure context. Queue reduced from ~30 to ~25 items (target cap restored).
+- **Blockers:** None new. GitHub API scoped (low-impact), Reddit 403 (intake-only blocker, no primary-evidence impact).
+- **Network status:** All 13 primary blogs + NVD + GHSA + tool repos verified accessible. Egress open.
+- **Continuity:** Supply-chain attack cluster (agent-framework Nov 17, Optimizely Nov 16, Java4Shell Nov 18) remains fresh + hot. 3 seed trends stable; 13 dormant trends unchanged.
+- **Net:** Quiet day — no new trends, no evidence escalations, no tool releases, no blocked/urgent signals. Queue burndown completed (25-item cap restored). All sources checked; full coverage lanes completed. Coverage: 13/13 primary blogs, NVD + GHSA, tool releases, GitHub discovery, community pulse assessed.

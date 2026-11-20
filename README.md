@@ -4,14 +4,16 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ![trends](https://img.shields.io/badge/trends-16-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-30-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--19-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-31-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--20-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-19)
+## Since last scan (2026-11-20)
 
-**Quiet period broken — three supply-chain/infrastructure seed trends seeded on Nov 19:**
+**Quiet day** — no new trends, no evidence escalations, no tool releases detected Nov 19-20. Supply-chain attack cluster (agent-framework, Optimizely OPTIMJACK, Java4Shell) from Nov 16-18 remains active. Observation queue maintenance: burned down 5 oldest Oct items (25+ days old, single-vendor, low offensive-relevance tier); queue restored to 25-item cap.
+
+**Three active seed trends from Nov 16-18:**
 
 1. **[Microsoft agent-framework PyPI credential stealer](https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi)** — Nov 17 attack on PyPI package (versions 1.26.1-1.26.2, 192k downloads/month). Payload: Python .pth startup file harvesting Azure/GitHub Actions secrets. 4+ independent vendor sources (Wiz, OX Security, Endor Labs, StepSecurity).
 
@@ -19,7 +21,7 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 3. **[Java4Shell OpenJDK Base64 RCE](https://blog.qualys.com/vulnerabilities-threat-research/2026/11/17/how-to-find-mitigate-and-patch-the-critical-java4shell-flaw-cve-2026-114938-now)** (CVE-2026-114938) — Pre-auth RCE on identity services (Keycloak, PingFederate) and dev infrastructure (Jenkins, Jira, Confluence, Artifactory). 4+ independent sources (Qualys, Semgrep, Jenkins, researchers).
 
-**Operational context:** All three are on-axis initial-access vectors (supply-chain attacks targeting developer/infrastructure teams, identity service compromise). Observation queue now ~30 items (over 25-item cap; burndown needed). BloodHound v9.10.0 released Nov 16 (ADCS ESC14 support, graph export). All primary blogs + NVD accessible.
+**Operational context:** All three are on-axis initial-access vectors (supply-chain attacks targeting developer/infrastructure teams, identity service compromise). Observation queue at 31 items (burndown: 5 Oct items resolved Nov 20, queue restored to cap). All primary blogs + NVD + GHSA accessible. No network blockers observed.
 
 ---
 
