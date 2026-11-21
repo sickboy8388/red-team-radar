@@ -2,39 +2,37 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-16-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-15-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-31-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--20-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-20-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--21-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-20)
+## Since last scan (2026-11-21)
 
-**Quiet day** — no new trends, no evidence escalations, no tool releases detected Nov 19-20. Supply-chain attack cluster (agent-framework, Optimizely OPTIMJACK, Java4Shell) from Nov 16-18 remains active. Observation queue maintenance: burned down 5 oldest Oct items (25+ days old, single-vendor, low offensive-relevance tier); queue restored to 25-item cap.
+**Light activity** — 1 new evidence appended to dormant trend, 1 new tool release, 4 new primary blog posts. No new trends seeded. Supply-chain cluster (agent-framework, Optimizely, Java4Shell) stable.
 
-**Three active seed trends from Nov 16-18:**
+- **[Nightmare Eclipse FastUnlock](https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/)** (Nov 20, SecurityWeek): New Windows 11 lock-screen bypass zero-day exploiting Narrator screen reader. Requires physical access + online MS account. Evidence appended to dormant `evasion-nightmare-eclipse-001` trend.
 
-1. **[Microsoft agent-framework PyPI credential stealer](https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi)** — Nov 17 attack on PyPI package (versions 1.26.1-1.26.2, 192k downloads/month). Payload: Python .pth startup file harvesting Azure/GitHub Actions secrets. 4+ independent vendor sources (Wiz, OX Security, Endor Labs, StepSecurity).
+- **[BloodHound CE v9.10.1](https://github.com/SpecterOps/BloodHound/releases/tag/v9.10.1)** (Nov 19): Stable release with critical fixes and dependency refinements post-rc1.
 
-2. **[Optimizely OPTIMJACK web platform injection](https://report.uri.report/2026/11/16/optimjack-the-optimizely-web-experimentation-incident)** — Nov 16 attack on Optimizely Web Experimentation platform affecting 178+ organizations (CNN, BBC, Zoom, Ledger, HSBC, Equifax, Salesforce, etc.). Payload: JavaScript with crypto clipper, card skimmer, cookie stealer, iOS exploit kits. 5+ independent sources (BleepingComputer, Report URI, ReversingLabs, Sonatype, TuxCare).
+- **New primary blog posts:** SpecterOps "FBI ARTEX Advisory and Attack Paths" (Nov 19), Elastic "OpenShift Compliance Investigation" (Nov 20), Black Hills "Threat Hunting On The Network" (Nov 18).
 
-3. **[Java4Shell OpenJDK Base64 RCE](https://blog.qualys.com/vulnerabilities-threat-research/2026/11/17/how-to-find-mitigate-and-patch-the-critical-java4shell-flaw-cve-2026-114938-now)** (CVE-2026-114938) — Pre-auth RCE on identity services (Keycloak, PingFederate) and dev infrastructure (Jenkins, Jira, Confluence, Artifactory). 4+ independent sources (Qualys, Semgrep, Jenkins, researchers).
-
-**Operational context:** All three are on-axis initial-access vectors (supply-chain attacks targeting developer/infrastructure teams, identity service compromise). Observation queue at 31 items (burndown: 5 Oct items resolved Nov 20, queue restored to cap). All primary blogs + NVD + GHSA accessible. No network blockers observed.
+- **Queue status:** Observation queue at 25-item cap (maintained from Nov 20 cleanup). Single-vendor HIGH CVEs identified from GHSA (ait-gui, Budibase, Contao, Paymenter, git-lfs); none reaching multi-vendor trend-bar. All primary blogs + NVD + GHSA accessible. No network blockers.
 
 ---
 
 ## Trends
 
-**seed 3 · emerging 1 · dormant 12**
+**seed 3 · dormant 12**
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
 | [Microsoft agent-framework PyPI Supply-Chain Attack](#initial-access-agent-framework-001) | seed | [2026-11-17](https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi) |
 | [Optimizely Web Experimentation Supply-Chain Attack (OPTIMJACK)](#initial-access-optimizely-001) | seed | [2026-11-16](https://report.uri.report/2026/11/16/optimjack-the-optimizely-web-experimentation-incident) |
 | [Java4Shell OpenJDK Base64 RCE (CVE-2026-114938)](#web-java4shell-001) | seed | [2026-11-18](https://blog.qualys.com/vulnerabilities-threat-research/2026/11/17/how-to-find-mitigate-and-patch-the-critical-java4shell-flaw-cve-2026-114938-now) |
-| [Entra ID SyncJacking & Conditional Access Bypass](#identity-entra-syncjacking-001) | emerging | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) |
+| [Nightmare Eclipse: Windows Defender/BitLocker research campaign](#evasion-nightmare-eclipse-001) | dormant | [2026-11-20](https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/) |
 | [N-able N-central Pre-Auth RCE (CVE-2026-86218)](#initial-access-nable-ncentral-001) | dormant | [2026-10-03](https://arcticwolf.com/resources/blog/cve-2026-86218/) |
 | [Citrix NetScaler ADC/Gateway Pre-Auth RCE (CVE-2026-88771/88772)](#initial-access-citrix-netscaler-001) | dormant | [2026-09-28](https://labs.watchtowr.com/oh-look-the-foot-gun-went-off-again-citrix-netscaler-preauth-command-injection-cve-2026-88771/) |
 | [Fortinet FortiMail Pre-Auth Arbitrary File Write (CVE-2026-104286)](#initial-access-fortimail-001) | dormant | [2026-10-01](https://socradar.io/blog/fortimail-zero-day-under-active-exploitation/) |
@@ -43,7 +41,6 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 | [REF8801 Apex Accelerator Malicious npm Packages](#initial-access-apex-accelerator-001) | dormant | [2026-10-14](https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages) |
 | [PHP2Shell RCE (CVE-2026-109618/109619)](#web-php2shell-001) | dormant | [2026-10-21](https://www.elastic.co/security-labs/threat-command/php2shell-assessing-elastic-detection-coverage) |
 | [WSUS / Windows Update Server RCE exploitation](#initial-access-wsus-001) | dormant | [2026-08-05](https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-1/) |
-| [Nightmare Eclipse: Windows Defender/BitLocker research campaign](#evasion-nightmare-eclipse-001) | dormant | [2026-07-31](https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive) |
 | [SonicWall SMA1000 SSRF + RCE exploitation (CVE-2026-15409/15410)](#initial-access-sonicwall-sma-001) | dormant | [2026-08-17](https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the) |
 | [Oracle PeopleSoft Unsafe Deserialization RCE (CVE-2026-35273)](#initial-access-oracle-peoplesoft-001) | dormant | [2026-08-17](https://www.sentinelone.com/vulnerability-database/cve-2026-35273/) |
 | [Entra ID SyncJacking & Conditional Access Bypass](#identity-entra-syncjacking-001) | dormant | [2026-08-06](https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/) |

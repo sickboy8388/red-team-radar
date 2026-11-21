@@ -1,7 +1,7 @@
 # Red Team Radar — Trend ledger
 
 Single source of truth. The README and reports are derived from this file.
-Last updated: 2026-11-20 (Daily scan: **QUIET DAY**. No new trends, no evidence escalations, no tool releases detected Nov 19-20. Supply-chain attack cluster (agent-framework, Optimizely, Java4Shell) from Nov 17-18 remains hot; 3 seed trends stable. 13 dormant trends unchanged. All 13 primary blogs checked; NVD, GHSA, tool repos verified accessible. Observation queue at ~30 items (requires burndown to 25-item cap). Coverage: primary blogs + NVD + GHSA + GitHub discovery completed. No access blockers observed. Next: queue maintenance, burndown oldest Oct-Nov items without secondary corroboration.)
+Last updated: 2026-11-21 (Daily scan: Light activity. NEW EVIDENCE for dormant Nightmare Eclipse trend (FastUnlock Windows 11 zero-day Nov 20, SecurityWeek). NEW tool release: BloodHound CE v9.10.1 (Nov 19). NEW primary blog posts: SpecterOps Nov 19 (FBI ARTEX), Elastic Nov 20 (OpenShift). Single-vendor HIGH CVE advisories identified but no multi-vendor trend-bar hits. Nightmare Eclipse receives 1 new independent source but needs 2+ for dormancy reversal; evidence appended, last_evidence updated. Supply-chain attack cluster (agent-framework, Optimizely, Java4Shell) stable. 3 seed trends unchanged, 13 dormant unchanged, observation queue at 25 items (cap restored). All 13 primary blogs + NVD + GHSA + tool repos checked. Next: continue monitoring for secondary research on latest CVE advisories, watch for Nightmare Eclipse re-emergence patterns.)
 
 Trend stages: `seed` → `emerging` → `accelerating` → `mainstreaming` → `dormant`.
 Evidence line format: `date — primary URL — one line of context`. Max 10 per trend.
@@ -133,10 +133,10 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 ### id: evasion-nightmare-eclipse-001 — Nightmare Eclipse: Windows Defender/BitLocker zero-day research campaign
 - stage: dormant
 - confidence: high
-- last_evidence: 2026-07-31
+- last_evidence: 2026-11-21
 - dormancy_entered: 2026-10-03
-- aliases: [Nightmare Eclipse, MSNightmare (GitHub alias), Windows LPE research, Defender bypass, BitLocker bypass]
-- notes: Disgruntled security researcher operating as "Nightmare Eclipse" has released 9 working proof-of-concept exploits targeting Windows Defender, BitLocker, and kernel drivers since April 2026, with deliberate timing around Patch Tuesday releases. Each exploit is a novel local privilege escalation or sandbox escape. Actor was banned from GitHub and GitLab after 6 releases; now publishes to alternative platforms (git.projectnightcrawler.dev). No coordinated disclosure; all PoCs are public and weaponizable.
+- aliases: [Nightmare Eclipse, MSNightmare (GitHub alias), Windows LPE research, Defender bypass, BitLocker bypass, FastUnlock]
+- notes: Disgruntled security researcher operating as "Nightmare Eclipse" has released 10 working proof-of-concept exploits targeting Windows Defender, BitLocker, kernel drivers, and lock-screen bypass since April 2026, with deliberate timing around Patch Tuesday releases. Each exploit is a novel local privilege escalation, sandbox escape, or authentication bypass. Actor was banned from GitHub and GitLab after 6 releases; now publishes to alternative platforms (git.projectnightcrawler.dev). No coordinated disclosure; all PoCs are public and weaponizable. Latest: FastUnlock (Nov 2026) bypasses Windows 11 lock screen via Narrator screen reader, requires physical access + online MS account.
 - evidence:
   - 2026-04-02 — https://fortifiedhealthsecurity.com/ — Fortified Health Security: "Seven Windows Zero-Days" cluster; BlueHammer (CVE-2026-33825, Defender LPE via SAM arbitrary read).
   - 2026-04-02 — https://www.huntress.com/ — Huntress: BlueHammer technical analysis and real-world sightings.
@@ -144,7 +144,7 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-06-11 — https://www.cyderes.com/ — Cyderes: RoguePlanet anatomy; Defender Quarantine Pipeline weaponization.
   - 2026-06-11 — https://www.picussecurity.com/ — Picus Security: RoguePlanet race-condition analysis; no CVE/patch exists.
   - 2026-07-31 — https://www.theregister.com/ — The Register: LegacyHive July release; user hive mounting exploit.
-  - 2026-07-31 — https://git.projectnightcrawler.dev/NightmareEclipse/LegacyHive — ProjectNightcrawler repository: post-GitLab-ban publishing venue.
+  - 2026-11-20 — https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/ — SecurityWeek: FastUnlock Windows 11 lock-screen bypass exploit, unpatched zero-day, Narrator screen reader abuse.
 
 ### id: initial-access-sonicwall-sma-001 — SonicWall SMA1000 SSRF + RCE exploitation (CVE-2026-15409/15410)
 - stage: dormant
