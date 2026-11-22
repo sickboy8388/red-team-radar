@@ -2,24 +2,24 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-15-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-16-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-20-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--21-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-25-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--22-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-21)
+## Since last scan (2026-11-22)
 
-**Light activity** — 1 new evidence appended to dormant trend, 1 new tool release, 4 new primary blog posts. No new trends seeded. Supply-chain cluster (agent-framework, Optimizely, Java4Shell) stable.
+**Quiet day continuation** — No new primary blog posts from Nov 22. All 13 primary blogs swept; 11 accessible (HTTP 200), 2 degraded (MDSec 522, Outflank 403). No new CRITICAL/HIGH advisories from Nov 22. No new tool releases. No new trends seeded. Supply-chain cluster (agent-framework, Optimizely, Java4Shell) stable since Nov 17-18.
 
-- **[Nightmare Eclipse FastUnlock](https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/)** (Nov 20, SecurityWeek): New Windows 11 lock-screen bypass zero-day exploiting Narrator screen reader. Requires physical access + online MS account. Evidence appended to dormant `evasion-nightmare-eclipse-001` trend.
+- **Primary blog sweep:** 13/13 sources checked. Most recent posts: SecurityWeek (Nov 21: FBI criminal database, Trump cyber director, China-linked AI agents), SpecterOps (Nov 19: FBI ARTEX), Elastic (Nov 20: OpenShift compliance).
 
-- **[BloodHound CE v9.10.1](https://github.com/SpecterOps/BloodHound/releases/tag/v9.10.1)** (Nov 19): Stable release with critical fixes and dependency refinements post-rc1.
+- **CVE advisory watch:** GHSA check shows no new advisories from Nov 22. Most recent: 9 HIGH-severity single-vendor findings from Nov 20 (ait-gui, Budibase, Contao, Paymenter, git-lfs, aedes, svglib). No multi-vendor trend-bar hits.
 
-- **New primary blog posts:** SpecterOps "FBI ARTEX Advisory and Attack Paths" (Nov 19), Elastic "OpenShift Compliance Investigation" (Nov 20), Black Hills "Threat Hunting On The Network" (Nov 18).
+- **Tool releases:** No new releases detected Nov 22. Most recent: BloodHound CE v9.10.1 (Nov 19), Sliver v1.7.9 (Oct 25).
 
-- **Queue status:** Observation queue at 25-item cap (maintained from Nov 20 cleanup). Single-vendor HIGH CVEs identified from GHSA (ait-gui, Budibase, Contao, Paymenter, git-lfs); none reaching multi-vendor trend-bar. All primary blogs + NVD + GHSA accessible. No network blockers.
+- **Queue status:** Observation queue at 25-item cap (stable). Network access stable. 11/13 primary blogs + NVD + GHSA accessible. No new access blockers.
 
 ---
 

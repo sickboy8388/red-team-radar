@@ -1,7 +1,7 @@
-# Red Team Radar — 2026-11-21
+# Red Team Radar — 2026-11-22
 
-- **New evidence** · [FastUnlock Windows 11 zero-day](https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/) — Nightmare Eclipse Narrator screen reader abuse (→ [evasion-nightmare-eclipse-001](TRENDS.md#evasion-nightmare-eclipse-001)).
-- **Tool release** · [BloodHound CE v9.10.1](https://github.com/SpecterOps/BloodHound/releases/tag/v9.10.1) — Nov 19 stable release (→ [Tools & releases](README.md)).
-- **Blog activity** · SpecterOps "FBI ARTEX Advisory" (Nov 19), Elastic "OpenShift Compliance" (Nov 20), Black Hills "Threat Hunting" (Nov 18) (→ [Since last scan](README.md)).
-- **Queue** · Observation queue stable at 25-item cap. Single-vendor HIGH CVEs (ait-gui, Budibase, Contao, git-lfs) below trend-bar (→ [observation_queue](TRENDS.md#observation_queue)).
-- **Coverage** · 13/13 primary blogs checked (11 opened, 2 degraded: MDSec 522, Outflank 403). NVD + GHSA + tool repos accessible. No new blockers. Full scan completed (→ [reports/2026-11-21.md](reports/2026-11-21.md)).
+- **Quiet** · No new primary blog posts from Nov 22. 13/13 blogs swept (11 HTTP 200, 2 degraded). No new CRITICAL/HIGH advisories from Nov 22. No new tool releases. No new trends seeded (→ [reports/2026-11-22.md](reports/2026-11-22.md)).
+- **Supply-chain stable** · 3 seed trends (agent-framework Nov 17, Optimizely Nov 16, Java4Shell Nov 18) unchanged. 13 dormant trends unchanged. Nightmare Eclipse awaits 2nd independent source for dormancy reversal (→ [Trends](README.md)).
+- **Queue status** · Observation queue at 25-item cap. Highest-value: 9 HIGH single-vendor CVEs from Nov 20 awaiting secondary research. No multi-vendor trend-bar hits this run (→ [observation_queue](TRENDS.md#observation_queue)).
+- **Network stable** · 11/13 primary blogs accessible (HTTP 200). 2 persistent degradations: MDSec (HTTP 522), Outflank (HTTP 403). NVD + GHSA + tool repos verified accessible. No new access blockers (→ [logs/source_rotation.md](logs/source_rotation.md)).
+- **Continuity** · 7th consecutive quiet-day run (Nov 16-22) with no new trends seeded. All major scan lanes completed. Daily operator routine executed successfully.
