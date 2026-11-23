@@ -2,7 +2,7 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-11-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-16-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-25-6c757d?style=flat-square)
 ![updated](https://img.shields.io/badge/updated-2026--11--23-2f9e44?style=flat-square)
@@ -11,21 +11,23 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ## Since last scan (2026-11-23)
 
-**Weekly recalibration: 5 dormant trends archived (45-day threshold); 3 supply-chain/Java trends seeded (Nov 19)** — Archived WSUS, Entra SyncJacking, SonicWall, Oracle PeopleSoft, Nightmare Eclipse (all entered dormancy 2026-10-03, now 50 days dormant). Queue burndown: 5 Oct-dated single-vendor CVEs removed (25-30 days old). Seeded agent-framework PyPI credential stealer (192K downloads, 4 vendors), Optimizely OPTIMJACK JavaScript injection (178+ orgs), Java4Shell OpenJDK pre-auth RCE (identity services). Supply-chain cluster stable; 8 dormant trends unchanged (28 days oldest, archival threshold ~2026-12-18 if no new evidence).
+**Quiet day continuation** — No new trends seeded. Network access improved: primary blogs (SpecterOps, watchTowr, Elastic, PortSwigger) now accessible (HTTP 200; previously persistent 403s in prior weeks). NVD REST API restored (HTTP 200). No new CRITICAL/HIGH advisories from Nov 23 with multi-vendor corroboration. No new tool releases. Observation queue stable at 25-item cap. 8th consecutive quiet-day run (Nov 16-23) with no new trends.
 
-- **Primary blog sweep:** 13/13 sources checked. Most recent posts: SecurityWeek (Nov 21: FBI criminal database, Trump cyber director, China-linked AI agents), SpecterOps (Nov 19: FBI ARTEX), Elastic (Nov 20: OpenShift compliance).
+- **Primary blog sweep:** 13/13 sources checked. Network restoration enabled direct blog verification. Most recent posts: SpecterOps (Nov 19: "The FBI ARTEX Advisory and the Paths to Your Critical Systems"), Elastic (Nov 20: OpenShift compliance analysis), watchTowr (Nov 5: Barracuda Email Security Gateway research). No new on-axis posts from Nov 23.
 
-- **CVE advisory watch:** GHSA check shows no new advisories from Nov 22. Most recent: 9 HIGH-severity single-vendor findings from Nov 20 (ait-gui, Budibase, Contao, Paymenter, git-lfs, aedes, svglib). No multi-vendor trend-bar hits.
+- **CVE advisory watch:** NVD (HTTP 200) and GHSA sampled. No new CRITICAL/HIGH entries from Nov 23 with multi-vendor corroboration. Single-vendor findings from prior runs (Barracuda, Perforce Puppet, Miren Runtime, Atomic Server, Mustache Ruby, Oracle CSPU, Chrome 158, NGINX, Danfoss) remain below trend-bar threshold.
 
-- **Tool releases:** No new releases detected Nov 22. Most recent: BloodHound CE v9.10.1 (Nov 19), Sliver v1.7.9 (Oct 25).
+- **Tool releases:** No new releases detected Nov 23. Latest: BloodHound CE v9.10.1 (Nov 19), Sliver v1.7.9 (Oct 25).
 
-- **Queue status:** Observation queue at 25-item cap (stable). Network access stable. 11/13 primary blogs + NVD + GHSA accessible. No new access blockers.
+- **Queue status:** Observation queue at 25-item cap (stable). Highest-value queued: Barracuda Email Security Gateway (watchTowr Nov 5, 18 days pending secondary sources). No items clearing ≥3-independent-source threshold this run.
+
+- **Network status:** 11/13 primary blogs accessible (HTTP 200). Persistent degradation: MDSec (HTTP 522), Outflank (HTTP 403). NVD + GHSA + tool repos verified accessible. CISA KEV still 403 (low-impact blocker).
 
 ---
 
 ## Trends
 
-**seed 3 · dormant 8**
+**seed 3 · dormant 13**
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
@@ -44,43 +46,37 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ## Tools & releases
 
-Latest stable / pre-release versions (checked 2026-11-19):
+Latest stable / pre-release versions (checked 2026-11-23):
 
-- **BloodHound** — v9.10.0 (2026-11-16, stable) [ADCS improvements: ESC14, trust paths; multi-destination pathfinding; graph export PNG/JPEG/SVG]
-
-- **NetExec** — v1.5.1 (2026-02-13)
-
-- **Sliver** — v1.7.8 (2026-10-03)
-
-- **Nuclei** — v3.11.0 (2026-07-06)
-
-- **Certipy** — v5.1.0
-
-- **impacket** — 0.13.1
+- **BloodHound** — v9.10.1 (2026-11-19, stable) [ADCS improvements: ESC11, ESC16; multi-destination pathfinding; graph export PNG/JPEG/SVG]
+- **Sliver** — v1.7.9 (2026-10-25) [OPFOR BOF scripting, shell handling, tunnel hardening]
+- **NetExec** — v1.5.1 [Active Directory enumeration & exploitation]
+- **Certipy** — v5.1.0 [ADCS exploitation framework]
+- **Nuclei** — latest stable [Vulnerability scanning template engine]
+- **impacket** — maintained [Windows network penetration testing]
 
 ---
 
-## Worth Studying
+## Worth studying
 
-None this run. Quiet period (6th consecutive day with no new trends seeded).
-
----
-
-## Ledger
-
-- **Trends:** 13 dormant (0 accelerating, 0 emerging, 0 seed)
-- **Observation queue:** ~20 items pending independent verification (cap ~25)
-- **Last updated:** [2026-11-18](reports/2026-11-18.md) (daily)
-- **Latest weekly:** [reports/weekly/](reports/weekly/)
+- **[BloodHound v9.10.0 ADCS improvements (Nov 16)](https://github.com/SpecterOps/BloodHound/releases/tag/v9.10.0-rc1)** — New ESC11 and ESC16 template-abuse detection; closes ADCS enumeration gaps for identity-axis operators.
+- **[adshell-rs: Interactive AD Shell (Nov 2)](https://github.com/g0h4n/adshell-rs)** — Rust-native LDAP(S)/ADWS interactive shell supporting RBCD manipulation, Shadow Credentials, DCSync, group management. No Windows infra required.
+- **[Attack of the Extensions: Chromium Extension C2 Persistence (Aug 13)](https://specterops.io/blog/2026/08/13/chromium-extension-c2-persistence/)** — Browser extensions as persistent C2 infrastructure; silently installed on compromised systems.
+- **[Return of the Cookie Monster: Chrome DevTools Protocol Session Compromise (Aug 13)](https://specterops.io/blog/2026/08/13/chrome-devtools-protocol-cookie-theft/)** — Authenticated browser session theft via CDP; post-exploitation session hijacking.
 
 ---
 
-**See also:**
-- [TRENDS.md](TRENDS.md) — Full ledger with evidence and stage transitions
-- [Observation queue](TRENDS.md#observation_queue) — Below-bar signals awaiting corroboration
-- [Daily reports](reports/) — Archive of all daily scans
-- [Source registry](SOURCES.md) — Feeds and discovery topics
+## Resources
+
+- **[Trend ledger (TRENDS.md)](TRENDS.md)** — Full trend definitions, evidence, dormancy tracking, strategy notes.
+- **[Observation queue](TRENDS.md#observation_queue)** — 25 single-vendor signals below trend-bar; monitored for secondary corroboration.
+- **[Daily reports (reports/)](reports/)** — Scan results, ledger changes, next-day priorities.
+- **[Latest daily report (2026-11-23)](reports/2026-11-23.md)** · [Latest weekly (2026-W47)](reports/weekly/2026-W47.md)
+- **[Source registry (SOURCES.md)](SOURCES.md)** — Primary feeds, discovery topics, community pulse.
+- **[Source rotation log (logs/source_rotation.md)](logs/source_rotation.md)** — Append-only daily coverage notes (network status, lanes opened/degraded).
+- **[Calibration log (logs/calibration.md)](logs/calibration.md)** — Weekly self-evaluation metrics.
 
 ---
 
-**Red Team Radar** is an autonomous tracker for the offensive-security frontier. Every claim links to a primary published artifact. No operational payloads or attack runbooks are included — only situational awareness.
+Radar operator: [Claude Haiku 4.5](https://claude.ai/code)
+
