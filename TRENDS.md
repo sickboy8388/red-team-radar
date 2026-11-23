@@ -116,64 +116,6 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-10-21 — https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619-php2shell — Palo Alto Networks Unit42: PHP2Shell threat analysis and exploitation patterns.
   - 2026-10-22 — https://www.cisa.gov/known-exploited-vulnerabilities-catalog — CISA: urgent patch request issued for CVE-2026-109618/109619 on 2026-10-22.
 
-### id: initial-access-wsus-001 — WSUS / Windows Update Server RCE exploitation
-- stage: dormant
-- confidence: high
-- last_evidence: 2026-08-05
-- dormancy_entered: 2026-10-03
-- aliases: [WSUS exploitation, Windows Update Server abuse, CVE-2025-59287, CVE-2026-20856]
-- notes: Windows Server Update Services RCE via unsafe deserialization (AuthorizationCookie BinaryFormatter, CVE-2025-59287) and improper input validation (CVE-2026-20856). Active exploitation in the wild since Oct 2025, at least 50+ organizations compromised. WSUS compromise allows attacker to become SYSTEM and push malware to all managed endpoints via forged updates. No authentication required on default ports 8530/8531.
-- evidence:
-  - 2026-08-05 — https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-1/ — SpecterOps comprehensive write-up: WSUS exploitation chain, attack surface.
-  - 2026-08-05 — https://specterops.io/blog/2026/08/05/turning-enterprise-update-servers-into-backdoor-factories-part-2/ — SpecterOps Part 2: deeper technical analysis.
-  - 2026-08-05 — https://specterops.io/blog/2026/08/05/weaponizing-windows-updates-with-notwsuspicious/ — SpecterOps tool release: NotWSUSpicious automation.
-  - 2026-10-23 — https://www.huntress.com/blog/exploitation-of-windows-server-update-services-remote-code-execution-vulnerability — Huntress: active exploitation observation, "point-and-shoot" attack, PoC released.
-  - 2026-10-23 — https://unit42.paloaltonetworks.com/microsoft-cve-2025-59287/ — Palo Alto Unit42: active exploitation in the wild tracking.
-
-### id: evasion-nightmare-eclipse-001 — Nightmare Eclipse: Windows Defender/BitLocker zero-day research campaign
-- stage: dormant
-- confidence: high
-- last_evidence: 2026-11-21
-- dormancy_entered: 2026-10-03
-- aliases: [Nightmare Eclipse, MSNightmare (GitHub alias), Windows LPE research, Defender bypass, BitLocker bypass, FastUnlock]
-- notes: Disgruntled security researcher operating as "Nightmare Eclipse" has released 10 working proof-of-concept exploits targeting Windows Defender, BitLocker, kernel drivers, and lock-screen bypass since April 2026, with deliberate timing around Patch Tuesday releases. Each exploit is a novel local privilege escalation, sandbox escape, or authentication bypass. Actor was banned from GitHub and GitLab after 6 releases; now publishes to alternative platforms (git.projectnightcrawler.dev). No coordinated disclosure; all PoCs are public and weaponizable. Latest: FastUnlock (Nov 2026) bypasses Windows 11 lock screen via Narrator screen reader, requires physical access + online MS account.
-- evidence:
-  - 2026-04-02 — https://fortifiedhealthsecurity.com/ — Fortified Health Security: "Seven Windows Zero-Days" cluster; BlueHammer (CVE-2026-33825, Defender LPE via SAM arbitrary read).
-  - 2026-04-02 — https://www.huntress.com/ — Huntress: BlueHammer technical analysis and real-world sightings.
-  - 2026-06-11 — https://www.securityweek.com/ — SecurityWeek: RoguePlanet zero-day drop hours after June Patch Tuesday.
-  - 2026-06-11 — https://www.cyderes.com/ — Cyderes: RoguePlanet anatomy; Defender Quarantine Pipeline weaponization.
-  - 2026-06-11 — https://www.picussecurity.com/ — Picus Security: RoguePlanet race-condition analysis; no CVE/patch exists.
-  - 2026-07-31 — https://www.theregister.com/ — The Register: LegacyHive July release; user hive mounting exploit.
-  - 2026-11-20 — https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/ — SecurityWeek: FastUnlock Windows 11 lock-screen bypass exploit, unpatched zero-day, Narrator screen reader abuse.
-
-### id: initial-access-sonicwall-sma-001 — SonicWall SMA1000 SSRF + RCE exploitation (CVE-2026-15409/15410)
-- stage: dormant
-- confidence: high
-- last_evidence: 2026-08-17
-- dormancy_entered: 2026-10-03
-- aliases: [SonicWall SMA1000 RCE, CVE-2026-15409, CVE-2026-15410, SSRF code injection chain]
-- notes: Critical remote code execution chain in SonicWall SMA1000 Secure Mobile Access via unauthenticated server-side request forgery (CVE-2026-15409, CVSS 10.0) chained with post-authentication code injection (CVE-2026-15410). Both flaws require no authentication or user interaction on the Work Place interface. Affects models 6210, 7210, 8200v. Active exploitation in the wild confirmed by multiple vendors. Patch available (12.4.3-03453, 12.5.0-02835 or later). Widely-deployed remote-access/VPN appliance; high initial-access relevance.
-- evidence:
-  - 2026-08-17 — https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the — Tenable: CVE-2026-15409/15410 SonicWall SMA1000 zero-day exploitation tracking.
-  - 2026-08-17 — https://www.rapid7.com/blog/post/etr-rapid7-mdr-team-discovers-new-sonicwall-sma1000-zero-days-being-actively-exploited-cve-2026-15409-cve-2026-15410/ — Rapid7 MDR: active exploitation discovery and analysis.
-  - 2026-08-17 — https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-sma1000-flaws-exploited-in-zero-day-attacks-patch-now/ — BleepingComputer: SonicWall advisory, patch recommendations, CISA urgency.
-  - 2026-08-17 — https://labs.beazley.security/advisories/BSL-A1189 — Beazley Security Labs: technical vulnerability analysis (CVSS 10.0 confirmation).
-  - 2026-08-17 — https://www.helpnetsecurity.com/2026/07/14/sonicwall-sma-attacks-via-cve-2026-15409-cve-2026-15410/ — Help Net Security: multi-vendor correlation of active exploitation.
-
-### id: initial-access-oracle-peoplesoft-001 — Oracle PeopleSoft Unsafe Deserialization RCE (CVE-2026-35273)
-- stage: dormant
-- confidence: high
-- last_evidence: 2026-08-17
-- dormancy_entered: 2026-10-03
-- aliases: [Oracle PeopleSoft RCE, CVE-2026-35273, PeopleTools auth bypass, PSEMHUB deserialization]
-- notes: Critical unauthenticated remote code execution in Oracle PeopleSoft Enterprise PeopleTools via unsafe deserialization of attacker-controlled data at `/PSEMHUB/hub` endpoint (CVE-2026-35273, CVSS 9.8). Affects versions 8.61 and 8.62. Zero-day exploitation confirmed in the wild May 27–June 9, 2026, by UNC6240 (ShinyHunters financially motivated extortion group), heavily targeting higher-education sector. Oracle released out-of-band patch same day as advisory (June 2026). High-impact web/cloud initial access vector targeting enterprise resource planning systems.
-- evidence:
-  - 2026-08-17 — https://www.sentinelone.com/vulnerability-database/cve-2026-35273/ — SentinelOne: CVE-2026-35273 technical analysis and threat tracking.
-  - 2026-08-17 — https://horizon3.ai/attack-research/vulnerabilities/cve-2026-35273/ — Horizon3.ai: attack research on Oracle PeopleSoft unauth RCE.
-  - 2026-08-17 — https://www.rapid7.com/blog/post/etr-active-exploitation-of-oracle-peoplesoft-zero-day-cve-2026-35273/ — Rapid7 ETR: active exploitation evidence and UNC6240 attribution.
-  - 2026-08-17 — https://www.picussecurity.com/resource/blog/cve-2026-35273-oracle-peoplesoft-rce-zero-day-explained — Picus Security: RCE chain explanation and remediation.
-  - 2026-08-17 — https://www.oracle.com/security-alerts/alert-cve-2026-35273.html — Oracle official security alert and patch advisory.
-
 ### id: initial-access-agent-framework-001 — Microsoft agent-framework PyPI Supply-Chain Attack (Nov 2026)
 - stage: seed
 - confidence: high
@@ -209,19 +151,6 @@ Seed the ledger by running the daily routine. Each trend block looks like:
   - 2026-11-17 — https://semgrep.dev/blog/2026/java4shell-openjdk-base64-vulnerability/ — Semgrep: OpenJDK Base64 decoder vulnerability mechanism, code-analysis detection approach.
   - 2026-11-18 — https://www.jenkins.io/security/advisory/2026-05-27/ — Jenkins official security advisory: CVE-2026-114938 impact on Jenkins servers, remediation path.
   - 2026-11-18 — https://blog.rankiteo.com/java4shell/ — Independent researcher coverage: pre-auth RCE on Jira/Jenkins/Keycloak, exploitation requirements, organizational risk.
-
-### id: identity-entra-syncjacking-001 — Entra ID SyncJacking & Conditional Access Bypass
-- stage: dormant
-- confidence: high
-- last_evidence: 2026-08-06
-- dormancy_entered: 2026-10-03
-- aliases: [SyncJacking, Entra Connect hard-matching abuse, Azure AD account takeover, Conditional Access bypass]
-- notes: SyncJacking: attacker with on-prem AD permissions abuses Entra Connect hard-matching to forcibly link low-privilege AD account to high-privilege Entra ID cloud identity, including Global Administrator. Separate CA-bypass flaw allows blocked accounts to bypass Conditional Access via trust-chain evasion. Microsoft MSRC confirmed Important severity; hardening enforcement began March 2026, with Global Admin role-matching block enforced June 1, 2026.
-- evidence:
-  - 2026-01-15 — https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/ — Semperis discovery: SyncJacking hard-matching abuse → Global Admin takeover.
-  - 2026-01-15 — https://securityboulevard.com/2026/01/syncjacking-hard-matching-vulnerability-enables-entra-id-account-takeover/ — Security Boulevard: MSRC confirmation, attack chain.
-  - 2026-08-06 — https://www.semperis.com/blog/syncjacking-azure-ad-account-takeover/ — Semperis re-confirmation and mitigation guidance post-enforcement.
-  - 2026-02-01 — https://cybersecuritynews.com/azure-ad-conditional-access-bypassed/ — Cybersecurity News: Conditional Access bypass via phantom device registration and PRT abuse.
 
 ---
 
@@ -497,5 +426,11 @@ Seed the ledger by running the daily routine. Each trend block looks like:
 ## archived
 
 <!-- Trends archived post-45-day dormancy threshold. One-line post-mortem. -->
+
+- **initial-access-wsus-001 (WSUS/Windows Update Server RCE, CVE-2025-59287/2026-20856)** — Archived 2026-11-23 (50 days dormant, entered 2026-10-03, last evidence 2026-08-05). Post-mortem: Real active exploitation (50+ organizations compromised, 5,500+ exposed instances tracked), but patch availability + time since disclosure (Aug 2026) suggests deployment has advanced. No downstream research on exploitation techniques or patch bypasses emerged post-patch. Red teams should reference SpecterOps 4-part technical series for WSUS compromise tradecraft; treat new offensive leverage as low.
+- **identity-entra-syncjacking-001 (Entra ID SyncJacking, CVE-2026-20929)** — Archived 2026-11-23 (50 days dormant, entered 2026-10-03, last evidence 2026-08-06). Post-mortem: Real identity-axis attack via hard-matching abuse and CA-bypass flaw, multi-vendor evidence (Semperis, MSRC). However, Microsoft hardening enforcement (Global Admin role-matching block enforced June 1, 2026) eliminated primary attack surface. No new exploitation variants or bypass techniques emerged post-enforcement. Historical reference for Entra Connect attack-path analysis; treat new offensive leverage as low.
+- **initial-access-sonicwall-sma-001 (SonicWall SMA1000 RCE, CVE-2026-15409/15410)** — Archived 2026-11-23 (50 days dormant, entered 2026-10-03, last evidence 2026-08-17). Post-mortem: Real zero-day active exploitation chain (SSRF + post-auth code injection, CVSS 10.0), multi-vendor tracking confirmed. Patch available (12.4.3-03453+), and 2.5+ months post-disclosure suggests patch adoption. No secondary research on exploitation variants emerged post-patch. Red teams retain tactical value via Tenable/Rapid7/Beazley technical writeups; treat new offensive leverage as low.
+- **initial-access-oracle-peoplesoft-001 (Oracle PeopleSoft RCE, CVE-2026-35273)** — Archived 2026-11-23 (50 days dormant, entered 2026-10-03, last evidence 2026-08-17). Post-mortem: Real UNC6240 exploitation campaign targeting higher-education (May-June 2026 active), multi-vendor evidence (SentinelOne, Horizon3, Rapid7, Oracle). Out-of-band patch released same day as advisory (June 2026); 5+ months post-patch suggests deployment progress. No downstream research on patch bypasses or exploitation variants emerged. Useful historical reference for enterprise ERP attack paths; treat new offensive leverage as low.
+- **evasion-nightmare-eclipse-001 (Nightmare Eclipse Windows zero-day research, 10 PoCs)** — Archived 2026-11-23 (50 days dormant, entered 2026-10-03, last evidence 2026-11-21). Post-mortem: Real researcher campaign (April-November 2026) releasing 10 weaponizable zero-day PoCs (Defender/BitLocker/kernel/lock-screen bypasses). One new evidence Nov 21 (FastUnlock) but insufficient for dormancy reversal (requires ≥2 independent sources). Research output is genuine and immediately actionable for red teams; however, patch deployment timeline (Nov 2026 for Windows 11 Narrator abuse) suggests remediation underway. Red teams should archive the full 6-artifact evidence cluster for Windows LPE/evasion tradecraft reference; treat ongoing offensive leverage as research-driven only (no new variants observed post-Nov 21).
 
 - **ad-certighost-001 (CertiGhost AD CS "chase" DC-impersonation, CVE-2026-54121)** — Archived 2026-11-16 (48 days dormant, entered 2026-09-29). Post-mortem: Real exploit with multi-vendor evidence (PoC tools, detection rules, GHSA advisory), but patch deployment (Microsoft July 2026) eliminated the attack surface. No new secondary research or exploitation techniques emerged post-patch. Useful historical reference for ADCS attack-chain taxonomy; red teams should reference the 9-artifact evidence cluster for legacy domain reconnaissance but treat new offensive leverage as low. Dormancy velocity was flat; no signal for reactivation observed.
