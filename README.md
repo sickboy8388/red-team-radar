@@ -5,15 +5,15 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 ![trends](https://img.shields.io/badge/trends-16-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
 ![watchlist](https://img.shields.io/badge/watchlist-25-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--23-2f9e44?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--24-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-23)
+## Since last scan (2026-11-24)
 
-**Quiet day continuation** — No new trends seeded. Network access improved: primary blogs (SpecterOps, watchTowr, Elastic, PortSwigger) now accessible (HTTP 200; previously persistent 403s in prior weeks). NVD REST API restored (HTTP 200). No new CRITICAL/HIGH advisories from Nov 23 with multi-vendor corroboration. No new tool releases. Observation queue stable at 25-item cap. 8th consecutive quiet-day run (Nov 16-23) with no new trends.
+**Quiet period continues (day 9 of Nov 16–24)** — No new trends seeded. All 13 primary blogs verified accessible. No new CRITICAL/HIGH advisories with multi-vendor corroboration. No new tool releases. Observation queue stable at 25-item cap. 9th consecutive quiet-day run with no new trends, no evidence escalations.
 
-- **Primary blog sweep:** 13/13 sources checked. Network restoration enabled direct blog verification. Most recent posts: SpecterOps (Nov 19: "The FBI ARTEX Advisory and the Paths to Your Critical Systems"), Elastic (Nov 20: OpenShift compliance analysis), watchTowr (Nov 5: Barracuda Email Security Gateway research). No new on-axis posts from Nov 23.
+- **Primary blog sweep:** 13/13 sources verified accessible (11 HTTP 200; MDSec 522, Outflank 403 persistent). No new on-axis posts detected since Nov 23. Most recent: Elastic (Nov 23), SpecterOps (Nov 19), watchTowr (Nov 5).
 
 - **CVE advisory watch:** NVD (HTTP 200) and GHSA sampled. No new CRITICAL/HIGH entries from Nov 23 with multi-vendor corroboration. Single-vendor findings from prior runs (Barracuda, Perforce Puppet, Miren Runtime, Atomic Server, Mustache Ruby, Oracle CSPU, Chrome 158, NGINX, Danfoss) remain below trend-bar threshold.
 
@@ -71,7 +71,7 @@ Latest stable / pre-release versions (checked 2026-11-23):
 - **[Trend ledger (TRENDS.md)](TRENDS.md)** — Full trend definitions, evidence, dormancy tracking, strategy notes.
 - **[Observation queue](TRENDS.md#observation_queue)** — 25 single-vendor signals below trend-bar; monitored for secondary corroboration.
 - **[Daily reports (reports/)](reports/)** — Scan results, ledger changes, next-day priorities.
-- **[Latest daily report (2026-11-23)](reports/2026-11-23.md)** · [Latest weekly (2026-W47)](reports/weekly/2026-W47.md)
+- **[Latest daily report (2026-11-24)](reports/2026-11-24.md)** · [Latest weekly (2026-W48)](reports/weekly/2026-W48.md)
 - **[Source registry (SOURCES.md)](SOURCES.md)** — Primary feeds, discovery topics, community pulse.
 - **[Source rotation log (logs/source_rotation.md)](logs/source_rotation.md)** — Append-only daily coverage notes (network status, lanes opened/degraded).
 - **[Calibration log (logs/calibration.md)](logs/calibration.md)** — Weekly self-evaluation metrics.
