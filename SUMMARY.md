@@ -1,7 +1,7 @@
-# Red Team Radar — 2026-11-24
+# Red Team Radar — 2026-11-25
 
-- **Quiet** · No new primary blog posts from Nov 24. 13/13 blogs swept (11 HTTP 200, 2 degraded). No new CRITICAL/HIGH advisories with multi-vendor corroboration. No new tool releases. No new trends seeded (→ [reports/2026-11-24.md](reports/2026-11-24.md)).
-- **Supply-chain stable** · 3 seed trends (agent-framework Nov 17, Optimizely Nov 16, Java4Shell Nov 18) unchanged. 13 dormant trends unchanged. Nightmare Eclipse awaits 2nd independent source for dormancy reversal (→ [Trends](README.md)).
-- **Queue status** · Observation queue at 25-item cap. Highest-value queued: Barracuda Email Security Gateway (watchTowr Nov 5, 18 days pending secondary sources). No multi-vendor trend-bar hits this run (→ [observation_queue](TRENDS.md#observation_queue)).
-- **Network improved** · Primary blog access **restored**: SpecterOps, watchTowr, Elastic, PortSwigger, etc. all HTTP 200 (previously persistent 403s in prior runs). NVD REST API now accessible. 2 persistent degradations remain: MDSec (HTTP 522), Outflank (HTTP 403). CISA KEV still 403 (→ [logs/source_rotation.md](logs/source_rotation.md)).
-- **Continuity** · 8th consecutive quiet-day run (Nov 16-23) with no new trends seeded. All major scan lanes completed. Daily operator routine executed successfully.
+- **Quiet** · Day 10 of quiet period (Nov 16–25 continuous). No new primary blog posts detected since Nov 24. 13/13 blogs swept (11 HTTP 200, 2 degraded: MDSec timeout, Outflank 403). No new CRITICAL/HIGH advisories with multi-vendor corroboration. No new tool releases. No new trends seeded (→ [reports/2026-11-25.md](reports/2026-11-25.md)).
+- **Supply-chain cluster stable** · 3 seed trends (agent-framework Nov 17, Optimizely Nov 16, Java4Shell Nov 18) unchanged. 1 emerging (PHP2Shell Oct 22). 7 dormant trends unchanged. Nightmare Eclipse dormant since Nov 21; awaits 2nd independent source for reversal (→ [Trends](README.md)).
+- **Queue status** · Observation queue at 25-item cap (stable). Highest-value queued: Barracuda Email Security Gateway (watchTowr Nov 5, 20 days pending secondary sources). No multi-vendor trend-bar hits this run (→ [observation_queue](TRENDS.md#observation_queue)).
+- **Network status stable** · 11/13 primary blogs accessible (HTTP 200). NVD REST API issues (parameter problem, documented). GHSA API session-scoped 403 (documented blocker, low-impact). 2 persistent degradations: MDSec (HTTP 522), Outflank (HTTP 403). CISA KEV still 403 (→ [logs/source_rotation.md](logs/source_rotation.md)).
+- **Continuity** · 10th consecutive quiet-day run (Nov 16-25) with no new trends seeded. All major scan lanes completed. Daily operator routine executed successfully.
