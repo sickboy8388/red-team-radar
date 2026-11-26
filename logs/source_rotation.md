@@ -811,3 +811,11 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - **Queue status:** Observation queue stable at 25-item cap. No new escalations. Highest-value queued: Barracuda Email Security Gateway (watchTowr Nov 5, 20 days pending secondary sources). No multi-vendor trend-bar hits this run.
 - **Trend status:** 3 seed trends (agent-framework Nov 17, Optimizely Nov 16, Java4Shell Nov 18) stable; 13 dormant trends unchanged. No new evidence appended. Nightmare Eclipse (dormant, Nov 21 last_evidence) awaits 2nd independent source for dormancy reversal.
 - **Net:** Quiet day — no new trends, no evidence changes, no tool releases, no urgent signals. All major scan lanes covered. Daily operator continuity maintained. Quiet period extends to day 10 (Nov 16-25 continuous).
+
+## 2026-11-26 (daily)
+- opened: all 13 primary blogs (SpecterOps, Project Zero, watchTowr, Assetnote, Outflank, MDSec, Synacktiv, PortSwigger, SensePost, Elastic, Black Hills, SecurityWeek, The Register) — all HTTP 200. No new on-axis posts since 2026-11-25; last activity Elastic Nov 23, SpecterOps Nov 19, watchTowr Nov 5.
+- degraded: NVD REST API (parameter issue, low-impact GHSA fallback functional); GHSA web UI session-scoped 403 (documented blocker, low-impact).
+- opened: tool repos (BloodHound, NetExec, Sliver, Certipy, Nuclei) — all accessible via GitHub. No new releases since BloodHound v9.10.1 (Nov 19) and Sliver v1.7.9 (Oct 25).
+- opened: discovery topics — GitHub searches on EDR evasion, C2, AD attacks completed via WebFetch; no new high-star repos created Nov 25-26.
+- opened (partial): community pulse — HN, Reddit intake-only check; no on-axis signals.
+- Coverage: 13/13 primary blogs opened (none degraded today), NVD (partial/fallback), GHSA (session-scoped), tool repos checked, discovery topics sampled. No access blockers requiring escalation. Daily continuity maintained. Quiet period day 11 (Nov 16-26).
