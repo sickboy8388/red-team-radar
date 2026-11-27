@@ -819,3 +819,11 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - opened: discovery topics — GitHub searches on EDR evasion, C2, AD attacks completed via WebFetch; no new high-star repos created Nov 25-26.
 - opened (partial): community pulse — HN, Reddit intake-only check; no on-axis signals.
 - Coverage: 13/13 primary blogs opened (none degraded today), NVD (partial/fallback), GHSA (session-scoped), tool repos checked, discovery topics sampled. No access blockers requiring escalation. Daily continuity maintained. Quiet period day 11 (Nov 16-26).
+
+## 2026-11-27 (daily — quiet period day 12)
+- opened: all 13 primary blogs (SpecterOps, Project Zero, watchTowr, Assetnote, Outflank, MDSec, Synacktiv, PortSwigger, SensePost, Elastic, Black Hills, SecurityWeek, The Register) — all HTTP 200. No new on-axis posts detected since 2026-11-26; last activity Elastic Nov 23, SpecterOps Nov 19, watchTowr Nov 5.
+- degraded: NVD REST API (parameter issue, documented low-impact); GHSA session-scoped 403 (documented blocker, low-impact).
+- opened: tool repos (BloodHound, NetExec, Sliver, Certipy, Nuclei, impacket) — all accessible. No new releases detected Nov 27 (latest: BloodHound CE v9.10.1 Nov 19, Sliver v1.7.9 Oct 25).
+- opened: discovery topics — GitHub searches on EDR evasion, C2, AD attacks completed via WebFetch; no new high-star repos created Nov 27.
+- opened (partial): community pulse — HN, Reddit intake-only check; no on-axis signals Nov 27.
+- Coverage: 13/13 primary blogs opened (none degraded today), NVD (partial/fallback via Tavily), GHSA (session-scoped), tool repos checked, discovery topics sampled. 3 new CRITICAL single-vendor CVEs queued (Canonical Pylxd, Idunno AntiCsrf, Drupal installer). No access blockers requiring escalation. Quiet period day 12 (Nov 16-27). Continuity maintained.

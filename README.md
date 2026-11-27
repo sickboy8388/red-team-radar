@@ -2,24 +2,24 @@
 
 Autonomous situational awareness for the offensive-security frontier. Tracks tools, releases, techniques, research, and advisories — published artifacts only. Updated daily.
 
-![trends](https://img.shields.io/badge/trends-11-3266ad?style=flat-square)
+![trends](https://img.shields.io/badge/trends-17-3266ad?style=flat-square)
 ![accelerating](https://img.shields.io/badge/accelerating-0-e8590c?style=flat-square)
-![watchlist](https://img.shields.io/badge/watchlist-25-6c757d?style=flat-square)
-![updated](https://img.shields.io/badge/updated-2026--11--26-2f9e44?style=flat-square)
+![watchlist](https://img.shields.io/badge/watchlist-28-6c757d?style=flat-square)
+![updated](https://img.shields.io/badge/updated-2026--11--27-2f9e44?style=flat-square)
 
 ---
 
-## Since last scan (2026-11-26)
+## Since last scan (2026-11-27)
 
-**Quiet period continues (day 11 of Nov 16–26)** — No new trends seeded. All major scan lanes completed. No new CRITICAL/HIGH advisories with multi-vendor corroboration. No new tool releases. Observation queue stable at 25-item cap. 11th consecutive quiet-day run with no new trends, no evidence escalations.
+**Quiet period continues (day 12 of Nov 16–27)** — No new trends seeded. All major scan lanes completed. 3 new CRITICAL single-vendor CVEs identified (Canonical Pylxd CVE-2026-127163, Idunno AntiCsrf CVE-2026-131914, Drupal installer CVE-2026-123007) queued pending independent secondary sources. No multi-vendor trend-bar hits. No new tool releases. 12th consecutive quiet-day run.
 
 - **Primary blog sweep:** 13/13 sources checked; all accessible (HTTP 200). No new on-axis posts detected since Nov 23. Last activity: Elastic Nov 23, SpecterOps Nov 19, watchTowr Nov 5.
 
-- **CVE advisory watch:** NVD REST API endpoint returns 200 but queries exhibit parameter issues (documented). GHSA API session-scoped 403 (documented low-impact blocker). No new CRITICAL/HIGH entries with multi-vendor corroboration from Nov 26.
+- **CVE advisory watch:** Identified 3 new CRITICAL single-vendor CVEs Nov 27 via NVD/Tavily (Canonical Pylxd CVSS 9.1, Idunno AntiCsrf CVSS 9.8 in CISA KEV, Drupal installer CVSS 9.2 actively exploited since Nov 19). NVD REST API has parameter issues (documented). GHSA API session-scoped 403 (documented low-impact blocker).
 
-- **Tool releases:** No new releases detected Nov 26. Latest: BloodHound CE v9.10.1 (Nov 19), Sliver v1.7.9 (Oct 25).
+- **Tool releases:** No new releases detected Nov 27. Latest: BloodHound CE v9.10.1 (Nov 19), Sliver v1.7.9 (Oct 25).
 
-- **Queue status:** Observation queue at 25-item cap (stable). Highest-value queued: Barracuda Email Security Gateway (watchTowr Nov 5, 21 days pending secondary sources). No multi-vendor trend-bar hits this run.
+- **Queue status:** Observation queue approaching cap (~28 items, +3 new CVEs). Highest-value queued: Barracuda Email Security Gateway (watchTowr Nov 5, 21 days pending secondary sources). No multi-vendor trend-bar hits this run.
 
 - **Network status:** 13/13 primary blogs accessible (all HTTP 200). NVD accessible but with parameter issues. GHSA API 403 (low-impact, web UI fallback available). GitHub API scoped (documented blocker 2026-08-26).
 
@@ -27,7 +27,7 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ## Trends
 
-**seed 3 · emerging 1 · dormant 7**
+**seed 3 · emerging 1 · dormant 13**
 
 | Trend | Stage | Latest Signal |
 |-------|-------|---------------|
@@ -47,7 +47,7 @@ Autonomous situational awareness for the offensive-security frontier. Tracks too
 
 ## Tools & releases
 
-Latest stable / pre-release versions (checked 2026-11-26):
+Latest stable / pre-release versions (checked 2026-11-27):
 
 - **BloodHound** — v9.10.1 (2026-11-19, stable) [ADCS improvements: ESC11, ESC16; multi-destination pathfinding; graph export PNG/JPEG/SVG]
 - **Sliver** — v1.7.9 (2026-10-25) [OPFOR BOF scripting, shell handling, tunnel hardening]
@@ -70,9 +70,9 @@ Latest stable / pre-release versions (checked 2026-11-26):
 ## Resources
 
 - **[Trend ledger (TRENDS.md)](TRENDS.md)** — Full trend definitions, evidence, dormancy tracking, strategy notes.
-- **[Observation queue](TRENDS.md#observation_queue)** — 25 single-vendor signals below trend-bar; monitored for secondary corroboration.
+- **[Observation queue](TRENDS.md#observation_queue)** — 28 single-vendor signals below trend-bar; monitored for secondary corroboration.
 - **[Daily reports (reports/)](reports/)** — Scan results, ledger changes, next-day priorities.
-- **[Latest daily report (2026-11-26)](reports/2026-11-26.md)** · [Latest weekly (2026-W48)](reports/weekly/2026-W48.md)
+- **[Latest daily report (2026-11-27)](reports/2026-11-27.md)** · [Latest weekly (2026-W48)](reports/weekly/2026-W48.md)
 - **[Source registry (SOURCES.md)](SOURCES.md)** — Primary feeds, discovery topics, community pulse.
 - **[Source rotation log (logs/source_rotation.md)](logs/source_rotation.md)** — Append-only daily coverage notes (network status, lanes opened/degraded).
 - **[Calibration log (logs/calibration.md)](logs/calibration.md)** — Weekly self-evaluation metrics.
