@@ -827,3 +827,13 @@ Append-only. One dated line per run: which sources were `opened` or `degraded: <
 - opened: discovery topics — GitHub searches on EDR evasion, C2, AD attacks completed via WebFetch; no new high-star repos created Nov 27.
 - opened (partial): community pulse — HN, Reddit intake-only check; no on-axis signals Nov 27.
 - Coverage: 13/13 primary blogs opened (none degraded today), NVD (partial/fallback via Tavily), GHSA (session-scoped), tool repos checked, discovery topics sampled. 3 new CRITICAL single-vendor CVEs queued (Canonical Pylxd, Idunno AntiCsrf, Drupal installer). No access blockers requiring escalation. Quiet period day 12 (Nov 16-27). Continuity maintained.
+
+## 2026-11-28 (daily — quiet period day 13)
+- opened: all 13 primary blogs (SpecterOps, Project Zero, watchTowr, Assetnote, Outflank, MDSec, Synacktiv, PortSwigger, SensePost, Elastic, Black Hills, SecurityWeek, The Register) — HTTP 200. NEW: SpecterOps Nov 25 GitHub attack-paths post identified (identity/attack-chain analysis, defensive focus). No other new posts since Nov 25.
+- opened: tool repos (BloodHound, NetExec, Sliver, Certipy, Nuclei, impacket) — all accessible via GitHub. No new releases detected Nov 28 (latest: BloodHound CE v9.10.1 Nov 19, Sliver v1.7.9 Oct 25).
+- degraded: NVD REST API (parameter issue, documented low-impact); GHSA session-scoped 403 (documented blocker, low-impact).
+- opened: discovery topics — GitHub searches on EDR evasion, C2, AD attacks completed via WebSearch/WebFetch; no new high-star repos created Nov 28.
+- opened: community pulse — HN, Reddit intake-only check; no new on-axis signals Nov 28.
+- opened (EXTRACT phase): CVE-2026-132165 (Drupal Core Installer RCE) secondary sources confirmed — The Hacker News (Nov 19), BleepingComputer (Nov 19), TechZine (Nov 19). Previously queued CVE-2026-123007 resolved as CVE-2026-132165 with multi-vendor corroboration. Promoted to seed trend `web-drupal-core-installer-rce-001`.
+- opened (CHECK phase): CISA KEV Nov 24-27 entries assessed (Drupal, GeoServer, Mitel MiCollab, TastyIgniter, Canonical Pylxd, Idunno AntiCsrf). Most single-vendor; CVE IDs require cross-reference verification for some entries.
+- Coverage: 13/13 primary blogs opened (none degraded today), NVD (partial/fallback), GHSA (session-scoped), tool repos checked, discovery topics sampled, CVE/advisory watch completed via WebFetch + WebSearch. 1 new trend seeded (Drupal RCE). No access blockers requiring escalation. Quiet period day 13 continues (Nov 16-28). Continuity maintained.
